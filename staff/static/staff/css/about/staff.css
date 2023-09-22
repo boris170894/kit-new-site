@@ -135,3 +135,38 @@
 .page__text {
     font-size: calc((1vw + 1vh) * .8);
 }
+
+@media screen and (max-width: 600px) {
+    .page__structure {
+        grid-template-columns: 17% 83%;
+    }
+    .structure__type h4 {
+        font-size: calc((1vw + 1vh) * 1.6);
+    }
+    .structure {
+        max-width: 80%;
+    }
+    .structure__desc a {
+        font-size: calc((1vw + 1vh) * 1.5);
+    }
+    .page__about {
+        max-width: 100vw;
+    }
+    .page__about img {
+        max-width: 50vw;
+    }
+    .page {
+        padding-bottom: 30vh ;
+    }
+    .structure__desc p {
+        font-size: calc((1vw + 1vh) * 1.4);
+    }
+    .structure__desc a:hover {
+        color: #202020;
+    }
+    .structure:hover {
+        scale: 1;
+        box-shadow: none;
+        border-color: rgb(20,20,20,.1);
+    }
+}
