@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<section class="u-clearfix u-news-section-1" id="sec-842e">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
+
+      <div class="u-container-style u-expanded-width u-post-details u-post-details-1">
+        <div class="u-container-layout u-container-layout-1"><!--blog_post_header-->
+          <h2 class="u-blog-control u-text">
+            <a class="u-post-header-link" href="">{{news_view.news_title}}</a>
+          </h2><!--/blog_post_header--><!--blog_post_image-->
+          <a class="u-post-header-link" href=""><img src="{{news_view.news_img.url}}" alt=""
+              class="u-align-center u-blog-control u-image u-image-default u-image-1"></a><!--/blog_post_image--><!--blog_post_content-->
+          <div class="u-blog-control u-post-content u-text u-text-2 fr-view">{{news_view.news_content | safe}}</div><!--/blog_post_content-->
+        </div>
+      </div><!--/blog_post--><!--/post_details-->
+    </div>
+</section>
+
+{% endblock %}

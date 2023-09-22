@@ -1,0 +1,109 @@
+@import './../variables.css';
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 25vh;
+}
+.page h2 {
+    padding: 2vh 0;
+    font-family: var(--PaytoneOne);
+}
+.page__histories, histories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+} 
+.page__histories {
+    padding: 1vh 5vw;
+}
+.history {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 4%;
+    padding: 5vh 0;
+    transition: all .3s linear;
+    border-radius: 10px;
+}
+.history:hover {
+    /* background-color: #f0f0f0; */
+}
+.history h3 {
+    width: 23%;
+    font-family: var(--PaytoneOne);
+    text-align: center;
+    transition: all .3s linear;
+    font-size: calc((1vw + 1vh) * 1.9);
+}
+.history p {
+    width: 73%;
+    font-size: calc((1vw + 1vh) * 1.1);
+    transition: all .3s linear;
+}
+.page__histories__line {
+    width: 10px;
+    height: 100%;
+    left: 26%;
+    top: 0;
+
+    background-color: #f0f0f0;
+    top: 0;
+    z-index: 1;
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+
+    border-radius: 4px;
+    position: absolute;
+}
+.draw {
+    display: block;
+    content: '';
+    width: 10px;
+    height: 15%;
+    background-color: var(--orange);
+    border-radius: 4px;
+    transition: all .3s linear;
+    z-index: 2;
+}
+.page__histories__circle {
+    display: block;
+    content: '';
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: var(--orange);
+    left: -15px;
+    top: -20px;
+    z-index: -1;
+    position: absolute;
+}
+
+/* documents */
+.page__doc {
+    width: 80vw;
+    height: 80vh;
+    border-radius: 20px;
+    margin-bottom: 3vh;
+}
+.link {
+    background-color: var(--primary);
+    color: var(--white);
+    width: 80vw;
+    border-radius: 10px;
+    padding: 2vh 6vw;
+}
+.link:hover {   
+    background-color: var(--white);
+    box-shadow: 0 0 10px 1px rgb(20,20,20,.3);
+    color: var(--primary);
+}

@@ -1,0 +1,101 @@
+{% include 'main/base.html' %} 
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/specialities/css/about/specialites.css" />
+<link rel="stylesheet" href="/static/main/css/information/abiturients.css" />
+
+<div class="page">
+    <h1>Информация для абитуриентов</h1>
+
+    <h2>Наши Специальности</h2>
+    <div class="specialites">
+        {% for specialite in specialites %}
+            <div class="specialite">
+                <div class="specialite__top">
+                    <img src="{{ specialite.spec_img.url }}" alt="specialites" />
+
+                    <a href="{% url 'spec:special' specialite.id  %}" class="title">{{ specialite.spec_name }}</a>
+                </div>
+                <div class='specialite__bottom'>
+                    <a href="/specs/{{ specialite.id     }}">Подробнее</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="docs">
+        <div class="docs__left">
+            <h3>Перечень необходимых документов: </h3>
+            <div class="docs__list">
+                <div class="docs__list__element">
+                    📑 Заявление о приеме по форме<br>
+                </div>
+                <div class="docs__list__element">
+                    📑  Документ об образовании (Подлинник)<br>
+                </div>
+                <div class="docs__list__element">
+                    📑 Фотография размером 3х4 см. (4 шт.)<br>
+                </div>
+                <div class="docs__list__element">
+                    📑  Мед. Справка форма 075-у с приложением флюорографии<br>
+                </div>
+                <div class="docs__list__element">
+                    📑  Документ, удостоверяющий личность (для идентификации личности)
+                </div>
+                <div class="docs__list__element">
+                    *Документы принимаются после окончания 9 класса, на основании аттестата об основном среднем образовании.  
+                </div>
+            </div>
+        </div>
+        <div class="docs__right">
+            <h3>Основные преимущества нашего колледжа:</h3>
+            <div class="docs__list">
+                <div class="docs__list__element">
+                    ✅ На все специальности имеются бюджетные места
+                </div>
+                <div class="docs__list__element">
+                    ✅ Стипендия
+                </div>
+                <div class="docs__list__element">
+                    ✅ Трудоустройство
+                </div>
+                <div class="docs__list__element">
+                    ✅ Питание отдельных категориям граждан
+                </div>
+                <div class="docs__list__element">
+                    ✅ Выплата компенсации за проезд
+                </div>
+                <div class="docs__list__element">
+                    ✅ Имеется общежитие
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contacts">
+        <div class="page__contacts__left">
+            {% for item in contacts %}
+                <div class="page__contact">
+                    <h3>Колледж информационных технологий</h3>
+                    <p><b>Адрес:</b> {{item.addr}};</p>
+                    <p><b>Приёмная:</b> {{item.tel}};<br></p>
+                    <p><b>E-mail:</b> {{item.e_mail}};<br></p>
+                    <p><b>Приёмная комиссия:</b> {{item.priem_com}};<br></p>
+                    <p><b>Whatsapp:</b> {{item.wats}};<br>
+                    </p>
+                </div>
+                {% endfor %}
+        </div>
+        <div class="page__contacts__right">
+            <iframe
+            src="https://maps.google.com/maps?output=embed&amp;q=%D0%9F%D0%B0%D0%B2%D0%BB%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%9B%D0%B5%D1%80%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B0%2093%2C%20%D0%BA%D0%BE%D0%BB%D0%BB%D0%B5%D0%B4%D0%B6%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D1%85%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9&amp;z=17&amp;t=k"
+            data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyJUQwJTlGJUQwJUIwJUQwJUIyJUQwJUJCJUQwJUJFJUQwJUI0JUQwJUIwJUQxJTgwJTJDJTIwJUQxJTgzJUQwJUJCLiUyMCVEMCU5QiVEMCVCNSVEMSU4MCVEMCVCQyVEMCVCRSVEMCVCRCVEMSU4MiVEMCVCRSVEMCVCMiVEMCVCMCUyMDkzJTJDJTIwJUQwJUJBJUQwJUJFJUQwJUJCJUQwJUJCJUQwJUI1JUQwJUI0JUQwJUI2JTIwJUQwJUI4JUQwJUJEJUQxJTg0JUQwJUJFJUQxJTgwJUQwJUJDJUQwJUIwJUQxJTg2JUQwJUI4JUQwJUJFJUQwJUJEJUQwJUJEJUQxJThCJUQxJTg1JTIwJUQxJTgyJUQwJUI1JUQxJTg1JUQwJUJEJUQwJUJFJUQwJUJCJUQwJUJFJUQwJUIzJUQwJUI4JUQwJUI5JTIyJTJDJTIyem9vbSUyMiUzQTE3JTJDJTIydHlwZUlkJTIyJTNBJTIyc2F0ZWxsaXRlJTIyJTJDJTIybGFuZyUyMiUzQW51bGwlMkMlMjJhcGlLZXklMjIlM0FudWxsJTJDJTIybWFya2VycyUyMiUzQSU1QiU1RCU3RA=="></iframe>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock content %}
