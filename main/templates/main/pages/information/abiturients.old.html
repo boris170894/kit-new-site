@@ -1,0 +1,315 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<section class="u-align-center u-clearfix u-section-1" id="sec-1b93">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h1
+        class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-default-xxl u-text-1">
+        Информация для абитуриентов</h1>
+    </div>
+  </section>
+  <section class="u-clearfix u-section-2" id="sec-edfc">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h1 class="u-text u-text-1">Специальности</h1>
+      <div class="u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+        {% for item in specs %}
+          <div class="u-container-style u-list-item u-repeater-item">
+            <div class="u-container-layout u-similar-container u-container-layout-1">
+              <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000"
+                data-image-height="1333"
+                src="{{item.spec_img.url}}">
+              <h3 class="u-text u-text-default u-text-2">{{item.spec_name}}</h3>
+<!--               <p class="u-text u-text-3">Sample text. Click to select the text box. Click again or double click to start
+                editing the text.</p> -->
+              <a href=""
+                class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-1">Подробнее</a>
+            </div>
+          </div>
+        {% endfor %} 
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="u-clearfix u-section-3" id="sec-31aa">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div
+              class="u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-30-xxl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-1">
+              <div class="u-container-layout u-valign-bottom-sm u-valign-top-xs u-container-layout-1">
+                <h2
+                  class="u-align-left-sm u-align-left-xs u-text u-text-default-lg u-text-default-md u-text-default-xl u-text-default-xxl u-text-1">
+                  Перечень необходимых документов:&nbsp;<br>
+                </h2>
+                <ul
+                  class="u-align-left-sm u-align-left-xs u-custom-list u-file-icon u-text u-text-default-lg u-text-default-md u-text-default-xl u-text-default-xxl u-text-2">
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-2581"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path fill="#2196F3"
+                          d="M441,144.2v347.2c0,11.4-9.2,20.6-20.6,20.6H91.6c-11.4,0-20.6-9.2-20.6-20.6V20.6C71,9.2,80.2,0,91.6,0 h205.6L441,144.2z">
+                        </path>
+                        <path fill="#90CAF9" d="M441,144.2H317.7c-11.4,0-20.6-9.2-20.6-20.6V0L441,144.2z"></path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,249.8H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,242.9,365,249.8,356.4,249.8z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,311.6H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,304.7,365,311.6,356.4,311.6z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,373.4H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,366.5,365,373.4,356.4,373.4z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M269.9,435.3H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h114.4c8.5,0,15.5,6.9,15.5,15.5	S278.4,435.3,269.9,435.3z">
+                        </path>
+                      </svg>
+                    </div> Заявление о приеме по форме&nbsp;<br>
+                  </li>
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-2581"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path fill="#2196F3"
+                          d="M441,144.2v347.2c0,11.4-9.2,20.6-20.6,20.6H91.6c-11.4,0-20.6-9.2-20.6-20.6V20.6C71,9.2,80.2,0,91.6,0 h205.6L441,144.2z">
+                        </path>
+                        <path fill="#90CAF9" d="M441,144.2H317.7c-11.4,0-20.6-9.2-20.6-20.6V0L441,144.2z"></path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,249.8H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,242.9,365,249.8,356.4,249.8z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,311.6H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,304.7,365,311.6,356.4,311.6z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,373.4H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,366.5,365,373.4,356.4,373.4z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M269.9,435.3H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h114.4c8.5,0,15.5,6.9,15.5,15.5	S278.4,435.3,269.9,435.3z">
+                        </path>
+                      </svg>
+                    </div> Документ об образовании (Подлинник)
+                  </li>
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-2581"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path fill="#2196F3"
+                          d="M441,144.2v347.2c0,11.4-9.2,20.6-20.6,20.6H91.6c-11.4,0-20.6-9.2-20.6-20.6V20.6C71,9.2,80.2,0,91.6,0 h205.6L441,144.2z">
+                        </path>
+                        <path fill="#90CAF9" d="M441,144.2H317.7c-11.4,0-20.6-9.2-20.6-20.6V0L441,144.2z"></path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,249.8H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,242.9,365,249.8,356.4,249.8z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,311.6H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,304.7,365,311.6,356.4,311.6z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,373.4H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,366.5,365,373.4,356.4,373.4z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M269.9,435.3H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h114.4c8.5,0,15.5,6.9,15.5,15.5	S278.4,435.3,269.9,435.3z">
+                        </path>
+                      </svg>
+                    </div>Фотография размером 3х4 см. (4 шт.)
+                  </li>
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-2581"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path fill="#2196F3"
+                          d="M441,144.2v347.2c0,11.4-9.2,20.6-20.6,20.6H91.6c-11.4,0-20.6-9.2-20.6-20.6V20.6C71,9.2,80.2,0,91.6,0 h205.6L441,144.2z">
+                        </path>
+                        <path fill="#90CAF9" d="M441,144.2H317.7c-11.4,0-20.6-9.2-20.6-20.6V0L441,144.2z"></path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,249.8H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,242.9,365,249.8,356.4,249.8z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,311.6H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,304.7,365,311.6,356.4,311.6z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,373.4H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,366.5,365,373.4,356.4,373.4z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M269.9,435.3H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h114.4c8.5,0,15.5,6.9,15.5,15.5	S278.4,435.3,269.9,435.3z">
+                        </path>
+                      </svg>
+                    </div>Мед. Справка форма 075-у с приложением флюорографии&nbsp;<br>
+                  </li>
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-2581"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path fill="#2196F3"
+                          d="M441,144.2v347.2c0,11.4-9.2,20.6-20.6,20.6H91.6c-11.4,0-20.6-9.2-20.6-20.6V20.6C71,9.2,80.2,0,91.6,0 h205.6L441,144.2z">
+                        </path>
+                        <path fill="#90CAF9" d="M441,144.2H317.7c-11.4,0-20.6-9.2-20.6-20.6V0L441,144.2z"></path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,249.8H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,242.9,365,249.8,356.4,249.8z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,311.6H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,304.7,365,311.6,356.4,311.6z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M356.4,373.4H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h200.9c8.5,0,15.5,6.9,15.5,15.5	C371.9,366.5,365,373.4,356.4,373.4z">
+                        </path>
+                        <path fill="#FAFAFA"
+                          d="M269.9,435.3H155.6c-8.5,0-15.5-6.9-15.5-15.5c0-8.5,6.9-15.5,15.5-15.5h114.4c8.5,0,15.5,6.9,15.5,15.5	S278.4,435.3,269.9,435.3z">
+                        </path>
+                      </svg>
+                    </div>&nbsp;Документ, удостоверяющий личность (для идентификации личности)&nbsp;
+                  </li>
+                  <li style="padding-left: 12px;"> *Документы принимаются после окончания 9 класса, на основании
+                    аттестата об основном среднем образовании.&nbsp;&nbsp;</li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="u-container-style u-layout-cell u-size-30-lg u-size-30-xl u-size-30-xxl u-size-60-md u-size-60-sm u-size-60-xs u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-2">
+                <h2
+                  class="u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xl u-align-left-xs u-text u-text-default u-text-3">
+                  Основные преимущества нашего колледжа:</h2>
+                <ul class="u-align-left-sm u-align-left-xs u-custom-list u-file-icon u-text u-text-default u-text-4">
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" id="svg-2ee9"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path
+                          d="m512 58.667969c0-32.363281-26.304688-58.667969-58.667969-58.667969h-394.664062c-32.363281 0-58.667969 26.304688-58.667969 58.667969v394.664062c0 32.363281 26.304688 58.667969 58.667969 58.667969h394.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969zm0 0"
+                          fill="#4caf50"></path>
+                        <path
+                          d="m385.75 171.585938c8.339844 8.339843 8.339844 21.820312 0 30.164062l-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0zm0 0"
+                          fill="#fafafa"></path>
+                      </svg>
+                    </div> На все специальности имеются бюджетные места
+                  </li>
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" id="svg-2ee9"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path
+                          d="m512 58.667969c0-32.363281-26.304688-58.667969-58.667969-58.667969h-394.664062c-32.363281 0-58.667969 26.304688-58.667969 58.667969v394.664062c0 32.363281 26.304688 58.667969 58.667969 58.667969h394.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969zm0 0"
+                          fill="#4caf50"></path>
+                        <path
+                          d="m385.75 171.585938c8.339844 8.339843 8.339844 21.820312 0 30.164062l-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0zm0 0"
+                          fill="#fafafa"></path>
+                      </svg>
+                    </div>Стипендия&nbsp;&nbsp;<br>
+                  </li>
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" id="svg-2ee9"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path
+                          d="m512 58.667969c0-32.363281-26.304688-58.667969-58.667969-58.667969h-394.664062c-32.363281 0-58.667969 26.304688-58.667969 58.667969v394.664062c0 32.363281 26.304688 58.667969 58.667969 58.667969h394.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969zm0 0"
+                          fill="#4caf50"></path>
+                        <path
+                          d="m385.75 171.585938c8.339844 8.339843 8.339844 21.820312 0 30.164062l-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0zm0 0"
+                          fill="#fafafa"></path>
+                      </svg>
+                    </div>Трудоустройство<br>
+                  </li>
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" id="svg-2ee9"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path
+                          d="m512 58.667969c0-32.363281-26.304688-58.667969-58.667969-58.667969h-394.664062c-32.363281 0-58.667969 26.304688-58.667969 58.667969v394.664062c0 32.363281 26.304688 58.667969 58.667969 58.667969h394.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969zm0 0"
+                          fill="#4caf50"></path>
+                        <path
+                          d="m385.75 171.585938c8.339844 8.339843 8.339844 21.820312 0 30.164062l-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0zm0 0"
+                          fill="#fafafa"></path>
+                      </svg>
+                    </div>Питание отдельных категориям граждан<br>
+                  </li>
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" id="svg-2ee9"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path
+                          d="m512 58.667969c0-32.363281-26.304688-58.667969-58.667969-58.667969h-394.664062c-32.363281 0-58.667969 26.304688-58.667969 58.667969v394.664062c0 32.363281 26.304688 58.667969 58.667969 58.667969h394.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969zm0 0"
+                          fill="#4caf50"></path>
+                        <path
+                          d="m385.75 171.585938c8.339844 8.339843 8.339844 21.820312 0 30.164062l-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0zm0 0"
+                          fill="#fafafa"></path>
+                      </svg>
+                    </div>Выплата компенсации за проезд<br>
+                  </li>
+                  <li style="padding-left: 12px;">
+                    <div class="u-list-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        xml:space="preserve" class="u-svg-content" viewBox="0 0 512 512" id="svg-2ee9"
+                        style="font-size: 1.2em; margin: -1.2em;">
+                        <path
+                          d="m512 58.667969c0-32.363281-26.304688-58.667969-58.667969-58.667969h-394.664062c-32.363281 0-58.667969 26.304688-58.667969 58.667969v394.664062c0 32.363281 26.304688 58.667969 58.667969 58.667969h394.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969zm0 0"
+                          fill="#4caf50"></path>
+                        <path
+                          d="m385.75 171.585938c8.339844 8.339843 8.339844 21.820312 0 30.164062l-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0zm0 0"
+                          fill="#fafafa"></path>
+                      </svg>
+                    </div>Имеется общежитие<br>
+                  </li>
+                  <li style="padding-left: 12px;"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="u-clearfix u-section-4" id="sec-e33e">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="u-align-center u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
+      <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
+              <div class="u-container-layout u-container-layout-1">
+                <h2 class="u-text u-text-1"> Колледж информационных технологий<br>
+                </h2>
+                {% for item in contacts %}
+                <p class="u-text u-text-2">Адрес: {{item.addr}}<br>
+                </p>
+                <p class="u-text u-text-3">Приёмная: {{item.tel}}<br>
+                </p>
+                <p class="u-text u-text-4">e-mail: {{item.e_mail}}<br>
+                </p>
+                <p class="u-text u-text-5">Приёмная комиссия: {{item.priem_com}}<br>
+                </p>
+                <p class="u-text u-text-6"> Whatsapp: {{item.wats}}<br>
+                </p>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-2">
+                <div class="u-expanded u-grey-10 u-map">
+                  <div class="embed-responsive">
+                    <iframe class="embed-responsive-item"
+                      src="https://maps.google.com/maps?output=embed&amp;q=%D0%9F%D0%B0%D0%B2%D0%BB%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%9B%D0%B5%D1%80%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B0%2093%2C%20%D0%9A%D0%BE%D0%BB%D0%BB%D0%B5%D0%B4%D0%B6%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D1%85%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9&amp;t=m"
+                      data-map="JTdCJTIyYWRkcmVzcyUyMiUzQSUyMiVEMCU5RiVEMCVCMCVEMCVCMiVEMCVCQiVEMCVCRSVEMCVCNCVEMCVCMCVEMSU4MCUyQyUyMCVEMSU4MyVEMCVCQi4lMjAlRDAlOUIlRDAlQjUlRDElODAlRDAlQkMlRDAlQkUlRDAlQkQlRDElODIlRDAlQkUlRDAlQjIlRDAlQjAlMjA5MyUyQyUyMCVEMCU5QSVEMCVCRSVEMCVCQiVEMCVCQiVEMCVCNSVEMCVCNCVEMCVCNiUyMCVEMCVCOCVEMCVCRCVEMSU4NCVEMCVCRSVEMSU4MCVEMCVCQyVEMCVCMCVEMSU4NiVEMCVCOCVEMCVCRSVEMCVCRCVEMCVCRCVEMSU4QiVEMSU4NSUyMCVEMSU4MiVEMCVCNSVEMSU4NSVEMCVCRCVEMCVCRSVEMCVCQiVEMCVCRSVEMCVCMyVEMCVCOCVEMCVCOSUyMiUyQyUyMnpvb20lMjIlM0FudWxsJTJDJTIydHlwZUlkJTIyJTNBJTIycm9hZCUyMiUyQyUyMmxhbmclMjIlM0FudWxsJTJDJTIyYXBpS2V5JTIyJTNBbnVsbCUyQyUyMm1hcmtlcnMlMjIlM0ElNUIlNUQlN0Q="></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

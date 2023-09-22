@@ -1,0 +1,155 @@
+{% include 'main/base.html' %} 
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/staff/css/about/staff.css" />
+
+<div class="page">
+    <h2>Структура</h2>
+
+    <div class="page__structures">
+        
+        <div class="page__structure">
+            <div class="structure__type">
+                <h4>Директор</h4>
+            </div>
+            <div class="structure__people">
+                {% for director in directors %}
+                    <div class="structure">
+                        {% if director.foto %}
+                        <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        {% endif %}
+                        <div class="structure__desc">
+                            <a href="{% url 'staff:staff_one' director.slug  %}">{{ director.fio }}</a>
+                            <p>{{ director.position }} </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+        <div class="page__structure">
+            <div class="structure__type">
+                <h4>Заместители директора</h4>
+                <span></span>
+            </div>
+            <div class="structure__people">
+                {% for director in depDirectors %}
+                    <div class="structure">
+                        {% if director.foto %}
+                        <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        {% endif %}
+                        <div class="structure__desc">
+                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
+                            <p>{{ director.position }} </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="page__structure">
+            <div class="structure__type">
+                <h4>Заведующий отделением</h4>
+                <span></span>
+            </div>
+            <div class="structure__people">
+                {% for director in depHead %}
+                    <div class="structure">
+                        {% if director.foto %}
+                        <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        {% endif %}
+                        <div class="structure__desc">
+                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
+                            <p>{{ director.position }} </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="page__structure">
+            <div class="structure__type">
+                <h4>ЦМК общеодразовательных дисциплин</h4>
+                <span></span>
+            </div>
+            <div class="structure__people">
+                {% for director in cmsOB %}
+                    <div class="structure">
+                        {% if director.foto %}
+                        <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        {% endif %}
+                        <div class="structure__desc">
+                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
+                            <p>{{ director.position }} </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="page__structure">
+            <div class="structure__type">
+                <h4>ЦМК языковых дисциплин</h4>
+                <span></span>
+            </div>
+            <div class="structure__people">
+                {% for director in cmsLang %}
+                    <div class="structure">
+                        {% if director.foto %}
+                            <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        {% endif %}
+                        <div class="structure__desc">
+                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
+                            <p>{{ director.position }} </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="page__structure">
+            <div class="structure__type">
+                <h4>ЦМК информационных дисциплин</h4>
+                <span></span>
+            </div>
+            <div class="structure__people">
+                {% for director in cmsIT %}
+                    <div class="structure">
+                        {% if director.foto %}
+                            <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        {% endif %}
+                        <div class="structure__desc">
+                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
+                            <p>{{ director.position }} </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="page__structure">
+            <div class="structure__type">
+                <h4>ЦМК физической культуры и НВП</h4>
+                <span></span>
+            </div>
+            <div class="structure__people">
+                {% for director in cmsFIZ %}
+                    <div class="structure">
+                        {% if director.foto %}
+                            <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        {% endif %}
+                        <div class="structure__desc">
+                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
+                            <p>{{ director.position }} </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+
+</div>
+
+{% endblock content %}
