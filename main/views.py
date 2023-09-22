@@ -66,3 +66,6 @@ def state_symbols(request):
     return render(request, 'main/pages/state/state_symbols.html', {
         'symbols': symbols
     })
+    
+# def anti_corruption(request):
+    

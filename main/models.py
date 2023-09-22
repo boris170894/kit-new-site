@@ -67,3 +67,13 @@ class StateSymbolsModel(models.Model):
     class Meta:
         verbose_name = 'Государственные Символы'
         verbose_name_plural = 'Государственные Символы'
+
+# """ Государственные Символы """
+# class StateSymbolsModel(models.Model):
+    
+#     def __str__(self):
+#         return self.name
+
+#     class Meta:
+#         verbose_name = ''
+#         verbose_name_plural = ''

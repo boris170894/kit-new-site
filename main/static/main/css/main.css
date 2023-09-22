@@ -160,7 +160,7 @@ nav .nav__right {
 
         position: fixed;
         background-color: #fff;
-        z-index: 4;
+        z-index: 13;
 
         width: 80%;
         height: 100vh;
