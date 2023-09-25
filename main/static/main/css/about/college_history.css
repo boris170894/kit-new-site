@@ -9,15 +9,16 @@
     padding-bottom: 25vh;
 }
 .page h2 {
-    padding: 2vh 0;
+    padding: 5vh 0;
     font-family: var(--PaytoneOne);
 }
-.page__histories, histories {
+.page__histories, .histories {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
+    z-index: 1;
 } 
 .page__histories {
     padding: 1vh 5vw;
@@ -41,6 +42,7 @@
     text-align: center;
     transition: all .3s linear;
     font-size: calc((1vw + 1vh) * 1.9);
+    font-weight: bold;
 }
 .history p {
     width: 73%;
@@ -98,12 +100,60 @@
 .link {
     background-color: var(--primary);
     color: var(--white);
-    width: 80vw;
+    width: 95vw;
     border-radius: 10px;
     padding: 2vh 6vw;
+    text-align: center;
 }
 .link:hover {   
     background-color: var(--white);
     box-shadow: 0 0 10px 1px rgb(20,20,20,.3);
     color: var(--primary);
+}
+
+@media screen and (max-width:600px) {
+    .page {
+        padding-bottom: 35vh;
+    }
+    .history {
+        z-index: 1;
+        flex-direction: column;
+    }
+    .history h3 {
+        font-size: calc((1vw + 1vh) * 2.4) ;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 0;
+        text-align: left;
+    }
+    .history p {
+        font-size: calc((1vw + 1vh) * 1.5) ;
+        width: 100%;
+        margin-left: 10%;
+    }
+    .draw {
+        z-index: -1;
+        opacity: .7;
+        height: 5%;
+    }
+    .page__histories__line {
+        left: 45%;
+        top: 0;
+    }
+    .page__histories__circle {
+        left: -15px;
+        top: -20px;
+    }
+    .page__histories {
+        padding: 1vh 5vw;
+    }
+
+    /*  Docs */
+    .page__doc {
+        width: 95vw;
+        height: 50vh;
+    }
+    .page__doc {
+        display: none;
+    }
 }

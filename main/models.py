@@ -68,12 +68,45 @@ class StateSymbolsModel(models.Model):
         verbose_name = 'Государственные Символы'
         verbose_name_plural = 'Государственные Символы'
 
-# """ Государственные Символы """
-# class StateSymbolsModel(models.Model):
+""" Расписание звонков и основное расписание """
+class CallPairScheduleModel(models.Model):
+    call_schedule = models.ImageField(upload_to="uploads/schedule",
+                                      verbose_name="Расписание звонков", 
+                                      blank=True)
+    pair_schedule = models.FileField(upload_to="uploads/schedule",
+                                     verbose_name="Расписание пар", 
+                                     blank=True)
     
-#     def __str__(self):
-#         return self.name
+    class Meta:
+        verbose_name = 'Расписание звонков и расписание пар'
+        verbose_name_plural = 'Расписание звонков и расписание пар'
+        
+""" График Учебного процесса """
+class AcademicProcessScheduleModel(models.Model):
+    file =  models.FileField(upload_to="uploads/schedule",
+                                     verbose_name="График Учебного процесса", 
+                                     blank=True)
 
-#     class Meta:
-#         verbose_name = ''
-#         verbose_name_plural = ''
+    class Meta:
+        verbose_name = 'График Учебного процесса'
+        verbose_name_plural = 'График Учебного процесса'
+
+""" События для студентов """
+class StudentEventModel(models.Model):
+    title = models.CharField(verbose_name='Наименование', max_length=200)
+    description = models.TimeField(verbose_name='Описание', blank=True)
+    image = models.ImageField(verbose_name='Изображение', blank=True)
+
+    start_date = models.DateTimeField(verbose_name='Дата начала', blank=True)
+    end_date = models.DateTimeField(verbose_name='Дата конца', blank=True)
+    
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
+    def __str__(self) -> str:
+        return self.title
+    
+    class Meta:
+        verbose_name = 'События для студента'
+        verbose_name_plural = 'События для студента'
+    

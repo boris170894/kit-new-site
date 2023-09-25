@@ -6,7 +6,10 @@ from .models import (
                         CollegeHistoryModel, 
                         CollegePartnersModel,
                         CollegeDocsModel,
-                        StateSymbolsModel
+                        StateSymbolsModel,
+                        CallPairScheduleModel,
+                        AcademicProcessScheduleModel,
+                        StudentEventModel
                      )
 
 @admin.register(CollegeHistoryModel)

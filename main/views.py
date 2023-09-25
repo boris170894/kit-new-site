@@ -5,7 +5,10 @@ from .models import (
                         CollegePartnersModel, 
                         CollegeHistoryModel, 
                         CollegeDocsModel,
-                        StateSymbolsModel
+                        StateSymbolsModel,
+                        CallPairScheduleModel,
+                        AcademicProcessScheduleModel,
+                        StudentEventModel
                      )
 from news.models import NewsModel
 from specialties.models import SpecInfoModel
@@ -67,5 +70,29 @@ def state_symbols(request):
         'symbols': symbols
     })
     
-# def anti_corruption(request):
+""" Расписание звонков и основное расписание """
+def call_pair_schedule(request):
+    docs  = CallPairScheduleModel.objects.last()
     
+    return render(request, 'main/pages/information/student.html', {
+        'type': 'CallPairSchedule',
+        'docs': docs
+    })
+    
+""" График Учебного процесса"""
+def academic_process_schedule(request):
+    docs  = AcademicProcessScheduleModel.objects.last()
+    
+    return render(request, 'main/pages/information/student.html', {
+        'type': 'AcademicProcessSchedule',
+        'docs': docs
+    })
+    
+""" События для студентов """
+def student_events(request):
+    events  = StudentEventModel.objects.all()
+    
+    return render(request, 'main/pages/information/student.html', {
+        'type': 'StudentEvent',
+        'events': events
+    })
