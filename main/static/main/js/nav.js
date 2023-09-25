@@ -27,12 +27,14 @@ if (window.innerWidth <= 600) {
     })
     
     for (let i = 0; i < navRightMenus.length; i++) {
-        navRightMenuOpens[i].addEventListener('click',() => {
+        navRightMenuOpens[i].addEventListener('click',(e) => {
             navRightMenus[i].style.left = 0
+            console.log(e.target)
         })
         
-        navRightMenuCloses[i].addEventListener('click',() => {
+        navRightMenuCloses[i].addEventListener('click',(e) => {
             navRightMenus[i].style.left = '-100%'
+            console.log(e.target)
         })
     }   
 }

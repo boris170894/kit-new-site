@@ -60,3 +60,42 @@
     font-size: calc((1vh + 1vw) * 2.2);
     font-weight: bold;
 }
+@media screen and (max-width:600px) {
+    .docs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: calc((1vh + 1vw) * 1.5);
+    }
+    .docs__left, .docs__right {
+        margin-bottom: 5%;
+    }
+    .docs__left, .docs__right {
+        border: none;
+    }
+    .docs__left:hover, .docs__right:hover {
+        box-shadow: none;
+    }
+    .contacts {
+        flex-direction: column-reverse;
+        border: none;
+        padding: 0;
+    }
+    .contacts:hover {
+        box-shadow: none;
+    }
+    .page__contacts__left {
+        width: 100%;   
+    }
+    .contacts p {
+       font-size: calc((1vh + 1vw) * 1.6);
+    }
+    .page__contacts__right {
+        width: 100%;
+    }
+    .page__contacts__right iframe {
+        height: 30vh;
+        min-height: 30vh;
+    }
+}

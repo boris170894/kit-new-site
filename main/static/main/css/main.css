@@ -133,6 +133,11 @@ nav .nav__right {
     display: none;
 }
 
+a:active, a:hover, a:focus {
+    background-color: none;
+    background-color: var(--white) !important;
+}
+
 @media screen and (max-width:600px) {
     .nav__menu {
         display: block !important;
@@ -146,6 +151,9 @@ nav .nav__right {
         font-weight: bold;
         background-color: #fff;
         border-radius: 10px;
+    }
+    .nav__right__button__menu a:first-child {
+        padding: 10px 0;
     }
     .nav__right:first-child {
         background-color: rgb(0,0,0,.05);
@@ -228,6 +236,7 @@ nav .nav__right {
     }
     .nav__right__menu a {
         border-bottom: 1px solid rgb(0,0,0,.05);
+        padding: 20px 10px;
     }
 }
 
