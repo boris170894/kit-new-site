@@ -160,4 +160,14 @@
     .specialite__bottom {
         width: 100%;
     }
+    .spec__content {
+        margin-top: 0;
+    }
+    .spec__content h3 {
+        color: var(--primary);
+    }
+    .spec__content p {
+        font-size: 22px;
+        margin-top: 0vh;
+    } 
 }
