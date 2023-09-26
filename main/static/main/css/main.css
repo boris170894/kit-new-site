@@ -252,3 +252,36 @@ a:active, a:hover, a:focus {
     background-color: #262626;
     border-radius: 10px;
 }
+
+.bg {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    gap: 5vw;
+    overflow: hidden;
+
+    background-image: url('/static/main/img/logo/logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+    opacity: .05;
+
+    /* background: rgb(131,58,180, .1); */
+    /* background: linear-gradient(90deg, rgba(131,58,180,.1) 0%, rgba(194,43,101,.1) 26%, rgba(253,29,29,.1) 69%, rgba(252,176,69,.1) 100%);  */
+}
+/* .bg span {
+    display: block;
+    content: '';
+    width: 5vw;
+    height: 100vh;
+    background-color: rgb(248, 102, 36, .05) ;
+    transform: rotate(45deg);
+    border-radius: 20px;
+} */

@@ -12,7 +12,10 @@ urlpatterns = [
     
     # TODO: Information 
     path('abiturients/', views.abiturients, name = 'abiturients'),  
-    
+    path('students/schedule', views.call_pair_schedule, name = 'call_pair_schedule'),  
+    path('students/academic-process', views.academic_process_schedule, name = 'academic_process_schedule'),  
+    path('students/student-events', views.student_events, name = 'student_events'),  
+    path('students/student-events/<int:pk>', views.student_event_one, name = 'student_event_one'),  
     
     # TODO: State
     path('state-symbols/', views.state_symbols, name = 'state_symbols'),

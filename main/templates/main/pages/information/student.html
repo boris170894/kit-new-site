@@ -4,19 +4,132 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="/static/specialities/css/about/specialites.css" />
-<link rel="stylesheet" href="/static/main/css/information/abiturients.css" />
+<link rel="stylesheet" href="/static/main/css/information/student.css" />
 
 <div class="page">
     <div class="page__do">
-        
+        <a href="https://do.pbk.kz">
+            <img src="/static/main/img/logo/moodle_logo_TM.svg" alt="moodle_logo_TM"/>
+        </a>
+        <a href="https://azure.microsoft.com/ru-ru/">
+            <img src="/static/main/img/logo/azure.png" alt="moodle_logo_TM" class="azure" />
+        </a>
+        <a href="https://learn.microsoft.com/en-us/training/">
+            <img src="/static/main/img/logo/microsoft.png" alt="moodle_logo_TM" class="microsoft" />
+        </a>
     </div>
     <div class="page__header">
-
+        <a href="{% url 'call_pair_schedule' %}" 
+            class="link
+            {% if type == 'Расписание пар и звонков' %} 
+                activate
+            {% endif %} 
+            ">Расписание пар и звонков</a>
+        <a href="{% url 'academic_process_schedule' %}" 
+            class="link
+            {% if type == 'График обучения' %} 
+                activate
+            {% endif %}"" >График обучения</a>
+        <a href="{% url 'student_events'  %}" 
+        class="link
+        {% if type == 'События' %} 
+            activate
+        {% endif %}"
+        >События</a>
     </div>
     <div class="page__content">
+        <h2>{{ type }}</h2>
+        {% if type == "События" %}
+            <div class="page__content__events">
+                {% for event in events %}
+                    <div class="event">
+                        <div class="event__top">
+                            <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                            <span class="event__top__data">{{ event.start_date|date:"F j" }} - {{ event.end_date|date:"F j" }} </span>
+                        </div>
+                        <div class="event__bottom">
+                            <a class="event__bottom__link" href="{% url 'student_event_one' event.id %}">{{ event.title }}</a>
+                            <a class="learn__more" href="{% url 'student_event_one' event.id %}">Узнать Больше</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% elif type == "График обучения" %}
+            <iframe 
+                src="{{ docs.file.url }}" 
+                class="page__doc"
+            ></iframe>
 
+            <a href="{{ docs.file.url }}" class='download' download>Скачать график обучения</a>
+        {% elif type == "Расписание пар и звонков"  %}
+            <div class="call__schedule">
+                <div class="call__schedule__left">
+                    <div class="call__schedule__left__menu">
+                        <a class="link show__link link activate">1 курс</a>
+                        <a class="link show__link">2 курс</a>
+                        <a class="link show__link">3 курс</a>
+                        <a class="link show__link">4 курс</a>
+                    </div>
+                    <a href="{{ docs.course_1_schedule.url }}" class='download' download>Скачать расписание 1 курса</a>
+                    <a href="{{ docs.course_2_schedule.url }}" style="display: none;" class='download' download>Скачать расписание 2 курса</a>
+                    <a href="{{ docs.course_3_schedule.url }}" style="display: none;" class='download' download>Скачать расписание 3 курса</a>
+                    <a href="{{ docs.course_4_schedule.url }}" style="display: none;" class='download' download>Скачать расписание 4 курса</a>
+                </div>
+                <div class="call__schedule__right">
+                    <table border="1">
+                        <tr><td>1 пара</td><td> {{ docs.call_schedule_1_pair }}</td></tr>
+                        <tr style="background-color: #f867241f;"><td>2 пара</td><td> {{ docs.call_schedule_2_pair }}</td></tr>
+                        <tr><td>3 пара</td><td> {{ docs.call_schedule_3_pair }}</td></tr>
+                        <tr style="background-color: #f867241f;"><td>4 пара</td><td> {{ docs.call_schedule_4_pair }}</td></tr>
+                        <tr><td>5 пара</td><td> {{ docs.call_schedule_5_pair }}</td></tr>
+                        <tr style="background-color: #f867241f;"><td>6 пара</td><td> {{ docs.call_schedule_6_pair }}</td></tr>
+                        <tr><td>7 пара</td><td> {{ docs.call_schedule_7_pair }}</td></tr>
+                      </table>
+                </div>
+            </div>
+        {% else  %}
+            <div class="event__desc">
+                <div class="event__desc__right">
+                    <img src="{{ event.image.url }}" alt="{{ event.image.name }}" />
+                    <div class="event__desc__date">
+                        <div>
+                            <b>Дата Начала:</b> <span>{{ event.start_date }}</span>
+                        </div>
+                        <div class="">
+                            <b>Дата Конца:</b> <span>{{ event.end_date }}</span>
+                        </div>
+                    </div>   
+                </div>
+                <div class="event__desc__left">
+                    {% autoescape off %}
+                        {{ event.description }}
+                    {% endautoescape %}
+                </div>
+            </div>
+        {% endif  %}
     </div>    
 </div>
+
+<script>
+    const downloads = document.querySelectorAll('.download')
+    const links = document.querySelectorAll('.show__link')
+
+    for (let i = 0; i < downloads.length; i++) {
+        links[i].addEventListener('click', () => {
+            links.forEach(el => el.classList.remove('activate'))
+            downloads.forEach(el => {
+                el.style.display = 'none'
+                el.style.opacity = 0
+            })
+
+            links[i].classList.add('activate')
+            downloads[i].style.display = 'block'
+
+            setTimeout(() => {
+                downloads[i].style.opacity = 1
+            }, 300)
+        })
+    }
+</script>
 
 {% endblock content %}

@@ -70,11 +70,25 @@ class StateSymbolsModel(models.Model):
 
 """ Расписание звонков и основное расписание """
 class CallPairScheduleModel(models.Model):
-    call_schedule = models.ImageField(upload_to="uploads/schedule",
-                                      verbose_name="Расписание звонков", 
-                                      blank=True)
-    pair_schedule = models.FileField(upload_to="uploads/schedule",
-                                     verbose_name="Расписание пар", 
+    call_schedule_1_pair = models.CharField(max_length=20, verbose_name="1 пара", default='')
+    call_schedule_2_pair = models.CharField(max_length=20, verbose_name="2 пара", default='')
+    call_schedule_3_pair = models.CharField(max_length=20, verbose_name="3 пара", default='')
+    call_schedule_4_pair = models.CharField(max_length=20, verbose_name="4 пара", default='')
+    call_schedule_5_pair = models.CharField(max_length=20, verbose_name="5 пара", default='')
+    call_schedule_6_pair = models.CharField(max_length=20, verbose_name="6 пара", default='')
+    call_schedule_7_pair = models.CharField(max_length=20, verbose_name="7 пара", default='')
+    
+    course_1_schedule = models.FileField(upload_to="uploads/schedule",
+                                     verbose_name="Расписание пар 1 курс", 
+                                     blank=True)
+    course_2_schedule = models.FileField(upload_to="uploads/schedule",
+                                     verbose_name="Расписание пар 2 курс", 
+                                     blank=True)
+    course_3_schedule = models.FileField(upload_to="uploads/schedule",
+                                     verbose_name="Расписание пар 3 курс", 
+                                     blank=True)
+    course_4_schedule = models.FileField(upload_to="uploads/schedule",
+                                     verbose_name="Расписание пар 4 курс", 
                                      blank=True)
     
     class Meta:
@@ -94,7 +108,7 @@ class AcademicProcessScheduleModel(models.Model):
 """ События для студентов """
 class StudentEventModel(models.Model):
     title = models.CharField(verbose_name='Наименование', max_length=200)
-    description = models.TimeField(verbose_name='Описание', blank=True)
+    description = models.TextField(verbose_name='Описание', blank=True)
     image = models.ImageField(verbose_name='Изображение', blank=True)
 
     start_date = models.DateTimeField(verbose_name='Дата начала', blank=True)
