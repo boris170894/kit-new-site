@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import (
                         CollegeContactModel, 
@@ -75,7 +75,7 @@ def call_pair_schedule(request):
     docs  = CallPairScheduleModel.objects.last()
     
     return render(request, 'main/pages/information/student.html', {
-        'type': 'CallPairSchedule',
+        'type': 'Расписание пар и звонков',
         'docs': docs
     })
     
@@ -84,7 +84,7 @@ def academic_process_schedule(request):
     docs  = AcademicProcessScheduleModel.objects.last()
     
     return render(request, 'main/pages/information/student.html', {
-        'type': 'AcademicProcessSchedule',
+        'type': 'График обучения',
         'docs': docs
     })
     
@@ -93,6 +93,15 @@ def student_events(request):
     events  = StudentEventModel.objects.all()
     
     return render(request, 'main/pages/information/student.html', {
-        'type': 'StudentEvent',
+        'type': 'События',
         'events': events
+    })
+
+""" События для студентов """
+def student_event_one(request, pk):
+    event = get_object_or_404(StudentEventModel, pk=pk)
+    
+    return render(request, 'main/pages/information/student.html', {
+        'type': event.title,
+        'event': event
     })

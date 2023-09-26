@@ -25,6 +25,9 @@ class CollegePartnersAdmin(TranslationAdmin):
     list_display = ('partner_name',)
     
 admin.site.register(CollegeDocsModel)
+admin.site.register(CallPairScheduleModel)
+admin.site.register(AcademicProcessScheduleModel)
+admin.site.register(StudentEventModel)
 
 @admin.register(StateSymbolsModel)
 class StateSymbolsAdmin(TranslationAdmin):
