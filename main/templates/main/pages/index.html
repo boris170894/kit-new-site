@@ -8,7 +8,7 @@
 <div class="page">
 
     {% comment %} ___ PAGE SLIDER ___ {% endcomment %}
-   <div class="container">
+   {% comment %} <div class="container">
     <div class="page__slider">
         <div class="page__slider__left">
             AҚПАРАТТЫҚ ТЕХНОЛОГИЯЛАР КОЛЛЕДЖІ
@@ -21,6 +21,18 @@
             <img src="{% static 'main/img/slider/1.jpg' %}" alt="">
         </div>
     </div>
+   </div> {% endcomment %}
+
+   <div class="intro">
+    <!-- <div class="intro__image" style="background-image: url('/static/main/img/intro/intro6.jpg');"></div> -->
+    <div class="intro__images">
+        
+    </div>
+    <div class="intro__info">
+        <span>Добро пожаловать в</span>
+        <h2>COLLEGE OF INFORMATION TECHNOLOGIES</h2>
+    </div>
+    <div class="intro__menu"></div>
    </div>
 
     <div class="container">
@@ -165,15 +177,15 @@
             <div class="page__contacts__left">
                 {% for item in contacts %}
                     <div class="page__contact">
-                        <h2 >Колледж информационных технологий</h2>
-                        <p>Адрес: {{item.addr}}</p>
-                        <p>Приёмная: {{item.tel}}<br>
+                        <h3>Колледж информационных технологий</h3>
+                        <p><b>Адрес:</b> {{item.addr}}</p>
+                        <p><b>Приёмная:</b> {{item.tel}}<br>
                         </p>
-                        <p>e-mail: {{item.e_mail}}<br>
+                        <p><b>E-mail:</b> {{item.e_mail}}<br>
                         </p>
-                        <p>Приёмная комиссия: {{item.priem_com}}<br>
+                        <p><b>Приёмная комиссия:</b> {{item.priem_com}}<br>
                         </p>
-                        <p> Whatsapp: {{item.wats}}<br>
+                        <p><b>Whatsapp:</b> {{item.wats}}<br>
                         </p>
                     </div>
                     {% endfor %}

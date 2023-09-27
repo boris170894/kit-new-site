@@ -41,6 +41,7 @@ nav {
     height: 100px;
     padding: 10px 5%;
     width: 100%;
+    top: 0;
     z-index: 10;
     /* border-bottom: 2px solid rgb(0,0,0,.05); */
 }
@@ -262,7 +263,7 @@ a:active, a:hover, a:focus {
 }
 ::-webkit-scrollbar-thumb {
     background-color: #262626;
-    border-radius: 10px;
+    border-radius: 1px;
 }
 
 .bg {
