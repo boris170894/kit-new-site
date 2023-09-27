@@ -4,45 +4,106 @@
 {% block title %} - Новости {% endblock %}
 
 {% block content %}
-<section class="u-align-center u-clearfix u-news-list-section-1" id="sec-2a09">
-    <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
-      <h1 class="u-align-center u-text u-text-default u-text-1">Новости</h1>
-    </div>
-  </section>
-  <section class="u-align-left u-clearfix u-grey-5 u-news-list-section-2" id="sec-dbbc">
-    {% for item in news_list %}
-    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-      <!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
+<link rel="stylesheet" href="/static/css/news.css" />
+<div class="page">
+  <h1>Новости</h1>
+  <div class="page__content">
+
+    <!-- TODO _____ Filters _______ -->
+    <form class="page__filters" method="GET">
+      {% csrf_token %}
+      <select name="filters" id="NewsSorting">
+        <option selected disabled>Сортировать по</option>
+        <option value="newest">Новые</option>
+        <option value="oldest">Старые</option>
+      </select>
+      <div class="page__filters__calendar">
+        <svg width="40" height="44" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="15" width="90" height="90" rx="10" stroke="#202020" stroke-width="10"/>
+          <rect x="23.75" y="51.75" width="7.5" height="7.5" rx="3.75" fill="#202020" stroke="#202020" stroke-width="7.5"/>
+          <path d="M50.5 58C49.1193 58 48 56.8807 48 55.5C48 54.1193 49.1193 53 50.5 53C51.8807 53 53 54.1193 53 55.5C53 56.8807 51.8807 58 50.5 58Z" fill="#202020" stroke="#202020" stroke-width="10"/>
+          <rect x="68.75" y="51.75" width="7.5" height="7.5" rx="3.75" fill="#202020" stroke="#202020" stroke-width="7.5"/>
+          <rect x="23.75" y="76.75" width="7.5" height="7.5" rx="3.75" fill="#202020" stroke="#202020" stroke-width="7.5"/>
+          <path d="M50.5 83C49.1193 83 48 81.8807 48 80.5C48 79.1193 49.1193 78 50.5 78C51.8807 78 53 79.1193 53 80.5C53 81.8807 51.8807 83 50.5 83Z" fill="#202020" stroke="#202020" stroke-width="10"/>
+          <rect x="68.75" y="76.75" width="7.5" height="7.5" rx="3.75" fill="#202020" stroke="#202020" stroke-width="7.5"/>
+          <rect x="20" width="15" height="20" rx="5" fill="#202020"/>
+          <rect x="65" width="15" height="20" rx="5" fill="#202020"/>
+          <line y1="33" x2="100" y2="33" stroke="#202020" stroke-width="10"/>
+          </svg>                
+      </div>
+    </form>
+
+    <!-- TODO ______ Pagination ______ -->
+    <div class="pagination">
+          <a href="{% if page.has_previous %}?page={{ page.previous_page_number }}{% endif %}" class="pagination__left">
+            <svg width="20" height="20" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M63.0704 5.76813L105.497 48.1945" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+              <path d="M63 90.4264L105.426 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+              <path d="M5 48L105 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+            </svg>   
+          </a>
+          <!-- <a href="?page=1">&laquo; Первая</a> -->
+
+      <span class="current">
+          {% for i in page.paginator.page_range %}
+            {% comment %} {% if page.number <= 3 and i <= 3 %}
+                <a href="?page={{ i }}">{{ i }} Страница</a>
+            {% elif page.number > page.paginator.num_pages - 3 and i > page.paginator.num_pages - 3 %}
+                <a href="?page={{ i }}">{{ i }} Страница</a>
+            {% elif i == page.number %} {% endcomment %}
+              <a href="?page={{ i }}"
+                {% if i == page.number %}style="background-color: rgb(248, 102, 36); color: white"{% endif %}
+                >{{ i }} Страница</a>
+            {% comment %} {% endif %} {% endcomment %}
+        {% endfor %}
+      </span>
+
       
-      <div class="u-blog u-expanded-width u-blog-1">
-        <div class="u-repeater u-repeater-1"><!--blog_post-->
-          <div class="u-align-left u-blog-post u-container-style u-repeater-item u-shape-rectangle">
-            <div class="u-container-layout u-similar-container u-container-layout-1">
-              <a class="u-post-header-link" href="{{item.get_absolute_url}}"><!--blog_post_image-->
-                <img alt="" class="u-blog-control u-image u-image-default u-preserve-proportions u-image-1"
-                  src="{{item.news_img.url}}"><!--/blog_post_image-->
-              </a>
-              <div class="u-container-style u-custom-color-1 u-group u-shape-rectangle u-group-1">
-                <div class="u-container-layout u-valign-middle u-container-layout-2"><!--blog_post_metadata-->
-                  <div class="u-blog-control u-metadata u-metadata-1"><!--blog_post_metadata_date-->
-                    <span class="u-meta-date u-meta-icon">{{item.news_create_date}}</span><!--/blog_post_metadata_date--><!--blog_post_metadata_category-->
-                    <!--/blog_post_metadata_category-->
-                  </div><!--/blog_post_metadata--><!--blog_post_header-->
-                  <h2 class="u-blog-control u-text u-text-1">
-                    <a class="u-post-header-link" href="{{item.get_absolute_url}}">{{item.news_title}}</a>
-                  </h2><!--/blog_post_header--><!--blog_post_content-->
-                  <div class="u-blog-control u-post-content u-text u-text-2 fr-view">{{item.news_content | slice:":50" | striptags}}</div><!--/blog_post_content--><!--blog_post_readmore-->
-                  <a href="{{item.get_absolute_url}}"
-                    class="u-blog-control u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-text-black u-text-hover-white u-btn-1"><!--blog_post_readmore_content--><!--options_json--><!--{"content":"Read More","defaultValue":"Читать дальше"}--><!--/options_json-->
-                    Читать далее<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
-                </div>
-              </div>
-            </div>
-          </div><!--/blog_post-->
+      <!-- <a href="?page={{ page.paginator.num_pages }}">Последняя &raquo;</a> -->
+      <a href="{% if page.has_next %}?page={{ page.next_page_number }}{% endif %}" class="pagination__right">
+        <svg width="20" height="20" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M63.0704 5.76813L105.497 48.1945" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+          <path d="M63 90.4264L105.426 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+          <path d="M5 48L105 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+        </svg>  
+      </a>
+  
+    </div>
+
+
+    <!-- TODO ______ News ______ -->
+    <div class="page__news">
+      {% for news in page %}
+      <div class="news">
+        <div class="news__left">
+          <div class="news__left__top">
+            <span>{{ news.news_create_date|date:'d.m.Y H:i' }}</span>
+            <a href="{% url 'show_one_news' news.slug %}">{{ news.news_title }}</a>
+            <div>{{ news.news_content|truncatewords:10 | safe }}</div>
+          </div>
+          <div class="news__left__icons">
+           <a href="{% url 'show_one_news' news.slug %}">
+            <!-- <img src="/static/main/img/logo/left2.svg" alt="left"> -->
+            <svg width="25" height="25" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M63.0704 5.76813L105.497 48.1945" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
+              <path d="M63 90.4264L105.426 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
+              <path d="M5 48L105 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
+              </svg>              
+           </a>             
+          </div>
         </div>
-      </div><!--/blog-->
-      
+        <div class="news__right">
+          <img src="{{ news.news_img.url }}" alt="{{ news.news_title }}">
+        </div>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </section>
+  </div>
+</div>
+
+<script>
+  document.querySelector('#NewsSorting').addEventListener('change', () => {
+    document.querySelector('.page__filters').submit()
+  })
+</script>
 {% endblock %}

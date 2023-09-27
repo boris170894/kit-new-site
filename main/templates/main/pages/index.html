@@ -38,7 +38,7 @@
                     <img src="{{ last_one_news.news_img.url }}" alt="">
                     <div class="news__content">
                         <span>{{ last_one_news.news_create_date|date:"F j" }}</span>
-                        <a href="{{ last_one_news.get_absolute_url }}">{{ last_one_news.news_title }}</a>
+                        <a href="{% url 'show_one_news' last_one_news.slug %}">{{ last_one_news.news_title }}</a>
                     </div>
                 </div>
                 {% endif %}
@@ -51,7 +51,7 @@
                         <img src="{{ news.news_img.url }}" alt="">
                         <div class="news__content">
                             <span>{{ news.news_create_date|date:"F j" }}</span>
-                            <a href="{{ news.get_absolute_url }}">{{ news.news_title }}</a>
+                            <a href="{% url 'show_one_news' news.slug %}">{{ news.news_title }}</a>
                         </div>
                     </div>
                 {% endfor %}
@@ -120,8 +120,8 @@
             {% for achivment in achivments %}
                 <div class="parthner">
                     <img src="{{ achivment.news_img.url }}" alt="{{ achivment.news_img }}">
-                    <a href="{{achivment.get_absolute_url}}">{{achivment.news_title}}</a>
-                    <a href="{{achivment.get_absolute_url}}">Читать</a>
+                    <a href="{% url 'show_one_news' achivment.slug %}">{{achivment.news_title}}</a>
+                    <a href="{% url 'show_one_news' achivment.slug %}">Читать</a>
                 </div>
             {% endfor %}
         </div>

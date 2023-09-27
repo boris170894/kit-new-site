@@ -1,17 +1,32 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.base import View
+from django.core.paginator import Paginator
 
 from .models import NewsModel
 
-class NewsView(View):
-
-    def get(self, request, slug):
-        news_view = NewsModel.objects.get(slug = slug)
-        return render(request, 'news/news.html', {'news_view':news_view})
+def show_all_news(request):
+    news_list = NewsModel.objects.filter(news_is_published = True).order_by('-news_create_date')    
     
+    if request.method == 'GET':
+        filters = request.GET.get('filters')
+        
+        if filters == 'oldest':
+            news_list = NewsModel.objects.filter(news_is_published = True).order_by('news_create_date') 
+        else:
+            news_list = NewsModel.objects.filter(news_is_published = True).order_by('-news_create_date')               
+    
+    paginator = Paginator(news_list, 4)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+    
+    return render(request, 'news/news_list.html', {
+        'page': page
+    })
 
-class NewsListView(View):
-
-    def get(self, request):
-        news_list = NewsModel.objects.filter(news_is_published = True).order_by('-news_create_date')
-        return render(request, 'news/news_list.html', {'news_list': news_list})
+def show_one_news(request, slug):
+    news = NewsModel.objects.get(slug = slug)
+    
+    return render(request, 'news/news.html', {
+        'news':news
+    })
+    
