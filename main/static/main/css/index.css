@@ -13,22 +13,7 @@ body {
 .container {
     width: 100%;
     max-width: 1400px;
-    padding: 0 4vw;
-}
-
-/* intro */
-.intro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    padding: 4vh 4vw;
 }
 nav {
     background-color: rgb(20,20,20,.4);
@@ -40,30 +25,58 @@ nav {
 .nav__right__menu a {
     color: #262626;
 }
-.intro__image {
-    width: 400vw;
+
+/* intro */
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    /* height: 100vh; */
+    position: relative;
+}
+.slider-container {
+    overflow: hidden;
+    width: 100vw;
     height: 100vh;
-    position: absolute; 
-    z-index: -1;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    flex: 0 0 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100%;
 
     filter: brightness(90%);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    box-sizing: border-box;
 
     transition: all .3s linear;
-    top:0;
-    overflow: hidden;
 }
 .intro__info {
     display: flex;
     justify-content: center;
     align-items: start;
     flex-direction: column;
-    width: 90vw;
-    position: relative;
+    width: 90%;
+    height: 100vh;
+
+    position: absolute;
     top: 5vh;
+    z-index: 1
 }
 .intro__info span {
     color: white;
@@ -75,6 +88,7 @@ nav {
     font-weight: 800;
     max-width: 60%;
     font-size: calc((1vw + 1vh) * 2.8);
+    margin-top: -4px;
 }
 .intro__menu {
     display: flex;
@@ -86,6 +100,7 @@ nav {
     padding: 0 5vw;
     height: 5vh;
     gap: 2%;
+    z-index: 1;
 }
 .intro__menu__option {
     position: relative;
@@ -101,7 +116,7 @@ nav {
     display: block;
     content: '';
     width: 100%;
-    height: 4px;
+    height: 5px;
     background-color: rgb(254,254, 254, .4);
     transition: all .3s linear;
     position: relative;
@@ -121,7 +136,7 @@ nav {
     display: block;
     content: '';
     width: 100%;
-    height: 4px;
+    height: 5px;
     background-color: rgb(254,254, 254, 1);
     transition: all .3s linear;  
     position: absolute; 
@@ -224,6 +239,7 @@ nav {
     height: 90vh;
 
     margin-bottom: 5%;
+    margin-top: 3%;
 } 
 .page__news__left {
     width: 50%;

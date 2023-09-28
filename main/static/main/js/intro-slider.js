@@ -1,55 +1,43 @@
-const images = [
-    'intro6.jpg',
-    'intro3.jpg',
-    'intro1.jpg',
-    'intro5.jpg',
-]
-let base_i = 0
-
-const intro__image = document.querySelector('.intro__image')
+const slider = document.querySelector(".slider");
+const slides = document.querySelectorAll(".slide");
 const intro__menu = document.querySelector('.intro__menu')
+let currentIndex = 0;
 
-// Добавление в меню колличество опций выбора для переключения фото
-for (let i = 0; i < images.length; i++) {
-    const opt = document.createElement('div')
+for (let i = 0; i < slider.children.length; i++) {
+    const div = document.createElement("div")
 
-    opt.classList.add('intro__menu__option')
-    i == 0 ? opt.classList.add('active') : ''
+    div.classList.add('intro__menu__option')
+    i == 0 ? div.classList.add('active') : ''
 
-    opt.innerHTML = '<span></span>'
-
-    intro__menu.appendChild(opt)
-}
-
-const changeImage = (i) => {
-    intro__image.style.opacity = 0
-        setTimeout(() => {
-            intro__image.style.backgroundImage = `url('/static/main/img/intro/${images[i]}')`
-            setTimeout(() => {
-                intro__image.style.opacity = 1
-            }, 300)
-        }, 300)
-        intro__menu__options.forEach(opt => {
-            opt.classList.remove('active')
-        })
-
-        intro__menu__options[i].classList.add('active')
+    div.innerHTML = '<span></span>'
+    intro__menu.appendChild(div)
 }
 
 const intro__menu__options = document.querySelectorAll('.intro__menu__option')
 
+function updateSlider(i) {
+    const translateX = -i * 100;
+    slider.style.transform = `translateX(${translateX}%)`;
+
+    intro__menu__options.forEach(opt => {
+        opt.classList.remove('active')
+    })
+
+    intro__menu__options[i].classList.add('active')
+}
+
 // При клике на разные опции менять изображение на фото
 for (let i = 0; i < intro__menu__options.length; i++) {
     intro__menu__options[i].addEventListener('click', () => {
-        changeImage(i)  
+        updateSlider(i)  
     })
 }
- 
+
+
 setInterval(() => {
-    if (base_i+1 == intro__menu__options.length) {
-        base_i = 0
-        changeImage(base_i)
-    } else {
-        changeImage(++base_i)
+    currentIndex++;
+    if (currentIndex >= slider.children.length) {
+        currentIndex = 0;
     }
+    updateSlider(currentIndex);
 }, 5000)
