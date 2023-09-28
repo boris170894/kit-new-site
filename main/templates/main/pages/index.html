@@ -23,10 +23,15 @@
     </div>
    </div> {% endcomment %}
 
+   <!-- ! Intro  -->
    <div class="intro">
-    <!-- <div class="intro__image" style="background-image: url('/static/main/img/intro/intro6.jpg');"></div> -->
-    <div class="intro__images">
-        
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide" style="background-image: url('/static/main/img/intro/intro6.jpg');"></div>
+            <div class="slide" style="background-image: url('/static/main/img/intro/intro3.jpg');"></div>
+            <div class="slide" style="background-image: url('/static/main/img/intro/intro1.jpg');"></div>
+            <div class="slide" style="background-image: url('/static/main/img/intro/intro5.jpg');"></div>
+        </div>
     </div>
     <div class="intro__info">
         <span>Добро пожаловать в</span>
@@ -35,12 +40,13 @@
     <div class="intro__menu"></div>
    </div>
 
+   <!-- !  News -->
     <div class="container">
-        <div class="pre__title">
+        <!-- <div class="pre__title">
             <h2 class="title">
                 Новости
             </h2>
-        </div> 
+        </div>  -->
 
         <div class="page__news">
             <div class="page__news__left">
@@ -80,13 +86,14 @@
         </div>    
     </div>
 
+   <!-- !  About -->
     <div class="container">
 
-        <div class="pre__title">
+        <!-- <div class="pre__title">
             <h2 class="title">
                 О нас
             </h2>
-        </div>
+        </div> -->
 
     </div>
     
@@ -122,11 +129,11 @@
     
     <div class="container">
 
-        <div class="pre__title">
+        <!-- <div class="pre__title">
             <h2 class="title">
                 Наши достижения
             </h2>
-        </div> 
+        </div>  -->
 
         <div class="page__parthers">
             {% for achivment in achivments %}
@@ -146,11 +153,11 @@
 
     <div class="container">
 
-        <div class="pre__title">
+        <!-- <div class="pre__title">
             <h2 class="title">
                 Наши партнёры
             </h2>
-        </div> 
+        </div>  -->
 
         <div class="page__achievements">
             <span class="material-symbols-outlined page__archivements__left">

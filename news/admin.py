@@ -18,7 +18,6 @@ class NewsAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
-
 @admin.register(NewsModel)
 class NewsAdmin(TranslationAdmin):
 
@@ -32,9 +31,10 @@ class NewsAdmin(TranslationAdmin):
     list_display = (
         "news_title",
         "news_category",
-        "news_create_date",
-        "news_update_date",
-        "news_is_published"
+        "news_is_published",
+        
+        "news_create_date",  # Выводим дату создания
+        "news_update_date",  # Выводим дату обновления
     )
 
     search_fields = ("news_title",)
