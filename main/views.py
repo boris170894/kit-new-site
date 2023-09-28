@@ -35,6 +35,10 @@ def index(request):
     }
     return render(request, 'main/pages/index.html', context)
 
+"""
+        О колледже
+"""
+
 """ Абитуриенты  """
 def abiturients(request):
     
@@ -62,6 +66,10 @@ def documents(request):
         'documents': documents
     })
 
+"""
+        Государство
+"""
+
 """ Государственные Символы """
 def state_symbols(request):
     symbols = StateSymbolsModel.objects.all()[:3]
@@ -70,29 +78,37 @@ def state_symbols(request):
         'symbols': symbols
     })
     
-""" Расписание звонков и основное расписание """
-def call_pair_schedule(request):
+
+"""
+    TODO: Для студентов
+"""
+    
+""" Расписание звонков и основное расписание для студентов """
+def call_pair_schedule_students(request):
     docs  = CallPairScheduleModel.objects.last()
     
     return render(request, 'main/pages/information/student.html', {
         'type': 'Расписание пар и звонков',
+        'user_type': 'student',
         'docs': docs
     })
     
-""" График Учебного процесса """
-def academic_process_schedule(request):
+""" График Учебного процесса для студентов """
+def academic_process_schedule_students(request):
     docs  = AcademicProcessScheduleModel.objects.last()
     
     return render(request, 'main/pages/information/student.html', {
         'type': 'График учебного процесса',
+        'user_type': 'student',
         'docs': docs
     })
     
-""" Методические рекомендации """
+""" Методические рекомендации для студентов """
 def guidelines_students(request):
     
     return render(request, 'main/pages/information/student.html', {
         'type': 'Методические рекомендации',
+        'user_type': 'student',
     })
     
 """ События для студентов """
@@ -101,14 +117,49 @@ def student_events(request):
     
     return render(request, 'main/pages/information/student.html', {
         'type': 'События',
+        'user_type': 'student',
         'events': events
     })
 
-""" Событие  для студентов """
+""" Показ одного события  для студентов """
 def student_event_one(request, pk):
     event = get_object_or_404(StudentEventModel, pk=pk)
     
     return render(request, 'main/pages/information/student.html', {
         'type': event.title,
+        'user_type': 'student',
         'event': event
     })
+    
+"""
+    TODO: Для учителей
+"""
+    
+""" Расписание звонков и основное расписание для учителей """
+def call_pair_schedule_teachers(request):
+    docs  = CallPairScheduleModel.objects.last()
+    
+    return render(request, 'main/pages/information/student.html', {
+        'type': 'Расписание пар и звонков',
+        'user_type': 'teacher',
+        'docs': docs
+    })
+    
+""" График Учебного процесса для учителей """
+def academic_process_schedule_teachers(request):
+    docs  = AcademicProcessScheduleModel.objects.last()
+    
+    return render(request, 'main/pages/information/student.html', {
+        'type': 'График учебного процесса',
+        'user_type': 'teacher',
+        'docs': docs
+    })
+    
+""" Методические рекомендации для учителей """
+def guidelines_teachers(request):
+    
+    return render(request, 'main/pages/information/student.html', {
+        'type': 'Методические рекомендации',
+        'user_type': 'teacher',
+    })
+    

@@ -13,6 +13,7 @@ from .models import (
     CmcFIZModel
 )
 
+
 def staff(request):
     directors = DirectorModel.objects.filter(is_working=True)
     depDirectors = DepDirectorModel.objects.filter(is_working=True)

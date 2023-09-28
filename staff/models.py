@@ -1,6 +1,16 @@
 from django.db import models
 
 
+class Group(models.Model):
+    name = models.CharField(max_length=150)
+    
+    class Meta:
+        verbose_name = 'Название группы'
+        verbose_name_plural = 'Название группы'
+    
+    def __str__(self):
+        return self.name
+
 class PositionModel(models.Model):
     position_name = models.CharField(verbose_name='Должность', max_length=200)
 
@@ -50,6 +60,7 @@ class DepHeadModel(models.Model):
     info = models.TextField(verbose_name='Информация', blank=True)
     is_working = models.BooleanField(default=False, verbose_name='Статус работы')
     slug = models.SlugField(verbose_name='URL', max_length=100, unique=True)
+    groups = models.ManyToManyField(Group, verbose_name='Группы', blank=True)
 
     def __str__(self):
         return self.fio
@@ -66,6 +77,7 @@ class CmcOBModel(models.Model):
     info = models.TextField(verbose_name='Информация', blank=True)
     is_working = models.BooleanField(default=False, verbose_name='Статус работы')
     slug = models.SlugField(verbose_name='URL', max_length=100, unique=True)
+    groups = models.ManyToManyField(Group, verbose_name='Группы', blank=True)
 
     def __str__(self):
         return self.fio
@@ -82,6 +94,7 @@ class CmcLangModel(models.Model):
     info = models.TextField(verbose_name='Информация', blank=True)
     is_working = models.BooleanField(default=False, verbose_name='Статус работы')
     slug = models.SlugField(verbose_name='URL', max_length=100, unique=True)
+    groups = models.ManyToManyField(Group, verbose_name='Группы', blank=True)
 
     def __str__(self):
         return self.fio
@@ -98,6 +111,7 @@ class CmcELModel(models.Model):
     info = models.TextField(verbose_name='Информация', blank=True)
     is_working = models.BooleanField(default=False, verbose_name='Статус работы')
     slug = models.SlugField(verbose_name='URL', max_length=100, unique=True)
+    groups = models.ManyToManyField(Group, verbose_name='Группы', blank=True)
 
     def __str__(self):
         return self.fio
@@ -113,6 +127,7 @@ class CmcITModel(models.Model):
     info = models.TextField(verbose_name='Информация', blank=True)
     is_working = models.BooleanField(default=False, verbose_name='Статус работы')
     slug = models.SlugField(verbose_name='URL', max_length=100, unique=True)
+    groups = models.ManyToManyField(Group, verbose_name='Группы', blank=True)
 
     def __str__(self):
         return self.fio
@@ -129,6 +144,7 @@ class CmcFIZModel(models.Model):
     info = models.TextField(verbose_name='Информация', blank=True)
     is_working = models.BooleanField(default=False, verbose_name='Статус работы')
     slug = models.SlugField(verbose_name='URL', max_length=100, unique=True)
+    groups = models.ManyToManyField(Group, verbose_name='Группы', blank=True)
 
     def __str__(self):
         return self.fio
