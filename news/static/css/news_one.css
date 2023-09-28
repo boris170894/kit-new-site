@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    padding: 5vh 10vw 25vh;
+    padding: 5vh 6vw 25vh;
 
 }
 .page__item {
@@ -27,8 +27,8 @@
 }
 .page__desk {
     display: grid;
-    grid-template-columns: 5% 55% 30%;
-    gap: 5%;
+    grid-template-columns: 1% 60% 25%;
+    gap: 3%;
     
 }
 .page__desk__left {
@@ -69,4 +69,34 @@
 .btn:hover {
     background-color: black !important;
     color: white !important;
+}
+
+@media screen and (max-width: 600px) {
+    .page {
+        padding: 5vh 6vw 30vh;
+    }
+    .page__title {
+        font-size: calc((1vw + 1vh) * 2.6);
+        line-height: calc((1vw + 1vh) * 2.4);
+        margin-bottom: 5%;
+    }
+    .page__date {
+        font-size: calc((1vw + 1vh) * 1.8);
+    }
+    .page__desk__left p {
+        font-size: calc((1vw + 1vh) * 1.6);
+    }
+    .page__desk {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column-reverse;
+        gap: 3%
+    }
+    .btn {
+        max-width: 100%;
+        width: 100%;
+        font-size: calc((1vw + 1vh) * 1.6);
+        padding: 15px;
+    }
 }

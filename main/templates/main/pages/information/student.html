@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="/static/main/css/information/student.css" />
 
 <div class="page">
+    
     <div class="page__do">
         <a href="https://do.pbk.kz">
             <img src="/static/main/img/logo/moodle_logo_TM.svg" alt="moodle_logo_TM"/>
@@ -18,6 +19,8 @@
             <img src="/static/main/img/logo/microsoft.png" alt="moodle_logo_TM" class="microsoft" />
         </a>
     </div>
+
+    <!-- Шапка -->
     <div class="page__header">
         <a href="{% url 'call_pair_schedule' %}" 
             class="link
@@ -27,16 +30,24 @@
             ">Расписание пар и звонков</a>
         <a href="{% url 'academic_process_schedule' %}" 
             class="link
-            {% if type == 'График обучения' %} 
+            {% if type == 'График учебного процесса' %} 
                 activate
-            {% endif %}"" >График обучения</a>
+            {% endif %}"" >График учебного процесса </a>
         <a href="{% url 'student_events'  %}" 
         class="link
         {% if type == 'События' %} 
             activate
         {% endif %}"
         >События</a>
+        <a href="{% url 'guidelines_students'  %}" 
+        class="link
+        {% if type == 'Методические рекомендации' %} 
+            activate
+        {% endif %}"
+        >Методические рекомендации</a>
     </div>
+
+    <!-- Контент -->
     <div class="page__content">
         <h2>{{ type }}</h2>
         {% if type == "События" %}
@@ -54,13 +65,13 @@
                     </div>
                 {% endfor %}
             </div>
-        {% elif type == "График обучения" %}
+        {% elif type == "График учебного процесса" %}
             <iframe 
                 src="{{ docs.file.url }}" 
                 class="page__doc"
             ></iframe>
 
-            <a href="{{ docs.file.url }}" class='download' download>Скачать график обучения</a>
+            <a href="{{ docs.file.url }}" class='download' download>Скачать учебного процесса</a>
         {% elif type == "Расписание пар и звонков"  %}
             <div class="call__schedule">
                 <div class="call__schedule__left">
@@ -87,6 +98,8 @@
                       </table>
                 </div>
             </div>
+        {% elif type == 'Методические рекомендации' %}
+        ...
         {% else  %}
             <div class="event__desc">
                 <div class="event__desc__right">

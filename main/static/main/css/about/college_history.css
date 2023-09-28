@@ -154,6 +154,6 @@
         height: 50vh;
     }
     .page__doc {
-        display: none;
+        /* display: none; */
     }
 }

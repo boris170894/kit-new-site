@@ -79,13 +79,20 @@ def call_pair_schedule(request):
         'docs': docs
     })
     
-""" График Учебного процесса"""
+""" График Учебного процесса """
 def academic_process_schedule(request):
     docs  = AcademicProcessScheduleModel.objects.last()
     
     return render(request, 'main/pages/information/student.html', {
-        'type': 'График обучения',
+        'type': 'График учебного процесса',
         'docs': docs
+    })
+    
+""" Методические рекомендации """
+def guidelines_students(request):
+    
+    return render(request, 'main/pages/information/student.html', {
+        'type': 'Методические рекомендации',
     })
     
 """ События для студентов """
@@ -97,7 +104,7 @@ def student_events(request):
         'events': events
     })
 
-""" События для студентов """
+""" Событие  для студентов """
 def student_event_one(request, pk):
     event = get_object_or_404(StudentEventModel, pk=pk)
     
