@@ -283,3 +283,92 @@ table {
     font-size: calc((1vw + 1vh) * 1);
     
 }
+
+@media screen and (max-width: 600px) {
+    .page {
+        padding: 2vh 5vw 35vh;
+    }
+    .page__do {
+        flex-wrap: wrap;
+        height: 7vh;
+        padding: 10px 10px;
+        justify-content: space-between;
+    }   
+    .page__do a img, .azure, .microsoft {
+        height: 2.8vh;
+    }
+    .page__do a .azure {
+        height: 4vh;
+    }
+    .page__do a .microsoft {
+        height: 2.8vh;
+    }
+    /* header */
+    .page__header {
+        /* overflow-x: auto; */
+        align-items: end;
+        flex-wrap: wrap;
+    }
+    .page__header .link {
+        font-size: calc((1vw + 1vh) * 1.5);
+        max-width: 37vw;
+        width: 100%;
+        
+    }
+    .call__schedule {
+        flex-wrap: wrap;
+    }
+    .call__schedule__left, .call__schedule__right {
+        width: 100%;
+    }
+    .call__schedule__right {
+        margin-top: 5%;
+    }
+    .call__schedule__left__menu {
+        padding: 2% 0;
+    }
+    .call__schedule__left__menu .link {
+        font-size: calc((1vw + 1vh) * 1.6);
+    }
+    td {
+        font-size: calc((1vw + 1vh) * 1.8);
+        padding: 2vh 8vw;
+    }
+
+    /* event */
+    .page__content__events .event {
+        max-width: 100% ;
+    }
+    .event__top__data {
+        font-size: calc((1vw + 1vh) * 1.6);
+        max-width: 40vw
+    }
+    .event__bottom__link {
+        font-size: calc((1vw + 1vh) *1.8);
+    }
+    .event__bottom {
+        width: 100%;
+    }
+    .learn__more {
+        font-size: calc((1vw + 1vh) * 1.6);
+        background-color: #202020;
+        text-decoration: none;
+        color: white !important;
+        width: 100%;
+        min-width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .learn__more:hover {
+        background: #202020 !important;
+    }
+    .event__desc {
+        grid-template-columns: 100%;
+    }
+    .event__desc__date {
+        font-size: calc((1vw + 1vh) * 1.6);
+    }
+}

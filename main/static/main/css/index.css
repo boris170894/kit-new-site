@@ -844,4 +844,24 @@ nav {
         background-color: rgb(38, 38, 38, 1);
         color: #fff;
     }
+    .intro__info span {
+        font-size: calc((1vw + 1vh) * 1.6);
+    }
+    .intro__info h2 {
+        font-size: calc((1vw + 1vh) * 3.2);
+        max-width: 90%;
+    }
+    .page__contacts p {
+        font-size: calc((1vh + 1vw) * 1.6);
+    }
+    nav {
+        background-color:transparent;
+        position: absolute;
+    }
+    .nav__right a {
+        color: black
+    }
+    .nav__right__menu a {
+        color: #262626;
+    }
 }
