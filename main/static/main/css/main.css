@@ -149,6 +149,35 @@ nav .nav__right {
 a:active, a:hover, a:focus {
     background-color: none;
 }
+.change__language {
+    background-color: transparent;
+    padding: 4px 4px;
+    border: 2px solid rgb(47, 47, 47);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(47, 47, 47);
+    transition: all .3s linear;
+    cursor: pointer;
+}
+.change__language:hover, .change__language:focus {
+    border-color: #f86624;
+    color: #f86624;
+}
+.change__language option {
+    background-color: white;
+    color: #202020;
+    padding: 4px 6px; 
+}
+.change__language option:hover {
+    background-color: #f86624;
+}
+.change__language option:focus {
+    background-color: #f86624;
+}
+.change__language option:active {
+    background-color: #f86624;
+}
 
 @media screen and (max-width:600px) {
     .nav__menu {

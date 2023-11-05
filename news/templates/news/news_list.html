@@ -1,21 +1,21 @@
 {% extends 'main/base.html' %}
-{% load static %}
+{% load static i18n %}
 
-{% block title %} - Новости {% endblock %}
+{% block title %} - {% trans 'Новости' %} {% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="/static/css/news.css" />
 <div class="page">
-  <h1>Новости</h1>
+  <h1>{% trans 'Новости' %}</h1>
   <div class="page__content">
 
     <!-- TODO _____ Filters _______ -->
     <form class="page__filters" method="GET">
       {% csrf_token %}
       <select name="filters" id="NewsSorting">
-        <option selected disabled>Сортировать по</option>
-        <option value="newest">Новые</option>
-        <option value="oldest">Старые</option>
+        <option selected disabled>{% trans 'Сортировать по' %}</option>
+        <option value="newest">{% trans 'Новые' %}</option>
+        <option value="oldest">{% trans 'Старые' %}</option>
       </select>
       <div class="page__filters__calendar">
         <svg width="40" height="44" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">

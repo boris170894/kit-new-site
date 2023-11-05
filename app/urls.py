@@ -21,10 +21,15 @@ urlpatterns += i18n_patterns(
     path('staff/', include('staff.urls')),
     path('news/', include('news.urls')),
     path('specs/',include('specialties.urls')),
-    # path('404', tr_handler404, name='404'),
-    prefix_default_language=False,
+    # prefix_default_language=False,
 )
 
+urlpatterns += i18n_patterns(
+    path('', include('main.urls')),
+    path('staff/', include('staff.urls')),
+    path('news/', include('news.urls')),
+    path('specs/', include('specialties.urls')),
+)
 
 # if settings.DEBUG:
 #     urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

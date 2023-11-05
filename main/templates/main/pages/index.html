@@ -1,6 +1,6 @@
 {% include 'main/base.html' %} 
 
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 <link rel="stylesheet" href="/static/main/css/index.css" />
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="intro__info">
-        <span>Добро пожаловать в</span>
+        <span>{% trans 'Добро пожаловать в' %}</span>          <!--  ПЕРЕВОД -->
         <h2>COLLEGE OF INFORMATION TECHNOLOGIES</h2>
     </div>
     <div class="intro__menu"></div>
@@ -77,9 +77,7 @@
                     <div></div>
                     <div class="news__content">
                         <span></span>
-                        <a href="{% url 'news_list' %}">Читать все новости 
-                            
-                        </a>
+                        <a href="{% url 'news_list' %}">{% trans 'Читать все новости ' %}</a>
                     </div>
                 </div>
             </div>
@@ -103,7 +101,7 @@
                 <div class="page__about__right">
                     <h2>45</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi unde blanditiis, exercitationem laudantium tempore qui culpa voluptas quo accusantium quod consequuntur delectus architecto? Optio eius maiores neque animi tenetur.</p>
-                    <a href="">Поступить к нам 
+                    <a href="">{% trans 'Поступить к нам ' %}
                         <span class="material-symbols-outlined">
                         trending_flat
                         </span>
@@ -142,13 +140,13 @@
                 <div class="parthner">
                     <img src="/static/{{ achivment.news_img.url }}" alt="{{ achivment.news_img }}">
                     <a href="{% url 'show_one_news' achivment.slug %}">{{achivment.news_title}}</a>
-                    <a href="{% url 'show_one_news' achivment.slug %}">Читать</a>
+                    <a href="{% url 'show_one_news' achivment.slug %}">{% trans 'Читать' %}</a>
                 </div>
             {% endfor %}
         </div>
 
         <a href="{% url 'news_list' %}" class="read__more">
-            Смотреть все
+            {% trans 'Смотреть все' %}
         </a>
 
     </div>
@@ -189,13 +187,13 @@
                 <div class="page__contacts__left">
                     {% for item in contacts %}
                         <div class="page__contact">
-                            <h3>Колледж информационных технологий</h3>
-                            <p><b>Адрес:</b> {{item.addr}}</p>
-                            <p><b>Приёмная:</b> {{item.tel}}<br>
+                            <h3>{% trans 'Колледж информационных технологий' %}</h3>
+                            <p><b>{% trans 'Адрес' %}:</b> {{item.addr}}</p>
+                            <p><b>{% trans 'Приёмная' %}:</b> {{item.tel}}<br>
                             </p>
                             <p><b>E-mail:</b> {{item.e_mail}}<br>
                             </p>
-                            <p><b>Приёмная комиссия:</b> {{item.priem_com}}<br>
+                            <p><b>{% trans 'Приёмная комиссия' %}:</b> {{item.priem_com}}<br>
                             </p>
                             <p><b>Whatsapp:</b> {{item.wats}}<br>
                             </p>

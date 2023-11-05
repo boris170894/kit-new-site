@@ -1,13 +1,13 @@
-{% load static %}
+{% load static i18n %}
 
 <link rel="stylesheet" href="{% static 'main/css/footer.css' %}" media="screen" />
 
 <footer class="footer">
     <div class="footer__left">
-        <a href="/">Новости</a>
-        <a href="{% url 'abiturients' %}">Студенту</a>
-        <a  href="/">Абитуриенту</a>
-        <a href="/">Преподавателю</a>
+        <a href="/">{% trans 'Новости' %}</a>
+        <a href="{% url 'abiturients' %}">{% trans 'Студенту' %}</a>
+        <a  href="/">{% trans 'Абитуриенту' %}</a>
+        <a href="/">{% trans 'Преподавателю' %}</a>
     </div>
     <div class="footer__right">
         <a class="facebook">

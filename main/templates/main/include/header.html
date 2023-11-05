@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 
 <nav>
     <div class="nav__left">
@@ -9,67 +9,89 @@
     </span>
     <div class="nav__right" style="left: -100%;">
         <div class="nav__link nav__right__close" id="nav_close">
-            <b class="">Назад</b>
+            <b class="">{% trans 'Назад' %}</b>
             <span class="material-symbols-outlined">arrow_forward_ios</span>
         </div>
-        <a href="{% url 'news_list' %}" class='nav__link'>Новости</a>
+        <a href="{% url 'news_list' %}" class='nav__link'>{% trans 'Новости' %}</a>
         <div class="nav__right__button__menu nav__link" >
-            <a class="nav__right__menu__open">О колледже</a>
+            <a class="nav__right__menu__open">{% trans 'О колледже' %}</a>
             <div class="nav__right__menu">
 
                 <div class="nav__link nav__right__close nav__right__menu__close">
-                    <b class="">Назад</b>
+                    <b class="">{% trans 'Назад' %}</b>
                     <span class="material-symbols-outlined">arrow_forward_ios</span>
                 </div>
                 
-                <a href="{% url 'college-history' %}">История колледжа</a>
-                <a href="{% url 'documents' %}">Документы</a>
-                <a href="{% url 'staff:staff'  %}">Структура</a>
-                <a href="/specs">Специальности</a>
-                <a href="/board-of-trustees">Попечительский совет</a>
-                <a href="/pedagogical-council">Педагогический совет</a>
-                <a href="/industrial-council">Индустриальный совет</a>
+                <a href="{% url 'college-history' %}">{% trans 'История колледжа' %}</a>
+                <a href="{% url 'documents' %}">{% trans 'Документы' %}</a>
+                <a href="{% url 'staff:staff'  %}">{% trans 'Структура' %}</a>
+                <a href="/specs">{% trans 'Специальности' %}</a>
+                <a href="/board-of-trustees">{% trans 'Попечительский совет' %}</a>
+                <a href="/pedagogical-council">{% trans 'Педагогический совет' %}</a>
+                <a href="/industrial-council">{% trans 'Индустриальный совет' %}</a>
             </div>
         </div>
         <div class="nav__right__button__menu nav__link" >
-            <a class="nav__right__menu__open">Информация</a>
+            <a class="nav__right__menu__open">{% trans 'Информация' %}</a>
             <div class="nav__right__menu">
                 <div class="nav__link nav__right__close nav__right__menu__close">
-                    <b class="">Назад</b>
+                    <b class="">{% trans 'Назад' %}</b>
                     <span class="material-symbols-outlined">arrow_forward_ios</span>
                 </div>
-                <a href="{% url 'call_pair_schedule' %}">Студенту</a>
-                <a href="{% url 'abiturients' %}">Абитуриенту</a>
-                <a href="{% url 'call_pair_schedule_teachers' %}">Преподавателю</a>
-                <a href="/financial-statements">Финансовая отчетность</a>
+                <a href="{% url 'call_pair_schedule' %}">{% trans 'Студенту' %}</a>
+                <a href="{% url 'abiturients' %}">{% trans 'Абитуриенту' %}</a>
+                <a href="{% url 'call_pair_schedule_teachers' %}">{% trans 'Преподавателю' %}</a>
+                <a href="/financial-statements">{% trans 'Финансовая отчетность' %}</a>
             </div>  
         </div>
         <div class="nav__right__button__menu nav__link" >
-            <a class="nav__right__menu__open">Государство</a>
+            <a class="nav__right__menu__open">{% trans 'Государство' %}</a>
             <div class="nav__right__menu">
                 <div class="nav__link nav__right__close nav__right__menu__close">
-                    <b class="">Назад</b>
+                    <b class="">{% trans 'Назад' %}</b>
                     <span class="material-symbols-outlined">arrow_forward_ios</span>
                 </div>
-                <a href="{% url 'state_symbols' %}">Государственные символы</a>
-                <a href="/government-services">Государственные услуги</a>
-                <a href="/anti-corruption">Противодействие коррупции</a>
-                <a href="/multilingualism-program">Программа полиязычия</a>
+                <a href="{% url 'state_symbols' %}">{% trans 'Государственные символы' %}</a>
+                <a href="/government-services">{% trans 'Государственные услуги' %}</a>
+                <a href="/anti-corruption">{% trans 'Противодействие коррупции' %}</a>
+                <a href="/multilingualism-program">{% trans 'Программа полиязычия' %}</a>
             </div>  
         </div>
         <a href="{% url 'news_list' %}" class='nav__link'>WorldSkills</a>
         <div class="nav__right__button__menu nav__link" >
-            <a class="nav__right__menu__open">Воспитательная работа</a>
+            <a class="nav__right__menu__open">{% trans 'Воспитательная работа' %}</a>
             <div class="nav__right__menu">
                 <div class="nav__link nav__right__close nav__right__menu__close">
-                    <b class="">Назад</b>
+                    <b class="">{% trans 'Назад' %}</b>
                     <span class="material-symbols-outlined">arrow_forward_ios</span>
                 </div>
-                <a href="/general-information">Общая информация</a>
-                <a href="/circles-sections">Кружки/Секции</a>
-                <a href="/psychological-service">Психологическая служба</a>
-                <a href="/class-teachers">Классные руководители</a>
+                <a href="/general-information">{% trans 'Общая информация' %}</a>
+                <a href="/circles-sections">{% trans 'Кружки/Секции' %}</a>
+                <a href="/psychological-service">{% trans 'Психологическая служба' %}</a>
+                <a href="/class-teachers">{% trans 'Классные руководители' %}</a>
             </div>  
         </div>
+        <form action="{% url 'set_language' %}" method="post" id="LanguageForm">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select name="language" id="changeLanguage" class='change__language' >
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                            selected{% endif %}>
+                        {% comment %} {{ language.name_local }}  {% endcomment %}
+                        {{ language.code }}
+                    </option>
+                {% endfor %}
+            </select>
+            <!-- <button type="submit" class="btn">{% trans 'Translate' %}</button> -->
+         </form>
     </div>
 </nav>
+
+<script>
+    document.getElementById("changeLanguage").addEventListener("change", function() {
+        document.getElementById("LanguageForm").submit();
+      });
+</script>

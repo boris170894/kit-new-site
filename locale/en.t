@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 14:34+0600\n"
+"POT-Creation-Date: 2023-11-05 12:41+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,15 +20,15 @@ msgstr ""
 
 #: app/settings.py:148
 msgid "Russia"
-msgstr ""
+msgstr "Russia"
 
 #: app/settings.py:149
 msgid "Kazakh"
-msgstr ""
+msgstr "Kazakh"
 
 #: app/settings.py:150
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: main/templates/main/base.html:7 main/templates/main/pages/index.html:192
 #: main/templates/main/pages/information/abiturients.html:82
@@ -195,11 +195,11 @@ msgid "Добро пожаловать в"
 msgstr "Welcome to"
 
 #: main/templates/main/pages/index.html:82
-msgid "Читать все новости "
+msgid "Читать все новости"
 msgstr "Read all news"
 
 #: main/templates/main/pages/index.html:106
-msgid "Поступить к нам "
+msgid "Поступить к нам"
 msgstr "Join us"
 
 #: main/templates/main/pages/index.html:145
@@ -268,8 +268,8 @@ msgid ""
 "Документы принимаются после окончания 9 класса, на основании аттестата об "
 "основном среднем образовании."
 msgstr ""
-"Documents are accepted after completing 9th grade, on the basis of a "
-"certificate of basic secondary education."
+"Documents are accepted after completing 9th grade, on the basis of a certificate of "
+"basic secondary education."
 
 #: main/templates/main/pages/information/abiturients.html:54
 msgid "Основные преимущества нашего колледжа"
@@ -300,99 +300,95 @@ msgid "Имеется общежитие"
 msgstr "There is a hostel"
 
 #: main/templates/main/pages/information/student.html:54
-#: main/templates/main/pages/information/student.html:88
 msgid "Расписание пар и звонков"
 msgstr "Schedule of couples and calls"
 
 #: main/templates/main/pages/information/student.html:63
-#: main/templates/main/pages/information/student.html:90
 msgid "График учебного процесса"
 msgstr "Study schedule"
 
 #: main/templates/main/pages/information/student.html:70
-#: main/templates/main/pages/information/student.html:92
 msgid "События"
 msgstr "Events"
 
 #: main/templates/main/pages/information/student.html:81
-#: main/templates/main/pages/information/student.html:94
 msgid "Методические рекомендации"
 msgstr "Guidelines"
 
-#: main/templates/main/pages/information/student.html:112
+#: main/templates/main/pages/information/student.html:102
 #: specialties/templates/specialites/pages/about/specialites.html:30
 msgid "Узнать Больше"
 msgstr "To learn more"
 
-#: main/templates/main/pages/information/student.html:127
+#: main/templates/main/pages/information/student.html:117
 msgid "Скачать учебного процесса"
 msgstr "Download educational process"
 
-#: main/templates/main/pages/information/student.html:134
+#: main/templates/main/pages/information/student.html:125
 msgid "1 курс"
 msgstr "1 course"
 
-#: main/templates/main/pages/information/student.html:135
+#: main/templates/main/pages/information/student.html:126
 msgid "2 курс"
 msgstr "2 course"
 
-#: main/templates/main/pages/information/student.html:136
+#: main/templates/main/pages/information/student.html:127
 msgid "3 курс"
 msgstr "3 course"
 
-#: main/templates/main/pages/information/student.html:137
+#: main/templates/main/pages/information/student.html:128
 msgid "4 курс"
 msgstr "4 course"
 
-#: main/templates/main/pages/information/student.html:139
+#: main/templates/main/pages/information/student.html:130
 msgid "Скачать расписание 1 курса"
 msgstr "Download the 1st course college schedule"
 
-#: main/templates/main/pages/information/student.html:140
+#: main/templates/main/pages/information/student.html:131
 msgid "Скачать расписание 2 курса"
 msgstr "Download the 2st course college schedule"
 
-#: main/templates/main/pages/information/student.html:141
+#: main/templates/main/pages/information/student.html:132
 msgid "Скачать расписание 3 курса"
 msgstr "Download the 3st course college schedule"
 
-#: main/templates/main/pages/information/student.html:142
+#: main/templates/main/pages/information/student.html:133
 msgid "Скачать расписание 4 курса"
 msgstr "Download the 4st course college schedule"
 
-#: main/templates/main/pages/information/student.html:146
+#: main/templates/main/pages/information/student.html:137
 msgid "1 пара"
 msgstr "1 pair"
 
-#: main/templates/main/pages/information/student.html:147
+#: main/templates/main/pages/information/student.html:138
 msgid "2 пара"
 msgstr "2 pair"
 
-#: main/templates/main/pages/information/student.html:148
+#: main/templates/main/pages/information/student.html:139
 msgid "3 пара"
 msgstr "3 pair"
 
-#: main/templates/main/pages/information/student.html:149
+#: main/templates/main/pages/information/student.html:140
 msgid "4 пара"
-msgstr "4 pair"
+msgstr 4 pair"
 
-#: main/templates/main/pages/information/student.html:150
+#: main/templates/main/pages/information/student.html:141
 msgid "5 пара"
 msgstr "5 pair"
 
-#: main/templates/main/pages/information/student.html:151
+#: main/templates/main/pages/information/student.html:142
 msgid "6 пара"
 msgstr "6 pair"
 
-#: main/templates/main/pages/information/student.html:152
+#: main/templates/main/pages/information/student.html:143
 msgid "7 пара"
 msgstr "7 pair"
 
-#: main/templates/main/pages/information/student.html:167
+#: main/templates/main/pages/information/student.html:158
 msgid "Дата Начала"
 msgstr "Start date"
 
-#: main/templates/main/pages/information/student.html:170
+#: main/templates/main/pages/information/student.html:161
 msgid "Дата Конца"
 msgstr "End Date"
 
@@ -414,7 +410,7 @@ msgstr "New"
 
 #: news/templates/news/news_list.html:18
 msgid "Старые"
-msgstr "Old"
+msgstr Old""
 
 #: staff/templates/staff/staff.html:15
 msgid "Руководитель"
@@ -446,7 +442,7 @@ msgstr "CMC of physical culture and NVP"
 
 #: venv/lib/python3.10/site-packages/ckeditor_uploader/forms.py:6
 msgid "Search files"
-msgstr ""
+msgstr "Search files"
 
 #: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:5
 msgid "Select an image to embed"
@@ -499,101 +495,104 @@ msgstr "&lsaquo; Prev"
 
 #: venv/lib/python3.10/site-packages/django/contrib/messages/apps.py:15
 msgid "Messages"
-msgstr ""
+msgstr "Messages"
 
 #: venv/lib/python3.10/site-packages/django/contrib/sitemaps/apps.py:8
 msgid "Site Maps"
-msgstr ""
+msgstr "Site Maps"
 
 #: venv/lib/python3.10/site-packages/django/contrib/staticfiles/apps.py:9
 msgid "Static Files"
-msgstr ""
+msgstr "Static Files"
 
 #: venv/lib/python3.10/site-packages/django/contrib/syndication/apps.py:7
 msgid "Syndication"
-msgstr ""
+msgstr "Syndication"
 
 #. Translators: String used to replace omitted page numbers in elided page
 #. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
 #: venv/lib/python3.10/site-packages/django/core/paginator.py:30
 msgid "…"
-msgstr ""
+msgstr "..."
 
 #: venv/lib/python3.10/site-packages/django/core/paginator.py:50
 msgid "That page number is not an integer"
-msgstr ""
+msgstr "That page number is not an integer"
 
 #: venv/lib/python3.10/site-packages/django/core/paginator.py:52
 msgid "That page number is less than 1"
-msgstr ""
+msgstr "That page number is less than 1"
 
 #: venv/lib/python3.10/site-packages/django/core/paginator.py:54
 msgid "That page contains no results"
-msgstr ""
+msgstr "That page contains no results"
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:22
 msgid "Enter a valid value."
-msgstr ""
+msgstr "Enter a valid value."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:104
 #: venv/lib/python3.10/site-packages/django/forms/fields.py:752
 msgid "Enter a valid URL."
-msgstr ""
+msgstr "Enter a valid URL."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:165
 msgid "Enter a valid integer."
-msgstr ""
+msgstr "Enter a valid integer."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:176
 msgid "Enter a valid email address."
-msgstr ""
+msgstr "Enter a valid email address."
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
 #: venv/lib/python3.10/site-packages/django/core/validators.py:259
 msgid ""
 "Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
 msgstr ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:267
 msgid ""
 "Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
 "hyphens."
 msgstr ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:279
 #: venv/lib/python3.10/site-packages/django/core/validators.py:287
 #: venv/lib/python3.10/site-packages/django/core/validators.py:316
 msgid "Enter a valid IPv4 address."
-msgstr ""
+msgstr "Enter a valid IPv4 address."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:296
 #: venv/lib/python3.10/site-packages/django/core/validators.py:317
 msgid "Enter a valid IPv6 address."
-msgstr ""
+msgstr "Enter a valid IPv6 address."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:308
 #: venv/lib/python3.10/site-packages/django/core/validators.py:315
 msgid "Enter a valid IPv4 or IPv6 address."
-msgstr ""
+msgstr "Enter a valid IPv4 or IPv6 address."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:351
 msgid "Enter only digits separated by commas."
-msgstr ""
+msgstr "Enter only digits separated by commas."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:357
 #, python-format
 msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
-msgstr ""
+msgstr "Ensure this value is %(limit_value)s (it is %(show_value)s)."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:392
 #, python-format
 msgid "Ensure this value is less than or equal to %(limit_value)s."
-msgstr ""
+msgstr "Ensure this value is less than or equal to %(limit_value)s."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:401
 #, python-format
 msgid "Ensure this value is greater than or equal to %(limit_value)s."
-msgstr ""
+msgstr "Ensure this value is greater than or equal to %(limit_value)s."
 
 #: venv/lib/python3.10/site-packages/django/core/validators.py:410
 #, python-format
@@ -905,10 +904,8 @@ msgid "File"
 msgstr ""
 
 #: venv/lib/python3.10/site-packages/django/db/models/fields/files.py:393
-#, fuzzy
-#| msgid "Images in: "
 msgid "Image"
-msgstr "Images in: "
+msgstr ""
 
 #: venv/lib/python3.10/site-packages/django/db/models/fields/json.py:26
 msgid "A JSON object"
@@ -1400,42 +1397,42 @@ msgstr ""
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:61
 msgctxt "abbrev. month"
 msgid "Sept."
-msgstr ""
+msgstr "Sept."
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:62
 msgctxt "abbrev. month"
 msgid "Oct."
-msgstr ""
+msgstr "Oct."
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:63
 msgctxt "abbrev. month"
 msgid "Nov."
-msgstr ""
+msgstr "Nov."
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:64
 msgctxt "abbrev. month"
 msgid "Dec."
-msgstr ""
+msgstr "Dec."
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:67
 msgctxt "alt. month"
 msgid "January"
-msgstr ""
+msgstr "January"
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:68
 msgctxt "alt. month"
 msgid "February"
-msgstr ""
+msgstr "February"
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:69
 msgctxt "alt. month"
 msgid "March"
-msgstr ""
+msgstr ""March
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:70
 msgctxt "alt. month"
 msgid "April"
-msgstr ""
+msgstr "April"
 
 #: venv/lib/python3.10/site-packages/django/utils/dates.py:71
 msgctxt "alt. month"
@@ -1664,7 +1661,7 @@ msgstr ""
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:7
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:220
 msgid "The install worked successfully! Congratulations!"
-msgstr "The install worked successfully! Congratulations!"
+msgstr ""
 
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:206
 #, python-format
@@ -1688,24 +1685,24 @@ msgstr ""
 
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:230
 msgid "Topics, references, &amp; how-to’s"
-msgstr ""
+msgstr "Topics, references, &amp; how-to’s"
 
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:238
 msgid "Tutorial: A Polling App"
-msgstr ""
+msgstr "Tutorial: A Polling App"
 
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:239
 msgid "Get started with Django"
-msgstr ""
+msgstr "Get started with Django"
 
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:247
 msgid "Django Community"
-msgstr ""
+msgstr "Django Community"
 
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:248
 msgid "Connect, get help, or contribute"
-msgstr ""
+msgstr "Connect, get help, or contribute"
 
 #: venv/lib/python3.10/site-packages/modeltranslation/widgets.py:24
 msgid "None"
-msgstr ""
+msgstr "None"

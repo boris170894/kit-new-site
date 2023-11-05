@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
 ]
 
 # TODO: python3 manage.py runserver --insecure
+# TODO: python manage.py makemessages -l en
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -146,6 +148,12 @@ LANGUAGES = [
     ('ru', _('Russia')),
     ('kk', _('Kazakh')),
     ('en', _('English')),
+]
+
+MODELTRANSLATION_LANGUAGES = ('ru', 'kk', 'en')
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
 ]
 
 # Static files (CSS, JavaScript, Images)

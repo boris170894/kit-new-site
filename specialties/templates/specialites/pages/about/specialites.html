@@ -1,6 +1,6 @@
 {% include 'main/base.html' %} 
 
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 <link rel="stylesheet" href="/static/specialities/css/about/specialites.css" />
@@ -17,7 +17,7 @@
         </div>
     </div>
     {% else %}
-    <h2>Наши Специальности</h2>
+    <h2>{% trans 'Наши Специальности' %}</h2>
     <div class="specialites">
         {% for specialite in specialites %}
             <div class="specialite">
@@ -27,7 +27,7 @@
                     <a href="{% url 'spec:special' specialite.id  %}" class="title">{{ specialite.spec_name }}</a>
                 </div>
                 <div class='specialite__bottom'>
-                    <a href="/specs/{{ specialite.id     }}">Узнать Больше </a>
+                    <a href="/specs/{{ specialite.id     }}">{% trans 'Узнать Больше' %}</a>
                 </div>
             </div>
         {% endfor %}
