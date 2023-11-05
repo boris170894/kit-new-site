@@ -109,7 +109,7 @@ class AcademicProcessScheduleModel(models.Model):
 class StudentEventModel(models.Model):
     title = models.CharField(verbose_name='Наименование', max_length=200)
     description = models.TextField(verbose_name='Описание', blank=True)
-    image = models.ImageField(verbose_name='Изображение', blank=True)
+    image = models.ImageField(verbose_name='Изображение',upload_to="upload/events", blank=True)
 
     start_date = models.DateTimeField(verbose_name='Дата начала', blank=True)
     end_date = models.DateTimeField(verbose_name='Дата конца', blank=True)

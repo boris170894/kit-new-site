@@ -614,7 +614,7 @@ nav {
 .page__achivement a {
     font-weight: bold;
     font-size: 22px;
-    
+    text-align: center;
     transition: all .3s linear;
 
 }
@@ -789,6 +789,7 @@ nav {
     }
     .page__achivement a {
         font-size: 20px;
+        text-align: center;
     }
     .page__achivement:hover img {
         box-shadow: 0 0 0 10px rgb(248, 102, 36, .3);

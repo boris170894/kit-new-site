@@ -126,7 +126,6 @@
         </div>
 
     
-    {% if achivments.length > 0 %}
     <div class="container">
 
         <!-- <div class="pre__title">
@@ -150,7 +149,6 @@
         </a>
 
     </div>
-    {% endif %}
 
     <div class="container">
 
@@ -159,7 +157,6 @@
                 Наши партнёры
             </h2>
         </div>  -->
-        {% if partners.length > 0 %}
         <div class="page__achievements">
             <span class="material-symbols-outlined page__archivements__left">
                 arrow_back_ios
@@ -167,7 +164,7 @@
             <div class="page__archievements__collection">
                 {% for partner in partners %}
                     <div class="page__achivement">
-                        <img src="/media/{{ partner.partner_logo }}" alt="{{partner.partner_name}}">
+                        <img src="/static//media/{{ partner.partner_logo }}" alt="{{partner.partner_name}}">
                         <a href="{{partner.partner_url}}" target="_blank">{{partner.partner_name}}</a>
                     </div>                    
                 {% endfor %}
@@ -176,13 +173,11 @@
                 arrow_forward_ios
             </span>
         </div>
-        {% endif %}
         
     </div>
 
 
     <div class="container">
-        {% if contacts.length > 0 %}
             <div class="page__contacts">
                 <div class="page__contacts__left">
                     {% for item in contacts %}
@@ -206,7 +201,6 @@
                     data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyJUQwJTlGJUQwJUIwJUQwJUIyJUQwJUJCJUQwJUJFJUQwJUI0JUQwJUIwJUQxJTgwJTJDJTIwJUQxJTgzJUQwJUJCLiUyMCVEMCU5QiVEMCVCNSVEMSU4MCVEMCVCQyVEMCVCRSVEMCVCRCVEMSU4MiVEMCVCRSVEMCVCMiVEMCVCMCUyMDkzJTJDJTIwJUQwJUJBJUQwJUJFJUQwJUJCJUQwJUJCJUQwJUI1JUQwJUI0JUQwJUI2JTIwJUQwJUI4JUQwJUJEJUQxJTg0JUQwJUJFJUQxJTgwJUQwJUJDJUQwJUIwJUQxJTg2JUQwJUI4JUQwJUJFJUQwJUJEJUQwJUJEJUQxJThCJUQxJTg1JTIwJUQxJTgyJUQwJUI1JUQxJTg1JUQwJUJEJUQwJUJFJUQwJUJCJUQwJUJFJUQwJUIzJUQwJUI4JUQwJUI5JTIyJTJDJTIyem9vbSUyMiUzQTE3JTJDJTIydHlwZUlkJTIyJTNBJTIyc2F0ZWxsaXRlJTIyJTJDJTIybGFuZyUyMiUzQW51bGwlMkMlMjJhcGlLZXklMjIlM0FudWxsJTJDJTIybWFya2VycyUyMiUzQSU1QiU1RCU3RA=="></iframe>
                 </div>
             </div>
-            {% endif  %}
     </div>
 
 </div>
