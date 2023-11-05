@@ -1,0 +1,28 @@
+{% include 'main/base.html' %} 
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/main/css/error.css" />
+
+<div class="page">
+    <div class="error">
+        {% if error_code == 404  %}
+            <img src="/static/main/img/errors/404.png" alt="404 error">
+            <h3>Страница не найдена</h3>
+        {% elif error_code == 403 %}
+            <img src="/static/main/img/errors/403.png" alt="403 error">
+            <h3>У вас нет доступа к этой странице</h3>
+        {%  elif error_code == 401 %}
+            <img src="/static/main/img/errors/401.png" alt="401 error">
+            <h3>Пользователю необходима аутентификация</h3>
+        {%  elif error_code == 400 %}
+            <img src="/static/main/img/errors/500.png" alt="400 error">
+            <h3>Запрос был некорректным</h3>
+        {%  elif error_code == 500 %}
+            <img src="/static/main/img/errors/500.png" alt="500 error">
+            <h3></h3>
+        {% endif %}
+        <a href="/" class="link">Перейти на главную страницу</a>
+    </div>
+</div>
+{% endblock content %}

@@ -12,7 +12,7 @@
             <div class="page__item">
                 <h3>{{ symbol.name }}</h3>
                 {% if symbol.image  %}
-                    <img src="/media/{{ symbol.image }}" alt="{{ symbol.name }}">
+                    <img src="/static/media/{{ symbol.image }}" alt="{{ symbol.name }}">
                 {% endif  %}
                 {% autoescape off %}
                     <p>{{ symbol.desc }}</p>

@@ -50,6 +50,7 @@
 .link {
     font-size: calc((1vw + 1vh) * 1);
     margin: 10px;
+    font-weight: 600;
 }
 .link::after {
     display: block;

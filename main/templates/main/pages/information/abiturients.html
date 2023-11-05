@@ -15,7 +15,7 @@
         {% for specialite in specialites %}
             <div class="specialite">
                 <div class="specialite__top">
-                    <img src="{{ specialite.spec_img.url }}" alt="specialites" />
+                    <img src="/static/{{ specialite.spec_img.url }}" alt="specialites" />
 
                     <a href="{% url 'spec:special' specialite.id  %}" class="title">{{ specialite.spec_name }}</a>
                 </div>

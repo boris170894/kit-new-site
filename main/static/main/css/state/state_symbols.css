@@ -29,7 +29,7 @@
     align-items: center;
     flex-direction: column;
     height: 100%;
-    gap: 10px;
+    gap: 15px;
 }
 .page__item img {
     height: 200px;

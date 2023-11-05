@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lgrf$8=_@3zf-&j-@v)ma%aw&2sz%ll)mov(&#5yp1s^-a7_0u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'staff.apps.StaffConfig',
     'specialties.apps.SpecialtiesConfig',
 ]
+
+# TODO: python3 manage.py runserver --insecure
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -143,18 +145,29 @@ MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'ru'
 LANGUAGES = [
     ('ru', _('Russia')),
     ('kk', _('Kazakh')),
+    ('en', _('English')),
 ]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
-""" STATICFILES_DIRS = [STATIC_DIR] """
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_URL = 'static/'
+# STATIC_DIR = os.path.join(BASE_DIR, 'static')
+# """ STATICFILES_DIRS = [STATIC_DIR] """
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT =  BASE_DIR / 'static/media'
+
+STATICFILES_DIRS = [
+    BASE_DIR /'static'
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

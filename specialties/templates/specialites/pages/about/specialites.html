@@ -8,7 +8,7 @@
 <div class="page">
     {% if type == 'one' %}
     <div class="spec">
-        <img src="{{ special.spec_img.url }}" alt="{{ spec.spec_img }}">
+        <img src="/static/{{ special.spec_img.url }}" alt="{{ spec.spec_img }}">
         <div class="spec__content">
             <h3>{{ special.spec_name }}</h3>
             {% autoescape off %}
@@ -22,7 +22,7 @@
         {% for specialite in specialites %}
             <div class="specialite">
                 <div class="specialite__top">
-                    <img src="{{ specialite.spec_img.url }}" alt="specialites" />
+                    <img src="/static/{{ specialite.spec_img.url }}" alt="specialites" />
 
                     <a href="{% url 'spec:special' specialite.id  %}" class="title">{{ specialite.spec_name }}</a>
                 </div>

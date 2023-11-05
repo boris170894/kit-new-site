@@ -148,7 +148,6 @@ nav .nav__right {
 
 a:active, a:hover, a:focus {
     background-color: none;
-    background-color: var(--white) !important;
 }
 
 @media screen and (max-width:600px) {

@@ -18,7 +18,7 @@
                 {% for director in directors %}
                     <div class="structure">
                         {% if director.foto %}
-                        <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
                         {% endif %}
                         <div class="structure__desc">
                             <a href="{% url 'staff:staff_one' director.slug  %}">{{ director.fio }}</a>
@@ -38,7 +38,7 @@
                 {% for director in depDirectors %}
                     <div class="structure">
                         {% if director.foto %}
-                        <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
                         {% endif %}
                         <div class="structure__desc">
                             <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
@@ -58,7 +58,7 @@
                 {% for director in depHead %}
                     <div class="structure">
                         {% if director.foto %}
-                        <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
                         {% endif %}
                         <div class="structure__desc">
                             <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
@@ -78,7 +78,7 @@
                 {% for director in cmsOB %}
                     <div class="structure">
                         {% if director.foto %}
-                        <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                        <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
                         {% endif %}
                         <div class="structure__desc">
                             <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
@@ -98,7 +98,7 @@
                 {% for director in cmsLang %}
                     <div class="structure">
                         {% if director.foto %}
-                            <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                            <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
                         {% endif %}
                         <div class="structure__desc">
                             <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
@@ -118,7 +118,7 @@
                 {% for director in cmsIT %}
                     <div class="structure">
                         {% if director.foto %}
-                            <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                            <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
                         {% endif %}
                         <div class="structure__desc">
                             <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
@@ -138,7 +138,7 @@
                 {% for director in cmsFIZ %}
                     <div class="structure">
                         {% if director.foto %}
-                            <img src="{{ director.foto.url }}" alt="{{ director.fio }}">
+                            <img src="/static/`{{ director.foto.url }}" alt="{{ director.fio }}">
                         {% endif %}
                         <div class="structure__desc">
                             <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>

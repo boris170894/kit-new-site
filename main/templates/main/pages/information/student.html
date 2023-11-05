@@ -5,21 +5,25 @@
 {% block content %}
 
 <link rel="stylesheet" href="/static/main/css/information/student.css" />
-{% comment %} {% if user_type == 'teacher' %} {% endcomment %}
+{% if user_type == 'teacher' %}
 <style>
 .activate {
-    font-weight: 800;
-    color: #202020;
+    font-weight: 800 !important;
+    color: #202020 !important;
 }
 .activate::after {
     background-color: #202020 !important;
 }
 .activate:hover {
-    color: #202020;
 }
-     
+ .link:hover {
+    color: #0a0a0a !important;
+  }
+  .link:hover:after {
+    background-color: #0a0a0a !important;
+  }
 </style>
-{% comment %} {% endif %} {% endcomment %}
+{% endif %}
 
 <div class="page">
         
@@ -80,6 +84,7 @@
     <!-- Контент -->
     <div class="page__content">
         <h2>{{ type }}</h2>
+        
 
         {% if type == "События" %}
         
@@ -89,7 +94,7 @@
                     {% for event in events %}
                         <div class="event">
                             <div class="event__top">
-                                <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                                <img src="/static/{{ event.image.url }}" alt="{{ event.title }}">
                                 <span class="event__top__data">{{ event.start_date|date:"F j" }} - {{ event.end_date|date:"F j" }} </span>
                             </div>
                             <div class="event__bottom">
@@ -130,11 +135,11 @@
                 <div class="call__schedule__right">
                     <table border="1">
                         <tr><td>1 пара</td><td> {{ docs.call_schedule_1_pair }}</td></tr>
-                        <tr style="background-color: #f867241f;"><td>2 пара</td><td> {{ docs.call_schedule_2_pair }}</td></tr>
+                        <tr style="{% if user_type == 'teacher' %}background-color: rgb(20,20,20,.1);{% else %}background-color: #f867241f;{% endif %}"><td>2 пара</td><td> {{ docs.call_schedule_2_pair }}</td></tr>
                         <tr><td>3 пара</td><td> {{ docs.call_schedule_3_pair }}</td></tr>
-                        <tr style="background-color: #f867241f;"><td>4 пара</td><td> {{ docs.call_schedule_4_pair }}</td></tr>
+                        <tr style="{% if user_type == 'teacher' %}background-color: rgb(20,20,20,.1);{% else %}background-color: #f867241f;{% endif %}"><td>4 пара</td><td> {{ docs.call_schedule_4_pair }}</td></tr>
                         <tr><td>5 пара</td><td> {{ docs.call_schedule_5_pair }}</td></tr>
-                        <tr style="background-color: #f867241f;"><td>6 пара</td><td> {{ docs.call_schedule_6_pair }}</td></tr>
+                        <tr style="{% if user_type == 'teacher' %}background-color: rgb(20,20,20,.1);{% else %}background-color: #f867241f;{% endif %}"><td>6 пара</td><td> {{ docs.call_schedule_6_pair }}</td></tr>
                         <tr><td>7 пара</td><td> {{ docs.call_schedule_7_pair }}</td></tr>
                       </table>
                 </div>
@@ -147,7 +152,7 @@
         {% else  %}
             <div class="event__desc">
                 <div class="event__desc__right">
-                    <img src="{{ event.image.url }}" alt="{{ event.image.name }}" />
+                    <img src="/static/{{ event.image.url }}" alt="{{ event.image.name }}" />
                     <div class="event__desc__date">
                         <div>
                             <b>Дата Начала:</b> <span>{{ event.start_date }}</span>
