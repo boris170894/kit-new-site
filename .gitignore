@@ -9,6 +9,8 @@ __pycache__/
 venv
 venv/
 
+/staticfiles
+staticfiles
 # Distribution / packaging
 .Python
 build/

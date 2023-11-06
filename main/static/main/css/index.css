@@ -12,7 +12,7 @@ body {
 }
 .container {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1800px;
     padding: 4vh 4vw;
 }
 nav {
@@ -631,7 +631,7 @@ nav {
     justify-content: space-around;
     align-items: start;
     width: 100%;
-    gap: 10px;
+    gap: 8vw;
     margin-top: 10vh;
     border: 2px solid rgb(20,20,20,.1);
     border-radius: 10px;
