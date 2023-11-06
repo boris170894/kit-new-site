@@ -65,7 +65,7 @@ nav .nav__right {
     transition: all .3s linear;
 }
 .nav__right a {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     color: rgb(47, 47, 47);
     transition: all .3s linear;
