@@ -1,0 +1,34 @@
+@import './variables.css';
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 0% 10% 5%;
+
+}
+.error  img {
+    width: calc((1vw + 1vh)  * 30);
+
+}
+.error h3 {
+    margin-bottom: 10px;
+    font-size: calc((1vw + 1vh) * 2);
+}
+.error a {
+    color: var(--orange);
+    background-color: transparent;
+}
+.error a:hover {
+    background-color: transparent;
+    border-bottom: 2px solid var(--orange);
+}

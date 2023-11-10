@@ -16,14 +16,17 @@ from specialties.models import SpecInfoModel
 
 """ Главная страница  """
 def index(request):
+    last_news = achivments = last_one_news = []
     public__news_count = NewsModel.objects.filter(news_is_published = True).count()
-    last_news = NewsModel.objects.filter(news_is_published = True).order_by('news_create_date')[public__news_count-4:public__news_count-1]
-    achivments = NewsModel.objects.filter(news_is_published = True, news_is_achivment = True).order_by('-news_create_date')[:3]
-    
+
     contacts = CollegeContactModel.objects.all()
     partners = CollegePartnersModel.objects.all()
-    
-    last_one_news = NewsModel.objects.filter(news_is_published = True).order_by('news_create_date')[public__news_count-1]
+
+    if public__news_count > 3:
+        last_news = NewsModel.objects.filter(news_is_published = True).order_by('news_create_date')[public__news_count-4:public__news_count-1]        
+        last_one_news = NewsModel.objects.filter(news_is_published = True).order_by('news_create_date')[public__news_count-1]
+
+    achivments = NewsModel.objects.filter(news_is_published = True, news_is_achivment = True).order_by('-news_create_date')[:3]
 
     context = {
         'last_news': last_news,
@@ -32,6 +35,7 @@ def index(request):
         'achivments' : achivments,
         
         'last_one_news': last_one_news,
+        'public__news_count': public__news_count,
     }
     return render(request, 'main/pages/index.html', context)
 

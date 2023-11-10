@@ -13,6 +13,8 @@ body {
     font-size: 18px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     overflow-x: hidden;
+    position: relative;
+    padding-bottom: 10vh;
 }
 a {
     color: black;
@@ -65,7 +67,7 @@ nav .nav__right {
     transition: all .3s linear;
 }
 .nav__right a {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     color: rgb(47, 47, 47);
     transition: all .3s linear;
@@ -148,7 +150,35 @@ nav .nav__right {
 
 a:active, a:hover, a:focus {
     background-color: none;
-    background-color: var(--white) !important;
+}
+.change__language {
+    background-color: transparent;
+    padding: 4px 4px;
+    border: 2px solid rgb(47, 47, 47);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(47, 47, 47);
+    transition: all .3s linear;
+    cursor: pointer;
+}
+.change__language:hover, .change__language:focus {
+    border-color: #f86624;
+    color: #f86624;
+}
+.change__language option {
+    background-color: white;
+    color: #202020;
+    padding: 4px 6px; 
+}
+.change__language option:hover {
+    background-color: #f86624;
+}
+.change__language option:focus {
+    background-color: #f86624;
+}
+.change__language option:active {
+    background-color: #f86624;
 }
 
 @media screen and (max-width:600px) {
@@ -298,3 +328,9 @@ a:active, a:hover, a:focus {
     transform: rotate(45deg);
     border-radius: 20px;
 } */
+
+footer {
+    background-color: #202020;
+    position: absolute;
+    bottom: 0;
+}

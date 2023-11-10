@@ -1,5 +1,5 @@
 {% extends 'main/base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 <link rel="stylesheet" href="/static/css/news_one.css" />
@@ -20,7 +20,7 @@
         {% endautoescape %}
       </div>
       <a class='btn' href="{% url 'news_list' %}">
-        Показать все новости
+        {% trans 'Показать все новости' %}
         <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="5" y="5" width="90" height="90" rx="5" stroke="white" stroke-width="10"/>
           <rect x="5" y="5" width="90" height="90" rx="5" stroke="white" stroke-width="10"/>
@@ -36,7 +36,7 @@
       </a>
     </div>
     <div class="page__desk__right">
-      <img src="{{ news.news_img.url }}" alt="{{ news.news_title }}">
+      <img src="/static/{{ news.news_img.url }}" alt="{{ news.news_title }}">
     </div>
   </div>
  </div>

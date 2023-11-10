@@ -91,7 +91,7 @@
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
                         <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000"
                             data-image-height="1333"
-                            src="{{item.news_img.url}}">
+                            src="/static/{{item.news_img}}">
                         <h3 class="u-text u-text-default u-text-2">{{item.news_title}}</h3>
                         <p class="u-text u-text-3">{{item.news_content | slice:":50" | striptags}}</p>
                         <a href="{{item.get_absolute_url}}"
@@ -121,7 +121,7 @@
                     <div class="u-container-layout u-similar-container u-container-layout-1">
                         <img class="u-expanded-width u-image u-image-default u-image-1" alt="" data-image-width="2836"
                             data-image-height="1875"
-                            src="{{item.news_img.url}}">
+                            src="/static/{{item.news_img}}">
                         <a href="{{item.get_absolute_url}}"><h4 class="u-text u-text-2">{{item.news_title}}</h4></a>
                         <p class="u-text u-text-3">{{item.news_content | slice:":50" | striptags}}</p>
                     </div>
@@ -181,7 +181,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                         <a href="{{item.partner_url}}" target="_blank">
                         <img alt="" class="u-image u-image-contain u-image-default u-image-1" data-image-width="500"
                             data-image-height="135"
-                            src="{{item.partner_logo.url}}">
+                            src="/static/{{item.partner_logo}}">
                         </a>
                     </div>
                 </div>

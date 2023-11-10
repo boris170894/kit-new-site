@@ -1,25 +1,29 @@
 {% include 'main/base.html' %} 
 
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 
 <link rel="stylesheet" href="/static/main/css/information/student.css" />
-{% comment %} {% if user_type == 'teacher' %} {% endcomment %}
+{% if user_type == 'teacher' %}
 <style>
 .activate {
-    font-weight: 800;
-    color: #202020;
+    font-weight: 800 !important;
+    color: #202020 !important;
 }
 .activate::after {
     background-color: #202020 !important;
 }
 .activate:hover {
-    color: #202020;
 }
-     
+ .link:hover {
+    color: #0a0a0a !important;
+  }
+  .link:hover:after {
+    background-color: #0a0a0a !important;
+  }
 </style>
-{% comment %} {% endif %} {% endcomment %}
+{% endif %}
 
 <div class="page">
         
@@ -47,7 +51,7 @@
             {% if type == 'Расписание пар и звонков' %} 
                 activate
             {% endif %} 
-            ">Расписание пар и звонков</a>
+            ">{% trans 'Расписание пар и звонков' %}</a>
         <a {% if user_type == 'teacher' %}
                 href="{% url 'academic_process_schedule_teachers' %}"
             {% else %}
@@ -56,14 +60,14 @@
             class="link
             {% if type == 'График учебного процесса' %} 
                 activate
-            {% endif %}">График учебного процесса </a>
+            {% endif %}">{% trans 'График учебного процесса' %} </a>
         {% if user_type == 'student' %}
             <a href="{% url 'student_events'  %}" 
             class="link
             {% if type == 'События' %} 
                 activate
             {% endif %}"
-            >События</a>
+            >{%  trans 'События' %}</a>
         {% endif %}
         <a {% if user_type == 'teacher' %}
                 href="{% url 'guidelines_teachers' %}" 
@@ -74,12 +78,23 @@
         {% if type == 'Методические рекомендации' %} 
             activate
         {% endif %}"
-        >Методические рекомендации</a>
+        >{% trans 'Методические рекомендации' %}</a>
     </div>
 
     <!-- Контент -->
     <div class="page__content">
-        <h2>{{ type }}</h2>
+        <h2>
+            {% if type == 'Расписание пар и звонков' %}
+                {% trans 'Расписание пар и звонков' %}
+            {% elif type == 'График учебного процесса' %}
+                {% trans 'График учебного процесса' %}
+            {% elif type ==  'События' %}
+                {% trans 'События' %}
+            {% elif type == 'Методические рекомендации' %}
+                {% trans 'Методические рекомендации' %}
+            {% endif %}
+        </h2>
+        
 
         {% if type == "События" %}
         
@@ -89,12 +104,12 @@
                     {% for event in events %}
                         <div class="event">
                             <div class="event__top">
-                                <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                                <img src="/static/{{ event.image.url }}" alt="{{ event.title }}">
                                 <span class="event__top__data">{{ event.start_date|date:"F j" }} - {{ event.end_date|date:"F j" }} </span>
                             </div>
                             <div class="event__bottom">
                                 <a class="event__bottom__link" href="{% url 'student_event_one' event.id %}">{{ event.title }}</a>
-                                <a class="learn__more" href="{% url 'student_event_one' event.id %}">Узнать Больше</a>
+                                <a class="learn__more" href="{% url 'student_event_one' event.id %}">{% trans 'Узнать Больше' %}</a>
                             </div>
                         </div>
                     {% endfor %}
@@ -109,33 +124,32 @@
             class="page__doc"
         ></iframe>
 
-        <a href="{{ docs.file.url }}" class='download' download>Скачать учебного процесса</a>
+        <a href="{{ docs.file.url }}" class='download' download>{% trans 'Скачать учебного процесса' %}</a>
         
         {% elif type == "Расписание пар и звонков"  %}
-        
-            <!-- Расписание пар и звонков -->
+ 
             <div class="call__schedule">
                 <div class="call__schedule__left">
                     <div class="call__schedule__left__menu">
-                        <a class="link show__link link activate">1 курс</a>
-                        <a class="link show__link">2 курс</a>
-                        <a class="link show__link">3 курс</a>
-                        <a class="link show__link">4 курс</a>
+                        <a class="link show__link link activate">{% trans '1 курс' %}</a>
+                        <a class="link show__link">{% trans '2 курс' %}</a>
+                        <a class="link show__link">{% trans '3 курс' %}</a>
+                        <a class="link show__link">{% trans '4 курс' %}</a>
                     </div>
-                    <a href="{{ docs.course_1_schedule.url }}" class='download' download>Скачать расписание 1 курса</a>
-                    <a href="{{ docs.course_2_schedule.url }}" style="display: none;" class='download' download>Скачать расписание 2 курса</a>
-                    <a href="{{ docs.course_3_schedule.url }}" style="display: none;" class='download' download>Скачать расписание 3 курса</a>
-                    <a href="{{ docs.course_4_schedule.url }}" style="display: none;" class='download' download>Скачать расписание 4 курса</a>
+                    <a href="{{ docs.course_1_schedule.url }}" class='download' download>{% trans 'Скачать расписание 1 курса' %}</a>
+                    <a href="{{ docs.course_2_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 2 курса' %}</a>
+                    <a href="{{ docs.course_3_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 3 курса' %}</a>
+                    <a href="{{ docs.course_4_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 4 курса' %}</a>
                 </div>
                 <div class="call__schedule__right">
                     <table border="1">
-                        <tr><td>1 пара</td><td> {{ docs.call_schedule_1_pair }}</td></tr>
-                        <tr style="background-color: #f867241f;"><td>2 пара</td><td> {{ docs.call_schedule_2_pair }}</td></tr>
-                        <tr><td>3 пара</td><td> {{ docs.call_schedule_3_pair }}</td></tr>
-                        <tr style="background-color: #f867241f;"><td>4 пара</td><td> {{ docs.call_schedule_4_pair }}</td></tr>
-                        <tr><td>5 пара</td><td> {{ docs.call_schedule_5_pair }}</td></tr>
-                        <tr style="background-color: #f867241f;"><td>6 пара</td><td> {{ docs.call_schedule_6_pair }}</td></tr>
-                        <tr><td>7 пара</td><td> {{ docs.call_schedule_7_pair }}</td></tr>
+                        <tr><td>{% trans '1 пара' %}</td><td> {{ docs.call_schedule_1_pair }}</td></tr>
+                        <tr style="{% if user_type == 'teacher' %}background-color: rgb(20,20,20,.1);{% else %}background-color: #f867241f;{% endif %}"><td>{% trans '2 пара' %}</td><td> {{ docs.call_schedule_2_pair }}</td></tr>
+                        <tr><td>{% trans '3 пара' %}</td><td> {{ docs.call_schedule_3_pair }}</td></tr>
+                        <tr style="{% if user_type == 'teacher' %}background-color: rgb(20,20,20,.1);{% else %}background-color: #f867241f;{% endif %}"><td>{% trans '4 пара' %}</td><td> {{ docs.call_schedule_4_pair }}</td></tr>
+                        <tr><td>{% trans '5 пара' %}</td><td> {{ docs.call_schedule_5_pair }}</td></tr>
+                        <tr style="{% if user_type == 'teacher' %}background-color: rgb(20,20,20,.1);{% else %}background-color: #f867241f;{% endif %}"><td>{% trans '6 пара' %}</td><td> {{ docs.call_schedule_6_pair }}</td></tr>
+                        <tr><td>{% trans '7 пара' %}</td><td> {{ docs.call_schedule_7_pair }}</td></tr>
                       </table>
                 </div>
             </div>
@@ -147,13 +161,13 @@
         {% else  %}
             <div class="event__desc">
                 <div class="event__desc__right">
-                    <img src="{{ event.image.url }}" alt="{{ event.image.name }}" />
+                    <img src="/static/{{ event.image.url }}" alt="{{ event.image.name }}" />
                     <div class="event__desc__date">
                         <div>
-                            <b>Дата Начала:</b> <span>{{ event.start_date }}</span>
+                            <b>{% trans 'Дата Начала' %}:</b> <span>{{ event.start_date }}</span>
                         </div>
                         <div class="">
-                            <b>Дата Конца:</b> <span>{{ event.end_date }}</span>
+                            <b>{% trans 'Дата Конца' %}:</b> <span>{{ event.end_date }}</span>
                         </div>
                     </div>   
                 </div>

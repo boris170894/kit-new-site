@@ -12,7 +12,7 @@ body {
 }
 .container {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1800px;
     padding: 4vh 4vw;
 }
 nav {
@@ -24,6 +24,10 @@ nav {
 }
 .nav__right__menu a {
     color: #262626;
+}
+.change__language {
+    color: white;
+    border: 2px solid white;
 }
 
 /* intro */
@@ -610,7 +614,7 @@ nav {
 .page__achivement a {
     font-weight: bold;
     font-size: 22px;
-    
+    text-align: center;
     transition: all .3s linear;
 
 }
@@ -627,7 +631,7 @@ nav {
     justify-content: space-around;
     align-items: start;
     width: 100%;
-    gap: 10px;
+    gap: 8vw;
     margin-top: 10vh;
     border: 2px solid rgb(20,20,20,.1);
     border-radius: 10px;
@@ -785,6 +789,7 @@ nav {
     }
     .page__achivement a {
         font-size: 20px;
+        text-align: center;
     }
     .page__achivement:hover img {
         box-shadow: 0 0 0 10px rgb(248, 102, 36, .3);

@@ -8,7 +8,7 @@
 <div class="page">
     <div class="page__about">
         {% if person.foto %}
-            <img src="{{ person.foto.url }}" alt="{{ person.fio }}">
+            <img src="/static/{{ person.foto.url }}" alt="{{ person.fio }}">
         {% endif %}
        <div class="page__about__item">
             <h3>{{ person.fio }}</h3>

@@ -1,6 +1,6 @@
 {% include 'main/base.html' %} 
 
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 <link rel="stylesheet" href="/static/main/css/index.css" />
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="intro__info">
-        <span>Добро пожаловать в</span>
+        <span>{% trans 'Добро пожаловать в' %}</span>          <!--  ПЕРЕВОД -->
         <h2>COLLEGE OF INFORMATION TECHNOLOGIES</h2>
     </div>
     <div class="intro__menu"></div>
@@ -47,13 +47,13 @@
                 Новости
             </h2>
         </div>  -->
-
+        {% if public__news_count  > 3 %}
         <div class="page__news">
             <div class="page__news__left">
 
                 {%  if last_one_news %}
                 <div class="news">
-                    <img src="{{ last_one_news.news_img.url }}" alt="">
+                    <img src="/static/media/{{ last_one_news.news_img }}" alt="">
                     <div class="news__content">
                         <span>{{ last_one_news.news_create_date|date:"F j" }}</span>
                         <a href="{% url 'show_one_news' last_one_news.slug %}">{{ last_one_news.news_title }}</a>
@@ -66,7 +66,7 @@
                 
                 {% for news in last_news %}
                     <div class="news news__little">
-                        <img src="{{ news.news_img.url }}" alt="">
+                        <img src="/static/media/{{ news.news_img }}" alt="">
                         <div class="news__content">
                             <span>{{ news.news_create_date|date:"F j" }}</span>
                             <a href="{% url 'show_one_news' news.slug %}">{{ news.news_title }}</a>
@@ -77,13 +77,12 @@
                     <div></div>
                     <div class="news__content">
                         <span></span>
-                        <a href="{% url 'news_list' %}">Читать все новости 
-                            
-                        </a>
+                        <a href="{% url 'news_list' %}">{% trans 'Читать все новости ' %}</a>
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>  
+        {% endif %}  
     </div>
 
    <!-- !  About -->
@@ -102,7 +101,7 @@
                 <div class="page__about__right">
                     <h2>45</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi unde blanditiis, exercitationem laudantium tempore qui culpa voluptas quo accusantium quod consequuntur delectus architecto? Optio eius maiores neque animi tenetur.</p>
-                    <a href="">Поступить к нам 
+                    <a href="">{% trans 'Поступить к нам ' %}
                         <span class="material-symbols-outlined">
                         trending_flat
                         </span>
@@ -138,15 +137,15 @@
         <div class="page__parthers">
             {% for achivment in achivments %}
                 <div class="parthner">
-                    <img src="{{ achivment.news_img.url }}" alt="{{ achivment.news_img }}">
+                    <img src="/static/{{ achivment.news_img.url }}" alt="{{ achivment.news_img }}">
                     <a href="{% url 'show_one_news' achivment.slug %}">{{achivment.news_title}}</a>
-                    <a href="{% url 'show_one_news' achivment.slug %}">Читать</a>
+                    <a href="{% url 'show_one_news' achivment.slug %}">{% trans 'Читать' %}</a>
                 </div>
             {% endfor %}
         </div>
 
         <a href="{% url 'news_list' %}" class="read__more">
-            Смотреть все
+            {% trans 'Смотреть все' %}
         </a>
 
     </div>
@@ -158,7 +157,6 @@
                 Наши партнёры
             </h2>
         </div>  -->
-
         <div class="page__achievements">
             <span class="material-symbols-outlined page__archivements__left">
                 arrow_back_ios
@@ -166,7 +164,7 @@
             <div class="page__archievements__collection">
                 {% for partner in partners %}
                     <div class="page__achivement">
-                        <img src="/media/{{ partner.partner_logo }}" alt="{{partner.partner_name}}">
+                        <img src="/static//media/{{ partner.partner_logo }}" alt="{{partner.partner_name}}">
                         <a href="{{partner.partner_url}}" target="_blank">{{partner.partner_name}}</a>
                     </div>                    
                 {% endfor %}
@@ -175,34 +173,34 @@
                 arrow_forward_ios
             </span>
         </div>
-
+        
     </div>
 
 
     <div class="container">
-        <div class="page__contacts">
-            <div class="page__contacts__left">
-                {% for item in contacts %}
-                    <div class="page__contact">
-                        <h3>Колледж информационных технологий</h3>
-                        <p><b>Адрес:</b> {{item.addr}}</p>
-                        <p><b>Приёмная:</b> {{item.tel}}<br>
-                        </p>
-                        <p><b>E-mail:</b> {{item.e_mail}}<br>
-                        </p>
-                        <p><b>Приёмная комиссия:</b> {{item.priem_com}}<br>
-                        </p>
-                        <p><b>Whatsapp:</b> {{item.wats}}<br>
-                        </p>
-                    </div>
-                    {% endfor %}
+            <div class="page__contacts">
+                <div class="page__contacts__left">
+                    {% for item in contacts %}
+                        <div class="page__contact">
+                            <h3>{% trans 'Колледж информационных технологий' %}</h3>
+                            <p><b>{% trans 'Адрес' %}:</b> {{item.addr}}</p>
+                            <p><b>{% trans 'Приёмная' %}:</b> {{item.tel}}<br>
+                            </p>
+                            <p><b>E-mail:</b> {{item.e_mail}}<br>
+                            </p>
+                            <p><b>{% trans 'Приёмная комиссия' %}:</b> {{item.priem_com}}<br>
+                            </p>
+                            <p><b>Whatsapp:</b> {{item.wats}}<br>
+                            </p>
+                        </div>
+                        {% endfor %}
+                </div>
+                <div class="page__contacts__right">
+                    <iframe
+                    src="https://maps.google.com/maps?output=embed&amp;q=%D0%9F%D0%B0%D0%B2%D0%BB%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%9B%D0%B5%D1%80%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B0%2093%2C%20%D0%BA%D0%BE%D0%BB%D0%BB%D0%B5%D0%B4%D0%B6%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D1%85%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9&amp;z=17&amp;t=k"
+                    data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyJUQwJTlGJUQwJUIwJUQwJUIyJUQwJUJCJUQwJUJFJUQwJUI0JUQwJUIwJUQxJTgwJTJDJTIwJUQxJTgzJUQwJUJCLiUyMCVEMCU5QiVEMCVCNSVEMSU4MCVEMCVCQyVEMCVCRSVEMCVCRCVEMSU4MiVEMCVCRSVEMCVCMiVEMCVCMCUyMDkzJTJDJTIwJUQwJUJBJUQwJUJFJUQwJUJCJUQwJUJCJUQwJUI1JUQwJUI0JUQwJUI2JTIwJUQwJUI4JUQwJUJEJUQxJTg0JUQwJUJFJUQxJTgwJUQwJUJDJUQwJUIwJUQxJTg2JUQwJUI4JUQwJUJFJUQwJUJEJUQwJUJEJUQxJThCJUQxJTg1JTIwJUQxJTgyJUQwJUI1JUQxJTg1JUQwJUJEJUQwJUJFJUQwJUJCJUQwJUJFJUQwJUIzJUQwJUI4JUQwJUI5JTIyJTJDJTIyem9vbSUyMiUzQTE3JTJDJTIydHlwZUlkJTIyJTNBJTIyc2F0ZWxsaXRlJTIyJTJDJTIybGFuZyUyMiUzQW51bGwlMkMlMjJhcGlLZXklMjIlM0FudWxsJTJDJTIybWFya2VycyUyMiUzQSU1QiU1RCU3RA=="></iframe>
+                </div>
             </div>
-            <div class="page__contacts__right">
-                <iframe
-                src="https://maps.google.com/maps?output=embed&amp;q=%D0%9F%D0%B0%D0%B2%D0%BB%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%9B%D0%B5%D1%80%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B0%2093%2C%20%D0%BA%D0%BE%D0%BB%D0%BB%D0%B5%D0%B4%D0%B6%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D1%85%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9&amp;z=17&amp;t=k"
-                data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyJUQwJTlGJUQwJUIwJUQwJUIyJUQwJUJCJUQwJUJFJUQwJUI0JUQwJUIwJUQxJTgwJTJDJTIwJUQxJTgzJUQwJUJCLiUyMCVEMCU5QiVEMCVCNSVEMSU4MCVEMCVCQyVEMCVCRSVEMCVCRCVEMSU4MiVEMCVCRSVEMCVCMiVEMCVCMCUyMDkzJTJDJTIwJUQwJUJBJUQwJUJFJUQwJUJCJUQwJUJCJUQwJUI1JUQwJUI0JUQwJUI2JTIwJUQwJUI4JUQwJUJEJUQxJTg0JUQwJUJFJUQxJTgwJUQwJUJDJUQwJUIwJUQxJTg2JUQwJUI4JUQwJUJFJUQwJUJEJUQwJUJEJUQxJThCJUQxJTg1JTIwJUQxJTgyJUQwJUI1JUQxJTg1JUQwJUJEJUQwJUJFJUQwJUJCJUQwJUJFJUQwJUIzJUQwJUI4JUQwJUI5JTIyJTJDJTIyem9vbSUyMiUzQTE3JTJDJTIydHlwZUlkJTIyJTNBJTIyc2F0ZWxsaXRlJTIyJTJDJTIybGFuZyUyMiUzQW51bGwlMkMlMjJhcGlLZXklMjIlM0FudWxsJTJDJTIybWFya2VycyUyMiUzQSU1QiU1RCU3RA=="></iframe>
-            </div>
-        </div>
     </div>
 
 </div>

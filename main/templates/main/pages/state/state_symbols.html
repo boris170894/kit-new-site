@@ -1,18 +1,18 @@
 {% include 'main/base.html' %} 
 
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 <link rel="stylesheet" href="/static/main/css/state/state_symbols.css" />
 
 <div class="page">
-    <h2>Государственные символы Республики Казахстан</h2>
+    <h2>{% trans 'Государственные символы Республики Казахстан' %}</h2>
     <div class="page__items">
         {% for symbol in symbols %}
             <div class="page__item">
                 <h3>{{ symbol.name }}</h3>
                 {% if symbol.image  %}
-                    <img src="/media/{{ symbol.image }}" alt="{{ symbol.name }}">
+                    <img src="/static/media/{{ symbol.image }}" alt="{{ symbol.name }}">
                 {% endif  %}
                 {% autoescape off %}
                     <p>{{ symbol.desc }}</p>

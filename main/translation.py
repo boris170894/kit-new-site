@@ -3,7 +3,8 @@ from .models import (
                         CollegeHistoryModel, 
                         CollegeContactModel, 
                         CollegePartnersModel, 
-                        StateSymbolsModel
+                        StateSymbolsModel,
+                        StudentEventModel
                     )
 
 @register(CollegeHistoryModel)
@@ -23,3 +24,6 @@ class CollegePartnersTransOptions(TranslationOptions):
 class StateSymbolsModelTransOptions(TranslationOptions):
     fields = ('name', 'desc',)
     
+@register(StudentEventModel)
+class StudentEventTransOptions(TranslationOptions):
+    fields = ('title', 'description',)
