@@ -124,3 +124,30 @@ class StudentEventModel(models.Model):
         verbose_name = 'События для студента'
         verbose_name_plural = 'События для студента'
     
+""" Категории методических рекомендаций """
+class MetodicRecomendationsCategoryModel(models.Model):
+    title = models.CharField(verbose_name='Наименования', max_length=200)    
+
+    is_for_student = models.BooleanField(verbose_name='Это для студентов', default=False)
+    is_for_teacher = models.BooleanField(verbose_name='Это для преподавателей', default=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'График Учебного процесса'
+        verbose_name_plural = 'График Учебного процесса'
+    
+    def __str__(self) -> str:
+        return self.title
+
+class MetodicRecomendationsDocumentModel(models.Model):
+    title = models.CharField(verbose_name='Наименование', max_length=400, blank=True)
+    category = models.ForeignKey(MetodicRecomendationsCategoryModel, on_delete=models.CASCADE, related_name='Категория')
+    file = models.FileField(verbose_name='Файл', upload_to="uploads/metodic_recomendations/")
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.title

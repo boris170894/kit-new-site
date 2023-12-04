@@ -157,7 +157,29 @@
         {% elif type == 'Методические рекомендации' %}
 
         <!-- Методические рекомендации -->
-        ...
+            <div class="metodic__recomendations">
+                <div class="metodic__recomendations__left">
+                    {% for category in categories %}
+                        <a class="link metodic__category">{{ category.title }}</a>
+                    {% endfor %}
+                </div>
+                <div class="metodic__recomendations__right">
+                    {% for category in categories %}
+                        {% for document in documents %}
+                            {% if document.category == category %}
+                                <a 
+                                    class="methodic__category_documents" 
+                                    href="{{ document.file.url }}" 
+                                    download>
+                                    style="display: none;">
+                                    <span>{{ document.title|slice:25 }}</span>
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+
         {% else  %}
             <div class="event__desc">
                 <div class="event__desc__right">

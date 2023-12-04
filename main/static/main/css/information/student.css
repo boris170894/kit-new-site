@@ -82,6 +82,7 @@
 .page__content h2 {
     font-weight: bold;
     margin-bottom: 5vh;
+    font-size: calc((1vw + 1h) * 1.5);
 }
 
 .page__content__events {
@@ -372,4 +373,11 @@ table {
     .event__desc__date {
         font-size: calc((1vw + 1vh) * 1.6);
     }
+}
+.metodic__recomendations {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 13%;
 }
