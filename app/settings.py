@@ -57,7 +57,7 @@ INSTALLED_APPS = [
 ]
 
 # TODO: python3 manage.py runserver --insecure
-# TODO: python manage.py makemessages -l en
+# TODO:     
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

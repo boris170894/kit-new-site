@@ -135,12 +135,13 @@ class MetodicRecomendationsCategoryModel(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = 'График Учебного процесса'
-        verbose_name_plural = 'График Учебного процесса'
+        verbose_name = 'Категории методических рекомендаций'
+        verbose_name_plural = 'Категории методических рекомендаций'
     
     def __str__(self) -> str:
         return self.title
 
+""" Файлы методических рекомендаций """
 class MetodicRecomendationsDocumentModel(models.Model):
     title = models.CharField(verbose_name='Наименование', max_length=400, blank=True)
     category = models.ForeignKey(MetodicRecomendationsCategoryModel, on_delete=models.CASCADE, related_name='Категория')
@@ -148,6 +149,10 @@ class MetodicRecomendationsDocumentModel(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Файлы методических рекомендаций'
+        verbose_name_plural = 'Файлы методических рекомендаций'
 
     def __str__(self) -> str:
         return self.title

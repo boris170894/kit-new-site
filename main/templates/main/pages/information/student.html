@@ -159,25 +159,96 @@
         <!-- Методические рекомендации -->
             <div class="metodic__recomendations">
                 <div class="metodic__recomendations__left">
-                    {% for category in categories %}
-                        <a class="link metodic__category">{{ category.title }}</a>
-                    {% endfor %}
+                    <form action="" method="GET">
+                        {% csrf_token %}
+                        <img src="/static/main/img/logo/search.svg" class="metodic__recomendations__left__image" alt="search">
+                        <input 
+                            type="text" 
+                            name="title" 
+                            value="{{ filter_title }}"
+                            class="metodic__recomendations__left__input"
+                            placeholder="Search document..." />
+                    </form>
+
+                    <script>
+                        let metodic_image = document.querySelector('.metodic__recomendations__left__image')
+                        let metodic_input = document.querySelector('.metodic__recomendations__left__input')
+
+                        metodic_input.addEventListener('focus', () => {
+                            metodic_image.style.opacity = 1
+                        })
+                        metodic_input.addEventListener('blur', () => {
+                            metodic_image.style.opacity = .4
+                        })
+                    </script>
+
+                    <div class="metodic__recomendations__left__categories">
+                        {% for category in categories %}
+                            <a class="link metodic__category" id="{{ category.id }}">{{ category.title }}</a>
+                        {% endfor %}
+                    </div>
                 </div>
                 <div class="metodic__recomendations__right">
                     {% for category in categories %}
                         {% for document in documents %}
                             {% if document.category == category %}
                                 <a 
-                                    class="methodic__category_documents" 
+                                    class="methodic__category_document" 
                                     href="{{ document.file.url }}" 
-                                    download>
-                                    style="display: none;">
-                                    <span>{{ document.title|slice:25 }}</span>
+                                    title="{{ document.title }}"
+                                    id="{{ document.category.id }}"
+                                    style="display: none; opacity: 0;"
+                                    download
+                                   >
+                                    <img src="/static/main/img/logo/download.svg" alt="download">
+                                    <span>{{ document.title|slice:20 }}...</span>
                                 </a>
                             {% endif %}
                         {% endfor %}
                     {% endfor %}
                 </div>
+                <script>
+                    const metodic__categorys = document.querySelectorAll('.metodic__category')
+                    const metodic__category_documents = document.querySelectorAll('.methodic__category_document')
+
+                    metodic__categorys[0].classList.add('metodic__active')
+                    metodic__category_documents.forEach(document => {
+                        if (document.id == 1) {
+                            document.style.display = 'flex'
+
+                            setTimeout(() => {
+                                document.style.opacity = 1
+                            }, 300)
+                        }
+                    })
+
+                    metodic__categorys.forEach(category => {
+                        category.addEventListener('click', () => {
+                            metodic__category_documents.forEach(document => {
+                                document.style.display = 'none'
+                            })
+
+                            metodic__categorys.forEach(c => { c.classList.remove('metodic__active') })
+
+                            category.classList.add('metodic__active')
+
+                            metodic__category_documents.forEach(document => {
+                                if (document.id == category.id) {
+                                    document.style.display = 'flex'
+
+                                    setTimeout(() => {
+                                        document.style.opacity = 1
+                                    }, 300)
+                                } else {
+                                    setTimeout(() => {
+                                        document.style.opacity = 0
+                                    }, 300)
+                                    document.style.display = 'none'
+                                }
+                            })
+                        })
+                    })
+                </script>
             </div>
 
         {% else  %}
