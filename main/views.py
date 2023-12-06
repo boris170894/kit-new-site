@@ -8,7 +8,9 @@ from .models import (
                         StateSymbolsModel,
                         CallPairScheduleModel,
                         AcademicProcessScheduleModel,
-                        StudentEventModel
+                        StudentEventModel,
+                        MetodicRecomendationsCategoryModel,
+                        MetodicRecomendationsDocumentModel,
                      )
 from news.models import NewsModel
 from specialties.models import SpecInfoModel
@@ -161,9 +163,19 @@ def academic_process_schedule_teachers(request):
     
 """ Методические рекомендации для учителей """
 def guidelines_teachers(request):
+    filter_title = request.GET.get('title', '')
+
+    categories = MetodicRecomendationsCategoryModel.objects.filter(is_for_teacher=True)
+    documents = MetodicRecomendationsDocumentModel.objects.all()
+
+    if len(filter_title) > 0:
+        documents = MetodicRecomendationsDocumentModel.objects.filter(title__icontains=filter_title)
     
     return render(request, 'main/pages/information/student.html', {
         'type': 'Методические рекомендации',
         'user_type': 'teacher',
+        'categories': categories,
+        'documents': documents,
+        'filter_title': filter_title
     })
     
