@@ -6,23 +6,29 @@
 <link rel="stylesheet" href="/static/main/css/about/college_history.css" />
 
 <div class="page">
+    <h1>{% trans 'Документы'  %}</h1>
+
     <h2>{% trans 'Лицензия' %}</h2>
 
-    <iframe 
-        src="{{ documents.college_license.url }}" 
-        class="page__doc"
-    ></iframe>
+    {% if documents.college_license %}
+        <iframe 
+            src="{{ documents.college_license.url }}" 
+            class="page__doc"
+        ></iframe>
 
-    <a href="{{ documents.college_license.url }}" class='link' download>{% trans 'Скачать лицензию' %}</a>
+        <a href="{{ documents.college_license.url }}" class='link' download>{% trans 'Скачать лицензию' %}</a>
+    {% endif  %}
 
     <h2>{% trans 'Устав' %}</h2>
 
-    <iframe 
-        src="{{ documents.college_reg.url }}" 
-        class="page__doc"
-     ></iframe>
+    {% if documents.college_reg %}
+        <iframe 
+            src="{{ documents.college_reg.url }}" 
+            class="page__doc"
+        ></iframe>
 
-    <a href="{{ documents.college_license.url }}" class='link' download>{% trans 'Скачать устав' %}</a>
-</div>
+        <a href="{{ documents.college_license.url }}" class='link' download>{% trans 'Скачать устав' %}</a>
+    {% endif %}
+    </div>
 
 {% endblock content %}

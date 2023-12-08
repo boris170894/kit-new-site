@@ -6,10 +6,12 @@
     width: 100%;
     padding: 0 8vh 35vh;
 }
+.page h1 {
+    padding-bottom: 2vh;
+}
 .page h2 {
     padding-bottom: 10vh;
 }
-
 /* specialites */
 .specialites {
     /* display: flex;

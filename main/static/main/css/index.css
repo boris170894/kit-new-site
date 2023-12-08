@@ -610,6 +610,7 @@ nav {
     margin-bottom: 10px;
 
     transition: all .3s linear;
+    object-fit: contain;
 }
 .page__achivement a {
     font-weight: bold;

@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'staff.apps.StaffConfig',
     'specialties.apps.SpecialtiesConfig',
+
+    'worldskills',
 ]
 
 # TODO: python3 manage.py runserver --insecure
