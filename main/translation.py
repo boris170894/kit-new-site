@@ -4,7 +4,9 @@ from .models import (
                         CollegeContactModel, 
                         CollegePartnersModel, 
                         StateSymbolsModel,
-                        StudentEventModel
+                        StudentEventModel,
+                        MetodicRecomendationsCategoryModel,
+                        MetodicRecomendationsDocumentModel,
                     )
 
 @register(CollegeHistoryModel)
@@ -27,3 +29,11 @@ class StateSymbolsModelTransOptions(TranslationOptions):
 @register(StudentEventModel)
 class StudentEventTransOptions(TranslationOptions):
     fields = ('title', 'description',)
+
+@register(MetodicRecomendationsCategoryModel)
+class MetodicRecomendationsCategoryTransOptions(TranslationOptions):
+    fields = ('title',)
+
+@register(MetodicRecomendationsDocumentModel)
+class MetodicRecomendationsDocumentTransOptions(TranslationOptions):
+    fields = ('title',)

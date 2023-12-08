@@ -9,7 +9,9 @@ from .models import (
                         StateSymbolsModel,
                         CallPairScheduleModel,
                         AcademicProcessScheduleModel,
-                        StudentEventModel
+                        StudentEventModel,
+                        MetodicRecomendationsCategoryModel,
+                        MetodicRecomendationsDocumentModel
                      )
 
 @admin.register(CollegeHistoryModel)
@@ -35,3 +37,11 @@ admin.site.register(AcademicProcessScheduleModel)
 @admin.register(StateSymbolsModel)
 class StateSymbolsAdmin(TranslationAdmin):
     list_display = ('name', 'image',)
+
+@admin.register(MetodicRecomendationsCategoryModel)
+class MetodicRecomendationsCategoryAdmin(TranslationAdmin):
+    list_display = ('title', 'is_for_student', 'is_for_teacher', )
+
+@admin.register(MetodicRecomendationsDocumentModel)
+class MetodicRecomendationsDocumentAdmin(TranslationAdmin):
+    list_display = ('title', 'category', 'updated', )
