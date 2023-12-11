@@ -198,6 +198,7 @@ table {
 td {
     padding: 2vh 4vw;
     font-size: calc((1vw + 1vh) * 1);
+    width: 50vw;
 }
 .call__schedule__left .down {
     width: 100%;

@@ -9,8 +9,7 @@
     padding-bottom: 25vh;
 }
 .page h1 {
-    padding: 5vh 0;
-    /* font-size: calc((1vw + 1vh) * 2); */
+    padding: 8vh 4vw;
     /* font-family: var(--PaytoneOne); */
 }
 .page__histories, .histories {
@@ -39,7 +38,7 @@
 }
 .history h3 {
     width: 23%;
-    font-family: var(--PaytoneOne);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
     transition: all .3s linear;
     font-size: calc((1vw + 1vh) * 1.9);
@@ -132,7 +131,7 @@
         text-align: left;
     }
     .history p {
-        font-size: calc((1vw + 1vh) * 1.5) ;
+        font-size: calc((1vw + 1vh) * 1.6) ;
         width: 100%;
         margin-left: 10%;
     }

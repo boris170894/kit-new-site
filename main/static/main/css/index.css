@@ -101,25 +101,30 @@ nav {
     overflow: hidden;
     font-family: var(--PaytoneOne);
     animation: typing 2s steps(20, end), blink-caret 0.5s step-end infinite alternate;
-  }
-  
-  @keyframes typing {
-    from {
-      width: 0;
+}
+@media screen and (max-width: 600px) {
+    .typing-container {
+        top: 33%;
     }
-    to {
-      width: 12%;
-    }
-  }
-  
-  @keyframes blink-caret {
-    from, to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: #fff;
-    }
-  }
+}
+ 
+@keyframes typing {
+from {
+    width: 0;
+}
+to {
+    width: 12%;
+}
+}
+
+@keyframes blink-caret {
+from, to {
+    border-color: transparent;
+}
+50% {
+    border-color: #fff;
+}
+}
   
   
 /* @keyframes  years_55_rotation {
@@ -718,6 +723,7 @@ nav {
     border: 2px solid rgb(20,20,20,.1);
     border-radius: 10px;
     padding: 3%;
+    transition: all .3s linear;
 }
 .page__contacts:hover {
     box-shadow: 0px 0px 10px 1px rgb(20,20,20,.1);
@@ -782,6 +788,7 @@ nav {
     .page__news {
         flex-direction: column;
         height: 100%;
+        margin-top: 20px;
     }
     .page__news__left {
         width: 100%;
@@ -789,12 +796,16 @@ nav {
     }
     .page__news__right {
         width: 100%;
-    }
-    .page__news__right {
-        gap: 10px;
+        gap: 6px;
     }
     .news__content span {
         font-size: 16px;
+    }
+    .news {
+        height: 50vh;
+    }
+    .news img {
+        filter: brightness(60%);
     }
     .news__content a {
         font-size: 18px;
@@ -802,11 +813,14 @@ nav {
     .news__little {
         height: 30vh;
     }
+    .news__little img {
+        filter: brightness(60%);
+    }
     .news__little .news__content a {
-        font-size: 18px;
+        font-size: 14px;
     }
     .page__achievements span {
-        font-size: 24px;
+        font-size: 20px;
     }
     .read__news {
 
@@ -896,6 +910,7 @@ nav {
     .page__contacts {
         flex-direction: column-reverse;
         gap: 0;
+        transition: all .3s linear;
     }
     .page__contacts__right, 
     .page__contacts__left {

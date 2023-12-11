@@ -13,3 +13,11 @@
 h1 {
     margin-bottom: 3vh;
 }
+@media screen and (max-width: 600px) {
+    .rule {
+        width: 95vw;
+    }
+    .page a {
+        max-width: 95vw;
+    }
+}

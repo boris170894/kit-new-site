@@ -9,7 +9,6 @@
 .page h1 {
     width: 100%;
     text-align: center;
-    margin-bottom: 4vh;
     /* max-width: 70vw; */
 }
 .page__items {
@@ -45,7 +44,7 @@
 }
 .page__item p {
     font-size: rgb(254,254,254,.7);
-    font-size: calc((1vw + 1vh) * 1);
+    font-size: calc((1vw + 1vh) * .9);
 }
 
 @media screen and (max-width:600px) {

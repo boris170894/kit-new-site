@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Paytone+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
     --Inter: 'Inter', sans-serif;
-    --PaytoneOne: 'Paytone One', sans-serif;
 
     --orange:#f86624;
     --primary: #202020;

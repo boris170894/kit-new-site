@@ -36,7 +36,8 @@
                                 <img src="/static/main/img/logo/download.svg" alt="download">
                                 <img src="/static/main/img/logo/download__orange.svg" class="download__orange" alt="download">
                             </div>
-                            <span>{{ document.title|slice:16 }}...</span>
+                            <span class="methodic__category_document__span__full">{{ document.title|slice:16 }}...</span>
+                            <span class="methodic__category_document__span__mini">{{ document.title|slice:12 }}...</span>
                         </a>
                     {% endif %}
                 {% endfor %}

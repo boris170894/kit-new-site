@@ -53,6 +53,15 @@ footer {
     height: 25px;
 }
 @media screen and (max-width: 600px) {
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+    }
+    .footer__left a {
+        font-size: 18px;
+    }
     .footer__right {
         width: 100%;
     }

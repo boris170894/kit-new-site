@@ -29,6 +29,14 @@ a:hover {
 }
 h1 {
     padding: 4vh 0;
+    font-size: calc((1vw + 1vh) * 2);
+}
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: calc((1vw + 1vh) * 3);
+        text-align: center;
+        padding: 4vh 4vw;
+    }
 }
 h2 {
     display: block;
@@ -286,6 +294,21 @@ a:active, a:hover, a:focus {
     .nav__right__menu a {
         border-bottom: 1px solid rgb(0,0,0,.05);
         padding: 20px 10px;
+    }
+    .change__language {
+        min-width: 90%;
+    }
+    #LanguageForm {
+        width: 100%;
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 2vh;
+        z-index: 100;
     }
 }
 

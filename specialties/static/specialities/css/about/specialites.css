@@ -4,11 +4,9 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    padding: 0 8vh 35vh;
+    padding: 0 8vh 25vh;
 }
-.page h1 {
-    padding-bottom: 2vh;
-}
+
 .page h2 {
     padding-bottom: 10vh;
 }
@@ -95,7 +93,7 @@
     height: 20vh;
     background-color: rgb(254,254,254,.5);
     z-index: 1;
-}`
+}
 .spec__content {
     display: flex;
     justify-content: center;
@@ -111,13 +109,14 @@
     flex-direction: column;
     position: relative;
     width: 100%;
-    min-width: 90vw;
+    min-width: 60vw;
+    margin-bottom: 10px;
 }
 .spec__image h3 {
     position: absolute;
     bottom: 3%;
     left:3%;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: bold;
     color: white;
     max-width: 90%;
@@ -177,9 +176,11 @@
     }
     .spec__content {
         margin-top: 0;
+        padding: 0 10px;
     }
     .spec__content h3 {
         color: var(--primary);
+        padding: 0 10px;
     }
     .spec__content p {
         font-size: 22px;

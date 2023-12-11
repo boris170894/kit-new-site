@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lgrf$8=_@3zf-&j-@v)ma%aw&2sz%ll)mov(&#5yp1s^-a7_0u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -58,8 +58,7 @@ INSTALLED_APPS = [
     'worldskills',
 ]
 
-# TODO: python3 manage.py runserver --insecure
-# TODO:     
+# TODO: python3 manage.py runserver --insecure   
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
