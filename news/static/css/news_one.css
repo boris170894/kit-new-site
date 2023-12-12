@@ -80,12 +80,12 @@
         padding: 5vh 6vw 30vh;
     }
     .page__title {
-        font-size: calc((1vw + 1vh) * 2.6);
-        line-height: calc((1vw + 1vh) * 2.4);
+        font-size: calc((1vw + 1vh) * 2.2);
+        line-height: calc((1vw + 1vh) * 2.2);
         margin-bottom: 5%;
     }
     .page__date {
-        font-size: calc((1vw + 1vh) * 1.8);
+        font-size: calc((1vw + 1vh) * 1.4);
     }
     .page__desk__left p {
         font-size: calc((1vw + 1vh) * 1.6);
@@ -101,6 +101,11 @@
         max-width: 100%;
         width: 100%;
         font-size: calc((1vw + 1vh) * 1.6);
-        padding: 15px;
+        padding: 10px;
+    }
+    .page__desk__right img {
+        max-height: 200px;
+        margin: 10px 0;
+        min-height: 200px;
     }
 }

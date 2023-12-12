@@ -79,10 +79,11 @@
 .page__content {
     width: 100%;
 }
-.page__content h2 {
+.page__content h1 {
     font-weight: bold;
-    margin-bottom: 5vh;
-    font-size: calc((1vw + 1h) * 1.5);
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    /* font-size: calc((1vw + 1h) * 1.5); */
 }
 
 .page__content__events {
@@ -118,10 +119,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 }
 .event__top img {
     width: 100%;
     height: 100%;
+    max-height: 180px;
     object-fit: cover;
     border-radius: 10px;
     margin-top: -10%;
@@ -534,5 +537,8 @@ table {
     }
     ::-webkit-scrollbar-thumb:hover {
         background-color: #202020;
+    }
+    td {
+        width: 50vw;
     }
 }

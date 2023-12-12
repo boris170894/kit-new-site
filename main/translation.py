@@ -13,7 +13,6 @@ from .models import (
 class CollegeHistoryTransOptions(TranslationOptions):
     fields = ('info',)
 
-
 @register(CollegeContactModel)
 class CollegeContactTransOptions(TranslationOptions):
     fields = ('addr',)
