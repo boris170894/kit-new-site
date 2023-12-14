@@ -22,15 +22,19 @@ urlpatterns += i18n_patterns(
     path('news/', include('news.urls')),
     path('specs/',include('specialties.urls')),
     path('worldskills/',include('worldskills.urls')),
+    path('', include('state.urls')),
+    # path('', include('educational_work.urls')),
     # prefix_default_language=False,
 )
 
-urlpatterns += i18n_patterns(
-    path('', include('main.urls')),
-    path('staff/', include('staff.urls')),
-    path('news/', include('news.urls')),
-    path('worldskills/', include('worldskills.urls')),
-)
+# urlpatterns += i18n_patterns(
+#     path('', include('main.urls')),
+#     path('staff/', include('staff.urls')),
+#     path('news/', include('news.urls')),
+#     path('worldskills/',include('worldskills.urls')),
+#     path('specs/',include('specialties.urls')),
+#     path('', include('state.urls')),
+# )
 
 # if settings.DEBUG:
 #     urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
