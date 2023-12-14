@@ -1,8 +1,9 @@
-{% include 'main/base.html' %} 
+{% comment %} {% include 'main/base.html' %}  {% endcomment %}
 {% load static i18n %}
 
-{% block content %}
+{% comment %} {% block content %} {% endcomment %}
 <link rel="stylesheet" href="/static/main/css/error.css" />
+<link rel="stylesheet" href="/static/main/css/main.css" />
 
 <div class="page">
     <div class="error">
@@ -25,4 +26,4 @@
         <a href="/" class="link">{% trans 'Перейти на главную страницу' %}</a>
     </div>
 </div>
-{% endblock content %}
+{% comment %} {% endblock content %} {% endcomment %}

@@ -1,0 +1,23 @@
+.rule {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 5vh;
+    margin-top: 3vh;
+    width: 80vw;
+}
+.rule a {
+    width: 100%;
+}
+h1 {
+    margin-bottom: 3vh;
+}
+@media screen and (max-width: 600px) {
+    .rule {
+        width: 95vw;
+    }
+    .page a {
+        max-width: 95vw;
+    }
+}

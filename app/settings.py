@@ -54,10 +54,13 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'staff.apps.StaffConfig',
     'specialties.apps.SpecialtiesConfig',
+
+    'worldskills',
+    'state',
+    # 'educational_work',
 ]
 
-# TODO: python3 manage.py runserver --insecure
-# TODO:     
+# TODO: python3 manage.py runserver --insecure   
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
