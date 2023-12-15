@@ -13,6 +13,8 @@ footer {
     align-items: center;
     width: 100%;
     flex-wrap: wrap;
+    position: absolute;
+    bottom: 0%;
 }
 .footer__left {
     display: flex;

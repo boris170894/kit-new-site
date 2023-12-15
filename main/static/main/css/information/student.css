@@ -212,6 +212,7 @@ td {
     align-items: start;
     flex-direction: row-reverse;
     width: 100%;
+    gap: 10%
 }
 .call__schedule__left {
     display: flex;
@@ -236,11 +237,12 @@ td {
     width: 50%;
     display: flex;
     justify-content: start;
-    align-items: start;
+    align-items: center;
     flex-direction: column;
 }
 table {
     width: 100%;
+    max-width: 500px;
 }
 .show__link {
     cursor: pointer;
@@ -396,6 +398,53 @@ table {
     flex-direction: column;
     width: 100%;
 }
+@media screen and (max-width: 1100px) and (min-width: 600px) {
+    .page {
+        padding: 2vh 5vw 15vh;
+    }
+    .page__do {
+        flex-wrap: wrap;
+        height: 7vh;
+        padding: 10px 14px;
+        justify-content: flex-end;
+    }   
+    .page__do a img, .azure, .microsoft {
+        height: 2.3vh;
+    }
+    .page__do a .azure {
+        height: 3.6vh;
+    }
+    .page__do a .microsoft {
+        height: 2.3vh;
+    }
+    .call__schedule {
+        gap: 20px;
+    }
+    .page__header {
+        flex-wrap: wrap;
+    }
+    .page__content__events .event {
+        max-width: 48%;
+    }
+    .page__content h1 {
+        padding: 0;
+    }
+
+    /*  event__desc */
+    .event__desc {
+        grid-template-columns: 1fr ;
+        gap: 10px;
+    }
+    .event__desc__right img {
+        height: 30vh;
+    }
+    .event__desc__right {
+        object-fit: cover;
+    }
+    .event__desc h1 {
+        max-width: 80vw;
+    }
+}
 
 @media screen and (max-width: 600px) {
     .page {
@@ -445,6 +494,10 @@ table {
     td {
         font-size: calc((1vw + 1vh) * 1.8);
         padding: 2vh 8vw;
+    }
+
+    .page__doc {
+        display: none;
     }
 
     /* event */
@@ -508,7 +561,13 @@ table {
     }
     .metodic__recomendations__left a {
         font-size: calc((1vw + 1vh) * 1.4);
-        min-width: 70%;
+        min-width: 200px;
+        text-align: center;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     .metodic__recomendations__left a::after {
         display: none;

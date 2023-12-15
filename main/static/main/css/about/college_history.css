@@ -2,7 +2,7 @@
 
 .page {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     flex-direction: column;
     width: 100%;
@@ -115,6 +115,36 @@
     max-width: 80vw;
 }
 
+@media screen and (max-width:1100px) and (min-width:600px ) {
+    .link {
+        padding: 2vh 4vw;
+    }
+    .page {
+        padding-bottom: 10vh;
+    }
+    .history p {
+        width: 68%;
+    }
+    .history h3 {
+        font-size: calc((1vw + 1vh) * 1.8);
+    }
+    .page__histories__line {
+        left: 30%;
+    }
+    .page__doc {
+        width: 90vw;
+        box-shadow:  0 0 10px 1px rgb(20,20,20,.07);
+    }
+    .page h2 {
+        margin: 5vh 0;
+    }
+    .page h2:first-child {
+        margin-top: 0;
+    }
+    .page a {
+        max-width: 90vw;
+    }
+}
 @media screen and (max-width:600px) {
     .page {
         padding-bottom: 35vh;
@@ -156,8 +186,10 @@
     .page__doc {
         width: 95vw;
         height: 50vh;
+        display: none;
     }
-    .page__doc {
-        /* display: none; */
+    .page a {
+        padding: 4vh;
+        max-width: 90vw;
     }
 }

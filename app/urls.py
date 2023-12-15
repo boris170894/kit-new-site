@@ -23,7 +23,7 @@ urlpatterns += i18n_patterns(
     path('specs/',include('specialties.urls')),
     path('worldskills/',include('worldskills.urls')),
     path('', include('state.urls')),
-    # path('', include('educational_work.urls')),
+    path('', include('educational_work.urls')),
     # prefix_default_language=False,
 )
 

@@ -125,7 +125,26 @@
     font-size: 22px;
     margin-top: 8vh;
 }
-
+@media screen and (max-width: 1100px) and (min-width: 600px) {
+    .page {
+        padding: 0 2vw 14vh;
+    }
+    .specialites {
+        grid-template-columns: 1fr 1fr;
+    }
+    .specialite img {
+        height: 20vh;
+    }
+    .specialite__top .title {
+        font-size: calc((1vw + 1vh) * 1.4);
+    }
+    .spec__content p {
+        margin-top: 0;
+    }
+    .spec__content {
+        padding-top: 1vh;
+    }
+}
 @media screen and (max-width:600px) {
     /* specialites */
     .specialites {

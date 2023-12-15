@@ -15,7 +15,7 @@ def show_all_news(request):
         else:
             news_list = NewsModel.objects.filter(news_is_published = True).order_by('-news_create_date')               
     
-    paginator = Paginator(news_list, 8)
+    paginator = Paginator(news_list, 2)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
     
