@@ -94,3 +94,33 @@ function changeSlide(count) {
         page__about__left__img.style.height = '110%'
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const text = "55 лет"; // Замените на свой текст
+    const textContainer = document.getElementById('typing-text');
+    let index = 0;
+    let isDeleting = false;
+  
+    function typeText() {
+      if (isDeleting) {
+        textContainer.textContent = text.substring(0, index - 1);
+        index--;
+      } else {
+        textContainer.textContent = text.substring(0, index + 1);
+        index++;
+      }
+  
+      if (index === text.length + 1) {
+        isDeleting = true;
+        setTimeout(typeText, 3000); // Задержка перед удалением текста
+      } else if (index === 0) {
+        isDeleting = false;
+        setTimeout(typeText, 600); // Задержка перед началом печати текста
+      } else {
+        setTimeout(typeText, 150); // Задержка между символами
+      }
+    }
+  
+    typeText();
+  });
+  

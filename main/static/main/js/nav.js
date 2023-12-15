@@ -8,7 +8,7 @@ let navRightMenuCloses = menu.querySelectorAll('.nav__right__menu__close')
 let navRightMenuOpens = menu.querySelectorAll('.nav__right__menu__open')
 
 
-if (window.innerWidth <= 600) {
+if (window.innerWidth <= 900) {
     navButton.onclick = () => {
         if (menu.style.left == '-100%') {
             menu.style.left = 0

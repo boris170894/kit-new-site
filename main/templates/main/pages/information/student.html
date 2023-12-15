@@ -25,7 +25,7 @@
 </style>
 {% endif %}
 
-<div class="page">
+<div class="page" id="page">
         
     <!-- Пред шапка, главные кнопки -->
     <div class="page__do">
@@ -83,7 +83,7 @@
 
     <!-- Контент -->
     <div class="page__content">
-        <h2>
+        <h1>
             {% if type == 'Расписание пар и звонков' %}
                 {% trans 'Расписание пар и звонков' %}
             {% elif type == 'График учебного процесса' %}
@@ -93,7 +93,7 @@
             {% elif type == 'Методические рекомендации' %}
                 {% trans 'Методические рекомендации' %}
             {% endif %}
-        </h2>
+        </h1>
         
 
         {% if type == "События" %}
@@ -253,6 +253,7 @@
 
         {% else  %}
             <div class="event__desc">
+            <h1>{{ event.title }}</h1>
                 <div class="event__desc__right">
                     <img src="/static/{{ event.image.url }}" alt="{{ event.image.name }}" />
                     <div class="event__desc__date">

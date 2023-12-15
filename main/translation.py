@@ -1,6 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
 from .models import (
-                        CollegeHistoryModel, 
                         CollegeContactModel, 
                         CollegePartnersModel, 
                         StateSymbolsModel,
@@ -8,11 +7,6 @@ from .models import (
                         MetodicRecomendationsCategoryModel,
                         MetodicRecomendationsDocumentModel,
                     )
-
-@register(CollegeHistoryModel)
-class CollegeHistoryTransOptions(TranslationOptions):
-    fields = ('info',)
-
 
 @register(CollegeContactModel)
 class CollegeContactTransOptions(TranslationOptions):
