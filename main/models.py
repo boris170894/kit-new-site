@@ -1,18 +1,5 @@
 from django.db import models
 
-""" История колледжа """
-class CollegeHistoryModel(models.Model):
-
-    year = models.DateField(verbose_name='Дата события')
-    info = models.TextField(verbose_name='Описание')
-
-    def __str__(self):
-        return str(self.year)
-    
-    class Meta:
-        verbose_name = 'История колледжа'
-        verbose_name_plural = 'История колледжа'
-
 """ Контакты """
 class CollegeContactModel(models.Model):
 
@@ -44,16 +31,6 @@ class CollegePartnersModel(models.Model):
     class Meta:
         verbose_name = 'Партнёры колледжа'
         verbose_name_plural = 'Партнёры колледжа'
-
-""" Документы """
-class CollegeDocsModel(models.Model):
-
-    college_license = models.FileField(upload_to="uploads/Docs",verbose_name="Лицензия")
-    college_reg = models.FileField(upload_to="uploads/Docs",verbose_name="Устав")
-
-    class Meta:
-        verbose_name = 'Документы колледжа'
-        verbose_name_plural = 'Документы колледжа'
 
 """ Государственные Символы """
 class StateSymbolsModel(models.Model):

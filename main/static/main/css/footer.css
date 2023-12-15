@@ -68,3 +68,28 @@ footer {
         width: 100%;
     }
 }
+
+/* ? footer up */
+.footer__up {
+    position: fixed;
+    bottom: 5vh;
+    right: 5vh;
+    z-index: 999999;
+    background-color: white;
+    color: #262626;
+    opacity: .3;
+    border-radius: 8px;
+    padding: 2vh 2vh;
+    box-shadow: 0 0 10px rgb(20,20,20,.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all .3s linear;
+    cursor: pointer;
+    /* opacity: 0; */
+}
+.footer__up:hover {
+    opacity: 1;
+}

@@ -3,9 +3,7 @@ from modeltranslation.admin import TranslationAdmin
 
 from .models import (
                         CollegeContactModel, 
-                        CollegeHistoryModel, 
                         CollegePartnersModel,
-                        CollegeDocsModel,
                         StateSymbolsModel,
                         CallPairScheduleModel,
                         AcademicProcessScheduleModel,
@@ -13,10 +11,6 @@ from .models import (
                         MetodicRecomendationsCategoryModel,
                         MetodicRecomendationsDocumentModel
                      )
-
-@admin.register(CollegeHistoryModel)
-class CollegeHistoryAdmin(TranslationAdmin):
-    list_display = ('year',)
 
 @admin.register(CollegeContactModel)
 class CollegeContactAdmin(TranslationAdmin):
@@ -30,7 +24,6 @@ class CollegePartnersAdmin(TranslationAdmin):
 class StudentEventsAdmin(TranslationAdmin):
     list_display = ('title', 'description', )
     
-admin.site.register(CollegeDocsModel)
 admin.site.register(CallPairScheduleModel)
 admin.site.register(AcademicProcessScheduleModel)
 

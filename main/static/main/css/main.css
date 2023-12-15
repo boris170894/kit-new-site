@@ -70,6 +70,7 @@ nav {
 }
 .nav__menu {
     display: none !important;
+    cursor: pointer;
 }
 nav .nav__left {
     display: flex;

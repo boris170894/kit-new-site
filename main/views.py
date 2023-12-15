@@ -3,8 +3,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import (
                         CollegeContactModel, 
                         CollegePartnersModel, 
-                        CollegeHistoryModel, 
-                        CollegeDocsModel,
                         StateSymbolsModel,
                         CallPairScheduleModel,
                         AcademicProcessScheduleModel,
@@ -16,7 +14,9 @@ from news.models import NewsModel
 from specialties.models import SpecInfoModel
 
 
-""" Главная страница  """
+""" 
+    TODO: Главная страница 
+"""
 def index(request):
     last_news = achivments = last_one_news = []
     public__news_count = NewsModel.objects.filter(news_is_published = True).count()
@@ -42,7 +42,7 @@ def index(request):
     return render(request, 'main/pages/index.html', context)
 
 """
-        О колледже
+    TODO:    О колледже
 """
 
 """ Абитуриенты  """
@@ -56,24 +56,8 @@ def abiturients(request):
         'contacts' : contacts,
     })
 
-""" История Колледжа  """
-def college_history(request):
-    histories = CollegeHistoryModel.objects.all().order_by('year')
-    
-    return render(request, 'main/pages/about/history.html', {
-        'histories': histories
-    })
-
-""" Документы """
-def documents(request):
-    documents = CollegeDocsModel.objects.last()
-
-    return render(request, 'main/pages/about/documents.html', {
-        'documents': documents
-    })
-
 """
-        Государство
+    TODO:    Государство
 """
 
 """ Государственные Символы """

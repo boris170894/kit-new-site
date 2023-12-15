@@ -24,6 +24,7 @@ urlpatterns += i18n_patterns(
     path('worldskills/',include('worldskills.urls')),
     path('', include('state.urls')),
     path('', include('educational_work.urls')),
+    path('', include('about_college.urls')),
     # prefix_default_language=False,
 )
 

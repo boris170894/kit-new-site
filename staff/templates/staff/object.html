@@ -5,7 +5,7 @@
 {% block content %}
 <link rel="stylesheet" href="/static/staff/css/about/staff.css" />
 
-<div class="page">
+<div class="page" id="page">
     <div class="page__about">
         {% if person.foto %}
             <img src="/static/{{ person.foto.url }}" alt="{{ person.fio }}">

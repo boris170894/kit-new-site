@@ -3,16 +3,16 @@
 {% load static i18n %}
 
 {% block content %}
-<link rel="stylesheet" href="/static/main/css/about/college_history.css" />
+<link rel="stylesheet" href="/static/about_college/css/college_history.css" />
 
-<div class="page">
+<div class="page" id="page">
     <h1>{% trans 'Документы'  %}</h1>
 
     <h2>{% trans 'Лицензия' %}</h2>
 
     {% if documents.college_license %}
         <iframe 
-            src="{{ documents.college_license.url }}" 
+            src="/static/media/{{ documents.college_license }}" 
             class="page__doc"
         ></iframe>
 
@@ -23,7 +23,7 @@
 
     {% if documents.college_reg %}
         <iframe 
-            src="{{ documents.college_reg.url }}" 
+            src="/static/media/{{ documents.college_reg }}" 
             class="page__doc"
         ></iframe>
 

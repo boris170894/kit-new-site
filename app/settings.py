@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'worldskills',
     'state',
     'educational_work',
+    'about_college',
 ]
 
 # TODO: python3 manage.py runserver --insecure   
