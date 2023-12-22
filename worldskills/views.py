@@ -5,9 +5,14 @@ from .models import RuleWorldSkillsModel, CompetentionModel, CompetentionDocumen
 from news.models import NewsModel
 
 def worldskills_rools(request):
+    rules = []
     rules = RuleWorldSkillsModel.objects.all()
+
+    if rules.count() > 0:
+        rules = rules[0]
+
     return render(request, 'worldskills/rules.html', {
-        'rules': rules[0]
+        'rules': rules
     })
 
 def worldskills_competentions(request):
@@ -15,6 +20,7 @@ def worldskills_competentions(request):
     documents = CompetentionDocumentationModel.objects.all()
 
     return render(request, 'worldskills/competentions.html', {
+        'title': 'Документация к компетенциям',
         'categories': categories,
         'documents': documents,
     })

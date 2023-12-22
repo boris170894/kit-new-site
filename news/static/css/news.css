@@ -163,6 +163,15 @@
     background-color: #f86624 !important;
     color: #fff;
 }
+.news__not__found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
+    width: 100%;
+    height: 20vh;
+}
+
 @media screen and (max-width:1000px) and (min-width:600px ) {
     .page__news {
         gap: 20px;

@@ -3,7 +3,8 @@ from .models import (  CollegeHistoryModel,
                                     CollegeDocsModel,
                                     BoardOfTrusteesModel,
                                     PedagogicalCouncilModel,
-                                    IndustrialCouncilModel  )
+                                    IndustrialCouncilModel,
+                                    SpecInfoModel  )
 
 """
     TODO: ABOUT COLLEGE
@@ -25,6 +26,26 @@ def about_documents(request):
         'documents': documents
     })
 
+""" Специальности """
+def index(request):
+    type = 'many'
+    specialites = SpecInfoModel.objects.all()
+    
+    return render(request, 'about_college/specialites.html', {
+        'type': type,
+        'specialites': specialites
+    })
+
+def special(request, pk):
+    type = 'one'
+    spec= get_object_or_404(SpecInfoModel, pk=pk)
+    
+    return render(request, 'about_college/specialites.html', {
+        'type': type,
+        'special': spec
+    })
+    
+
 """ Попечительский совет """
 def about_board_of_trustees(request):
     documents = BoardOfTrusteesModel.objects.all().filter(public=True).order_by('title')
@@ -39,7 +60,7 @@ def about_pedagogical_council(request):
     documents = PedagogicalCouncilModel.objects.all().filter(public=True).order_by('title')
 
     return render(request, 'about_college/counsil.html', {
-        'title': 'Педагогический совет ',
+        'title': 'Педагогический совет',
         'documents': documents
     })
     
@@ -48,7 +69,7 @@ def  about_industrial_council(request):
     documents = IndustrialCouncilModel.objects.all().filter(public=True).order_by('title')
 
     return render(request, 'about_college/counsil.html', {
-        'title': 'Индустриальный совет ',
+        'title': 'Индустриальный совет',
         'documents': documents
     })
     

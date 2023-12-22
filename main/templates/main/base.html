@@ -36,6 +36,43 @@
 
 </head>
 <body class="u-body u-xxl-mode" data-lang="ru">
+
+    {% if messages %}
+    <div class="global__messages">
+        {% for message in messages %}
+            <div class='global__message'>
+                {{message}}
+                <span class="global__message__close">
+                    x
+                </span>
+            </div>
+        {% endfor %}
+    </div>
+  {% endif %}
+
+  <script>
+    const messages = document.querySelectorAll('.global__message')
+    const closes = document.querySelectorAll('.global__message__close')
+
+    const opacityDisplayNone = (message) => {
+        message.style.opacity = 0
+
+        setTimeout(() => {
+            message.style.display = 'none'
+        }, 300)
+    }
+
+    for (let i = 0; i < messages.length; i++) {
+        closes[i].addEventListener('click', () => {
+            opacityDisplayNone(messages[i])
+        })
+
+        setTimeout(() => {
+            opacityDisplayNone(messages[i])
+        }, 10000 + 2000 * i )
+    }
+  </script>
+
     <div class="bg">
       <!-- <span></span>
       <span></span>
@@ -49,6 +86,26 @@
       <span></span>
       <span></span> -->
     </div>
+
+    <div class="loader">
+      <span></span>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const loader = document.querySelector('.loader');
+        const page = document.querySelector('.page');
+
+        setTimeout(() => {
+          loader.style.opacity = 0
+
+          setTimeout(() => {
+            loader.style.display = 'none';
+            loader.style.zIndex = 0;
+          }, 300)
+        }, 3000);
+      })
+    </script>
 
     {% include 'main/include/pre_header.html' %}
     {% include 'main/include/header.html' %}

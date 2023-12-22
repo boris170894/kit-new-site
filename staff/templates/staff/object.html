@@ -11,8 +11,8 @@
             <img src="/static/{{ person.foto.url }}" alt="{{ person.fio }}">
         {% endif %}
        <div class="page__about__item">
-            <h3>{{ person.fio }}</h3>
-            <h5>{{ person.position }}</h5>
+            <h2>{{ person.fio }}</h2>
+            <h5>{%  if person.position %}{{ person.position }}{% endif %}</h5>
        </div>
        <div class="page__text">
             {% autoescape off %}

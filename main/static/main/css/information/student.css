@@ -178,7 +178,7 @@
     color: #fff;
     width: 100%;
     border-radius: 10px;
-    padding: 2vh 6vw;
+    padding: 2vh 4vw;
     text-align: center;
 }
 .download:hover {   
@@ -250,7 +250,7 @@ table {
 .event__desc {
     width: 100%;
     display: grid;
-    grid-template-columns: 38% 58%;
+    grid-template-columns: 30% 65%;
     gap: 4%;
 }
 .event__desc__right {
@@ -278,6 +278,7 @@ table {
     color: #fff;
     padding: 3% 5%;
     font-size: calc((1vw + 1vh) * 1);
+    gap: 10px
 }
 .event__desc__date div {
     display: flex;

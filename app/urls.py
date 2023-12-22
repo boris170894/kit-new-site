@@ -20,11 +20,11 @@ urlpatterns += i18n_patterns(
     path('', include('main.urls')),
     path('staff/', include('staff.urls')),
     path('news/', include('news.urls')),
-    path('specs/',include('specialties.urls')),
     path('worldskills/',include('worldskills.urls')),
     path('', include('state.urls')),
     path('', include('educational_work.urls')),
     path('', include('about_college.urls')),
+    path('', include('information.urls')),
     # prefix_default_language=False,
 )
 
@@ -33,7 +33,6 @@ urlpatterns += i18n_patterns(
 #     path('staff/', include('staff.urls')),
 #     path('news/', include('news.urls')),
 #     path('worldskills/',include('worldskills.urls')),
-#     path('specs/',include('specialties.urls')),
 #     path('', include('state.urls')),
 # )
 

@@ -72,32 +72,38 @@
 
 
     <!-- TODO ______ News ______ -->
+      {% if news.count > 0 %}
     <div class="page__news">
-      {% for news in page %}
-      <div class="news">
-        <div class="news__left">
-          <div class="news__left__top">
-            <span>{{ news.news_create_date|date:'d.m.Y H:i' }}</span>
-            <a href="{% url 'show_one_news' news.slug %}">{{ news.news_title }}</a>
-            <div>{{ news.news_content|truncatewords:10 | safe }}</div>
+        {% for news in page %}
+        <div class="news">
+          <div class="news__left">
+            <div class="news__left__top">
+              <span>{{ news.news_create_date|date:'d.m.Y H:i' }}</span>
+              <a href="{% url 'show_one_news' news.slug %}">{{ news.news_title }}</a>
+              <div>{{ news.news_content|truncatewords:10 | safe }}</div>
+            </div>
+            <div class="news__left__icons">
+            <a href="{% url 'show_one_news' news.slug %}">
+              <!-- <img src="/static/main/img/logo/left2.svg" alt="left"> -->
+              <svg width="25" height="25" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M63.0704 5.76813L105.497 48.1945" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
+                <path d="M63 90.4264L105.426 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
+                <path d="M5 48L105 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
+                </svg>              
+            </a>             
+            </div>
           </div>
-          <div class="news__left__icons">
-           <a href="{% url 'show_one_news' news.slug %}">
-            <!-- <img src="/static/main/img/logo/left2.svg" alt="left"> -->
-            <svg width="25" height="25" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M63.0704 5.76813L105.497 48.1945" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
-              <path d="M63 90.4264L105.426 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
-              <path d="M5 48L105 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
-              </svg>              
-           </a>             
+          <div class="news__right">
+            <img src="/static/{{ news.news_img.url }}" alt="{{ news.news_title }}">
           </div>
         </div>
-        <div class="news__right">
-          <img src="/static/{{ news.news_img.url }}" alt="{{ news.news_title }}">
-        </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
     </div>
+      {% else %}
+        <div class="news__not__found">
+          <h2>{% trans 'News not found' %}</h2>
+        </div>
+      {% endif %}
   </div>
 </div>
 

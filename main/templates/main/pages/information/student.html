@@ -83,48 +83,52 @@
 
     <!-- Контент -->
     <div class="page__content">
-        <h1>
-            {% if type == 'Расписание пар и звонков' %}
-                {% trans 'Расписание пар и звонков' %}
-            {% elif type == 'График учебного процесса' %}
-                {% trans 'График учебного процесса' %}
-            {% elif type ==  'События' %}
-                {% trans 'События' %}
-            {% elif type == 'Методические рекомендации' %}
-                {% trans 'Методические рекомендации' %}
-            {% endif %}
-        </h1>
         
+            {% if type == 'Расписание пар и звонков' %}
+                <h1>{% trans 'Расписание пар и звонков' %}</h1>
+            {% elif type == 'График учебного процесса' %}
+                <h1>{% trans 'График учебного процесса' %}</h1>
+            {% elif type ==  'События' %}
+                <h1>{% trans 'События' %}</h1>
+            {% elif type == 'Методические рекомендации' %}
+                <h1>{% trans 'Методические рекомендации' %}</h1>
+            {% endif %}
 
         {% if type == "События" %}
         
             <!-- События -->
             {% if user_type == 'student' %}
-                <div class="page__content__events">
-                    {% for event in events %}
-                        <div class="event">
-                            <div class="event__top">
-                                <img src="/static/{{ event.image.url }}" alt="{{ event.title }}">
-                                <span class="event__top__data">{{ event.start_date|date:"F j" }} - {{ event.end_date|date:"F j" }} </span>
+                {% if events.count > 0 %}
+                    <div class="page__content__events">
+                        {% for event in events %}
+                            <div class="event">
+                                <div class="event__top">
+                                    <img src="/static/{{ event.image.url }}" alt="{{ event.title }}">
+                                    <span class="event__top__data">{{ event.start_date|date:"F j" }} - {{ event.end_date|date:"F j" }} </span>
+                                </div>
+                                <div class="event__bottom">
+                                    <a class="event__bottom__link" href="{% url 'student_event_one' event.id %}">{{ event.title }}</a>
+                                    <a class="learn__more" href="{% url 'student_event_one' event.id %}">{% trans 'Узнать Больше' %}</a>
+                                </div>
                             </div>
-                            <div class="event__bottom">
-                                <a class="event__bottom__link" href="{% url 'student_event_one' event.id %}">{{ event.title }}</a>
-                                <a class="learn__more" href="{% url 'student_event_one' event.id %}">{% trans 'Узнать Больше' %}</a>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                <h2>Events not found</h2>
+                {% endif %}
             {% endif %}
 
         {% elif type == "График учебного процесса" %}
 
         <!-- График учебного процесса -->
-        <iframe 
-            src="{{ docs.file.url }}" 
-            class="page__doc"
-        ></iframe>
+        {% if docs.file %}
+            <iframe 
+                src="/static/{{ docs.file.url }}" 
+                class="page__doc"
+            ></iframe>
 
-        <a href="{{ docs.file.url }}" class='download' download>{% trans 'Скачать учебного процесса' %}</a>
+            <a href="{{ docs.file.url }}" class='download' download>{% trans 'Скачать учебного процесса' %}</a>
+        {% endif %}
         
         {% elif type == "Расписание пар и звонков"  %}
  
@@ -136,10 +140,10 @@
                         <a class="link show__link">{% trans '3 курс' %}</a>
                         <a class="link show__link">{% trans '4 курс' %}</a>
                     </div>
-                    <a href="{{ docs.course_1_schedule.url }}" class='download' download>{% trans 'Скачать расписание 1 курса' %}</a>
-                    <a href="{{ docs.course_2_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 2 курса' %}</a>
-                    <a href="{{ docs.course_3_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 3 курса' %}</a>
-                    <a href="{{ docs.course_4_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 4 курса' %}</a>
+                    {% if docs.course_1_schedule %}<a href="{{ docs.course_1_schedule.url }} " class='download' download>{% trans 'Скачать расписание 1 курса' %}</a>{% else %} <h3>Schedule not loaded</h3>{%  endif %}
+                    {% if docs.course_2_schedule %}<a href="{{ docs.course_2_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 2 курса' %} <h3>Schedule not loaded</h3></a>{%  endif %}
+                    {% if docs.course_3_schedule %}<a href="{{ docs.course_3_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 3 курса' %} <h3>Schedule not loaded</h3></a>{%  endif %}
+                    {% if docs.course_4_schedule %}<a href="{{ docs.course_4_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 4 курса' %} <h3>Schedule not loaded</h3></a>{%  endif %}
                 </div>
                 <div class="call__schedule__right">
                     <table border="1">
@@ -157,6 +161,7 @@
         {% elif type == 'Методические рекомендации' %}
 
         <!-- Методические рекомендации -->
+            {% if categories.count > 0 %}
             <div class="metodic__recomendations">
                 <div class="metodic__recomendations__left">
                     <form action="" method="GET">
@@ -250,10 +255,12 @@
                     })
                 </script>
             </div>
-
+            {% else %}
+            <h2>{% trans 'Documents not found' %}</h2>
+            {% endif %}
         {% else  %}
+        <h1>{{ event.title }}</h1>
             <div class="event__desc">
-            <h1>{{ event.title }}</h1>
                 <div class="event__desc__right">
                     <img src="/static/{{ event.image.url }}" alt="{{ event.image.name }}" />
                     <div class="event__desc__date">

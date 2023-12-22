@@ -1,0 +1,100 @@
+{% include 'main/base.html' %} 
+
+{% load static i18n %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/main/css/information/student.css" />
+<link rel="stylesheet" href="/static/worldskills/css/competents.css" />
+<link rel="stylesheet" href="/static/eduactional_work/css/sections.css" />
+
+<div class="page" id="page">
+    <h1>Кружки и секции </h1>  
+
+    {% if categories.count > 0 %}
+        <div class="page__competentions">
+            <div class="page__competentions__left">
+                {% for competent in categories %}
+                    <div class="page__competentions__left__item">
+                        <a class="link competent" id="{{competent.id}}">{{ competent.title }}</a>
+                    </div>
+                {% endfor  %}
+            </div>
+                {% for category in categories %}
+                    <div class="page__section__right" style="display: none;" id="{{ category.id }}">
+                        <p><b>{% trans "Описание" %}: </b>{{ category.about }}</p>
+                        <p><b>{% trans "Преподаватели" %}:</b> 
+                            {% for person in category.teachers.all %}
+                                <a href="{% url 'staff:staff_one' person.slug %}">{{ person.fio }}</a>; 
+                            {% endfor %}
+                        </p>
+                        <p><b>{% trans "Документы" %}:</b></p>
+                        <div class="page__competentions__right" >
+                            {% for document in documents %}
+                                {% if document.category == category %}
+                                    <a 
+                                        class="methodic__category_document" 
+                                        href="{{ document.file.url }}" 
+                                        title="{{ document.title }}"
+                                        download
+                                    >
+                                        <div class="methodic__category_document__image">
+                                            <img src="/static/main/img/logo/download.svg" alt="download">
+                                            <img src="/static/main/img/logo/download__orange.svg" class="download__orange" alt="download">
+                                        </div>
+                                        <span class="methodic__category_document__span__full">{{ document.title|slice:16 }}...</span>
+                                        <span class="methodic__category_document__span__mini">{{ document.title|slice:12 }}...</span>
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            <script>
+                    const metodic__categorys = document.querySelectorAll('.competent')
+                    const metodic__category_documents = document.querySelectorAll('.page__section__right')
+
+                    metodic__categorys[0].classList.add('metodic__active')
+                    metodic__category_documents.forEach(document => {
+                        if (document.id == 1) {
+                            document.style.display = 'flex'
+
+                            setTimeout(() => {
+                                document.style.opacity = 1
+                            }, 300)
+                        }
+                    })
+
+                    metodic__categorys.forEach(category => {
+                        category.addEventListener('click', () => {
+                            metodic__category_documents.forEach(document => {
+                                document.style.display = 'none'
+                            })
+
+                            metodic__categorys.forEach(c => { c.classList.remove('metodic__active') })
+
+                            category.classList.add('metodic__active')
+
+                            metodic__category_documents.forEach(document => {
+                                if (document.id == category.id) {
+                                    document.style.display = 'flex'
+
+                                    setTimeout(() => {
+                                        document.style.opacity = 1
+                                    }, 300)
+                                } else {
+                                    setTimeout(() => {
+                                        document.style.opacity = 0
+                                    }, 300)
+                                    document.style.display = 'none'
+                                }
+                            })
+                        })
+                    })
+            </script>
+        </div>
+    {% else %}
+        <h2>{% trans 'Documents not found' %}</h2>
+    {% endif %}
+</div>
+
+{% endblock content %}

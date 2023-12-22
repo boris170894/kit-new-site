@@ -1,0 +1,39 @@
+{% include 'main/base.html' %} 
+
+{% load static i18n %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/about_college/css/specialites.css" />
+
+<div class="page" id="page">
+    {% if type == 'one' %}
+    <div class="spec">
+        <div class="spec__image">
+            <img src="/static/{{ special.spec_img.url }}" alt="{{ spec.spec_img }}">
+            <h3>{{ special.spec_name }}</h3>
+        </div>
+        <div class="spec__content">
+            {% autoescape off %}
+                {{ special.spec_info }}
+            {% endautoescape %}
+        </div>
+    </div>
+    {% else %}
+    <h1 style="padding-bottom: 12vh">{% trans 'Наши Специальности' %}</h1>
+    <div class="specialites">
+        {% for specialite in specialites %}
+            <div class="specialite">
+                <div class="specialite__top">
+                    <img src="/static/{{ specialite.spec_img.url }}" alt="specialites" />
+
+                    <a href="{% url 'spec:special' specialite.id  %}" class="title">{{ specialite.spec_name }}</a>
+                </div>
+                <div class='specialite__bottom'>
+                    <a href="/specs/{{ specialite.id     }}">{% trans 'Узнать Больше' %}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

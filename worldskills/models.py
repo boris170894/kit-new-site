@@ -30,6 +30,7 @@ class CompetentionDocumentationModel(models.Model):
     title = models.CharField(max_length=255, default='')
     file1 = models.FileField(verbose_name='Файл', upload_to="uploads/worldskills/documentations/")
     competention = models.ForeignKey(CompetentionModel, related_name='Компетенция', on_delete=models.CASCADE)
+    public = models.BooleanField(verbose_name='Опубликовать', default=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

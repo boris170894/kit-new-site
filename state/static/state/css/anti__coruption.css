@@ -9,6 +9,7 @@
     border-bottom: 2px solid rgb(0,0,0, .1);
     margin-bottom: 3vh;
     padding: 10px 0;
+    max-width: 75vw;
 }
 .page img {
     width: 120px;

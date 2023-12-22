@@ -19,7 +19,5 @@ RUN python manage.py migrate
 
 RUN apt-get update && apt-get install -y entr
 
-# gunicorn
-# CMD ["gunicorn", "--config", "gunicorn-cfg.py", "config.wsgi"]
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
-CMD ["bash", "-c", "find . -name '*.py' | entr -nr python manage.py runserver 0.0.0.0:8080 --insecure"]
+# running server
+CMD ["bash", "-c", "find . -name '*.py' | entr -nr python manage.py runserver 0.0.0.0:8085 --insecure"]

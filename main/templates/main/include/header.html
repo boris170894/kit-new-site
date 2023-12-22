@@ -51,7 +51,7 @@
                     <b class="">{% trans 'Назад' %}</b>
                     <span class="material-symbols-outlined">arrow_forward_ios</span>
                 </div>
-                <a href="{% url 'state_symbols' %}">{% trans 'Государственные символы' %}</a>
+                <a href="{% url 'state-symbols' %}">{% trans 'Государственные символы' %}</a>
                 <a href="/government-services">{% trans 'Государственные услуги' %}</a>
                 <a href="/anti-corruption">{% trans 'Противодействие коррупции' %}</a>
                 <a href="/multilingualism-program">{% trans 'Программа полиязычия' %}</a>
@@ -77,10 +77,10 @@
                     <span class="material-symbols-outlined">arrow_forward_ios</span>
                 </div>
                 <a href="/general-information">{% trans 'Общая информация' %}</a>
-                <a href="/circles-sections">{% trans 'Кружки/Секции' %}</a>
+                <a href="/sections">{% trans 'Кружки/Секции' %}</a>
                 <a href="/psychological-service">{% trans 'Психологическая служба' %}</a>
-                <a href="/class-teachers">{% trans 'Классные руководители' %}</a>
-                <a href="/">{% trans 'Общежитие' %}</a>
+                <a href="/groups">{% trans 'Классные руководители' %}</a>
+                <a href="/dormitory">{% trans 'Общежитие' %}</a>
             </div>  
         </div>
         <form action="{% url 'set_language' %}" method="post" id="LanguageForm">{% csrf_token %}

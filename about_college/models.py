@@ -18,17 +18,31 @@ class CollegeHistoryModel(models.Model):
 class CollegeDocsModel(models.Model):
 
     college_license = models.FileField(upload_to="uploads/Docs",verbose_name="Лицензия")
-    college_reg = models.FileField(upload_to="uploads/about_college/docs",verbose_name="Устав")
+    college_reg = models.FileField(upload_to="uploads/about-college/docs",verbose_name="Устав")
     public = models.BooleanField(verbose_name='Опубликовать', default=True)
 
     class Meta:
         verbose_name = 'Документы колледжа'
         verbose_name_plural = 'Документы колледжа'
 
+""" Специальности """
+class SpecInfoModel(models.Model):
+
+    spec_name = models.CharField(verbose_name='Специальность', max_length=200)
+    spec_info = models.TextField(verbose_name='Описание')
+    spec_img = models.ImageField(verbose_name='Изображение', upload_to = 'uploads/about-college/specs', blank = True)
+
+    def __str__(self):
+        return self.spec_name
+
+    class Meta:
+        verbose_name = 'Специальности'
+        verbose_name_plural = 'Специальности'
+
 """ Попечительский совет """
 class BoardOfTrusteesModel(models.Model):
     title = models.CharField(verbose_name='Наименование документа', max_length=255 )
-    file = models.FileField(upload_to="uploads/about_college/board_of_trustees",verbose_name="Документ")
+    file = models.FileField(upload_to="uploads/about-college/board-of-trustees",verbose_name="Документ")
     public = models.BooleanField(verbose_name='Опубликовать', default=True)
 
     class Meta:
@@ -41,7 +55,7 @@ class BoardOfTrusteesModel(models.Model):
 """ Педагогический совет """
 class PedagogicalCouncilModel(models.Model):
     title = models.CharField(verbose_name='Наименование документа', max_length=255 )
-    file = models.FileField(upload_to="uploads/about_college/pedagogical_council",verbose_name="Документ")
+    file = models.FileField(upload_to="uploads/about-college/pedagogical-council",verbose_name="Документ")
     public = models.BooleanField(verbose_name='Опубликовать', default=True)
 
     class Meta:
@@ -54,7 +68,7 @@ class PedagogicalCouncilModel(models.Model):
 """ Индустриальный совет """
 class IndustrialCouncilModel(models.Model):
     title = models.CharField(verbose_name='Наименование документа', max_length=255 )
-    file = models.FileField(upload_to="uploads/about_college/industrial_council", verbose_name="Документ")
+    file = models.FileField(upload_to="uploads/about-college/industrial-council", verbose_name="Документ")
     public = models.BooleanField(verbose_name='Опубликовать', default=True)
 
     class Meta:

@@ -10,16 +10,17 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    gap: 4%;
 }
 .page__competentions__left {
-    width: 30%;
+    width: 28%;
     display: flex;
     justify-content: start;
     align-items: start;
     flex-direction: column;
 }
 .page__competentions__right {
-    width: 70%;
+    width: 68%;
     display: grid;
     grid-template-columns: 32% 32% 32%;
 }

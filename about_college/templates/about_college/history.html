@@ -8,6 +8,7 @@
 <div class="page" id="page">
     <h1>{% trans 'История Колледжа' %}</h1>
 
+    {% if histories.count > 0 %}
     <div class="page__histories">
         <div class="page__histories__line">
             <span class="page__histories__circle"></span>
@@ -22,6 +23,9 @@
             {% endfor %}
         </div>
     </div>
+    {% else %}
+    <h2>History not found</h2>
+    {% endif %}
 </div>
 
 <script src="/static/main/js/about/college_history.js"></script>

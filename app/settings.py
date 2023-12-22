@@ -53,12 +53,12 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'news.apps.NewsConfig',
     'staff.apps.StaffConfig',
-    'specialties.apps.SpecialtiesConfig',
 
     'worldskills',
     'state',
     'educational_work',
     'about_college',
+    'information',
 ]
 
 # TODO: python3 manage.py runserver --insecure   
@@ -195,3 +195,15 @@ CKEDITOR_CONFIGS = {
     },
 }
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_HOST_USER = 'johnnotsnow@yandex.ru'
+# EMAIL_HOST_PASSWORD = '54444812'
+EMAIL_HOST_USER = 'adfegecy@gmail.com'
+EMAIL_HOST_PASSWORD = '301223Vaseles'
+EMAIL_RECIPIENTS = ["adfegecy@gmail.com",]
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
