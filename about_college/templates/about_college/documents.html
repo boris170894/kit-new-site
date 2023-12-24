@@ -1,0 +1,34 @@
+{% include 'main/base.html' %} 
+
+{% load static i18n %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/about_college/css/college_history.css" />
+
+<div class="page" id="page">
+    <h1>{% trans 'Документы'  %}</h1>
+
+    <h2>{% trans 'Лицензия' %}</h2>
+
+    {% if documents.college_license %}
+        <iframe 
+            src="/static/media/{{ documents.college_license }}" 
+            class="page__doc"
+        ></iframe>
+
+        <a href="{{ documents.college_license.url }}" class='link' download>{% trans 'Скачать лицензию' %}</a>
+    {% endif  %}
+
+    <h2>{% trans 'Устав' %}</h2>
+
+    {% if documents.college_reg %}
+        <iframe 
+            src="/static/media/{{ documents.college_reg }}" 
+            class="page__doc"
+        ></iframe>
+
+        <a href="{{ documents.college_license.url }}" class='link' download>{% trans 'Скачать устав' %}</a>
+    {% endif %}
+    </div>
+
+{% endblock content %}

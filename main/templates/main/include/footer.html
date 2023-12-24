@@ -2,6 +2,25 @@
 
 <link rel="stylesheet" href="{% static 'main/css/footer.css' %}" media="screen" />
 
+<a class="footer__up">
+    <i class="fa-solid fa-chevron-up"></i>
+    <script>
+        // window.scrollTo({ top: document.querySelector("page").offsetTop })
+        console.log("runserver")
+        document.querySelector(".footer__up").addEventListener("click", () => {
+            const targetSection = document.querySelector(".page");
+            console.log(targetSection)
+            const targetSectionOffsetTop = targetSection.offsetTop;
+            console.log(targetSectionOffsetTop)
+        
+            window.scrollTo({
+            top: targetSectionOffsetTop,
+            behavior: 'smooth',
+            });
+        })
+    </script>
+</a>
+
 <footer class="footer">
     <div class="footer__left">
         <a href="/news">{% trans 'Новости' %}</a>

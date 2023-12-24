@@ -1,38 +1,27 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import *
+from .models import (
+                                GroupModel,
+                                CMCModel,
+                                PositionModel,
+                                PersonModel
+                            )
 
-@register(DirectorModel)
-class CyclicMCTransOptions(TranslationOptions):
-    fields = ('info',)
+""" Группа """
+@register(GroupModel)
+class GroupTransOptions(TranslationOptions):
+    fields = ('name',)
 
-@register(DepDirectorModel)
-class CyclicMCTransOptions(TranslationOptions):
-    fields = ('info',)
+""" ЦМК """
+@register(CMCModel)
+class CMCTransOptions(TranslationOptions):
+    fields = ('title',)
 
-@register(DepHeadModel)
-class CyclicMCTransOptions(TranslationOptions):
-    fields = ('info',)
-
-@register(CmcOBModel)
-class CyclicMCTransOptions(TranslationOptions):
-    fields = ('info',)
-
-@register(CmcLangModel)
-class CyclicMCTransOptions(TranslationOptions):
-    fields = ('info',)
-
-@register(CmcELModel)
-class CyclicMCTransOptions(TranslationOptions):
-    fields = ('info',)
-
-@register(CmcITModel)
-class CyclicMCTransOptions(TranslationOptions):
-    fields = ('info',)
-
-@register(CmcFIZModel)
-class CyclicMCTransOptions(TranslationOptions):
-    fields = ('info',)
-
+""" Должность """
 @register(PositionModel)
-class CyclicMCTransOptions(TranslationOptions):
-    fields = ('position_name',)
+class PositionTransOptions(TranslationOptions):
+    fields = ('title',)
+
+""" Персонал """
+@register(PersonModel)
+class PersonalTransOptions(TranslationOptions):
+    fields = ('fio', 'info')

@@ -1,39 +1,16 @@
 from modeltranslation.translator import register, TranslationOptions
 from .models import (
-                        CollegeHistoryModel, 
-                        CollegeContactModel, 
                         CollegePartnersModel, 
-                        StateSymbolsModel,
-                        StudentEventModel,
-                        MetodicRecomendationsCategoryModel,
-                        MetodicRecomendationsDocumentModel,
+                        CollegeSliderModel,
                     )
 
-@register(CollegeHistoryModel)
-class CollegeHistoryTransOptions(TranslationOptions):
-    fields = ('info',)
-
-
-@register(CollegeContactModel)
-class CollegeContactTransOptions(TranslationOptions):
-    fields = ('addr',)
-
+""" Партнеры колледжа """
 @register(CollegePartnersModel)
 class CollegePartnersTransOptions(TranslationOptions):
     fields = ('partner_name',)
-    
-@register(StateSymbolsModel)
-class StateSymbolsModelTransOptions(TranslationOptions):
-    fields = ('name', 'desc',)
-    
-@register(StudentEventModel)
-class StudentEventTransOptions(TranslationOptions):
-    fields = ('title', 'description',)
 
-@register(MetodicRecomendationsCategoryModel)
-class MetodicRecomendationsCategoryTransOptions(TranslationOptions):
-    fields = ('title',)
+""" Слайдер колледжа """
+@register(CollegeSliderModel)
+class CollegeSliderTransOptions(TranslationOptions):
+    fields = ('title', 'number', 'text')
 
-@register(MetodicRecomendationsDocumentModel)
-class MetodicRecomendationsDocumentTransOptions(TranslationOptions):
-    fields = ('title',)

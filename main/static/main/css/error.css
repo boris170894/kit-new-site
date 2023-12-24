@@ -14,19 +14,26 @@
     flex-direction: column;
     width: 100%;
     padding: 0% 10% 5%;
-
+    height: 90vh;
 }
 .error  img {
-    width: calc((1vw + 1vh)  * 30);
-
+    width: calc((1vw + 1vh)  * 28);
 }
 .error h3 {
     margin-bottom: 10px;
-    font-size: calc((1vw + 1vh) * 2);
+    margin-top: -10px;
+    font-size: calc((1vw + 1vh) * 1.8);
+}
+@media screen and (max-width: 600px) {
+    .error h3 {
+        font-size: calc((1vw + 1vh) * 2.4);
+    }
 }
 .error a {
     color: var(--orange);
     background-color: transparent;
+    margin-top: 6px;
+    font-size: calc((1vw + 1vh) * 1);
 }
 .error a:hover {
     background-color: transparent;

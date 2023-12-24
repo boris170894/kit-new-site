@@ -1,0 +1,31 @@
+{% include 'main/base.html' %} 
+
+{% load static i18n %}
+
+{% block content %}
+<title>{{ title }}</title>
+
+<link rel="stylesheet" href="/static/about_college/css/college_history.css" />
+<link rel="stylesheet" href="/static/state/css/anti__coruption.css" />
+
+
+<div class="page" id="page">
+    <h1>{{ title }}</h1>
+    
+    {% if documents.count > 0 %}
+        {% for document in documents %}
+            {% if document.file %}
+                <div class="anti__coruption">
+                    <h2>{{ document.title }}</h2>
+                    <a href="/static/media/{{ document.file }}" class='link' download>{% trans 'Скачать' %} <i class="fa-solid fa-download"></i></a>
+                </div>
+            {% endif  %}
+        {% endfor %}
+    {% else %}
+        {% comment %} <img src="/static/eduactional_work/img/general_information/search.png" alt="General information search"> {% endcomment %}
+        <h2>{% trans 'Documents not found' %}</h2>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

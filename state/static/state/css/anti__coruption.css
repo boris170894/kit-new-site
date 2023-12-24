@@ -1,0 +1,42 @@
+.anti__coruption {
+    display: grid;
+    grid-template-columns: 65% 25%;
+    gap: 10%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 90vw;
+    border-bottom: 2px solid rgb(0,0,0, .1);
+    margin-bottom: 3vh;
+    padding: 10px 0;
+    max-width: 75vw;
+}
+.page img {
+    width: 120px;
+    margin-bottom: 2vh;
+}
+@media screen and (max-width:1000px) and (min-width:600px) {
+    .page h2 {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .page h2 {
+        margin-bottom: 0;
+        margin: 2vh;
+    }
+    .anti__coruption {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 3vh;
+        max-width: 94vw;
+    }
+    .anti__coruption h2 {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
