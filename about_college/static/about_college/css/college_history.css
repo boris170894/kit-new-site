@@ -45,7 +45,7 @@
     font-size: calc((1vw + 1vh) * 1.9);
     font-weight: bold;
 }
-.history p {
+.history div {
     width: 73%;
     font-size: calc((1vw + 1vh) * 1.1);
     transition: all .3s linear;

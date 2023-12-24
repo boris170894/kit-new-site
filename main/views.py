@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import (
                         CollegePartnersModel, 
+                        CollegeSliderModel,
                      )
 from information.models import CollegeContactModel
 from news.models import NewsModel
@@ -15,6 +16,8 @@ def index(request):
 
     contacts = CollegeContactModel.objects.all()
     partners = CollegePartnersModel.objects.all()
+    slides = CollegeSliderModel.objects.filter(public=True)
+    print('SLIDES', slides)
 
     if public__news_count > 3:
         last_news = NewsModel.objects.filter(news_is_published = True).order_by('news_create_date')[public__news_count-4:public__news_count-1]        
@@ -30,6 +33,7 @@ def index(request):
         
         'last_one_news': last_one_news,
         'public__news_count': public__news_count,
+        'slides': slides,
     }
     return render(request, 'main/pages/index.html', context)
     

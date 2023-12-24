@@ -21,7 +21,11 @@
             </div>
                 {% for category in categories %}
                     <div class="page__section__right" style="display: none;" id="{{ category.id }}">
-                        <p><b>{% trans "Описание" %}: </b>{{ category.about }}</p>
+                        <div class="page__section__right__p"><b>{% trans "Описание" %}: </b>
+                            {% autoescape off %}
+                                {{ category.about }}
+                            {% endautoescape %}
+                        </div>
                         <p><b>{% trans "Преподаватели" %}:</b> 
                             {% for person in category.teachers.all %}
                                 <a href="{% url 'staff:staff_one' person.slug %}">{{ person.fio }}</a>; 

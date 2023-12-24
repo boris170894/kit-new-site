@@ -8,7 +8,7 @@
 .page__competentions__right {
     width: 100%;
 }
-.page__section__right p {
+.page__section__right p, .page__section__right__p {
     font-size: calc((1vw + 1vh) * 1);
     margin-bottom: calc((1vw + 1vh) * .6);
 }
@@ -20,7 +20,7 @@ h1 {
         width: 100%;
         margin-top: 3vh;
     }
-    .page__section__right p {
+    .page__section__right p, .page__section__right__p {
         font-size: calc((1vw + 1vh) * 1.6);
         margin-bottom: calc((1vw + 1vh) * .6);
     }

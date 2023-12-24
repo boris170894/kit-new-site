@@ -162,3 +162,59 @@ option:focus, option:checked, option:hover, option: {
     width: 100%;
     max-width: 60vw;
 }
+
+@media screen and (max-width: 600px) {
+    .page {
+        padding: 0 2vw;
+        padding-bottom: 15vh;
+    }
+    .dormitory__slider__item {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
+    .dormitory__slider__main__image {
+        height: 40vh;
+    }
+    .dormitory__slider__images {
+        flex-direction: row;
+        overflow-y: hidden;
+        overflow-x: auto;
+        height: 20vh;
+        padding: 0;
+    }
+    .dormitory__documents {
+        max-width: 90vw;
+    }
+    .dormitory__about {
+        max-width: 90vw;
+    }
+    .dormitory__documents__form {
+        max-width: 96vw;
+        padding: 6vh 4vw;
+        box-shadow: none;
+        border: none;   
+    }
+    .dormitory__documents__form h2 {
+        font-size: calc((1vw + 1vh) * 2.8);
+    }
+    .form__field {
+        max-width: 95vw;
+    }
+    .dormitory__documents__form__component {
+        max-width: 95vw;
+    }
+    .btn {
+        width: 100%;
+        font-size: calc((1vw + 1vh) * 1.5);
+    }
+    .form__field label {
+        font-size: calc((1vw + 1vh) * 1.35);
+    }
+    .form__field input, select {
+        font-size: calc((1vw + 1vh) * 1.55);
+        height: calc((1vw + 1vh) * 5);
+    }
+    .dormitory__documents__form__component {
+        flex-direction: column;
+    }
+}

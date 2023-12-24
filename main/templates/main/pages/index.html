@@ -90,44 +90,59 @@
     </div>
 
    <!-- !  About -->
-    <div class="container">
 
-        <!-- <div class="pre__title">
-            <h2 class="title">
-                О нас
-            </h2>
-        </div> -->
-
-    </div>
-    
-        <div class="page__about">
-            <div class="page__about__slide">
-                <div class="page__about__right">
-                    <h2>45</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi unde blanditiis, exercitationem laudantium tempore qui culpa voluptas quo accusantium quod consequuntur delectus architecto? Optio eius maiores neque animi tenetur.</p>
-                    <a href="">{% trans 'Поступить к нам ' %}
-                        <span class="material-symbols-outlined">
-                        trending_flat
-                        </span>
+    <div class="page__about">
+        .{% for slide in slides %}
+        <div class="page__about__slider" >
+            <div class="page__about__left">
+                <div class="page__about__left__header">
+                    <h2>{{  slide.number }}</h2>
+                </div>
+                <div class="page__about__left__footer">
+                    <p>{{ slide.text }}</p>
+                    <a href="">
+                        {% trans 'ПОСТУПИТЬ К НАМ' %} 
+                        <svg width="41" height="22" viewBox="0 0 41 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30 19.1459L38 11.1459" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M30 3L38 11" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M2 10.5H37" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                        </svg>                            
                     </a>
                 </div>
-                <div class="page__about__left">
-                    <span id="page__about__left__name">
-                        <p>3d принтер picaso 3d</p>
-                        <p>designer xl pro 2</p>
-                    </span>
-                    <img src="{% static 'main/img/about/3d-printer-picaso-3d-designer-xl-pro-2.png' %}" alt="" id="page__about__left__img">
-                    <div class="page__about__buttons">
-                        <title class="material-symbols-outlined page__about__button__left">
-                            arrow_back_ios_new
-                        </title>
-                        <title class="material-symbols-outlined page__about__button__right">
-                            arrow_forward_ios
-                        </title>
-                    </div>
+            </div>
+            <div class="page__about__right">
+
+                <div class="page__about__right__title">
+                    {{ slide.title }}
                 </div>
+                
+                <div class="page__about__right__images">
+                    {% if slide.image %}
+                        <img src="/static/media/{{ slide.image }}" alt="" class="img1" />
+                    {% endif %}
+                    {% if slide.image2 %}
+                        <img src="/static/media/{{ slide.image2 }}" alt="" class="img2" />
+                    {% endif %}
+                    {% if slide.image3 %}
+                        <img src="/static/media/{{ slide.image3 }}" alt="" class="img3" />
+                    {% endif %}
+                </div>
+
             </div>
         </div>
+        {%  endfor %}
+
+        <div class="page__about__right__next__prev">
+            <svg class="prev" width="24" height="42" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.6777 3L3 20.6777" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                <path d="M20.6777 38.6777L3 21" stroke="white" stroke-width="5" stroke-linecap="round"/>
+            </svg>    
+            <svg  class="next" width="24" height="42" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.6777 3L3 20.6777" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                <path d="M20.6777 38.6777L3 21" stroke="white" stroke-width="5" stroke-linecap="round"/>
+            </svg>                            
+        </div>
+    </div>
 
     
     <div class="container">

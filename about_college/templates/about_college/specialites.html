@@ -26,7 +26,7 @@
                 <div class="specialite__top">
                     <img src="/static/{{ specialite.spec_img.url }}" alt="specialites" />
 
-                    <a href="{% url 'spec:special' specialite.id  %}" class="title">{{ specialite.spec_name }}</a>
+                    <a href="/specs/{{ specialite.id }}" class="title">{{ specialite.spec_name }}</a>
                 </div>
                 <div class='specialite__bottom'>
                     <a href="/specs/{{ specialite.id     }}">{% trans 'Узнать Больше' %}</a>
