@@ -12,11 +12,11 @@ if (window.innerWidth <= 900) {
     navButton.onclick = () => {
         if (menu.style.left == '-100%') {
             menu.style.left = 0
-            document.style.overflowY = 'hidden'
+            body.style.overflowY = 'hidden'
             // page.style.opacity = 0
         } else {
             menu.style.left = '-100%'
-            document.style.overflowY = 'scroll'
+            body.style.overflowY = 'scroll'
             // page.style.opacity = 1
         }
     }

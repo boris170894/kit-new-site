@@ -32,7 +32,7 @@ def show_all_worldskills_news(request):
         filters = request.GET.get('filters')
         
         if filters == 'oldest':
-            news_list = NewsModel.objects.filter(news_is_published = True, news_is_achivment=True).order_by('news_create_date') 
+            news_list = NewsModel.objects.filter(news_is_published = True, news_is_worldskills=True).order_by('news_create_date') 
         else:
             news_list = NewsModel.objects.filter(news_is_published = True, news_is_achivment=True).order_by('-news_create_date')               
     

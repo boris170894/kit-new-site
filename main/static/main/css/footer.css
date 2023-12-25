@@ -74,12 +74,12 @@ footer {
     position: fixed;
     bottom: 5vh;
     right: 5vh;
-    z-index: 999999;
+    z-index: 6;
     background-color: white;
     color: #262626;
     opacity: .3;
     border-radius: 8px;
-    padding: 2vh 2vh;
+    padding: 0 10px;
     box-shadow: 0 0 10px rgb(20,20,20,.1);
 
     display: flex;
@@ -92,4 +92,8 @@ footer {
 }
 .footer__up:hover {
     opacity: 1;
+}
+.footer__up svg {
+    scale: .5;
+    rotate: 90deg;
 }

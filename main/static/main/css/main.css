@@ -249,6 +249,7 @@ a:active, a:hover, a:focus {
 @media screen and (min-width: 600px) and (max-width:1000px) {
     .nav__menu {
         font-size: 100px;
+        scale: .6;
     }
 }
 @media screen and (max-width:1000px) {
@@ -256,15 +257,19 @@ a:active, a:hover, a:focus {
         display: block !important;
         transform: rotateX(180deg)!important;
         transform: rotateY(180deg)!important;
-        font-size: 40px !important;
         color: rgb(38, 38, 38, .8);
         z-index: 10 ;
         position: fixed;
-        right: 4%;
-        padding:6px;
+        padding: 8px;
         font-weight: bold;
         background-color: #fff;
         border-radius: 10px;
+        /* scale: .5; */
+
+        top: 5vh;
+        right: 3vh;
+        width: 40px;
+        height: 40px;
     }
     .nav__right__button__menu a:first-child {
         padding: 10px 0;
@@ -290,6 +295,9 @@ a:active, a:hover, a:focus {
         left: 0;
         /* left: -100%; */
         box-shadow: 0 20vw 0px 20vw rgb(32, 32, 32, .6)
+    }
+    .nav__right__close__svg {
+         /* scale: .6; */
     }
     nav .nav__right {
         gap: 0;

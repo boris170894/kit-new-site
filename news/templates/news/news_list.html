@@ -72,7 +72,6 @@
 
 
     <!-- TODO ______ News ______ -->
-      {% if news.count > 0 %}
     <div class="page__news">
         {% for news in page %}
         <div class="news">
@@ -99,11 +98,6 @@
         </div>
         {% endfor %}
     </div>
-      {% else %}
-        <div class="news__not__found">
-          <h2>{% trans 'News not found' %}</h2>
-        </div>
-      {% endif %}
   </div>
 </div>
 

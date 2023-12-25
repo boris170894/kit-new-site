@@ -12,7 +12,9 @@
         {% endif %}
        <div class="page__about__item">
             <h2>{{ person.fio }}</h2>
-            <h5>{%  if person.position %}{{ person.position }}{% endif %}</h5>
+            {%  if person.position %}
+                <h5>{{ person.position }}</h5>
+            {% endif %}
        </div>
        <div class="page__text">
             {% autoescape off %}
