@@ -13,6 +13,8 @@ footer {
     align-items: center;
     width: 100%;
     flex-wrap: wrap;
+    position: absolute;
+    bottom: 0%;
 }
 .footer__left {
     display: flex;
@@ -53,7 +55,45 @@ footer {
     height: 25px;
 }
 @media screen and (max-width: 600px) {
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+    }
+    .footer__left a {
+        font-size: 18px;
+    }
     .footer__right {
         width: 100%;
     }
+}
+
+/* ? footer up */
+.footer__up {
+    position: fixed;
+    bottom: 5vh;
+    right: 5vh;
+    z-index: 6;
+    background-color: white;
+    color: #262626;
+    opacity: .3;
+    border-radius: 8px;
+    padding: 0 10px;
+    box-shadow: 0 0 10px rgb(20,20,20,.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all .3s linear;
+    cursor: pointer;
+    /* opacity: 0; */
+}
+.footer__up:hover {
+    opacity: 1;
+}
+.footer__up svg {
+    scale: .5;
+    rotate: 90deg;
 }
