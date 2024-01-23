@@ -1,0 +1,30 @@
+.page__section__right {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 68%;
+}
+.page__competentions__right {
+    width: 100%;
+}
+.page__section__right p, .page__section__right__p {
+    font-size: calc((1vw + 1vh) * 1);
+    margin-bottom: calc((1vw + 1vh) * .6);
+}
+h1 {
+    padding:  6vh 0;
+}
+@media screen and (max-width: 600px) {
+    .page__section__right {
+        width: 100%;
+        margin-top: 3vh;
+    }
+    .page__section__right p, .page__section__right__p {
+        font-size: calc((1vw + 1vh) * 1.6);
+        margin-bottom: calc((1vw + 1vh) * .6);
+    }
+    .page__competentions__right {
+        margin-top: 6px;
+    }
+}

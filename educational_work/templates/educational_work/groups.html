@@ -1,0 +1,20 @@
+{% include 'main/base.html' %} 
+
+{% load static i18n %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/eduactional_work/css/groups.css" />
+
+<div class="page">
+    <h1>{% trans 'Классные руководители' %}</h1>
+    <div class="page__groups">
+        {% for group in groups %}
+            <div class="group">
+                <span> {{  group.name }}</span>
+               <a href="{% url 'staff:staff_one' group.curator.slug %}"> {{ group.curator.fio }}</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

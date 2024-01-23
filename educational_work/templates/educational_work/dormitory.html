@@ -1,0 +1,131 @@
+{% include 'main/base.html' %} 
+
+{% load static i18n %}
+
+{% block content %}
+<title>{{ title }}</title>
+
+<link rel="stylesheet" href="/static/about_college/css/college_history.css" />
+<link rel="stylesheet" href="/static/state/css/anti__coruption.css" />
+<link rel="stylesheet" href="/static/eduactional_work/css/dormitory.css" />
+
+<div class="page" id="page">
+    <h1>Общежитие</h1>
+    
+    {% if info %}
+        <div class="dormitory__slider">
+            <div class="dormitory__slider__item">
+                <div class="dormitory__slider__main__slide">
+                    <img src="{{  info.images.1.file }}" alt="main image" class="dormitory__slider__main__image" />
+                </div>
+                <div class="dormitory__slider__images">
+                    {% for image in info.images.all %}
+                            <img src="/static/media/{{ image.file }}" alt="{{ image.id }}" class="dormitory__slider__slide__image">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const main_place = document.querySelector('.dormitory__slider__main__image')
+            const images = document.querySelectorAll('.dormitory__slider__slide__image');
+
+            main_place.src = images[0].src
+            
+            images.forEach(image => {
+                image.addEventListener('click', (e) => {
+                    main_place.style.opacity = 0;
+
+                    setTimeout(() => {
+                        main_place.src = image.src
+                        setTimeout(() => {
+                            main_place.style.opacity = 1;
+                        }, 200)
+                    }, 200)
+                });
+            });
+        </script>
+
+        {% if  info.about %}
+            <div class="dormitory__about">
+                {% autoescape off %}
+                    {{ info.about }}
+                {% endautoescape %}
+            </div>
+        {% endif %}
+
+        <div class="dormitory__documents">
+            <h1>Документы</h1>
+            {% if info.documents.count > 0 %}
+                {% for document in info.documents.all %}
+                    {% if document.file %}
+                        <div class="anti__coruption">
+                            <h2>{{ document.title }}</h2>
+                            <a href="/static/media/{{ document.file }}" class='link' download>{% trans 'Скачать' %} <i class="fa-solid fa-download"></i></a>
+                        </div>
+                    {% endif  %}
+                {% endfor %}
+            {% else %}
+                {% comment %} <img src="/static/eduactional_work/img/general_information/search.png" alt="General information search"> {% endcomment %}
+                <h2>{% trans 'Documents not found' %}</h2>
+            {% endif %}
+        </div>
+    {% else %}
+        {% comment %} <img src="/static/eduactional_work/img/general_information/search.png" alt="General information search"> {% endcomment %}
+        <h2>{% trans 'Documents not found' %}</h2>
+    {% endif %}
+
+    <form class="dormitory__documents__form" method="POST" >
+        {% csrf_token %}
+        <h2>Заявка</h2>
+       <div class="form__field">
+            <label for="">ФИО:</label>
+            <input type="text" 
+                name="fio" 
+                placeholder="ФИО"
+                required
+                min="5"
+                max="50"  />
+        </div>
+        <div class="dormitory__documents__form__component">
+            <div class="form__field">
+                <label for="">Группа:</label>
+                <input type="text" 
+                    name="group" 
+                    placeholder="Группа..." 
+                    required
+                    min="3"
+                    max="7" />
+            </div>
+            <div class="form__field">
+                <label for="">Пол:</label>
+               <select name="gender" required>
+                    <option value="Мужской">Мужской</option>
+                    <option value="Женский">Женский</option>
+               </select>
+            </div>
+        </div>
+        <div class="dormitory__documents__form__component">
+            <div class="form__field">
+                <label for="">E-mail:</label>
+                <input type="email" 
+                    name="email" 
+                    placeholder="E-mail..."
+                    required max="100" min="3"  />
+           </div>
+            <div class="form__field">
+                <label for="">Телефон:</label>
+                <input type="text" 
+                    name="phone" 
+                    placeholder="Телефон..."
+                    required max="12" />
+            </div>
+        </div>
+
+        <button class="btn">Отправить</button>
+
+    </form>
+
+</div>
+
+{% endblock content %}

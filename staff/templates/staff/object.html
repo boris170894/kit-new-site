@@ -5,14 +5,16 @@
 {% block content %}
 <link rel="stylesheet" href="/static/staff/css/about/staff.css" />
 
-<div class="page">
+<div class="page" id="page">
     <div class="page__about">
         {% if person.foto %}
             <img src="/static/{{ person.foto.url }}" alt="{{ person.fio }}">
         {% endif %}
        <div class="page__about__item">
-            <h3>{{ person.fio }}</h3>
-            <h5>{{ person.position }}</h5>
+            <h2>{{ person.fio }}</h2>
+            {%  if person.position %}
+                <h5>{{ person.position }}</h5>
+            {% endif %}
        </div>
        <div class="page__text">
             {% autoescape off %}

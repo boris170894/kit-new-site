@@ -4,13 +4,24 @@
     <div class="nav__left">
         <a href="/"><img src="/static/main/img/logo/logo.png" alt=""></a>
     </div>
-    <span class="material-symbols-outlined nav__menu">
+    
+    {% comment %} <span class="material-symbols-outlined nav__menu">
         sort
-    </span>
+    </span> {% endcomment %}
+
+    <svg class="nav__menu" width="40" height="40" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 10L105 10" stroke="rgb(20,20,20,.7)" stroke-width="12" stroke-linecap="round"/>
+        <path d="M5 45L105 45" stroke="rgb(20,20,20,.7)" stroke-width="12" stroke-linecap="round"/>
+        <path d="M5 80L105 80" stroke="rgb(20,20,20,.7)" stroke-width="12" stroke-linecap="round"/>
+    </svg> 
+
     <div class="nav__right" style="left: -100%;">
         <div class="nav__link nav__right__close" id="nav_close">
             <b class="">{% trans 'Назад' %}</b>
-            <span class="material-symbols-outlined">arrow_forward_ios</span>
+            <svg class="nav__right__close__svg" width="15" height="20" viewBox="0 0 57 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 5L51.9627 43.5673" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                <path d="M5.67862 82.5039L51.6413 43.9367" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+            </svg>
         </div>
         <a href="{% url 'news_list' %}" class='nav__link'>{% trans 'Новости' %}</a>
         <div class="nav__right__button__menu nav__link" >
@@ -19,7 +30,10 @@
 
                 <div class="nav__link nav__right__close nav__right__menu__close">
                     <b class="">{% trans 'Назад' %}</b>
-                    <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    <svg class="nav__right__close__svg" width="15" height="20" viewBox="0 0 57 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 5L51.9627 43.5673" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M5.67862 82.5039L51.6413 43.9367" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                    </svg>
                 </div>
                 
                 <a href="{% url 'college-history' %}">{% trans 'История колледжа' %}</a>
@@ -36,7 +50,10 @@
             <div class="nav__right__menu">
                 <div class="nav__link nav__right__close nav__right__menu__close">
                     <b class="">{% trans 'Назад' %}</b>
-                    <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    <svg class="nav__right__close__svg" width="15" height="20" viewBox="0 0 57 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 5L51.9627 43.5673" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M5.67862 82.5039L51.6413 43.9367" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                    </svg>
                 </div>
                 <a href="{% url 'call_pair_schedule' %}">{% trans 'Студенту' %}</a>
                 <a href="{% url 'abiturients' %}">{% trans 'Абитуриенту' %}</a>
@@ -49,9 +66,12 @@
             <div class="nav__right__menu">
                 <div class="nav__link nav__right__close nav__right__menu__close">
                     <b class="">{% trans 'Назад' %}</b>
-                    <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    <svg class="nav__right__close__svg" width="15" height="20" viewBox="0 0 57 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 5L51.9627 43.5673" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M5.67862 82.5039L51.6413 43.9367" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                    </svg>
                 </div>
-                <a href="{% url 'state_symbols' %}">{% trans 'Государственные символы' %}</a>
+                <a href="{% url 'state-symbols' %}">{% trans 'Государственные символы' %}</a>
                 <a href="/government-services">{% trans 'Государственные услуги' %}</a>
                 <a href="/anti-corruption">{% trans 'Противодействие коррупции' %}</a>
                 <a href="/multilingualism-program">{% trans 'Программа полиязычия' %}</a>
@@ -62,7 +82,10 @@
             <div class="nav__right__menu">
                 <div class="nav__link nav__right__close nav__right__menu__close">
                     <b class="">{% trans 'Назад' %}</b>
-                    <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    <svg class="nav__right__close__svg" width="15" height="20" viewBox="0 0 57 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 5L51.9627 43.5673" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M5.67862 82.5039L51.6413 43.9367" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                    </svg>
                 </div>
                 <a href="/worldskills/rools">{% trans 'Правила' %}</a>
                 <a href="/worldskills/documents">{% trans 'Документация' %}</a>
@@ -74,12 +97,16 @@
             <div class="nav__right__menu">
                 <div class="nav__link nav__right__close nav__right__menu__close">
                     <b class="">{% trans 'Назад' %}</b>
-                    <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    <svg class="nav__right__close__svg" width="15" height="20" viewBox="0 0 57 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 5L51.9627 43.5673" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M5.67862 82.5039L51.6413 43.9367" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                    </svg>
                 </div>
                 <a href="/general-information">{% trans 'Общая информация' %}</a>
-                <a href="/circles-sections">{% trans 'Кружки/Секции' %}</a>
+                <a href="/sections">{% trans 'Кружки/Секции' %}</a>
                 <a href="/psychological-service">{% trans 'Психологическая служба' %}</a>
-                <a href="/class-teachers">{% trans 'Классные руководители' %}</a>
+                <a href="/groups">{% trans 'Классные руководители' %}</a>
+                <a href="/dormitory">{% trans 'Общежитие' %}</a>
             </div>  
         </div>
         <form action="{% url 'set_language' %}" method="post" id="LanguageForm">{% csrf_token %}

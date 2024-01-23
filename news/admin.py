@@ -13,6 +13,7 @@ class CategoryAdmin(TranslationAdmin):
 class NewsAdminForm(forms.ModelForm):
     news_content_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
     news_content_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[kk]')
+    news_content_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[en]')
     class Meta:
         model = NewsModel
         fields = '__all__'

@@ -1,0 +1,35 @@
+{% include 'main/base.html' %} 
+
+{% load static i18n %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/about_college/css/college_history.css" />
+
+<div class="page" id="page">
+    <h1>{% trans 'История Колледжа' %}</h1>
+
+    {% if histories.count > 0 %}
+       {% autoescape off %}
+        <div class="page__histories">
+            <div class="page__histories__line">
+                <span class="page__histories__circle"></span>
+                <span class="draw"></span>
+            </div>
+            <div class="histories">
+                {% for history in histories %}
+                    <div class="history">
+                        <h3 class="history__data">{{ history.year|date:"d.m.Y" }}</h3>
+                        <div class="history__content">{{ history.info }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+       {% endautoescape %}
+    {% else %}
+    <h2>History not found</h2>
+    {% endif %}
+</div>
+
+<script src="/static/main/js/about/college_history.js"></script>
+
+{% endblock content %}

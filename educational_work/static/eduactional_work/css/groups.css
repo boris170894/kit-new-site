@@ -1,0 +1,43 @@
+.page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 20vh;
+}
+.page__groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 3% 4%;
+    gap: 1%;
+    row-gap: 4%;
+}
+.group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 4px;
+    border: 2px solid rgb(20,20,20,.2);
+    padding: 10px ;
+    transition: all .3s linear;
+    gap: 5%;
+}
+.group a {
+    text-align: right;
+}
+
+.group:hover {
+    box-shadow:  0 0 10px rgb(20,20,20,.1);
+    border: 2px solid rgb(20,20,20,.3);
+}
+@media screen and (max-width: 600px) {
+    .page__groups {
+        display: flex;
+        flex-direction: column;
+    }
+    .group {
+        margin-bottom: 10px;
+    }
+}

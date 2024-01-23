@@ -5,149 +5,33 @@
 {% block content %}
 <link rel="stylesheet" href="/static/staff/css/about/staff.css" />
 
-<div class="page">
-    <h2>{% trans 'Структура' %}</h2>
+<div class="page" id="page">
+    <h1>{% trans 'Структура' %}</h1>
 
     <div class="page__structures">
-        
-        <div class="page__structure">
-            <div class="structure__type">
-                <h4>{% trans 'Руководитель' %}</h4>
-            </div>
-            <div class="structure__people">
-                {% for director in directors %}
-                    <div class="structure">
-                        {% if director.foto %}
-                        <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
-                        {% endif %}
-                        <div class="structure__desc">
-                            <a href="{% url 'staff:staff_one' director.slug  %}">{{ director.fio }}</a>
-                            <p>{{ director.position }} </p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    
-        <div class="page__structure">
-            <div class="structure__type">
-                <h4>{% trans 'Заместители руководителя' %}</h4>
-                <span></span>
-            </div>
-            <div class="structure__people">
-                {% for director in depDirectors %}
-                    <div class="structure">
-                        {% if director.foto %}
-                        <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
-                        {% endif %}
-                        <div class="structure__desc">
-                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
-                            <p>{{ director.position }} </p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
 
-        <div class="page__structure">
-            <div class="structure__type">
-                <h4>{% trans 'Заведующий отделением' %}</h4>
-                <span></span>
-            </div>
-            <div class="structure__people">
-                {% for director in depHead %}
-                    <div class="structure">
-                        {% if director.foto %}
-                        <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
-                        {% endif %}
-                        <div class="structure__desc">
-                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
-                            <p>{{ director.position }} </p>
-                        </div>
+        {% for cmc in cmcs %}
+            {% if cmc.personmodel_set.count > 0 %}
+                <div class="page__structure">
+                    <div class="structure__type">
+                        <h4>{{ cmc.title }}</h4>
                     </div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <div class="page__structure">
-            <div class="structure__type">
-                <h4>{% trans 'ЦМК общеодразовательных дисциплин' %}</h4>
-                <span></span>
-            </div>
-            <div class="structure__people">
-                {% for director in cmsOB %}
-                    <div class="structure">
-                        {% if director.foto %}
-                        <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
-                        {% endif %}
-                        <div class="structure__desc">
-                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
-                            <p>{{ director.position }} </p>
-                        </div>
+                    <div class="structure__people">
+                        {% for director in cmc.personmodel_set.all %}
+                            <div class="structure">
+                                {% if director.foto %}
+                                    <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
+                                {% endif %}
+                                <div class="structure__desc">
+                                    <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
+                                    <p>{% if  director.position %} {{ director.position }}{% endif %}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <div class="page__structure">
-            <div class="structure__type">
-                <h4>{% trans 'ЦМК языковых дисциплин' %}</h4>
-                <span></span>
-            </div>
-            <div class="structure__people">
-                {% for director in cmsLang %}
-                    <div class="structure">
-                        {% if director.foto %}
-                            <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
-                        {% endif %}
-                        <div class="structure__desc">
-                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
-                            <p>{{ director.position }} </p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <div class="page__structure">
-            <div class="structure__type">
-                <h4>{% trans 'ЦМК информационных дисциплин' %}</h4>
-                <span></span>
-            </div>
-            <div class="structure__people">
-                {% for director in cmsIT %}
-                    <div class="structure">
-                        {% if director.foto %}
-                            <img src="/static/{{ director.foto.url }}" alt="{{ director.fio }}">
-                        {% endif %}
-                        <div class="structure__desc">
-                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
-                            <p>{{ director.position }} </p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <div class="page__structure">
-            <div class="structure__type">
-                <h4>{% trans 'ЦМК физической культуры и НВП' %}</h4>
-                <span></span>
-            </div>
-            <div class="structure__people">
-                {% for director in cmsFIZ %}
-                    <div class="structure">
-                        {% if director.foto %}
-                            <img src="/static/`{{ director.foto.url }}" alt="{{ director.fio }}">
-                        {% endif %}
-                        <div class="structure__desc">
-                            <a href="{% url 'staff:staff_one' director.slug %}">{{ director.fio }}</a>
-                            <p>{{ director.position }} </p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
+                </div>
+            {% endif  %}
+        {% endfor %}
         
 
 </div>
