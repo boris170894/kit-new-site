@@ -9,6 +9,8 @@ from .models import (
                         MainAdvantagesOfOurCollegeModel,
                         LibraryModel,
                         LibraryFilesModel,
+                        DormitoryFilesModel,
+                        DormitoryModel,
                     )
 
 """ Контакты """
@@ -55,3 +57,14 @@ class LibraryTransOptions(TranslationOptions):
 @register(LibraryFilesModel)
 class LibraryTransOptions(TranslationOptions):
     fields = ('title', 'file', )
+
+
+""" Общежитие файлы """
+@register(DormitoryFilesModel)
+class DormitoryFilesTransOptions(TranslationOptions):
+    fields = ('title', 'file' )
+
+""" Общежитие """
+@register(DormitoryModel)
+class DormitoryTransOptions(TranslationOptions):
+    fields = ('about', )

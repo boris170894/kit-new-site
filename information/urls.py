@@ -19,6 +19,7 @@ urlpatterns = [
 
     path('financial-statements/', views.financial_statement, name='financial_statement'),
 
+    path('dormitory/', views.dormitory, name='dormitory'),
     path('library/', views.library, name='library'),
 
 ]

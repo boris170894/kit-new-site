@@ -4,7 +4,7 @@ from .models import  (GeneralInformationFilesModel,
                                         ClubsAndSectionsModel, 
                                         ClubsAndSectionsDocumentsModel,
                                         PsychologicalServiceModel, 
-                                        DormitoryModel)
+                                        )
 from staff.models import (GroupModel)
 from main.models import (SliderForDocumentListModel)
 
@@ -49,40 +49,6 @@ def psychological_service(request):
         'title': title,
         'documents': documents,
         'slider': slider,
-    })
-
-""" Общежитие """
-def dormitory(request):
-    info = DormitoryModel.objects.last()
-
-    if request.method == 'POST':
-        fio = request.POST.get('fio', '')
-        group = request.POST.get('group', '')
-        gender = request.POST.get('gender', '')
-        email = request.POST.get('email', '')
-        phone = request.POST.get('phone', '')
-
-        subject = f"{fio} заявка на общежитие"
-        body = f'{fio} - {group} - {gender} - {email} - {phone}'
-
-        try: 
-            send_mail(
-                subject,
-                body,
-                settings.EMAIL_HOST_USER,
-                [settings.EMAIL_HOST_USER],
-                fail_silently=False,
-            )
-
-            messages.success(request, 'Email sent successfully!')            
-            return redirect('/dormitory')
-            
-        except Exception as e:
-            print('Error sending email', e)
-            messages.error(request, "Connection error...")
-
-    return render(request, 'educational_work/dormitory.html', {
-        'info': info,
     })
 
 """ Группы """
