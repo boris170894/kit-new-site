@@ -16,6 +16,7 @@ class CollegeHistoryModel(models.Model):
 
 """ История колледжа текст """
 class CollegeTextHistoryModel(models.Model):
+    our_mission = models.TextField(verbose_name='Наша миссия', blank=True)
     text = models.TextField(verbose_name='Текст', blank=True)
     public = models.BooleanField(verbose_name='Опубликовать', default=False)
 

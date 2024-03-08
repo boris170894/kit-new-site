@@ -27,9 +27,14 @@ class CollegeHistoryAdmin(TranslationAdmin):
     form = CollegeHistoryAdminForm
 
 class CollegeTextHistoryAdminForm(forms.ModelForm):
-    text_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
-    text_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[kk]')
-    text_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[en]')
+    text_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание [ru]')
+    text_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание [kk]')
+    text_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание [en]')
+
+    our_mission_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Наша Миссия [ru]')
+    our_mission_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Наша Миссия [kk]')
+    our_mission_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Наша Миссия [en]')
+
     class Meta:
         model = CollegeTextHistoryModel
         fields = '__all__'

@@ -17,7 +17,7 @@ class CollegeHistoryTransOptions(TranslationOptions):
 """ История колледжа текст """
 @register(CollegeTextHistoryModel)
 class CollegeTextHistoryTransOptions(TranslationOptions):
-    fields = ('text',)
+    fields = ('text', 'our_mission')
 
 """ Документы """
 @register(CollegeDocsModel)

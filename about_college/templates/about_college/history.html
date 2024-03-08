@@ -29,9 +29,27 @@
 
     <div class="page__histories__text">
         {% if text %}
-            {% autoescape off %}
-                {{ text.text }}
-            {% endautoescape %}
+            {% if text.our_mission %}
+                <div class = "page__histories__mission">
+                    {% autoescape off %}
+                        {{ text.our_mission }}
+                    {% endautoescape %}
+                    <div>
+                        <h3>{% trans 'Наша миссия' %}</h3>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <div class="page__histories__text">
+        {% if text %}
+            {% if text.text %}
+<!--                <h1>{% trans 'Информация' %}</h1>-->
+                {% autoescape off %}
+                    {{ text.text }}
+                {% endautoescape %}
+            {% endif %}
         {% endif %}
     </div>
 </div>
