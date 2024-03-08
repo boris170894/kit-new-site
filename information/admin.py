@@ -13,6 +13,9 @@ from .models import (
                         AcademicProcessScheduleModel,
                         CollegeDocsModel,
                         MainAdvantagesOfOurCollegeModel,
+                        LibraryModel,
+                        LibraryFilesModel,
+                        LibrarySliderImageModel
                     )
 
 """ Контакты """
@@ -64,3 +67,30 @@ class CollegeDocsAdmin(TranslationAdmin):
 @admin.register(MainAdvantagesOfOurCollegeModel)
 class MainAdvantagesOfOurCollegeAdmin(TranslationAdmin):
     list_display = ('title', 'is_public', )
+
+
+""" Библиотека """
+class LibraryAdminForm(forms.ModelForm):
+    text_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
+    text_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[kk]')
+    text_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[en]')
+
+    class Meta:
+        model = LibraryModel
+        fields = '__all__'
+
+""" События для студентов """
+@admin.register(LibraryModel)
+class LibraryAdmin(TranslationAdmin):
+    list_display = ('id', 'is_public', 'updated', )
+    form = LibraryAdminForm
+
+""" Библиотека, изображения для слайдера """
+@admin.register(LibrarySliderImageModel)
+class LibrarySliderImageModel(admin.ModelAdmin):
+    list_display = ('id', 'image', 'is_public', 'updated', )
+
+""" Библиотека, файлы """
+@admin.register(LibraryFilesModel)
+class LibraryFilesAdmin(TranslationAdmin):
+    list_display = ('title', 'is_public', 'updated', )

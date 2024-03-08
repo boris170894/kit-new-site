@@ -144,3 +144,49 @@ class MainAdvantagesOfOurCollegeModel(models.Model):
     
     def __str__(self) -> str:
         return self.title
+
+
+""" Библиотека """
+class LibraryModel(models.Model):
+    text = models.TextField(verbose_name="Описание", blank=True)
+    slider_images = models.ManyToManyField('LibrarySliderImageModel', default=None, blank=True, verbose_name='Изображения')
+    slider_files = models.ManyToManyField('LibraryFilesModel', default=None, blank=True, verbose_name='Файлы')
+
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Библиотека'
+        verbose_name_plural = 'Библиотека'
+
+""" Библиотека, изображения для слайдера """
+class LibrarySliderImageModel(models.Model):
+    image = models.ImageField(verbose_name='Изображение', upload_to="uploads/information/library/slider")
+
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Библиотека, изображения для слайдера'
+        verbose_name_plural = 'Библиотека, изображения для слайдера'
+
+""" Библиотека, файлы """
+class LibraryFilesModel(models.Model):
+    title = models.CharField(verbose_name='Название файла', max_length=250, )
+    file = models.FileField(verbose_name='Файл', upload_to="uploads/information/library/files")
+
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Библиотека, файлы'
+        verbose_name_plural = 'Библиотека, файлы'
+
+    def __str__(self) -> str:
+        return self.title

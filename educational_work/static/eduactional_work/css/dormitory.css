@@ -27,6 +27,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative
 }
 .dormitory__slider__main__image {
     width: 100%!important; ;
@@ -38,7 +39,36 @@
     box-shadow: 0 0  10px rgb(20,20,20,.1);
     margin: 0 !important;
     cursor: crosshair;
+    position: relative;
 }
+.dormitory__slider__left {
+    top: 46%;
+    left: 2%;
+}
+.dormitory__slider__right {
+    top: 46%;
+    right: 2%;
+    rotate: -180deg;
+}
+.dormitory__slider__right,  .dormitory__slider__left {
+    position: absolute;
+    background: var(--primary);
+    padding: 10px 12px;
+    border-radius:6px;
+    z-index:1;
+    opacity: .3;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.dormitory__slider__right:hover, .dormitory__slider__left:hover {
+    opacity: 1;
+}
+
 .dormitory__slider__images {
     display: flex;
     justify-content: start;
@@ -57,7 +87,6 @@
     border-radius: 4px;
     cursor:crosshair;
     margin: 0;
-    
 }
 .dormitory__documents {
     display: flex;
@@ -66,6 +95,7 @@
     flex-direction: column;
     width: 100%;
     max-width: 75vw;
+    margin-bottom: 5vh
 }
 .anti__coruption {
     margin-bottom: 0;
@@ -110,7 +140,7 @@
     margin-bottom: 2px;
     font-size: calc((1vw + 1vh) * .9);
 }
-.form__field input, select {
+.dormitory__documents__form .form__field input, .dormitory__documents__form .form__field  select {
     /* border-bottom: 2px solid rgb(20,20,20,.1); */
     border: 2px solid rgb(20,20,20,.1);
     border-radius: 4px;
@@ -118,7 +148,7 @@
     background-color: transparent;
     height: calc((1vw + 1vh) * 2.8);
     width: 100%;
-    padding: calc((1vw + 1vh) * .8) ;
+    padding: calc((1vw +arrow_forward_ios 1vh) * .8) ;
     transition: all .3s linear;
     cursor: pointer;
 }
@@ -126,9 +156,65 @@ option:focus, option:checked, option:hover, option: {
     background-color: #202020;
     color: white;
 }
-.form__field input:hover, .form__field input:focus, .form__field select:hover, .form__field select:focus  {
+.dormitory__documents__form input {
+    padding: 4px 10px;
+}
+.form__field input:hover, .form__field input:focus, .dormitory__documents__form .form__field select:hover, .dormitory__documents__form .form__field  select:focus  {
     border-color: #202020;
     box-shadow: 0 0 10px rgb(20,20,20,.07);
+}
+.dormitory__contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 75vw;
+    gap: 3vw;
+}
+.dormitory__contact__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.dormitory__contact__data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(254, 254, 254, 0.5);
+    border-radius: 8px;
+    width: 100%;
+    padding: 10%;
+    margin-bottom: 3vw;
+    transition: all .3s linear
+}
+.dormitory__contact__data:hover {
+    box-shadow: 0 0 10px rgb(20,20,20,.05);
+}
+.dormitory__contact__data div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(248, 102, 36, .1);
+    padding: 8px;
+    border-radius: 8px;
+    width: 8vh;
+    height: 8vh;
+    margin-bottom: 2vw;
+}
+.dormitory__contact__data a {
+    text-align: center;
+    width: 100%;
+    color: rgb(20,20,20, .9);
+    font-size: calc((1vw + 1vh) * 1.1);
+    font-weight: bold;
+}
+.dormitory__contact__data div i {
+    color: rgb(248, 102, 36, 1);
+    font-size: calc((1vw + 1vh) * 1.3);
 }
 .btn {
     background-color: var(--primary);
@@ -163,9 +249,11 @@ option:focus, option:checked, option:hover, option: {
     max-width: 60vw;
 }
 
+
+
 @media screen and (max-width: 600px) {
     .page {
-        padding: 0 2vw;
+        padding: 0 4vw;
         padding-bottom: 15vh;
     }
     .dormitory__slider__item {
@@ -181,6 +269,11 @@ option:focus, option:checked, option:hover, option: {
         overflow-x: auto;
         height: 20vh;
         padding: 0;
+    }
+    .dormitory__slider__images img {
+        max-width: 30%;
+        width: 30%;
+        height: 20vh;
     }
     .dormitory__documents {
         max-width: 90vw;
@@ -216,5 +309,31 @@ option:focus, option:checked, option:hover, option: {
     }
     .dormitory__documents__form__component {
         flex-direction: column;
+    }
+    .anti__coruption {
+        margin: 4vh 0 0;
+    }
+    .dormitory__contact {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .dormitory__contact__data {
+        padding: 10% 5%;
+    }
+    .dormitory__contact__data:hover {
+        box-shadow: none;
+    }
+    .dormitory__contact__data a {
+        font-size: 24px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .dormitory__contact__data div {
+        width: 10vh;
+        height: 10vh;
+        margin-bottom: 2vh;
+    }
+    .dormitory__contact__data div i {
+        font-size: 24px;
     }
 }

@@ -1,24 +1,40 @@
 from django.db import models
 
-""" История колледжа """
+""" История колледжа события """
 class CollegeHistoryModel(models.Model):
 
     year = models.DateField(verbose_name='Дата события')
     info = models.TextField(verbose_name='Описание')
-    public = models.BooleanField(verbose_name='Опубликовать', default=True)
+    public = models.BooleanField(verbose_name='Опубликовать', default=False)
 
     def __str__(self):
         return str(self.year)
     
     class Meta:
-        verbose_name = 'История колледжа'
-        verbose_name_plural = 'История колледжа'
+        verbose_name = 'История колледжа(события)'
+        verbose_name_plural = 'История колледжа(события)'
+
+""" История колледжа текст """
+class CollegeTextHistoryModel(models.Model):
+    text = models.TextField(verbose_name='Текст', blank=True)
+    public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.updated)
+
+    class Meta:
+        verbose_name = 'История колледжа(текст)'
+        verbose_name_plural = 'История колледжа(текст)'
+
 
 """ Документы """
 class CollegeDocsModel(models.Model):
 
-    college_license = models.FileField(upload_to="uploads/Docs",verbose_name="Лицензия")
-    college_reg = models.FileField(upload_to="uploads/about-college/docs",verbose_name="Устав")
+    college_license = models.FileField(upload_to="uploads/Docs",verbose_name="Лицензия", blank=True, null=True)
+    college_reg = models.FileField(upload_to="uploads/about-college/docs",verbose_name="Устав", blank=True, null=True)
     public = models.BooleanField(verbose_name='Опубликовать', default=True)
 
     class Meta:
@@ -74,6 +90,20 @@ class IndustrialCouncilModel(models.Model):
     class Meta:
         verbose_name = 'Документ для индустриального совета'
         verbose_name_plural = 'Документ для индустриального совета'
+
+    def __str__(self) -> str:
+        return self.title
+
+""" Галерея """
+class GalleryModel(models.Model):
+    title = models.CharField(verbose_name='Наименование изображения', max_length=255, blank=True)
+    image = models.ImageField(verbose_name='Изображение', upload_to='uploads/about-college/gallery')
+
+    public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    class Meta:
+        verbose_name = 'Галерея'
+        verbose_name_plural = 'Галерея'
 
     def __str__(self) -> str:
         return self.title

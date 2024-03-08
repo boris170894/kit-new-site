@@ -5,6 +5,7 @@ urlpatterns = [
     # TODO: About Section
     path('college-history/', views.about_college_history, name = 'college-history'),
     path('documents/', views.about_documents, name = 'documents'),
+    path('gallery/', views.gallery, name='gallery'),
 
     path('specs/', views.index, name='specialties'),
     path('specs/<int:pk>/', views.special, name='special'),

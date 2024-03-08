@@ -18,4 +18,7 @@ urlpatterns = [
     path('teachers/academic-process/', views.guidelines_teachers, name = 'guidelines_teachers'),  
 
     path('financial-statements/', views.financial_statement, name='financial_statement'),
+
+    path('library/', views.library, name='library'),
+
 ]

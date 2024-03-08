@@ -7,12 +7,36 @@
 
 <link rel="stylesheet" href="/static/about_college/css/college_history.css" />
 <link rel="stylesheet" href="/static/state/css/anti__coruption.css" />
+<link rel="stylesheet" href="/static/eduactional_work/css/dormitory.css" />
 
 
 <div class="page" id="page">
-    <h1>{{ title }}</h1>
+    <h1>
+    {% if title == 'Попечительский совет' %}
+        {% trans 'Попечительский совет' %}
+    {% elif title == 'Педагогический совет' %}
+        {% trans 'Педагогический совет' %}
+    {% elif title == 'Индустриальный совет' %}
+        {% trans 'Индустриальный совет' %}
+    {% elif title == 'Общая информация' %}
+        {% trans 'Общая информация' %}
+    {% elif title == 'Психологическая служба' %}
+        {% trans 'Психологическая служба' %}
+    {% elif title == 'Финансовая отчетность' %}
+        {% trans 'Финансовая отчетность' %}
+    {% elif title == 'Государственные услуги' %}
+        {% trans 'Государственные услуги' %}
+    {% elif title == 'Противодействие коррупции' %}
+        {% trans 'Противодействие коррупции' %}
+    {% elif title == 'Программа полиязычия' %}
+        {% trans 'Программа полиязычия' %}
+    {% endif  %}
+    </h1>
+
+    {% include 'educational_work/slider.html' %}
     
     {% if documents.count > 0 %}
+    <h1>{% trans 'Документы' %}</h1>
         {% for document in documents %}
             {% if document.file %}
                 <div class="anti__coruption">
@@ -23,7 +47,7 @@
         {% endfor %}
     {% else %}
         {% comment %} <img src="/static/eduactional_work/img/general_information/search.png" alt="General information search"> {% endcomment %}
-        <h2>{% trans 'Documents not found' %}</h2>
+        <h2>{% trans 'Документы не найдены' %}</h2>
     {% endif %}
 
 </div>

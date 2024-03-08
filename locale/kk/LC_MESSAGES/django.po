@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 13:41+0600\n"
+"POT-Creation-Date: 2024-02-15 11:53+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,367 +17,461 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-#: main/templates/main/base.html:7 main/templates/main/pages/index.html:192
-#: main/templates/main/pages/information/abiturients.html:82
-msgid "Колледж информационных технологий"
-msgstr "Ақпараттық технологиялар колледж"
 
-#: main/templates/main/error.html:11
-msgid "Страница не найдена"
-msgstr "Бет табылмады"
+#: about_college/templates/about_college/counsil.html:16
+#: main/templates/main/include/header.html:45
+msgid "Попечительский совет"
+msgstr "Қамқоршылық кеңесі"
 
-#: main/templates/main/error.html:14
-msgid "У вас нет доступа к этой странице"
-msgstr "Бұл бетке кіру рұқсатыңыз жоқ"
+#: about_college/templates/about_college/counsil.html:18
+#: main/templates/main/include/header.html:46
+msgid "Педагогический совет"
+msgstr "Педагогикалық кеңес"
 
-#: main/templates/main/error.html:17
-msgid "Пользователю необходима аутентификация"
-msgstr "Пайдаланушы аутентификацияны қажет етеді"
+#: about_college/templates/about_college/counsil.html:20
+#: main/templates/main/include/header.html:47
+msgid "Индустриальный совет"
+msgstr "Өнеркәсіптік кеңес"
 
-#: main/templates/main/error.html:20
-msgid "Запрос был некорректным"
-msgstr "Сұраныс дұрыс емес"
+#: about_college/templates/about_college/counsil.html:22
+#: main/templates/main/include/header.html:109
+msgid "Общая информация"
+msgstr "Жалпы ақпарат"
 
-#: main/templates/main/error.html:25
-msgid "Перейти на главную страницу"
-msgstr "Негізгі бетке өтіңіз"
+#: about_college/templates/about_college/counsil.html:24
+#: main/templates/main/include/header.html:111
+msgid "Психологическая служба"
+msgstr "Психологиялық қызмет"
 
-#: main/templates/main/include/footer.html:7
-#: main/templates/main/include/header.html:15
+#: about_college/templates/about_college/counsil.html:26
+#: main/templates/main/include/header.html:64
+msgid "Финансовая отчетность"
+msgstr "Қаржылық есеп"
+
+#: about_college/templates/about_college/counsil.html:28
+#: main/templates/main/include/header.html:78
+msgid "Государственные услуги"
+msgstr "Мемлекеттік қызметтер"
+
+#: about_college/templates/about_college/counsil.html:30
+#: main/templates/main/include/header.html:80
+msgid "Противодействие коррупции"
+msgstr "Сыбайлыс жемқорлыққа қарсы іс-қимыл"
+
+#: about_college/templates/about_college/counsil.html:32
+#: main/templates/main/include/header.html:81
+msgid "Программа полиязычия"
+msgstr "Көптілділік бағдарламасы"
+
+#: about_college/templates/about_college/counsil.html:39
+#: about_college/templates/about_college/documents.html:9
+#: educational_work/templates/educational_work/dormitory.html:95
+#: educational_work/templates/educational_work/sections.html:37
+#: information/templates/information/library.html:98
+#: main/templates/main/include/header.html:41
+#: main/templates/main/pages/information/abiturients.html:29
+msgid "Документы"
+msgstr "Құжаттама"
+
+#: about_college/templates/about_college/counsil.html:44
+#: educational_work/templates/educational_work/dormitory.html:100
+#: information/templates/information/library.html:104
+#: worldskills/templates/worldskills/rules.html:19
+#: worldskills/templates/worldskills/rules.html:30
+#: worldskills/templates/worldskills/rules.html:41
+msgid "Скачать"
+msgstr "Жүктеп алу"
+
+#: about_college/templates/about_college/counsil.html:51
+#: educational_work/templates/educational_work/dormitory.html:107
+#: educational_work/templates/educational_work/dormitory.html:113
+#: educational_work/templates/educational_work/sections.html:103
+#: information/templates/information/library.html:110
+#: main/templates/main/pages/information/student.html:259
+#: worldskills/templates/worldskills/competentions.html:91
+msgid "Документы не найдены"
+msgstr "Ешбір құжат табылмады"
+
+#: about_college/templates/about_college/documents.html:11
+msgid "Лицензия"
+msgstr "Лицензия"
+
+#: about_college/templates/about_college/documents.html:19
+msgid "Скачать лицензию"
+msgstr "Лицензияны жүктеп алу"
+
+#: about_college/templates/about_college/documents.html:22
+msgid "Устав"
+msgstr "Жарғы"
+
+#: about_college/templates/about_college/documents.html:30
+msgid "Скачать устав"
+msgstr "Жарғыны жүктеп алыңыз"
+
+#: about_college/templates/about_college/gallery.html:10
+#: main/templates/main/include/header.html:44
+msgid "Галерея"
+msgstr "Галерея"
+
+#: about_college/templates/about_college/history.html:9
+msgid "История Колледжа"
+msgstr "Колледждің тарихы"
+
+#: about_college/templates/about_college/specialites.html:22
+#: main/templates/main/pages/information/abiturients.html:13
+msgid "Наши Специальности"
+msgstr "Біздің мамандықтар"
+
+#: about_college/templates/about_college/specialites.html:32
+#: main/templates/main/pages/information/student.html:111
+msgid "Узнать Больше"
+msgstr "Көбірек білу үшін"
+
+#: educational_work/templates/educational_work/dormitory.html:13
+#: main/templates/main/include/header.html:113
+msgid "Общежитие"
+msgstr "Жатақхана"
+
+#: educational_work/templates/educational_work/dormitory.html:169
+msgid "Контакты"
+msgstr "Контактілер"
+
+#: educational_work/templates/educational_work/dormitory.html:175
+#, fuzzy
+#| msgid "Воспитательная работа"
+msgid "Электронная почта"
+msgstr "Тәрбие жұмысы"
+
+#: educational_work/templates/educational_work/dormitory.html:210
+msgid "Телефон"
+msgstr ""
+
+#: educational_work/templates/educational_work/groups.html:9
+#: main/templates/main/include/header.html:112
+msgid "Кураторы"
+msgstr "Кураторлар"
+
+#: educational_work/templates/educational_work/sections.html:12
+msgid "Кружки и секции"
+msgstr "Шеңберлер мен бөлімдер"
+
+#: educational_work/templates/educational_work/sections.html:27
+msgid "Описание"
+msgstr "Сипаттама"
+
+#: educational_work/templates/educational_work/sections.html:32
+msgid "Преподаватели"
+msgstr "Мұғалімдер"
+
+#: information/templates/information/library.html:6
+#: information/templates/information/library.html:15
+#: main/templates/main/include/header.html:63
+msgid "Библиотека"
+msgstr "Кітапхана"
+
+#: information/templates/information/library.html:114
+#: main/templates/main/include/footer.html:26
+#: main/templates/main/include/header.html:27
+#: main/templates/main/include/header.html:96
 #: news/templates/news/news_list.html:4 news/templates/news/news_list.html:9
 msgid "Новости"
 msgstr "Жаңалықтар"
 
-#: main/templates/main/include/footer.html:8
-#: main/templates/main/include/header.html:41
+#: information/templates/information/library.html:169
+#: news/templates/news/news_list.html:57 news/templates/news/news_list.html:128
+msgid "Страница"
+msgstr "Бет"
+
+#: main/templates/main/base.html:7 main/templates/main/pages/index.html:220
+#: main/templates/main/pages/information/abiturients.html:70
+msgid "Колледж информационных технологий"
+msgstr "Ақпараттық технологиялар колледжі"
+
+#: main/templates/main/error.html:14
+msgid "Страница не найдена"
+msgstr "Бет табылмады"
+
+#: main/templates/main/error.html:17
+msgid "У вас нет доступа к этой странице"
+msgstr "Бұл бетке кіру рұқсатыңыз жоқ"
+
+#: main/templates/main/error.html:20
+msgid "Пользователю необходима аутентификация"
+msgstr "Пайдаланушы аутентификацияны қажет етеді"
+
+#: main/templates/main/error.html:23
+msgid "Запрос был некорректным"
+msgstr "Сұраныс дұрыс емес"
+
+#: main/templates/main/error.html:28
+msgid "Перейти на главную страницу"
+msgstr "Негізгі бетке өтіңіз"
+
+#: main/templates/main/include/footer.html:27
+#: main/templates/main/include/header.html:60
 msgid "Студенту"
-msgstr "Студентке"
+msgstr "Студент үшін"
 
-#: main/templates/main/include/footer.html:9
-#: main/templates/main/include/header.html:42
+#: main/templates/main/include/footer.html:28
+#: main/templates/main/include/header.html:61
 msgid "Абитуриенту"
-msgstr "Талапкерге"
+msgstr "Өтініш берушілер үшін"
 
-#: main/templates/main/include/footer.html:10
-#: main/templates/main/include/header.html:43
+#: main/templates/main/include/footer.html:29
+#: main/templates/main/include/header.html:62
 msgid "Преподавателю"
-msgstr "Мұғалімге"
+msgstr "Мұғалім үшін"
 
-#: main/templates/main/include/header.html:12
 #: main/templates/main/include/header.html:21
-#: main/templates/main/include/header.html:38
-#: main/templates/main/include/header.html:51
-#: main/templates/main/include/header.html:65
+#: main/templates/main/include/header.html:33
+#: main/templates/main/include/header.html:54
+#: main/templates/main/include/header.html:71
+#: main/templates/main/include/header.html:88
+#: main/templates/main/include/header.html:103
 msgid "Назад"
 msgstr "Артқа"
 
-#: main/templates/main/include/header.html:17
+#: main/templates/main/include/header.html:29
 msgid "О колледже"
 msgstr "Колледж туралы"
 
-#: main/templates/main/include/header.html:25
+#: main/templates/main/include/header.html:40
 msgid "История колледжа"
 msgstr "Колледж тарихы"
 
-#: main/templates/main/include/header.html:26
-msgid "Документы"
-msgstr "Құжаттама"
-
-#: main/templates/main/include/header.html:27
+#: main/templates/main/include/header.html:42
 #: staff/templates/staff/staff.html:9
 msgid "Структура"
 msgstr "Құрылым"
 
-#: main/templates/main/include/header.html:28
+#: main/templates/main/include/header.html:43
 #: main/templates/main/pages/information/abiturients.old.html:15
 msgid "Специальности"
 msgstr "Мамандықтар"
 
-#: main/templates/main/include/header.html:29
-msgid "Попечительский совет"
-msgstr "Қамқоршылық кеңесі"
-
-#: main/templates/main/include/header.html:30
-msgid "Педагогический совет"
-msgstr "Педагогикалық кеңес"
-
-#: main/templates/main/include/header.html:31
-msgid "Индустриальный совет"
-msgstr "Өнеркәсіптік кеңес"
-
-#: main/templates/main/include/header.html:35
+#: main/templates/main/include/header.html:51
 msgid "Информация"
 msgstr "Ақпарат"
 
-#: main/templates/main/include/header.html:44
-msgid "Финансовая отчетность"
-msgstr "Қаржылық есеп"
-
-#: main/templates/main/include/header.html:48
+#: main/templates/main/include/header.html:68
 msgid "Государство"
 msgstr "Мемлекет"
 
-#: main/templates/main/include/header.html:54
+#: main/templates/main/include/header.html:77
 msgid "Государственные символы"
 msgstr "Мемлекеттік рәміздер"
 
-#: main/templates/main/include/header.html:55
-msgid "Государственные услуги"
-msgstr "Мемлекеттік қызметтер"
+#: main/templates/main/include/header.html:79
+msgid "Послание Главы государства"
+msgstr "Мемлекет басшысының Жолдауы"
 
-#: main/templates/main/include/header.html:56
-msgid "Противодействие коррупции"
-msgstr "Сыбайлас жемқорлыққа қарсы күрес"
+#: main/templates/main/include/header.html:94
+msgid "Правила"
+msgstr "Ережелер"
 
-#: main/templates/main/include/header.html:57
-msgid "Программа полиязычия"
-msgstr "Көптілділік бағдарламасы"
+#: main/templates/main/include/header.html:95
+msgid "Документация"
+msgstr "Құжаттама"
 
-#: main/templates/main/include/header.html:62
+#: main/templates/main/include/header.html:100
 msgid "Воспитательная работа"
 msgstr "Тәрбие жұмысы"
 
-#: main/templates/main/include/header.html:68
-msgid "Общая информация"
-msgstr "Жалпы ақпарат"
-
-#: main/templates/main/include/header.html:69
+#: main/templates/main/include/header.html:110
 msgid "Кружки/Секции"
 msgstr "Шеңберлер/бөлімдер"
 
-#: main/templates/main/include/header.html:70
-msgid "Психологическая служба"
-msgstr "Психологиялық қызмет"
-
-#: main/templates/main/include/header.html:71
-msgid "Классные руководители"
-msgstr "Сынып жетекшілері"
-
-#: main/templates/main/pages/about/documents.html:9
-msgid "Лицензия"
-msgstr "Лицензия"
-
-#: main/templates/main/pages/about/documents.html:16
-msgid "Скачать лицензию"
-msgstr "Лицензияны жүктеп алу"
-
-#: main/templates/main/pages/about/documents.html:18
-msgid "Устав"
-msgstr "Жарғы"
-
-#: main/templates/main/pages/about/documents.html:25
-msgid "Скачать устав"
-msgstr "Жарғыны жүктеп алыңыз"
-
-#: main/templates/main/pages/about/history.html:9
-msgid "История Колледжа"
-msgstr "Колледждің тарихы"
-
-#: main/templates/main/pages/about/structures.html:9
+#: main/templates/main/pages/about/structures.html:10
 msgid "НАШИ СПЕЦИАЛЬНОСТИ"
 msgstr "МАМАНДЫҒЫМЫЗ"
 
-#: main/templates/main/pages/index.html:39
-msgid "Добро пожаловать в"
-msgstr ""
+#: main/templates/main/pages/about/structures.html:20
+#: main/templates/main/pages/information/abiturients.html:23
+msgid "Подробнее"
+msgstr "Толығырақ"
 
-#: main/templates/main/pages/index.html:82
+#: main/templates/main/pages/index.html:39
+msgid "55 лет"
+msgstr "55 жыл"
+
+#: main/templates/main/pages/index.html:45
+msgid "Добро пожаловать в"
+msgstr "Қош келдіңіз"
+
+#: main/templates/main/pages/index.html:46
+msgid "КОЛЛЕДЖ ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ"
+msgstr "АҚПАРАТТЫҚ ТЕХНОЛОГИЯЛАР КОЛЛЕДЖІ"
+
+#: main/templates/main/pages/index.html:83
 msgid "Читать все новости "
 msgstr "Барлық жаңалықтарды оқыңыз"
 
 #: main/templates/main/pages/index.html:106
-msgid "Поступить к нам "
-msgstr "Бізге қосылыңыздар"
+msgid "ПОСМОТРЕТЬ БОЛЬШЕ"
+msgstr "ТОЛЫҒЫРАҚ ҚАРАУ"
 
-#: main/templates/main/pages/index.html:145
+#: main/templates/main/pages/index.html:160
+msgid "Наши достижения"
+msgstr "Біздің жетістіктеріміз"
+
+#: main/templates/main/pages/index.html:171
 msgid "Читать"
 msgstr "Оқы"
 
-#: main/templates/main/pages/index.html:151
+#: main/templates/main/pages/index.html:177
 msgid "Смотреть все"
 msgstr "Барлығын көру"
 
-#: main/templates/main/pages/index.html:193
-#: main/templates/main/pages/information/abiturients.html:83
+#: main/templates/main/pages/index.html:188
+msgid "Наши партнёры"
+msgstr "Біздің серіктестер"
+
+#: main/templates/main/pages/index.html:221
+#: main/templates/main/pages/information/abiturients.html:71
 msgid "Адрес"
 msgstr "Мекенжай"
 
-#: main/templates/main/pages/index.html:194
-#: main/templates/main/pages/information/abiturients.html:84
+#: main/templates/main/pages/index.html:222
+#: main/templates/main/pages/information/abiturients.html:72
 msgid "Приёмная"
 msgstr "Қабылдау"
 
-#: main/templates/main/pages/index.html:198
-#: main/templates/main/pages/information/abiturients.html:86
+#: main/templates/main/pages/index.html:226
+#: main/templates/main/pages/information/abiturients.html:74
 msgid "Приёмная комиссия"
 msgstr "Қабылдау комиссиясы"
+
+#: main/templates/main/pages/index/slides.html:10
+msgid "Кабинеты"
+msgstr "Кабинеты"
 
 #: main/templates/main/pages/information/abiturients.html:11
 #: main/templates/main/pages/information/abiturients.old.html:10
 msgid "Информация для абитуриентов"
 msgstr "Өтініш берушілер үшін ақпарат"
 
-#: main/templates/main/pages/information/abiturients.html:13
-#: specialties/templates/specialites/pages/about/specialites.html:20
-msgid "Наши Специальности"
-msgstr "Біздің мамандықтар"
-
-#: main/templates/main/pages/information/abiturients.html:23
-msgid "Подробнее"
-msgstr "Қосымша мәліметтер"
-
-#: main/templates/main/pages/information/abiturients.html:31
+#: main/templates/main/pages/information/abiturients.html:34
 msgid "Перечень необходимых документов"
 msgstr "Қажетті құжаттар тізімі"
 
-#: main/templates/main/pages/information/abiturients.html:34
-msgid "Заявление о приеме по форме"
-msgstr "Қабылдау туралы өтініш формасы"
-
-#: main/templates/main/pages/information/abiturients.html:37
-msgid "Документ об образовании (Подлинник)"
-msgstr "Білімі туралы құжат (түпнұсқа)"
-
-#: main/templates/main/pages/information/abiturients.html:40
-msgid "Фотография размером 3х4 см. (4 шт.)"
-msgstr "Фотография размером 3х4 см. (4 шт.)"
-
-#: main/templates/main/pages/information/abiturients.html:43
-msgid "Мед. Справка форма 075-у с приложением флюорографии"
-msgstr "Бал. Флюорографиясы бар 075-у нысанындағы анықтама"
-
-#: main/templates/main/pages/information/abiturients.html:46
-msgid "Документ, удостоверяющий личность (для идентификации личности)"
-msgstr "Жеке басты куәландыратын құжат (жеке басын сәйкестендіру үшін)"
-
-#: main/templates/main/pages/information/abiturients.html:49
+#: main/templates/main/pages/information/abiturients.html:42
 msgid ""
 "Документы принимаются после окончания 9 класса, на основании аттестата об "
 "основном среднем образовании."
-msgstr "Құжаттар 9-сыныпты бітіргеннен кейін негізгі орта білім туралы аттестат негізінде қабылданады."
+msgstr ""
+"Құжаттар 9-сыныпты бітіргеннен кейін негізгі орта білім туралы аттестат "
+"негізінде қабылданады."
 
-#: main/templates/main/pages/information/abiturients.html:54
-msgid "Основные преимущества нашего колледжа"
-msgstr "Біздің колледждің басты артықшылықтары"
-
-#: main/templates/main/pages/information/abiturients.html:57
-msgid "На все специальности имеются бюджетные места"
-msgstr "Барлық мамандықтар бойынша бюджеттік орындар бар"
-
+#: main/templates/main/pages/information/abiturients.html:46
 #: main/templates/main/pages/information/abiturients.html:60
-msgid "Стипендия"
-msgstr "Стипендия"
+#: main/templates/main/pages/information/abiturients.html:87
+msgid "Не найдено"
+msgstr "Табылмады"
 
-#: main/templates/main/pages/information/abiturients.html:63
-msgid "Трудоустройство"
-msgstr "Жұмыспен қамту"
-
-#: main/templates/main/pages/information/abiturients.html:66
-msgid "Питание отдельных категориям граждан"
-msgstr "Азаматтардың жекелеген санаттары үшін азық-түлік"
-
-#: main/templates/main/pages/information/abiturients.html:69
-msgid "Выплата компенсации за проезд"
-msgstr "Жол жүру ақысын төлеу"
-
-#: main/templates/main/pages/information/abiturients.html:72
-msgid "Имеется общежитие"
-msgstr "Жатақхана бар"
+#: main/templates/main/pages/information/abiturients.html:51
+msgid "Основные преимущества нашего колледжа"
+msgstr "Біздің колледждің негізгі артықшылықтары"
 
 #: main/templates/main/pages/information/student.html:54
+#: main/templates/main/pages/information/student.html:88
 msgid "Расписание пар и звонков"
 msgstr "Жұптар мен қоңыраулар кестесі"
 
 #: main/templates/main/pages/information/student.html:63
+#: main/templates/main/pages/information/student.html:90
 msgid "График учебного процесса"
 msgstr "Оқу кестесі"
 
 #: main/templates/main/pages/information/student.html:70
+#: main/templates/main/pages/information/student.html:92
 msgid "События"
 msgstr "Оқиғалар"
 
 #: main/templates/main/pages/information/student.html:81
+#: main/templates/main/pages/information/student.html:94
 msgid "Методические рекомендации"
-msgstr "Нұсқаулар"
+msgstr "Әдістемелік нұсқаулар"
 
-#: main/templates/main/pages/information/student.html:102
-#: specialties/templates/specialites/pages/about/specialites.html:30
-msgid "Узнать Больше"
-msgstr "Көбірек білу үшін"
-
-#: main/templates/main/pages/information/student.html:117
+#: main/templates/main/pages/information/student.html:130
 msgid "Скачать учебного процесса"
 msgstr "Оқу процесін жүктеп алыңыз"
 
-#: main/templates/main/pages/information/student.html:125
+#: main/templates/main/pages/information/student.html:138
 msgid "1 курс"
-msgstr "1 курс"
+msgstr ""
 
-#: main/templates/main/pages/information/student.html:126
+#: main/templates/main/pages/information/student.html:139
 msgid "2 курс"
-msgstr "2 курс"
+msgstr ""
 
-#: main/templates/main/pages/information/student.html:127
+#: main/templates/main/pages/information/student.html:140
 msgid "3 курс"
-msgstr "3 курс"
+msgstr ""
 
-#: main/templates/main/pages/information/student.html:128
+#: main/templates/main/pages/information/student.html:141
 msgid "4 курс"
-msgstr "4 курс"
+msgstr ""
 
-#: main/templates/main/pages/information/student.html:130
+#: main/templates/main/pages/information/student.html:143
 msgid "Скачать расписание 1 курса"
 msgstr "1 курс кестесін жүктеп алыңыз"
 
-#: main/templates/main/pages/information/student.html:131
+#: main/templates/main/pages/information/student.html:143
+#: main/templates/main/pages/information/student.html:144
+#: main/templates/main/pages/information/student.html:145
+#: main/templates/main/pages/information/student.html:146
+msgid "Расписание не найдено"
+msgstr "Кесте табылмады"
+
+#: main/templates/main/pages/information/student.html:144
 msgid "Скачать расписание 2 курса"
 msgstr "2 курс кестесін жүктеп алыңыз"
 
-#: main/templates/main/pages/information/student.html:132
+#: main/templates/main/pages/information/student.html:145
 msgid "Скачать расписание 3 курса"
 msgstr "3 курс кестесін жүктеп алыңыз"
 
-#: main/templates/main/pages/information/student.html:133
+#: main/templates/main/pages/information/student.html:146
 msgid "Скачать расписание 4 курса"
 msgstr "4 курс кестесін жүктеп алыңыз"
 
-#: main/templates/main/pages/information/student.html:137
+#: main/templates/main/pages/information/student.html:150
 msgid "1 пара"
 msgstr "1 жұп"
 
-#: main/templates/main/pages/information/student.html:138
+#: main/templates/main/pages/information/student.html:151
 msgid "2 пара"
 msgstr "2 жұп"
 
-#: main/templates/main/pages/information/student.html:139
+#: main/templates/main/pages/information/student.html:152
 msgid "3 пара"
 msgstr "3 жұп"
 
-#: main/templates/main/pages/information/student.html:140
+#: main/templates/main/pages/information/student.html:153
 msgid "4 пара"
 msgstr "4 жұп"
 
-#: main/templates/main/pages/information/student.html:141
+#: main/templates/main/pages/information/student.html:154
 msgid "5 пара"
 msgstr "5 жұп"
 
-#: main/templates/main/pages/information/student.html:142
+#: main/templates/main/pages/information/student.html:155
 msgid "6 пара"
 msgstr "6 жұп"
 
-#: main/templates/main/pages/information/student.html:143
+#: main/templates/main/pages/information/student.html:156
 msgid "7 пара"
 msgstr "7 жұп"
 
-#: main/templates/main/pages/information/student.html:158
+#: main/templates/main/pages/information/student.html:268
 msgid "Дата Начала"
 msgstr "Басталатын күн"
 
-#: main/templates/main/pages/information/student.html:161
+#: main/templates/main/pages/information/student.html:271
 msgid "Дата Конца"
 msgstr "Аяқталу күні"
 
-#: main/templates/main/pages/state/state_symbols.html:9
+#: main/templates/main/pages/state/state_symbols.html:10
 msgid "Государственные символы Республики Казахстан"
 msgstr "Қазақстан Республикасының мемлекеттік рәміздері"
 
@@ -396,34 +490,6 @@ msgstr "Жаңа"
 #: news/templates/news/news_list.html:18
 msgid "Старые"
 msgstr "Ескі"
-
-#: staff/templates/staff/staff.html:15
-msgid "Руководитель"
-msgstr "Жетекші"
-
-#: staff/templates/staff/staff.html:34
-msgid "Заместители руководителя"
-msgstr "Басшының орынбасарлары"
-
-#: staff/templates/staff/staff.html:54
-msgid "Заведующий отделением"
-msgstr "Бөлім бастығы"
-
-#: staff/templates/staff/staff.html:74
-msgid "ЦМК общеодразовательных дисциплин"
-msgstr "Жалпы білім беру пәндерінің ОӘК"
-
-#: staff/templates/staff/staff.html:94
-msgid "ЦМК языковых дисциплин"
-msgstr "Тілдік пәндердің ОӘК"
-
-#: staff/templates/staff/staff.html:114
-msgid "ЦМК информационных дисциплин"
-msgstr "Ақпараттық пәндер ОӘК"
-
-#: staff/templates/staff/staff.html:134
-msgid "ЦМК физической культуры и НВП"
-msgstr "Дене шынықтыру және НВП ЦМК"
 
 #: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:5
 msgid "Select an image to embed"
@@ -516,3 +582,51 @@ msgstr ""
 #: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:248
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/directory_index.html:8
+#: venv/lib/python3.10/site-packages/django/views/templates/directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: worldskills/templates/worldskills/competentions.html:10
+msgid "Документация к компетенциям"
+msgstr "Құзыреттіліктерге арналған құжаттама"
+
+#: worldskills/templates/worldskills/competentions.html:16
+msgid "Компетенции"
+msgstr "Құзыреттіліктер"
+
+#: worldskills/templates/worldskills/rules.html:10
+msgid "Правила WorldSkills Казахстан"
+msgstr "WorldSkills Қазақстан ережелері"
+
+#~ msgid "Заявка"
+#~ msgstr "Қолдану"
+
+#~ msgid "ФИО"
+#~ msgstr "Толық аты"
+
+#~ msgid "Группа"
+#~ msgstr "Топ"
+
+#~ msgid "Пол"
+#~ msgstr "Жынысы"
+
+#~ msgid "Мужской"
+#~ msgstr "Еркек"
+
+#~ msgid "Женский"
+#~ msgstr "Әйел"
+
+#~ msgid "Отправить"
+#~ msgstr "Жіберу"
+
+#~ msgid "Классные руководители"
+#~ msgstr "Сынып жетекшілері"
+
+#~ msgid "ПОСТУПИТЬ К НАМ"
+#~ msgstr "БІЗБЕН ХАБАРЛАСЫҢЫ"
+
+#~ msgid "Translate"
+#~ msgstr "Аудару"

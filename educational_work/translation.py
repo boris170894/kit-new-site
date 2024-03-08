@@ -1,15 +1,15 @@
 from modeltranslation.translator import register, TranslationOptions 
 from .models import  (GeneralInformationFilesModel, 
-                                        ClubsAndSectionsModel, 
-                                        ClubsAndSectionsDocumentsModel,
-                                        PsychologicalServiceModel, 
-                                        DormitoryFilesModel, 
-                                        DormitoryModel)
+                        ClubsAndSectionsModel,
+                        ClubsAndSectionsDocumentsModel,
+                        PsychologicalServiceModel,
+                        DormitoryFilesModel,
+                        DormitoryModel)
 
 """ Общая информация """
 @register(GeneralInformationFilesModel)
 class GeneralInformationFilesTransOptions(TranslationOptions):
-    fields = ('title', )
+    fields = ('title', 'file', )
 
 """ Кружки и секции """
 @register(ClubsAndSectionsModel)
@@ -24,12 +24,12 @@ class ClubsAndSectionsDocumentsTransOptions(TranslationOptions):
 """ Психологическая служба """
 @register(PsychologicalServiceModel)
 class PsychologicalServiceTransOptions(TranslationOptions):
-    fields = ('title', )
+    fields = ('title', 'file', )
 
 """ Общежитие файлы """
 @register(DormitoryFilesModel)
 class DormitoryFilesTransOptions(TranslationOptions):
-    fields = ('title', )
+    fields = ('title', 'file' )
 
 """ Общежитие """
 @register(DormitoryModel)

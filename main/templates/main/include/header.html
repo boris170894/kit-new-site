@@ -40,6 +40,7 @@
                 <a href="{% url 'documents' %}">{% trans 'Документы' %}</a>
                 <a href="{% url 'staff:staff'  %}">{% trans 'Структура' %}</a>
                 <a href="/specs">{% trans 'Специальности' %}</a>
+                <a href="/gallery">{% trans 'Галерея' %}</a>
                 <a href="/board-of-trustees">{% trans 'Попечительский совет' %}</a>
                 <a href="/pedagogical-council">{% trans 'Педагогический совет' %}</a>
                 <a href="/industrial-council">{% trans 'Индустриальный совет' %}</a>
@@ -58,8 +59,9 @@
                 <a href="{% url 'call_pair_schedule' %}">{% trans 'Студенту' %}</a>
                 <a href="{% url 'abiturients' %}">{% trans 'Абитуриенту' %}</a>
                 <a href="{% url 'call_pair_schedule_teachers' %}">{% trans 'Преподавателю' %}</a>
+                <a href="/library">{% trans 'Библиотека' %}</a>
                 <a href="/financial-statements">{% trans 'Финансовая отчетность' %}</a>
-            </div>  
+            </div>
         </div>
         <div class="nav__right__button__menu nav__link" >
             <a class="nav__right__menu__open">{% trans 'Государство' %}</a>
@@ -73,6 +75,7 @@
                 </div>
                 <a href="{% url 'state-symbols' %}">{% trans 'Государственные символы' %}</a>
                 <a href="/government-services">{% trans 'Государственные услуги' %}</a>
+                <a href="/presidential-message">{% trans 'Послание Главы государства' %}</a>
                 <a href="/anti-corruption">{% trans 'Противодействие коррупции' %}</a>
                 <a href="/multilingualism-program">{% trans 'Программа полиязычия' %}</a>
             </div>  
@@ -105,7 +108,7 @@
                 <a href="/general-information">{% trans 'Общая информация' %}</a>
                 <a href="/sections">{% trans 'Кружки/Секции' %}</a>
                 <a href="/psychological-service">{% trans 'Психологическая служба' %}</a>
-                <a href="/groups">{% trans 'Классные руководители' %}</a>
+                <a href="/groups">{% trans 'Кураторы' %}</a>
                 <a href="/dormitory">{% trans 'Общежитие' %}</a>
             </div>  
         </div>
@@ -116,14 +119,11 @@
                 {% get_available_languages as LANGUAGES %}
                 {% get_language_info_list for LANGUAGES as languages %}
                 {% for language in languages %}
-                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
-                            selected{% endif %}>
-                        {% comment %} {{ language.name_local }}  {% endcomment %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}selected{% endif %}>
                         {{ language.code }}
                     </option>
                 {% endfor %}
             </select>
-            <!-- <button type="submit" class="btn">{% trans 'Translate' %}</button> -->
          </form>
     </div>
 </nav>

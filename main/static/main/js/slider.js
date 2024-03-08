@@ -1,6 +1,6 @@
 // 55 years old
 document.addEventListener('DOMContentLoaded', function () {
-    const text = "55 лет"; // Замените на свой текст
+    const text = document.querySelector('#IntroID').value;
     const textContainer = document.getElementById('typing-text');
     let index = 0;
     let isDeleting = false;
@@ -58,6 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
         let title = slide.querySelector('.page__about__right__title')
         let link = slide.querySelector('a')
 
+        let h2Length = h2.textContent.length;
+
+        if (h2Length > 10) {
+            h2.style.fontSize = '35px';
+        } else if (h2Length > 20) {
+            h2.style.fontSize = '30px';
+        } else if (h2Length > 30) {
+            h2.style.fontSize = '26px';
+        }
+
         h2.style.opacity = 0 
         p.style.opacity = 0 
         title.style.opacity = 0
@@ -100,12 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     nexti.addEventListener('click' ,() => {
-        console.log(nexti)
     })
 
     nexti.addEventListener('click', () => {
-        console.log(slideNumber)
-        
         if (slideNumber == slides.length - 1) {
             slideNumber = 0
         } else {

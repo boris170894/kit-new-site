@@ -6,20 +6,56 @@
 <link rel="stylesheet" href="/static/main/css/state/state_symbols.css" />
 
 <div class="page" id="page">
-    <h1>{% trans 'Государственные символы Республики Казахстан' %}</h1>
-    <div class="page__items">
-        {% for symbol in symbols %}
-            <div class="page__item">
-                <h3>{{ symbol.name }}</h3>
-                {% if symbol.image  %}
-                    <img src="/static/media/{{ symbol.image }}" alt="{{ symbol.name }}">
-                {% endif  %}
-                {% autoescape off %}
-                    <p>{{ symbol.desc }}</p>
-                {% endautoescape %}
+    {% if symbols %}
+        <h1>{% trans 'Государственные символы Республики Казахстан' %}</h1>
+        <div class="page__items">
+            {% for symbol in symbols %}
+                <div class="page__item">
+                    <h3>{{ symbol.name }}</h3>
+                    {% if symbol.image  %}
+                        <img src="/static/media/{{ symbol.image }}" alt="{{ symbol.name }}">
+                    {% endif  %}
+                    {% autoescape off %}
+                        <p>{{ symbol.desc }}</p>
+                    {% endautoescape %}
+                </div>
+            {% endfor  %}
+        </div>
+    {% endif %}
+
+    {% if page_type == 'Presidential Messages' %}
+
+       <h1>{% trans 'Послания' %}</h1>
+
+        <div class="presidential__messages">
+            {% for message in presidential_messages %}
+                <div class="presidential__message">
+                    {% if message.image %}
+                        <a href="{% url 'presidential-message' message.id %}">
+                            <img src="/static/media/{{ message.image }}" alt="{{ message.title }}" />
+                        </a>
+                    {% endif %}
+                    <div>
+                        <a href="{% url 'presidential-message' message.id %}">{{ message.title }}</a>
+                        <span>{{ message.created }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% elif page_type == 'Presidential Message' %}
+          {% if presidential_message %}
+            <div class="page__presidential__message">
+                <h1>{{ presidential_message.title }}</h1>
+                <img src="/static/media/{{ presidential_message.image }}" alt="{{ presidential_message.title }}" />
+                <div>
+                    {% autoescape off %}
+                        {{ presidential_message.text }}
+                    {% endautoescape %}
+                </div>
             </div>
-        {% endfor  %}
-    </div>
+        {% endif %}
+    {% endif %}
 </div>
 
 

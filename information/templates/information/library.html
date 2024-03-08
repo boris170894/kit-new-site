@@ -1,0 +1,189 @@
+{% include 'main/base.html' %}
+
+{% load static i18n %}
+
+{% block content %}
+<title>{% trans 'Библиотека' %}</title>
+
+<link rel="stylesheet" href="/static/about_college/css/college_history.css" />
+<link rel="stylesheet" href="/static/state/css/anti__coruption.css" />
+<link rel="stylesheet" href="/static/eduactional_work/css/dormitory.css" />
+<link rel="stylesheet" href="/static/css/news.css" />
+<link rel="stylesheet" href="/static/information/css/library.css" />
+
+<div class="page" id="page">
+    <h1>{% trans 'Библиотека' %}</h1>
+
+    {% if library.slider_images.count > 0 %}
+        <div class="dormitory__slider">
+            <div class="dormitory__slider__item">
+                <div class="dormitory__slider__main__slide">
+                    <span class="dormitory__slider__left">
+                        <svg class="prev" width="20" height="36" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.6777 3L3 20.6777" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M20.6777 38.6777L3 21" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <img
+                        src="{{  library.slider_images.1.file }}"
+                        alt="main image"
+                        class="dormitory__slider__main__image" />
+                    <span class="dormitory__slider__right">
+                        <svg class="nexti" width="20" height="36" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.6777 3L3 20.6777" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M20.6777 38.6777L3 21" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="dormitory__slider__images">
+                    {% for image in library.slider_images.all %}
+                            <img src="/static/media/{{ image.image }}" alt="{{ image.id }}" class="dormitory__slider__slide__image">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const main_place = document.querySelector('.dormitory__slider__main__image')
+            const images = document.querySelectorAll('.dormitory__slider__slide__image');
+
+            const left_button = document.querySelector('.dormitory__slider__left')
+            const right_button = document.querySelector('.dormitory__slider__right')
+
+            let index = 0;
+
+            const renderSlide = (i) => {
+                main_place.style.opacity = 0;
+
+                setTimeout(() => {
+                    main_place.src = images[i].src
+                    setTimeout(() => {
+                        main_place.style.opacity = 1;
+                    }, 200)
+                }, 200)
+            }
+
+            renderSlide(index)
+
+            images.forEach((image, i) => {
+                image.addEventListener('click', (e) => {
+                    index = i
+                    renderSlide(i);
+                });
+            });
+
+            left_button.addEventListener('click', (e) => {
+                index - 1 == -1 ? index = images.length - 1 : index--;
+                renderSlide(index);
+            })
+
+            right_button.addEventListener('click', (e) => {
+                index + 1 == images.length ? index = 0 : index++;
+                renderSlide(index);
+            })
+
+        </script>
+    {% endif %}
+
+    {% if library.text %}
+        <div class="dormitory__about">
+            {% autoescape off %}
+                {{ library.text }}
+            {% endautoescape %}
+        </div>
+    {% endif %}
+
+        <div class="dormitory__documents">
+            {% if library.slider_files.count > 0 %}
+                <h1>{% trans 'Документы' %}</h1>
+                {% for document in library.slider_files.all %}
+                    {% if document.is_public %}
+                        <div class="anti__coruption">
+                            <h2>{{ document.title }}</h2>
+                            {% if document.file %}
+                                <a href="/static/media/{{ document.file }}" class='link' download>{% trans 'Скачать' %} <i class="fa-solid fa-download"></i></a>
+                            {% endif  %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <h2>{% trans 'Документы не найдены' %}</h2>
+            {% endif %}
+        </div>
+
+        <h1>{% trans 'Новости' %}</h1>
+        <div class="page__content" id="News">
+           <!-- TODO ______ News ______ -->
+            <div class="page__news">
+                {% for news in page %}
+                <div class="news">
+                  <div class="news__left">
+                    <div class="news__left__top">
+                      <span>{{ news.news_create_date|date:'d.m.Y H:i' }}</span>
+                      <a href="{% url 'show_one_news' news.slug %}">{{ news.news_title|slice:80 }}...</a>
+                      <div>{{ news.news_content|truncatewords:10 | safe }}</div>
+                    </div>
+                    <div class="news__left__icons">
+                    <a href="{% url 'show_one_news' news.slug %}">
+                      <!-- <img src="/static/main/img/logo/left2.svg" alt="left"> -->
+                      <svg width="25" height="25" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M63.0704 5.76813L105.497 48.1945" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
+                        <path d="M63 90.4264L105.426 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
+                        <path d="M5 48L105 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    </div>
+                  </div>
+                  <div class="news__right">
+                    {% if news.news_img %}
+                      <img src="/static/{{ news.news_img.url }}" alt="{{ news.news_title }}">
+                    {% else %}
+                        <img src="/static/main/img/logo/logo.png" alt="{{ news.news_title }}" style="opacity: .1">
+                    {% endif %}
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- TODO ______ Pagination ______ -->
+            <div class="pagination">
+                  <a href="{% if page.has_previous %}?page={{ page.previous_page_number }}#News{% endif %}" class="pagination__left">
+                    <svg width="20" height="20" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M63.0704 5.76813L105.497 48.1945" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+                      <path d="M63 90.4264L105.426 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+                      <path d="M5 48L105 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+                    </svg>
+                  </a>
+                  <!-- <a href="?page=1">&laquo; Первая</a> -->
+
+              <span class="current">
+                  {% for i in page.paginator.page_range %}
+                    {% comment %} {% if page.number <= 3 and i <= 3 %}
+                        <a href="?page={{ i }}#News">{{ i }} {% trans 'Страница' %}</a>
+                    {% elif page.number > page.paginator.num_pages - 3 and i > page.paginator.num_pages - 3 %}
+                        <a href="?page={{ i }}#News">{{ i }} {% trans 'Страница' %}</a>
+                    {% elif i == page.number %} {% endcomment %}
+                      <a href="?page={{ i }}#News"
+                        {% if i == page.number %}style="background-color: rgb(248, 102, 36); color: white"{% endif %}
+                        >{{ i }} {% trans 'Страница' %}</a>
+                    {% comment %} {% endif %} {% endcomment %}
+                {% endfor %}
+              </span>
+
+
+              <!-- <a href="?page={{ page.paginator.num_pages }}">Последняя &raquo;</a> -->
+              <a href="{% if page.has_next %}?page={{ page.next_page_number }}#News{% endif %}" class="pagination__right">
+                <svg width="20" height="20" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M63.0704 5.76813L105.497 48.1945" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+                  <path d="M63 90.4264L105.426 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+                  <path d="M5 48L105 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+                </svg>
+              </a>
+
+            </div>
+
+        </div>
+
+</div>
+
+{% endblock content %}

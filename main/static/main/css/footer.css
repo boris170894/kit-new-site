@@ -15,6 +15,7 @@ footer {
     flex-wrap: wrap;
     position: absolute;
     bottom: 0%;
+    z-index: 100;
 }
 .footer__left {
     display: flex;
@@ -54,7 +55,7 @@ footer {
     width: 25px;
     height: 25px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     footer {
         display: flex;
         justify-content: center;
@@ -72,22 +73,26 @@ footer {
 /* ? footer up */
 .footer__up {
     position: fixed;
-    bottom: 5vh;
-    right: 5vh;
-    z-index: 6;
+    bottom: 3.5vh;
+    right: 3vh;
+    z-index: 101;
     background-color: white;
     color: #262626;
-    opacity: .3;
+    opacity: .4;
     border-radius: 8px;
     padding: 0 10px;
-    box-shadow: 0 0 10px rgb(20,20,20,.1);
+    box-shadow: 0 0 10px rgb(20,20,20,.2);
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transition: all .3s linear;
+
     cursor: pointer;
+    
+    width: 46px;
+    height: 46px;
+    transition: all .3s linear;
     /* opacity: 0; */
 }
 .footer__up:hover {

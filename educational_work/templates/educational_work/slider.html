@@ -1,0 +1,76 @@
+{% if title == slider.page %}
+    {% if slider.images.count > 0 %}
+    <div class="dormitory__slider">
+        <div class="dormitory__slider__item">
+            <div class="dormitory__slider__main__slide">
+                 <span class="dormitory__slider__left">
+                    <svg class="prev" width="20" height="36" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.6777 3L3 20.6777" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M20.6777 38.6777L3 21" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+                <img src="{{  info.images.1.file }}" alt="main image" class="dormitory__slider__main__image" />
+                <span class="dormitory__slider__right">
+                    <svg  class="nexti" width="20" height="36" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.6777 3L3 20.6777" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M20.6777 38.6777L3 21" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                </span>
+            </div>
+            <div class="dormitory__slider__images">
+                {% for image in slider.images.all %}
+                        <img src="/static/media/{{ image.image }}" alt="{{ image.id }}" class="dormitory__slider__slide__image">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // TODO: Берем классы
+        const main_place = document.querySelector('.dormitory__slider__main__image')
+        const images = document.querySelectorAll('.dormitory__slider__slide__image');
+
+        const left_button = document.querySelector('.dormitory__slider__left')
+        const right_button = document.querySelector('.dormitory__slider__right')
+
+        let index = 0;
+
+        // TODO: Функция для рендеринга слайда с эффектами
+        const renderSlide = (i) => {
+            main_place.style.opacity = 0;
+
+            setTimeout(() => {
+                main_place.src = images[i].src
+                setTimeout(() => {
+                    main_place.style.opacity = 1;
+                }, 300)
+            }, 300)
+        }
+
+        // TODO: Рендеринг первого элемента
+        renderSlide(index)
+
+        // TODO: Рендеринг картинок при клике на элемент
+        images.forEach((image, i) => {
+            image.addEventListener('click', (e) => {
+                index = i
+                renderSlide(i);
+            });
+        });
+
+        // TODO: Рендеринг картинки при клике на левую стрелочку
+        left_button.addEventListener('click', (e) => {
+            index - 1 == -1 ? index = images.length - 1 : index--;
+            renderSlide(index);
+        })
+
+        // TODO: Рендеринг картинки при клике на правую стрелочку
+        right_button.addEventListener('click', (e) => {
+            index + 1 == images.length ? index = 0 : index++;
+            renderSlide(index);
+        })
+
+    </script>
+
+    {% endif %}
+{% endif %}

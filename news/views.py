@@ -31,7 +31,7 @@ def show_about_world_skills(request):
     })
 
 def show_one_news(request, slug):
-    news = NewsModel.objects.get(slug = slug)
+    news = NewsModel.objects.get(slug=slug)
     
     return render(request, 'news/news.html', {
         'news':news

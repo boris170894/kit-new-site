@@ -1,14 +1,28 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import (CollegeHistoryModel, 
-                                    BoardOfTrusteesModel,
-                                    PedagogicalCouncilModel,
-                                    IndustrialCouncilModel, 
-                                    SpecInfoModel)
+from .models import (CollegeHistoryModel,
+                        CollegeDocsModel,
+                        BoardOfTrusteesModel,
+                        PedagogicalCouncilModel,
+                        IndustrialCouncilModel,
+                        SpecInfoModel,
+                        CollegeTextHistoryModel,
+                        GalleryModel,
+                    )
 
-""" История колледжа """
+""" История колледжа события """
 @register(CollegeHistoryModel)
 class CollegeHistoryTransOptions(TranslationOptions):
     fields = ('info',)
+
+""" История колледжа текст """
+@register(CollegeTextHistoryModel)
+class CollegeTextHistoryTransOptions(TranslationOptions):
+    fields = ('text',)
+
+""" Документы """
+@register(CollegeDocsModel)
+class CollegeDocsTransOptions(TranslationOptions):
+    fields = ('college_license', 'college_reg', )
 
 """ Специальности """
 @register(SpecInfoModel)
@@ -18,14 +32,19 @@ class SpecInfoTransOptions(TranslationOptions):
 """ Попечительский совет """
 @register(BoardOfTrusteesModel)
 class BoardOfTrusteesTransOptions(TranslationOptions):
-    fields = ('title',)
+    fields = ('title', 'file',)
 
 """ Педагогический совет """
 @register(PedagogicalCouncilModel)
 class PedagogicalCouncilTransOptions(TranslationOptions):
-    fields = ('title',)
+    fields = ('title', 'file',)
 
 """ Индустриальный совет """
 @register(IndustrialCouncilModel)
 class IndustrialCouncilTransOptions(TranslationOptions):
-    fields = ('title',)
+    fields = ('title', 'file',)
+
+""" Галерея """
+@register(GalleryModel)
+class GalleryTransOptions(TranslationOptions):
+    fields = ('title', )

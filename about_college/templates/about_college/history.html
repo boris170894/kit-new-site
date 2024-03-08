@@ -25,9 +25,15 @@
             </div>
         </div>
        {% endautoescape %}
-    {% else %}
-    <h2>History not found</h2>
     {% endif %}
+
+    <div class="page__histories__text">
+        {% if text %}
+            {% autoescape off %}
+                {{ text.text }}
+            {% endautoescape %}
+        {% endif %}
+    </div>
 </div>
 
 <script src="/static/main/js/about/college_history.js"></script>

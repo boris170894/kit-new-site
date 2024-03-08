@@ -9,7 +9,6 @@ from .models import CategoryModel, NewsModel
 class CategoryAdmin(TranslationAdmin):
     list_display = ('category_name_ru',)
 
-
 class NewsAdminForm(forms.ModelForm):
     news_content_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
     news_content_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[kk]')
@@ -17,7 +16,6 @@ class NewsAdminForm(forms.ModelForm):
     class Meta:
         model = NewsModel
         fields = '__all__'
-
 
 @admin.register(NewsModel)
 class NewsAdmin(TranslationAdmin):
