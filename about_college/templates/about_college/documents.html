@@ -8,9 +8,9 @@
 <div class="page" id="page">
     <h1>{% trans 'Документы'  %}</h1>
 
-    <h2>{% trans 'Лицензия' %}</h2>
-
     {% if documents.college_license %}
+        <h2 class="page__doc__header">{% trans 'Лицензия' %}</h2>
+
         <iframe 
             src="/static/media/{{ documents.college_license }}" 
             class="page__doc"
@@ -19,16 +19,28 @@
         <a href="{{ documents.college_license.url }}" class='link' download>{% trans 'Скачать лицензию' %}</a>
     {% endif  %}
 
-    <h2>{% trans 'Устав' %}</h2>
-
     {% if documents.college_reg %}
+        <h2 class="page__doc__header">{% trans 'Устав' %}</h2>
+
         <iframe 
             src="/static/media/{{ documents.college_reg }}" 
             class="page__doc"
         ></iframe>
 
-        <a href="{{ documents.college_license.url }}" class='link' download>{% trans 'Скачать устав' %}</a>
+        <a href="{{ documents.college_reg.url }}" class='link' download>{% trans 'Скачать устав' %}</a>
     {% endif %}
+
+    {% if documents.accreditation %}
+        <h2 class="page__doc__header">{% trans 'Аккредитация' %}</h2>
+
+        <iframe
+            src="/static/media/{{ documents.accreditation }}"
+            class="page__doc"
+        ></iframe>
+
+        <a href="{{ documents.accreditation.url }}" class='link' download>{% trans 'Скачать аккредитацию' %}</a>
+    {% endif  %}
+
     </div>
 
 {% endblock content %}

@@ -34,8 +34,10 @@ class CollegeTextHistoryModel(models.Model):
 """ Документы """
 class CollegeDocsModel(models.Model):
 
-    college_license = models.FileField(upload_to="uploads/Docs",verbose_name="Лицензия", blank=True, null=True)
-    college_reg = models.FileField(upload_to="uploads/about-college/docs",verbose_name="Устав", blank=True, null=True)
+    college_license = models.FileField(upload_to="uploads/Docs", verbose_name="Лицензия", blank=True, null=True)
+    college_reg = models.FileField(upload_to="uploads/about-college/docs", verbose_name="Устав", blank=True, null=True)
+    accreditation = models.FileField(upload_to="uploads/Docs/accreditation", verbose_name="Аккредитация", blank=True, null=True)
+
     public = models.BooleanField(verbose_name='Опубликовать', default=True)
 
     class Meta:

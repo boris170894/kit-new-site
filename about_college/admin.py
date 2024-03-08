@@ -48,7 +48,7 @@ class CollegeTextHistoryAdmin(TranslationAdmin):
 """ Документы """
 @admin.register(CollegeDocsModel)
 class CollegeDocsAdmin(TranslationAdmin):
-    list_display = ('id', 'public','college_license', 'college_reg', )
+    list_display = ('id', 'public', 'college_license', 'college_reg', )
 
 class SpecAdminForm(forms.ModelForm):
     spec_info_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')

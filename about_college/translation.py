@@ -22,7 +22,7 @@ class CollegeTextHistoryTransOptions(TranslationOptions):
 """ Документы """
 @register(CollegeDocsModel)
 class CollegeDocsTransOptions(TranslationOptions):
-    fields = ('college_license', 'college_reg', )
+    fields = ('college_license', 'college_reg', 'accreditation', )
 
 """ Специальности """
 @register(SpecInfoModel)

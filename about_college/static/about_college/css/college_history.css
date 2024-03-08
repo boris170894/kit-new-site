@@ -98,6 +98,9 @@
     border-radius: 20px;
     margin-bottom: 3vh;
 }
+.page__doc__header {
+    margin: 8vh 0;
+}
 .link {
     background-color: var(--primary);
     color: var(--white);
