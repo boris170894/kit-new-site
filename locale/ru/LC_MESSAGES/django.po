@@ -1,0 +1,591 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-30 22:05+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: about_college/templates/about_college/counsil.html:16
+#: main/templates/main/include/header.html:44
+msgid "Попечительский совет"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:18
+#: main/templates/main/include/header.html:45
+msgid "Педагогический совет"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:20
+#: main/templates/main/include/header.html:46
+msgid "Индустриальный совет"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:22
+#: main/templates/main/include/header.html:107
+msgid "Общая информация"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:24
+#: main/templates/main/include/header.html:109
+msgid "Психологическая служба"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:26
+#: main/templates/main/include/header.html:62
+msgid "Финансовая отчетность"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:28
+#: main/templates/main/include/header.html:76
+msgid "Государственные услуги"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:30
+#: main/templates/main/include/header.html:78
+msgid "Противодействие коррупции"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:32
+#: main/templates/main/include/header.html:79
+msgid "Программа полиязычия"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:39
+#: about_college/templates/about_college/documents.html:9
+#: educational_work/templates/educational_work/dormitory.html:95
+#: educational_work/templates/educational_work/sections.html:37
+#: main/templates/main/include/header.html:41
+#: main/templates/main/pages/information/abiturients.html:29
+msgid "Документы"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:44
+#: educational_work/templates/educational_work/dormitory.html:100
+#: worldskills/templates/worldskills/rules.html:19
+#: worldskills/templates/worldskills/rules.html:30
+#: worldskills/templates/worldskills/rules.html:41
+msgid "Скачать"
+msgstr ""
+
+#: about_college/templates/about_college/counsil.html:51
+#: educational_work/templates/educational_work/dormitory.html:107
+#: educational_work/templates/educational_work/dormitory.html:113
+#: educational_work/templates/educational_work/sections.html:103
+#: main/templates/main/pages/information/student.html:259
+#: worldskills/templates/worldskills/competentions.html:91
+msgid "Документы не найдены"
+msgstr ""
+
+#: about_college/templates/about_college/documents.html:11
+msgid "Лицензия"
+msgstr ""
+
+#: about_college/templates/about_college/documents.html:19
+msgid "Скачать лицензию"
+msgstr ""
+
+#: about_college/templates/about_college/documents.html:22
+msgid "Устав"
+msgstr ""
+
+#: about_college/templates/about_college/documents.html:30
+msgid "Скачать устав"
+msgstr ""
+
+#: about_college/templates/about_college/history.html:9
+msgid "История Колледжа"
+msgstr ""
+
+#: about_college/templates/about_college/specialites.html:22
+#: main/templates/main/pages/information/abiturients.html:13
+msgid "Наши Специальности"
+msgstr ""
+
+#: about_college/templates/about_college/specialites.html:32
+#: main/templates/main/pages/information/student.html:111
+msgid "Узнать Больше"
+msgstr ""
+
+#: educational_work/templates/educational_work/dormitory.html:13
+#: main/templates/main/include/header.html:111
+msgid "Общежитие"
+msgstr ""
+
+#: educational_work/templates/educational_work/dormitory.html:118
+msgid "Заявка"
+msgstr ""
+
+#: educational_work/templates/educational_work/dormitory.html:120
+#: educational_work/templates/educational_work/dormitory.html:123
+msgid "ФИО"
+msgstr ""
+
+#: educational_work/templates/educational_work/dormitory.html:130
+#: educational_work/templates/educational_work/dormitory.html:133
+msgid "Группа"
+msgstr ""
+
+#: educational_work/templates/educational_work/dormitory.html:139
+msgid "Пол"
+msgstr ""
+
+#: educational_work/templates/educational_work/dormitory.html:141
+msgid "Мужской"
+msgstr ""
+
+#: educational_work/templates/educational_work/dormitory.html:142
+msgid "Женский"
+msgstr ""
+
+#: educational_work/templates/educational_work/dormitory.html:155
+#: educational_work/templates/educational_work/dormitory.html:158
+msgid "Телефон"
+msgstr ""
+
+#: educational_work/templates/educational_work/dormitory.html:163
+msgid "Отправить"
+msgstr ""
+
+#: educational_work/templates/educational_work/groups.html:9
+#: main/templates/main/include/header.html:110
+msgid "Классные руководители"
+msgstr ""
+
+#: educational_work/templates/educational_work/sections.html:12
+msgid "Кружки и секции"
+msgstr ""
+
+#: educational_work/templates/educational_work/sections.html:27
+msgid "Описание"
+msgstr ""
+
+#: educational_work/templates/educational_work/sections.html:32
+msgid "Преподаватели"
+msgstr ""
+
+#: main/templates/main/base.html:7 main/templates/main/pages/index.html:210
+#: main/templates/main/pages/information/abiturients.html:70
+msgid "Колледж информационных технологий"
+msgstr ""
+
+#: main/templates/main/error.html:14
+msgid "Страница не найдена"
+msgstr ""
+
+#: main/templates/main/error.html:17
+msgid "У вас нет доступа к этой странице"
+msgstr ""
+
+#: main/templates/main/error.html:20
+msgid "Пользователю необходима аутентификация"
+msgstr ""
+
+#: main/templates/main/error.html:23
+msgid "Запрос был некорректным"
+msgstr ""
+
+#: main/templates/main/error.html:28
+msgid "Перейти на главную страницу"
+msgstr ""
+
+#: main/templates/main/include/footer.html:26
+#: main/templates/main/include/header.html:27
+#: main/templates/main/include/header.html:94
+#: news/templates/news/news_list.html:4 news/templates/news/news_list.html:9
+msgid "Новости"
+msgstr ""
+
+#: main/templates/main/include/footer.html:27
+#: main/templates/main/include/header.html:59
+msgid "Студенту"
+msgstr ""
+
+#: main/templates/main/include/footer.html:28
+#: main/templates/main/include/header.html:60
+msgid "Абитуриенту"
+msgstr ""
+
+#: main/templates/main/include/footer.html:29
+#: main/templates/main/include/header.html:61
+msgid "Преподавателю"
+msgstr ""
+
+#: main/templates/main/include/header.html:21
+#: main/templates/main/include/header.html:33
+#: main/templates/main/include/header.html:53
+#: main/templates/main/include/header.html:69
+#: main/templates/main/include/header.html:86
+#: main/templates/main/include/header.html:101
+msgid "Назад"
+msgstr ""
+
+#: main/templates/main/include/header.html:29
+msgid "О колледже"
+msgstr ""
+
+#: main/templates/main/include/header.html:40
+msgid "История колледжа"
+msgstr ""
+
+#: main/templates/main/include/header.html:42
+#: staff/templates/staff/staff.html:9
+msgid "Структура"
+msgstr ""
+
+#: main/templates/main/include/header.html:43
+#: main/templates/main/pages/information/abiturients.old.html:15
+msgid "Специальности"
+msgstr ""
+
+#: main/templates/main/include/header.html:50
+msgid "Информация"
+msgstr ""
+
+#: main/templates/main/include/header.html:66
+msgid "Государство"
+msgstr ""
+
+#: main/templates/main/include/header.html:75
+msgid "Государственные символы"
+msgstr ""
+
+#: main/templates/main/include/header.html:77
+msgid "Послание Главы государства"
+msgstr ""
+
+#: main/templates/main/include/header.html:92
+msgid "Правила"
+msgstr ""
+
+#: main/templates/main/include/header.html:93
+msgid "Документация"
+msgstr ""
+
+#: main/templates/main/include/header.html:98
+msgid "Воспитательная работа"
+msgstr ""
+
+#: main/templates/main/include/header.html:108
+msgid "Кружки/Секции"
+msgstr ""
+
+#: main/templates/main/pages/about/structures.html:10
+msgid "НАШИ СПЕЦИАЛЬНОСТИ"
+msgstr ""
+
+#: main/templates/main/pages/about/structures.html:20
+#: main/templates/main/pages/information/abiturients.html:23
+msgid "Подробнее"
+msgstr ""
+
+#: main/templates/main/pages/index.html:39
+msgid "55 лет"
+msgstr ""
+
+#: main/templates/main/pages/index.html:45
+msgid "Добро пожаловать в"
+msgstr ""
+
+#: main/templates/main/pages/index.html:46
+msgid "КОЛЛЕДЖ ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ"
+msgstr ""
+
+#: main/templates/main/pages/index.html:83
+msgid "Читать все новости "
+msgstr ""
+
+#: main/templates/main/pages/index.html:104
+msgid "ПОСТУПИТЬ К НАМ"
+msgstr ""
+
+#: main/templates/main/pages/index.html:163
+msgid "Читать"
+msgstr ""
+
+#: main/templates/main/pages/index.html:169
+msgid "Смотреть все"
+msgstr ""
+
+#: main/templates/main/pages/index.html:211
+#: main/templates/main/pages/information/abiturients.html:71
+msgid "Адрес"
+msgstr ""
+
+#: main/templates/main/pages/index.html:212
+#: main/templates/main/pages/information/abiturients.html:72
+msgid "Приёмная"
+msgstr ""
+
+#: main/templates/main/pages/index.html:216
+#: main/templates/main/pages/information/abiturients.html:74
+msgid "Приёмная комиссия"
+msgstr ""
+
+#: main/templates/main/pages/information/abiturients.html:11
+#: main/templates/main/pages/information/abiturients.old.html:10
+msgid "Информация для абитуриентов"
+msgstr ""
+
+#: main/templates/main/pages/information/abiturients.html:34
+msgid "Перечень необходимых документов"
+msgstr ""
+
+#: main/templates/main/pages/information/abiturients.html:42
+msgid ""
+"Документы принимаются после окончания 9 класса, на основании аттестата об "
+"основном среднем образовании."
+msgstr ""
+
+#: main/templates/main/pages/information/abiturients.html:46
+#: main/templates/main/pages/information/abiturients.html:60
+#: main/templates/main/pages/information/abiturients.html:87
+msgid "Не найдено"
+msgstr ""
+
+#: main/templates/main/pages/information/abiturients.html:51
+msgid "Основные преимущества нашего колледжа"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:54
+#: main/templates/main/pages/information/student.html:88
+msgid "Расписание пар и звонков"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:63
+#: main/templates/main/pages/information/student.html:90
+msgid "График учебного процесса"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:70
+#: main/templates/main/pages/information/student.html:92
+msgid "События"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:81
+#: main/templates/main/pages/information/student.html:94
+msgid "Методические рекомендации"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:130
+msgid "Скачать учебного процесса"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:138
+msgid "1 курс"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:139
+msgid "2 курс"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:140
+msgid "3 курс"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:141
+msgid "4 курс"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:143
+msgid "Скачать расписание 1 курса"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:143
+#: main/templates/main/pages/information/student.html:144
+#: main/templates/main/pages/information/student.html:145
+#: main/templates/main/pages/information/student.html:146
+msgid "Расписание не найдено"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:144
+msgid "Скачать расписание 2 курса"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:145
+msgid "Скачать расписание 3 курса"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:146
+msgid "Скачать расписание 4 курса"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:150
+msgid "1 пара"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:151
+msgid "2 пара"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:152
+msgid "3 пара"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:153
+msgid "4 пара"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:154
+msgid "5 пара"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:155
+msgid "6 пара"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:156
+msgid "7 пара"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:268
+msgid "Дата Начала"
+msgstr ""
+
+#: main/templates/main/pages/information/student.html:271
+msgid "Дата Конца"
+msgstr ""
+
+#: main/templates/main/pages/state/state_symbols.html:10
+msgid "Государственные символы Республики Казахстан"
+msgstr ""
+
+#: news/templates/news/news.html:23
+msgid "Показать все новости"
+msgstr ""
+
+#: news/templates/news/news_list.html:16
+msgid "Сортировать по"
+msgstr ""
+
+#: news/templates/news/news_list.html:17
+msgid "Новые"
+msgstr ""
+
+#: news/templates/news/news_list.html:18
+msgid "Старые"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:5
+msgid "Select an image to embed"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:27
+msgid "Browse for the image you want, then click 'Embed Image' to continue..."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:29
+msgid ""
+"No images found. Upload images using the 'Image Button' dialog's 'Upload' "
+"tab."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:50
+msgid "Images in: "
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:62
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:80
+msgid "Embed Image"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:146
+msgid "Play Slideshow"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:147
+msgid "Pause Slideshow"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:148
+msgid "&lsaquo; Previous Photo"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:149
+msgid "Next Photo &rsaquo;"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:150
+msgid "Next &rsaquo;"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:151
+msgid "&lsaquo; Prev"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:7
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:220
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:221
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:229
+msgid "Django Documentation"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:230
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:238
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:239
+msgid "Get started with Django"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:247
+msgid "Django Community"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:248
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/directory_index.html:8
+#: venv/lib/python3.10/site-packages/django/views/templates/directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: worldskills/templates/worldskills/competentions.html:10
+msgid "Документация к компетенциям"
+msgstr ""
+
+#: worldskills/templates/worldskills/competentions.html:16
+msgid "Компетенции"
+msgstr ""
+
+#: worldskills/templates/worldskills/rules.html:10
+msgid "Правила WorldSkills Казахстан"
+msgstr ""

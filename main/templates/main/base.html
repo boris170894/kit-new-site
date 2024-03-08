@@ -35,7 +35,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
-<body class="u-body u-xxl-mode" data-lang="ru">
+<body 
+  class="u-body u-xxl-mode" 
+  data-lang="ru"
+  {% if theme_gray.is_gray_theme %} 
+    style="filter: grayscale(100%);"
+  {% endif %}
+  >
 
     {% if messages %}
     <div class="global__messages">
@@ -43,7 +49,7 @@
             <div class='global__message'>
                 {{message}}
                 <span class="global__message__close">
-                    x
+                    
                 </span>
             </div>
         {% endfor %}
@@ -93,6 +99,7 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
+        document.body.style.overflowY = 'hidden'
         const loader = document.querySelector('.loader');
         const page = document.querySelector('.page');
 
@@ -102,6 +109,7 @@
           setTimeout(() => {
             loader.style.display = 'none';
             loader.style.zIndex = 0;
+            document.body.style.overflowY = 'auto'
           }, 300)
         }, 3000);
       })
@@ -115,6 +123,7 @@
     {% include 'main/include/footer.html' %}
     
     <script src="{% static 'main/js/nav.js' %}" ></script>
+    <script src="{% static 'main/js/footer_up.js' %}" ></script>
     <script src="https://kit.fontawesome.com/0b77448ae5.js" crossorigin="anonymous"></script>
 </body>
 </html>

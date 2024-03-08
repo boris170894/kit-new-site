@@ -14,9 +14,11 @@
     row-gap: 4%;
 }
 .group {
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
+    display: grid;
+    grid-template-columns: 30% 65%;
     width: 100%;
     border-radius: 4px;
     border: 2px solid rgb(20,20,20,.2);
@@ -25,7 +27,7 @@
     gap: 5%;
 }
 .group a {
-    text-align: right;
+
 }
 
 .group:hover {

@@ -11,6 +11,8 @@ venv/
 
 /staticfiles
 staticfiles
+static/media/
+static/media
 # Distribution / packaging
 .Python
 build/

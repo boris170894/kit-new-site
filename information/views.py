@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
 
 from about_college.models import SpecInfoModel
 from .models import (
@@ -11,7 +12,9 @@ from .models import (
                         FinancialStatementsModel, 
                         CollegeDocsModel,
                         MainAdvantagesOfOurCollegeModel,
+                        LibraryModel,
                      )
+from news.models import NewsModel
 
 """
     TODO:    Абитуриенту
@@ -133,4 +136,18 @@ def financial_statement(request):
     return render(request, 'about_college/counsil.html', {
         'title': 'Финансовая отчетность',
         'documents': documents
+    })
+
+""" Библиотека """
+def library(request):
+    documents = LibraryModel.objects.filter(is_public=True).last()
+    news_list = NewsModel.objects.filter(news_is_library=True).filter(news_is_published=True).order_by('-news_create_date')
+
+    paginator = Paginator(news_list, 10)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+
+    return render(request, 'information/library.html', {
+        'library': documents,
+        'page': page
     })

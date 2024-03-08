@@ -67,7 +67,7 @@
             {% if type == 'События' %} 
                 activate
             {% endif %}"
-            >{%  trans 'События' %}</a>
+            >{% trans 'События' %}</a>
         {% endif %}
         <a {% if user_type == 'teacher' %}
                 href="{% url 'guidelines_teachers' %}" 
@@ -135,15 +135,15 @@
             <div class="call__schedule">
                 <div class="call__schedule__left">
                     <div class="call__schedule__left__menu">
-                        <a class="link show__link link activate">{% trans '1 курс' %}</a>
-                        <a class="link show__link">{% trans '2 курс' %}</a>
-                        <a class="link show__link">{% trans '3 курс' %}</a>
-                        <a class="link show__link">{% trans '4 курс' %}</a>
+                        {% if docs.course_1_schedule %}<a class="link show__link link activate">{% trans '1 курс' %}</a> {% endif %}
+                        {% if docs.course_2_schedule %}<a class="link show__link">{% trans '2 курс' %}</a>{% endif %}
+                        {% if docs.course_3_schedule %}<a class="link show__link">{% trans '3 курс' %}</a>{% endif %}
+                        {% if docs.course_4_schedule %}<a class="link show__link">{% trans '4 курс' %}</a>{% endif %}
                     </div>
-                    {% if docs.course_1_schedule %}<a href="{{ docs.course_1_schedule.url }} " class='download' download>{% trans 'Скачать расписание 1 курса' %}</a>{% else %} <h3>Schedule not loaded</h3>{%  endif %}
-                    {% if docs.course_2_schedule %}<a href="{{ docs.course_2_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 2 курса' %} <h3>Schedule not loaded</h3></a>{%  endif %}
-                    {% if docs.course_3_schedule %}<a href="{{ docs.course_3_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 3 курса' %} <h3>Schedule not loaded</h3></a>{%  endif %}
-                    {% if docs.course_4_schedule %}<a href="{{ docs.course_4_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 4 курса' %} <h3>Schedule not loaded</h3></a>{%  endif %}
+                    {% if docs.course_1_schedule %}<a href="{{ docs.course_1_schedule.url }} " class='download' download>{% trans 'Скачать расписание 1 курса' %}</a>{% else %} <h3>{% trans 'Расписание не найдено' %}</h3>{%  endif %}
+                    {% if docs.course_2_schedule %}<a href="{{ docs.course_2_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 2 курса' %} <h3>{% trans 'Расписание не найдено' %}</h3></a>{%  endif %}
+                    {% if docs.course_3_schedule %}<a href="{{ docs.course_3_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 3 курса' %} <h3>{% trans 'Расписание не найдено' %}</h3></a>{%  endif %}
+                    {% if docs.course_4_schedule %}<a href="{{ docs.course_4_schedule.url }}" style="display: none;" class='download' download>{% trans 'Скачать расписание 4 курса' %} <h3>{% trans 'Расписание не найдено' %}</h3></a>{%  endif %}
                 </div>
                 <div class="call__schedule__right">
                     <table border="1">
@@ -256,7 +256,7 @@
                 </script>
             </div>
             {% else %}
-            <h2>{% trans 'Documents not found' %}</h2>
+            <h2>{% trans 'Документы не найдены' %}</h2>
             {% endif %}
         {% else  %}
         <h1>{{ event.title }}</h1>

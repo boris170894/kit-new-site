@@ -1,12 +1,15 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 from .models import  (GeneralInformationFilesModel, 
-                                        ClubsAndSectionsModel, 
-                                        ClubsAndSectionsDocumentsModel,
-                                        PsychologicalServiceModel, 
-                                        DormitoryModel, 
-                                        DormitoryFilesModel,
-                                        DormitoryImagesModel)
+                                ClubsAndSectionsModel,
+                                ClubsAndSectionsDocumentsModel,
+                                PsychologicalServiceModel,
+                                DormitoryModel,
+                                DormitoryFilesModel,
+                                DormitoryImagesModel,
+                                DormitoryContactsEmailModel,
+                                DormitoryContactsPhoneModel,
+                        )
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
@@ -63,3 +66,6 @@ class DormitoryFilesAdmin(TranslationAdmin):
 @admin.register(DormitoryImagesModel)
 class DormitoryImagesAdmin(admin.ModelAdmin):
     list_display = ('id', 'file', 'is_public', 'updated', )
+
+admin.site.register(DormitoryContactsEmailModel)
+admin.site.register(DormitoryContactsPhoneModel)

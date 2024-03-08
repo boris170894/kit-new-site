@@ -3,11 +3,14 @@ from modeltranslation.admin import TranslationAdmin
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
 from .models import (CollegeHistoryModel,
-                                    CollegeDocsModel,
-                                    SpecInfoModel, 
-                                    BoardOfTrusteesModel,
-                                    PedagogicalCouncilModel,
-                                    IndustrialCouncilModel )
+                        CollegeDocsModel,
+                        SpecInfoModel,
+                        BoardOfTrusteesModel,
+                        PedagogicalCouncilModel,
+                        IndustrialCouncilModel,
+                        CollegeTextHistoryModel,
+                        GalleryModel
+                     )
 
 class CollegeHistoryAdminForm(forms.ModelForm):
     info_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
@@ -17,14 +20,30 @@ class CollegeHistoryAdminForm(forms.ModelForm):
         model = CollegeHistoryModel
         fields = '__all__'
 
-""" История колледжа """
+""" История колледжа события """
 @admin.register(CollegeHistoryModel)
 class CollegeHistoryAdmin(TranslationAdmin):
-    list_display = ('year',)
+    list_display = ('year', 'public',)
     form = CollegeHistoryAdminForm
 
+class CollegeTextHistoryAdminForm(forms.ModelForm):
+    text_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
+    text_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[kk]')
+    text_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[en]')
+    class Meta:
+        model = CollegeTextHistoryModel
+        fields = '__all__'
+
+""" История колледжа текст """
+@admin.register(CollegeTextHistoryModel)
+class CollegeTextHistoryAdmin(TranslationAdmin):
+    list_display = ('updated', 'public', )
+    form = CollegeTextHistoryAdminForm
+
 """ Документы """
-admin.site.register(CollegeDocsModel)
+@admin.register(CollegeDocsModel)
+class CollegeDocsAdmin(TranslationAdmin):
+    list_display = ('id', 'public','college_license', 'college_reg', )
 
 class SpecAdminForm(forms.ModelForm):
     spec_info_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
@@ -43,14 +62,19 @@ class SpecInfoAdmin(TranslationAdmin):
 """ Попечительский совет """
 @admin.register(BoardOfTrusteesModel)
 class BoardOfTrusteesAdmin(TranslationAdmin):
-    list_display = ('title', 'file', 'public', )
+    list_display = ('title', 'public', 'file', )
 
 """ Педагогический совет """
 @admin.register(PedagogicalCouncilModel)
 class PedagogicalCouncilAdmin(TranslationAdmin):
-    list_display = ('title', 'file', 'public', )
+    list_display = ('title', 'public', 'file', )
 
 """ Индустриальный совет """
 @admin.register(IndustrialCouncilModel)
 class IndustrialCouncilAdmin(TranslationAdmin):
-    list_display = ('title', 'file', 'public', )
+    list_display = ('title', 'public', 'file', )
+
+""" Галерея """
+@admin.register(GalleryModel)
+class GalleryAdmin(TranslationAdmin):
+    list_display = ('id', 'title', 'image', 'public', )

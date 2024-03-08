@@ -43,7 +43,7 @@
                     </div>
                 </div>
             {% else %}
-            <h3>Docs not found</h3>
+            <h3>{% trans 'Не найдено' %}</h3>
             {% endif %}
         </div>
         <div class="docs__right">
@@ -57,7 +57,7 @@
                     {% endfor %}
                 </div>
             {% else %}
-            <h3>Pluses not found</h3>
+            <h3>{% trans 'Не найдено' %}</h3>
             {% endif %}
         </div>
     </div>
@@ -84,7 +84,7 @@
         </div>
     </div>
     {% else %}
-        <h2>Contacts not found</h2>
+        <h2>{% trans 'Не найдено' %}</h2>
     {% endif %}
     
 </div>

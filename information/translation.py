@@ -7,6 +7,8 @@ from .models import (
                         FinancialStatementsModel,
                         CollegeDocsModel,
                         MainAdvantagesOfOurCollegeModel,
+                        LibraryModel,
+                        LibraryFilesModel,
                     )
 
 """ Контакты """
@@ -43,3 +45,13 @@ class CollegeDocsTransOptions(TranslationOptions):
 @register(MainAdvantagesOfOurCollegeModel)
 class AdvancesOfOurCollegeTransOptions(TranslationOptions):
     fields = ('title',)
+
+""" Библиотека """
+@register(LibraryModel)
+class LibraryTransOptions(TranslationOptions):
+    fields = ('text', )
+
+""" Библиотека, файлы """
+@register(LibraryFilesModel)
+class LibraryTransOptions(TranslationOptions):
+    fields = ('title', 'file', )
