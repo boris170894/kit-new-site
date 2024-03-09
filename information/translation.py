@@ -9,8 +9,8 @@ from .models import (
                         MainAdvantagesOfOurCollegeModel,
                         LibraryModel,
                         LibraryFilesModel,
-                        DormitoryFilesModel,
-                        DormitoryModel,
+                        DormitoryFilesModel, DormitoryModel,
+                        OurUnionModel, OurUnionFilesModel,
                     )
 
 """ Контакты """
@@ -62,9 +62,19 @@ class LibraryTransOptions(TranslationOptions):
 """ Общежитие файлы """
 @register(DormitoryFilesModel)
 class DormitoryFilesTransOptions(TranslationOptions):
-    fields = ('title', 'file' )
+    fields = ('title', 'file',)
 
 """ Общежитие """
 @register(DormitoryModel)
 class DormitoryTransOptions(TranslationOptions):
-    fields = ('about', )
+    fields = ('about',)
+
+""" Наш профсоюз Загрузка файлы """
+@register(OurUnionFilesModel)
+class OurUnionFilesTransOptions(TranslationOptions):
+    fields = ('title', 'file',)
+
+""" Наш профсоюз """
+@register(OurUnionModel)
+class OurUnionTransOptions(TranslationOptions):
+    fields = ('about',)

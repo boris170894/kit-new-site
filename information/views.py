@@ -3,17 +3,13 @@ from django.core.paginator import Paginator
 
 from about_college.models import SpecInfoModel
 from .models import (
-                        CollegeContactModel, 
-                        CallPairScheduleModel,
-                        AcademicProcessScheduleModel,
-                        StudentEventModel,
-                        MetodicRecomendationsCategoryModel,
-                        MetodicRecomendationsDocumentModel,
+                        CollegeContactModel, CallPairScheduleModel,
+                        AcademicProcessScheduleModel, StudentEventModel,
+                        MetodicRecomendationsCategoryModel,  MetodicRecomendationsDocumentModel,
                         FinancialStatementsModel, 
-                        CollegeDocsModel,
-                        MainAdvantagesOfOurCollegeModel,
-                        LibraryModel,
-                        DormitoryModel,
+                        CollegeDocsModel, MainAdvantagesOfOurCollegeModel,
+                        LibraryModel, DormitoryModel,
+                        OurUnionModel,
                      )
 from news.models import NewsModel
 
@@ -155,10 +151,9 @@ def library(request):
 
 
 """ Общежитие """
-
-
 def dormitory(request):
-    info = DormitoryModel.objects.last()
+    info = DormitoryModel.objects.filter(is_public=True).last()
+    title = "Общежитие"
 
     if request.method == 'POST':
         fio = request.POST.get('fio', '')
@@ -187,5 +182,16 @@ def dormitory(request):
         #     messages.error(request, "Connection error...")
 
     return render(request, 'educational_work/dormitory.html', {
+        'title': title,
+        'info': info,
+    })
+
+""" Наш профсоюз """
+def our_union(request):
+    title = "Наш профсоюз"
+    info = OurUnionModel.objects.filter(is_public=True).last()
+
+    return render(request, 'educational_work/dormitory.html', {
+        'title': title,
         'info': info,
     })

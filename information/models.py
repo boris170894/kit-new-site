@@ -193,8 +193,6 @@ class LibraryFilesModel(models.Model):
 
 
 """ Общежитие """
-
-
 class DormitoryModel(models.Model):
     documents = models.ManyToManyField('DormitoryFilesModel', related_name='Файлы')
     images = models.ManyToManyField('DormitoryImagesModel', related_name='Изображения')
@@ -202,6 +200,8 @@ class DormitoryModel(models.Model):
     contact_email = models.ManyToManyField('DormitoryContactsEmailModel', verbose_name="Почты", default=[], blank=True)
     contact_phone = models.ManyToManyField('DormitoryContactsPhoneModel', verbose_name="Телефоны", default=[],
                                            blank=True)
+
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
 
     created = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True, null=True)
@@ -212,8 +212,6 @@ class DormitoryModel(models.Model):
 
 
 """ Контакты общежития, email """
-
-
 class DormitoryContactsEmailModel(models.Model):
     email = models.EmailField(verbose_name='Почта', blank=True, null=True)
 
@@ -229,8 +227,6 @@ class DormitoryContactsEmailModel(models.Model):
 
 
 """ Контакты общежития, телефон """
-
-
 class DormitoryContactsPhoneModel(models.Model):
     phone = models.CharField(verbose_name='Номер телефона', max_length=20, blank=True, null=True)
 
@@ -246,8 +242,6 @@ class DormitoryContactsPhoneModel(models.Model):
 
 
 """ Общежитие Загрузка файлов """
-
-
 class DormitoryFilesModel(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название файла')
     file = models.FileField(verbose_name='Файл', upload_to="uploads/educational-work/dormitory/documents")
@@ -265,8 +259,6 @@ class DormitoryFilesModel(models.Model):
 
 
 """ Общежитие Загрузка фото """
-
-
 class DormitoryImagesModel(models.Model):
     file = models.ImageField(verbose_name='Изображение', upload_to="uploads/educational-work/dormitory/images")
     is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
@@ -274,11 +266,50 @@ class DormitoryImagesModel(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    class Meta:  # pylint:
+    class Meta:
         verbose_name = 'Общежитие Фото'
         verbose_name_plural = 'Общежитие Фото'
 
+""" Наш профсоюз """
+class OurUnionModel(models.Model):
+    documents = models.ManyToManyField('OurUnionFilesModel', related_name='Файлы', default=[], blank=True)
+    images = models.ManyToManyField('OurUnionImagesModel', related_name='Изображения', default=[], blank=True)
+    about = models.TextField(verbose_name="Описание", blank=True, null=True)
 
-""" Общежитие Заявки """
-# class DormitoryApplicationModel(models.Model):
-#     fio = models.CharField
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = 'Наш профсоюз'
+        verbose_name_plural = 'Наш профсоюз'
+
+""" Наш профсоюз Загрузка файлов """
+class OurUnionFilesModel(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Название файла')
+    file = models.FileField(verbose_name='Файл', upload_to="uploads/information/our-union/documents")
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Наш профсоюз Файлы'
+        verbose_name_plural = 'Наш профсоюз Файлы'
+
+    def __str__(self) -> str:
+        return self.title
+
+
+""" Наш профсоюз Загрузка фото """
+class OurUnionImagesModel(models.Model):
+    file = models.ImageField(verbose_name='Изображение', upload_to="uploads/information/our-union/images")
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Наш профсоюз Фото'
+        verbose_name_plural = 'Наш профсоюз Фото'

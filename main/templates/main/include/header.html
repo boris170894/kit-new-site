@@ -39,11 +39,10 @@
                 <a href="{% url 'college-history' %}">{% trans 'История колледжа' %}</a>
                 <a href="{% url 'documents' %}">{% trans 'Документы' %}</a>
                 <a href="{% url 'staff:staff'  %}">{% trans 'Структура' %}</a>
-                <a href="/specs">{% trans 'Специальности' %}</a>
-                <a href="/gallery">{% trans 'Галерея' %}</a>
-                <a href="/board-of-trustees">{% trans 'Попечительский совет' %}</a>
-                <a href="/pedagogical-council">{% trans 'Педагогический совет' %}</a>
-                <a href="/industrial-council">{% trans 'Индустриальный совет' %}</a>
+                <a href="{% url 'gallery' %}">{% trans 'Галерея' %}</a>
+                <a href="{% url 'board-of-trustees' %}">{% trans 'Попечительский совет' %}</a>
+                <a href="{% url 'pedagogical-council' %}">{% trans 'Педагогический совет' %}</a>
+                <a href="{% url 'industrial-council' %}">{% trans 'Индустриальный совет' %}</a>
             </div>
         </div>
         <div class="nav__right__button__menu nav__link" >
@@ -59,9 +58,10 @@
                 <a href="{% url 'call_pair_schedule' %}">{% trans 'Студенту' %}</a>
                 <a href="{% url 'abiturients' %}">{% trans 'Абитуриенту' %}</a>
                 <a href="{% url 'call_pair_schedule_teachers' %}">{% trans 'Преподавателю' %}</a>
-                <a href="/dormitory">{% trans 'Общежитие' %}</a>
-                <a href="/library">{% trans 'Библиотека' %}</a>
-                <a href="/financial-statements">{% trans 'Финансовая отчетность' %}</a>
+                <a href="{% url 'dormitory' %}">{% trans 'Общежитие' %}</a>
+                <a href="{% url 'library' %}">{% trans 'Библиотека' %}</a>
+                <a href="{% url 'our-union' %}">{% trans 'Наш профсоюз' %}</a>
+                <a href="{% url 'financial_statement' %}">{% trans 'Финансовая отчетность' %}</a>
             </div>
         </div>
         <div class="nav__right__button__menu nav__link" >
@@ -75,10 +75,10 @@
                     </svg>
                 </div>
                 <a href="{% url 'state-symbols' %}">{% trans 'Государственные символы' %}</a>
-                <a href="/government-services">{% trans 'Государственные услуги' %}</a>
-                <a href="/presidential-message">{% trans 'Послание Главы государства' %}</a>
-                <a href="/anti-corruption">{% trans 'Противодействие коррупции' %}</a>
-                <a href="/multilingualism-program">{% trans 'Программа полиязычия' %}</a>
+                <a href="{% url 'state-services' %}">{% trans 'Государственные услуги' %}</a>
+                <a href="{% url 'presidential-message-list' %}">{% trans 'Послание Главы государства' %}</a>
+                <a href="{% url 'anti-corruption' %}">{% trans 'Противодействие коррупции' %}</a>
+                <a href="{% url 'multilingualism-program' %}">{% trans 'Программа полиязычия' %}</a>
             </div>  
         </div>
         <div class="nav__right__button__menu nav__link" >
@@ -91,9 +91,9 @@
                         <path d="M5.67862 82.5039L51.6413 43.9367" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <a href="/worldskills/rools">{% trans 'Правила' %}</a>
-                <a href="/worldskills/documents">{% trans 'Документация' %}</a>
-                <a href="/worldskills/news">{% trans 'Новости' %}</a>
+                <a href="{% url 'worldskills-rools' %}">{% trans 'Правила' %}</a>
+                <a href="{% url 'worldskills-competentions' %}">{% trans 'Документация' %}</a>
+                <a href="{% url 'show-all-worldskills-news' %}">{% trans 'Новости' %}</a>
             </div>  
         </div>
         <div class="nav__right__button__menu nav__link" >
@@ -106,10 +106,10 @@
                         <path d="M5.67862 82.5039L51.6413 43.9367" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <a href="/general-information">{% trans 'Общая информация' %}</a>
-                <a href="/sections">{% trans 'Кружки/Секции' %}</a>
-                <a href="/psychological-service">{% trans 'Психологическая служба' %}</a>
-                <a href="/groups">{% trans 'Кураторы' %}</a>
+                <a href="{% url 'general-information' %}">{% trans 'Общая информация' %}</a>
+                <a href="{% url 'sections-and-circles' %}">{% trans 'Кружки/Секции' %}</a>
+                <a href="{% url 'psychological-service' %}">{% trans 'Психологическая служба' %}</a>
+                <a href="{% url 'groups' %}">{% trans 'Кураторы' %}</a>
             </div>
         </div>
         <form action="{% url 'set_language' %}" method="post" id="LanguageForm">{% csrf_token %}

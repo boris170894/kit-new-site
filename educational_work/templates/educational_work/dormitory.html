@@ -3,15 +3,25 @@
 {% load static i18n %}
 
 {% block content %}
-<title>{{ title }}</title>
+<title>
+    {% if title == "Наш профсоюз" %}
+        {% trans 'Наш профсоюз' %}
+    {% elif title == "Общежитие" %}
+        {% trans 'Общежитие' %}
+    {% endif %}
+</title>
 
 <link rel="stylesheet" href="/static/about_college/css/college_history.css" />
 <link rel="stylesheet" href="/static/state/css/anti__coruption.css" />
 <link rel="stylesheet" href="/static/eduactional_work/css/dormitory.css" />
 
 <div class="page" id="page">
-    <h1>{% trans 'Общежитие' %}</h1>
-    
+    {% if title == "Наш профсоюз" %}
+        <h1>{% trans 'Наш профсоюз' %}</h1>
+    {% elif title == "Общежитие" %}
+        <h1>{% trans 'Общежитие' %}</h1>
+    {% endif %}
+
     {% if info %}
         <div class="dormitory__slider">
             <div class="dormitory__slider__item">
@@ -111,56 +121,58 @@
         <h2>{% trans 'Документы не найдены' %}</h2>
     {% endif %}
 
-    {% comment %}<form class="dormitory__documents__form" method="POST" >
-        {% csrf_token %}
-        <h2>{% trans 'Заявка' %}</h2>
-       <div class="form__field">
-            <label for="">{% trans 'ФИО' %}:</label>
-            <input type="text"
-                name="fio"
-                placeholder="{% trans 'ФИО' %}"
-                required
-                min="5"
-                max="50"  />
-        </div>
-        <div class="dormitory__documents__form__component">
-            <div class="form__field">
-                <label for="">{% trans 'Группа' %}:</label>
+    {% if title == "Общежитие" %}
+        {% comment %}<form class="dormitory__documents__form" method="POST" >
+            {% csrf_token %}
+            <h2>{% trans 'Заявка' %}</h2>
+           <div class="form__field">
+                <label for="">{% trans 'ФИО' %}:</label>
                 <input type="text"
-                    name="group"
-                    placeholder="{% trans 'Группа' %}..."
+                    name="fio"
+                    placeholder="{% trans 'ФИО' %}"
                     required
-                    min="3"
-                    max="7" />
+                    min="5"
+                    max="50"  />
             </div>
-            <div class="form__field">
-                <label for="">{% trans 'Пол' %}:</label>
-               <select name="gender" required>
-                    <option value="Мужской">{% trans 'Мужской' %}</option>
-                    <option value="Женский">{% trans 'Женский' %}</option>
-               </select>
+            <div class="dormitory__documents__form__component">
+                <div class="form__field">
+                    <label for="">{% trans 'Группа' %}:</label>
+                    <input type="text"
+                        name="group"
+                        placeholder="{% trans 'Группа' %}..."
+                        required
+                        min="3"
+                        max="7" />
+                </div>
+                <div class="form__field">
+                    <label for="">{% trans 'Пол' %}:</label>
+                   <select name="gender" required>
+                        <option value="Мужской">{% trans 'Мужской' %}</option>
+                        <option value="Женский">{% trans 'Женский' %}</option>
+                   </select>
+                </div>
             </div>
-        </div>
-        <div class="dormitory__documents__form__component">
-            <div class="form__field">
-                <label for="">E-mail:</label>
-                <input type="email"
-                    name="email"
-                    placeholder="E-mail..."
-                    required max="100" min="3"  />
-           </div>
-            <div class="form__field">
-                <label for="">{% trans 'Телефон' %}:</label>
-                <input type="text"
-                    name="phone"
-                    placeholder="{% trans 'Телефон' %}..."
-                    required max="12" />
+            <div class="dormitory__documents__form__component">
+                <div class="form__field">
+                    <label for="">E-mail:</label>
+                    <input type="email"
+                        name="email"
+                        placeholder="E-mail..."
+                        required max="100" min="3"  />
+               </div>
+                <div class="form__field">
+                    <label for="">{% trans 'Телефон' %}:</label>
+                    <input type="text"
+                        name="phone"
+                        placeholder="{% trans 'Телефон' %}..."
+                        required max="12" />
+                </div>
             </div>
-        </div>
 
-        <button class="btn">{% trans 'Отправить' %}</button>
+            <button class="btn">{% trans 'Отправить' %}</button>
 
-    </form>{% endcomment %}
+        </form>{% endcomment %}
+    {% endif %}
 
     {% if info.contact_email.count > 0 or info.contact_phone.count > 0 %}
         <h1>{% trans 'Контакты' %}</h1>

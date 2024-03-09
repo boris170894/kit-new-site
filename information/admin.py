@@ -6,21 +6,14 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from .models import (
                         CollegeContactModel, 
                         StudentEventModel,
-                        MetodicRecomendationsCategoryModel,
-                        MetodicRecomendationsDocumentModel,
-                        FinancialStatementsModel,
-                        CallPairScheduleModel,
-                        AcademicProcessScheduleModel,
-                        CollegeDocsModel,
+                        MetodicRecomendationsCategoryModel, MetodicRecomendationsDocumentModel,
+                        FinancialStatementsModel, CallPairScheduleModel,
+                        AcademicProcessScheduleModel, CollegeDocsModel,
                         MainAdvantagesOfOurCollegeModel,
-                        LibraryModel,
-                        LibraryFilesModel,
-                        LibrarySliderImageModel,
-                        DormitoryModel,
-                        DormitoryFilesModel,
-                        DormitoryImagesModel,
-                        DormitoryContactsEmailModel,
-                        DormitoryContactsPhoneModel,
+                        LibraryModel, LibraryFilesModel, LibrarySliderImageModel,
+                        DormitoryModel, DormitoryFilesModel, DormitoryImagesModel,
+                        DormitoryContactsEmailModel, DormitoryContactsPhoneModel,
+                        OurUnionModel, OurUnionFilesModel, OurUnionImagesModel,
                     )
 
 """ Контакты """
@@ -126,3 +119,28 @@ class DormitoryImagesAdmin(admin.ModelAdmin):
 
 admin.site.register(DormitoryContactsEmailModel)
 admin.site.register(DormitoryContactsPhoneModel)
+
+class OurUnionAdminForm(forms.ModelForm):
+    about_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
+    about_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[kk]')
+    about_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[en]')
+
+    class Meta:
+        model = DormitoryModel
+        fields = '__all__'
+
+""" Наш профсоюз """
+@admin.register(OurUnionModel)
+class OurUnionAdmin(TranslationAdmin):
+    list_display = ('id', 'updated', )
+    form = OurUnionAdminForm
+
+""" Наш профсоюз Загрузка файлов """
+@admin.register(OurUnionFilesModel)
+class OurUnionFilesAdmin(TranslationAdmin):
+    list_display = ('title', 'is_public', 'updated', )
+
+""" Наш профсоюз Загрузка фото """
+@admin.register(OurUnionImagesModel)
+class OurUnionImagesAdmin(admin.ModelAdmin):
+    list_display = ('id', 'file', 'is_public', 'updated', )

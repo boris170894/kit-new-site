@@ -15,11 +15,12 @@ urlpatterns = [
     # * Teachers 
     path('teachers/schedule/', views.call_pair_schedule_teachers, name = 'call_pair_schedule_teachers'),  
     path('teachers/guidelines/', views.academic_process_schedule_teachers, name = 'academic_process_schedule_teachers'),  
-    path('teachers/academic-process/', views.guidelines_teachers, name = 'guidelines_teachers'),  
+    path('teachers/academic-process/', views.guidelines_teachers, name='guidelines_teachers'),
 
     path('financial-statements/', views.financial_statement, name='financial_statement'),
 
     path('dormitory/', views.dormitory, name='dormitory'),
+    path('our-union/', views.our_union, name='our-union'),
     path('library/', views.library, name='library'),
 
 ]
