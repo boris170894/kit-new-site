@@ -18,7 +18,7 @@ def state_symbols(request):
         'symbols': symbols,
     })
 
-""" Послание президента (список) """
+""" Послания президента (список) """
 def presidential_message_list(request):
     type = 'Presidential Messages'
     message = PresidentialMessageModel.objects.filter(is_public=True).last()

@@ -14,6 +14,7 @@
 }
 .page__text p {
     font-size: calc((1vw + 1vh) * 1.1);
+    font-family: 'Open Sans',sans-serif;
 }
 .page__images {
     display: grid;

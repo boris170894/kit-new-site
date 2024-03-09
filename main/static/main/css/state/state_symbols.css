@@ -69,7 +69,6 @@
 .presidential__message img {
     width: 100%;
     border-radius: 6px;
-
 }
 .presidential__message div {
     width: 100%;
@@ -90,8 +89,8 @@
 }
 .presidential__message span {
     font-size: calc((1vh + 1vw) * .75);
-    color: rgb(20,20,20,.7);
-    font-weight: 300;
+    color: rgb(20,20,20,.6 );
+    font-weight: 400;
     margin: 6px 0;
 }
 .page__presidential__message {
@@ -117,6 +116,12 @@
     .page {
         padding: 1vh 3vw;
         padding-bottom: 30vh;
+    }
+    .page h1 {
+        font-size: calc((1vw + 1vh) * 2.2);
+    }
+    .page__presidential__message img {
+        width: 100%
     }
     .page h2 {
         font-size: calc((1vw + 1vh) * 2.4);

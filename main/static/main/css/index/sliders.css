@@ -106,6 +106,9 @@
 
 }
 @media only screen and (max-width: 600px) {
+    .page {
+        padding-bottom: 16vh;
+    }
   .ag-courses_item {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
