@@ -70,5 +70,48 @@ class PsychologicalServiceModel(models.Model):
     
     def __str__(self) -> str:
         return self.title
-    
 
+
+""" Молодежная политика """
+class YouthPolicyModel(models.Model):
+    documents = models.ManyToManyField('YouthPolicyFilesModel', related_name='Файлы', default=[], blank=True)
+    images = models.ManyToManyField('YouthPolicyImagesModel', related_name='Изображения', default=[], blank=True)
+    about = models.TextField(verbose_name="Описание", blank=True, null=True)
+
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = 'Молодежная политика'
+        verbose_name_plural = 'Молодежная политика'
+
+""" Молодежная политика Загрузка файлов """
+class YouthPolicyFilesModel(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Название файла')
+    file = models.FileField(verbose_name='Файл', upload_to="uploads/educational-work/youth-policy/documents")
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Молодежная политика Файлы'
+        verbose_name_plural = 'Молодежная политика Файлы'
+
+    def __str__(self) -> str:
+        return self.title
+
+
+""" Молодежная политика Загрузка фото """
+class YouthPolicyImagesModel(models.Model):
+    file = models.ImageField(verbose_name='Изображение', upload_to="uploads/educational-work/youth-policy/images")
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Молодежная политика Фото'
+        verbose_name_plural = 'Молодежная политика Фото'

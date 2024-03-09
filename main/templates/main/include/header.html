@@ -107,9 +107,10 @@
                     </svg>
                 </div>
                 <a href="{% url 'general-information' %}">{% trans 'Общая информация' %}</a>
-                <a href="{% url 'sections-and-circles' %}">{% trans 'Кружки/Секции' %}</a>
-                <a href="{% url 'psychological-service' %}">{% trans 'Психологическая служба' %}</a>
                 <a href="{% url 'groups' %}">{% trans 'Кураторы' %}</a>
+                <a href="{% url 'psychological-service' %}">{% trans 'Психологическая служба' %}</a>
+                <a href="{% url 'sections-and-circles' %}">{% trans 'Кружки/Секции' %}</a>
+                <a href="{% url 'youth-policy' %}">{% trans 'Молодежная политика' %}</a>
             </div>
         </div>
         <form action="{% url 'set_language' %}" method="post" id="LanguageForm">{% csrf_token %}

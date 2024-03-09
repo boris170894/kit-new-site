@@ -1,8 +1,9 @@
 from modeltranslation.translator import register, TranslationOptions 
 from .models import  (GeneralInformationFilesModel, 
-                        ClubsAndSectionsModel,
-                        ClubsAndSectionsDocumentsModel,
-                        PsychologicalServiceModel,)
+                        ClubsAndSectionsModel, ClubsAndSectionsDocumentsModel,
+                        PsychologicalServiceModel,
+                        YouthPolicyModel, YouthPolicyFilesModel, YouthPolicyImagesModel
+                      )
 
 """ Общая информация """
 @register(GeneralInformationFilesModel)
@@ -23,3 +24,18 @@ class ClubsAndSectionsDocumentsTransOptions(TranslationOptions):
 @register(PsychologicalServiceModel)
 class PsychologicalServiceTransOptions(TranslationOptions):
     fields = ('title', 'file', )
+
+""" Молодежная политика """
+@register(YouthPolicyModel)
+class YouthPolicyTransOptions(TranslationOptions):
+    fields = ('about', )
+
+""" Молодежная политика файлов """
+@register(YouthPolicyFilesModel)
+class YouthPolicyFilesTransOptions(TranslationOptions):
+    fields = ('title', 'file', )
+
+""" Молодежная политика фото """
+@register(YouthPolicyImagesModel)
+class YouthPolicyImagesTransOptions(TranslationOptions):
+    fields = ('file', )

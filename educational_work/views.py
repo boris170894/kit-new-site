@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import  (GeneralInformationFilesModel, 
-                                        ClubsAndSectionsModel, 
-                                        ClubsAndSectionsDocumentsModel,
-                                        PsychologicalServiceModel, 
-                                        )
+from .models import (GeneralInformationFilesModel,
+                        ClubsAndSectionsModel, ClubsAndSectionsDocumentsModel,
+                        PsychologicalServiceModel,
+                        YouthPolicyModel,
+                        )
 from staff.models import (GroupModel)
 from main.models import (SliderForDocumentListModel)
 
@@ -57,4 +57,14 @@ def groups(request):
 
     return render(request, 'educational_work/groups.html', {
         'groups': groups
+    })
+
+""" Молодежная политика """
+def youth_policy(request):
+    title = "Молодежная политика"
+    info = YouthPolicyModel.objects.filter(is_public=True).last()
+
+    return render(request, 'educational_work/dormitory.html', {
+        'title': title,
+        'info': info,
     })

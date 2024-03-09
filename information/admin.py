@@ -114,7 +114,7 @@ class DormitoryFilesAdmin(TranslationAdmin):
 
 """ Общежитие Загрузка фото """
 @admin.register(DormitoryImagesModel)
-class DormitoryImagesAdmin(admin.ModelAdmin):
+class DormitoryImagesAdmin(TranslationAdmin):
     list_display = ('id', 'file', 'is_public', 'updated', )
 
 admin.site.register(DormitoryContactsEmailModel)
@@ -142,5 +142,5 @@ class OurUnionFilesAdmin(TranslationAdmin):
 
 """ Наш профсоюз Загрузка фото """
 @admin.register(OurUnionImagesModel)
-class OurUnionImagesAdmin(admin.ModelAdmin):
+class OurUnionImagesAdmin(TranslationAdmin):
     list_display = ('id', 'file', 'is_public', 'updated', )
