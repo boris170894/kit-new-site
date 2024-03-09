@@ -4,7 +4,11 @@ from .models import (  CollegeHistoryModel,
                                     BoardOfTrusteesModel,
                                     PedagogicalCouncilModel,
                                     IndustrialCouncilModel,
-                                    SpecInfoModel  )
+                                    SpecInfoModel,
+                                    CollegeTextHistoryModel,
+                                    GalleryModel
+                        )
+from main.models import SliderForDocumentListModel
 
 """
     TODO: ABOUT COLLEGE
@@ -12,10 +16,12 @@ from .models import (  CollegeHistoryModel,
 
 """ История Колледжа  """
 def about_college_history(request):
-    histories = CollegeHistoryModel.objects.all().order_by('year')
+    histories = CollegeHistoryModel.objects.filter(public=True).order_by('year')
+    text = CollegeTextHistoryModel.objects.filter(public=True).first()
     
     return render(request, 'about_college/history.html', {
-        'histories': histories
+        'histories': histories,
+        'text': text,
     })
 
 """ Документы """
@@ -48,28 +54,45 @@ def special(request, pk):
 
 """ Попечительский совет """
 def about_board_of_trustees(request):
+    title = 'Попечительский совет'
     documents = BoardOfTrusteesModel.objects.all().filter(public=True).order_by('title')
+    slider = SliderForDocumentListModel.objects.filter(page=title).last()
 
     return render(request, 'about_college/counsil.html', {
-        'title': 'Попечительский совет',
-        'documents': documents
+        'title': title,
+        'documents': documents,
+        'slider': slider,
     })
     
 """ Педагогический совет """
 def about_pedagogical_council(request):
+    title = 'Педагогический совет'
     documents = PedagogicalCouncilModel.objects.all().filter(public=True).order_by('title')
+    slider = SliderForDocumentListModel.objects.filter(page=title).last()
 
     return render(request, 'about_college/counsil.html', {
-        'title': 'Педагогический совет',
-        'documents': documents
+        'title': title,
+        'documents': documents,
+        'slider': slider,
     })
     
 """ Индустриальный совет """
 def  about_industrial_council(request):
+    title = 'Индустриальный совет'
     documents = IndustrialCouncilModel.objects.all().filter(public=True).order_by('title')
+    slider = SliderForDocumentListModel.objects.filter(page=title).last()
 
     return render(request, 'about_college/counsil.html', {
-        'title': 'Индустриальный совет',
-        'documents': documents
+        'title': title,
+        'documents': documents,
+        'slider': slider,
+    })
+
+""" Галерея """
+def gallery(request):
+    images = GalleryModel.objects.filter(public=True)
+
+    return render(request, 'about_college/gallery.html', {
+        'images': images,
     })
     

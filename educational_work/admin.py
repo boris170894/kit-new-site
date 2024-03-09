@@ -1,12 +1,10 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 from .models import  (GeneralInformationFilesModel, 
-                                        ClubsAndSectionsModel, 
-                                        ClubsAndSectionsDocumentsModel,
-                                        PsychologicalServiceModel, 
-                                        DormitoryModel, 
-                                        DormitoryFilesModel,
-                                        DormitoryImagesModel)
+                        ClubsAndSectionsModel, ClubsAndSectionsDocumentsModel,
+                        PsychologicalServiceModel,
+                        YouthPolicyModel, YouthPolicyFilesModel, YouthPolicyImagesModel
+                        )
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
@@ -40,26 +38,26 @@ class ClubsAndSectionsDocumentsAdmin(TranslationAdmin):
 class PsychologicalServiceAdmin(TranslationAdmin):
     list_display = ('title', 'is_public', 'updated', 'file', )
 
-class DormitoryAdminForm(forms.ModelForm):
-    about_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
-    about_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[kk]')
-    about_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[en]')
+class YouthPolicyAdminForm(forms.ModelForm):
+    about_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание [ru]')
+    about_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание [kk]')
+    about_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Описание [en]')
     class Meta:
-        model = DormitoryModel
+        model = YouthPolicyModel
         fields = '__all__'
 
-""" Общежитие """
-@admin.register(DormitoryModel)
-class DormitoryAdmin(TranslationAdmin):
+""" Молодежная политика """
+@admin.register(YouthPolicyModel)
+class YouthPolicyAdmin(TranslationAdmin):
     list_display = ('id', 'updated', )
-    form  = DormitoryAdminForm
+    form = YouthPolicyAdminForm
 
-""" Общежитие Загрузка файлов """
-@admin.register(DormitoryFilesModel)
-class DormitoryFilesAdmin(TranslationAdmin):
+""" Молодежная политика Загрузка файлов """
+@admin.register(YouthPolicyFilesModel)
+class YouthPolicyFilesAdmin(TranslationAdmin):
     list_display = ('title', 'is_public', 'updated', )
 
-""" Общежитие Загрузка фото """
-@admin.register(DormitoryImagesModel)
-class DormitoryImagesAdmin(admin.ModelAdmin):
+""" Молодежная политика Загрузка фото """
+@admin.register(YouthPolicyImagesModel)
+class YouthPolicyImagesAdmin(TranslationAdmin):
     list_display = ('id', 'file', 'is_public', 'updated', )

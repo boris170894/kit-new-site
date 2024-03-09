@@ -144,3 +144,172 @@ class MainAdvantagesOfOurCollegeModel(models.Model):
     
     def __str__(self) -> str:
         return self.title
+
+
+""" Библиотека """
+class LibraryModel(models.Model):
+    text = models.TextField(verbose_name="Описание", blank=True)
+    slider_images = models.ManyToManyField('LibrarySliderImageModel', default=None, blank=True, verbose_name='Изображения')
+    slider_files = models.ManyToManyField('LibraryFilesModel', default=None, blank=True, verbose_name='Файлы')
+
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Библиотека'
+        verbose_name_plural = 'Библиотека'
+
+""" Библиотека, изображения для слайдера """
+class LibrarySliderImageModel(models.Model):
+    image = models.ImageField(verbose_name='Изображение', upload_to="uploads/information/library/slider")
+
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Библиотека, изображения для слайдера'
+        verbose_name_plural = 'Библиотека, изображения для слайдера'
+
+""" Библиотека, файлы """
+class LibraryFilesModel(models.Model):
+    title = models.CharField(verbose_name='Название файла', max_length=250, )
+    file = models.FileField(verbose_name='Файл', upload_to="uploads/information/library/files")
+
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Библиотека, файлы'
+        verbose_name_plural = 'Библиотека, файлы'
+
+    def __str__(self) -> str:
+        return self.title
+
+
+""" Общежитие """
+class DormitoryModel(models.Model):
+    documents = models.ManyToManyField('DormitoryFilesModel', related_name='Файлы')
+    images = models.ManyToManyField('DormitoryImagesModel', related_name='Изображения')
+    about = models.TextField(verbose_name="Описание", blank=True, null=True)
+    contact_email = models.ManyToManyField('DormitoryContactsEmailModel', verbose_name="Почты", default=[], blank=True)
+    contact_phone = models.ManyToManyField('DormitoryContactsPhoneModel', verbose_name="Телефоны", default=[],
+                                           blank=True)
+
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = 'Общежитие'
+        verbose_name_plural = 'Общежитие'
+
+
+""" Контакты общежития, email """
+class DormitoryContactsEmailModel(models.Model):
+    email = models.EmailField(verbose_name='Почта', blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = 'Email общежития'
+        verbose_name_plural = 'Email общежития'
+
+    def __str__(self) -> str:
+        return self.email
+
+
+""" Контакты общежития, телефон """
+class DormitoryContactsPhoneModel(models.Model):
+    phone = models.CharField(verbose_name='Номер телефона', max_length=20, blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = 'Телефон общежития'
+        verbose_name_plural = 'Телефон общежития'
+
+    def __str__(self) -> str:
+        return self.phone
+
+
+""" Общежитие Загрузка файлов """
+class DormitoryFilesModel(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Название файла')
+    file = models.FileField(verbose_name='Файл', upload_to="uploads/educational-work/dormitory/documents")
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Общежитие Файлы'
+        verbose_name_plural = 'Общежитие Файлы'
+
+    def __str__(self) -> str:
+        return self.title
+
+
+""" Общежитие Загрузка фото """
+class DormitoryImagesModel(models.Model):
+    file = models.ImageField(verbose_name='Изображение', upload_to="uploads/educational-work/dormitory/images")
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Общежитие Фото'
+        verbose_name_plural = 'Общежитие Фото'
+
+""" Наш профсоюз """
+class OurUnionModel(models.Model):
+    documents = models.ManyToManyField('OurUnionFilesModel', related_name='Файлы', default=[], blank=True)
+    images = models.ManyToManyField('OurUnionImagesModel', related_name='Изображения', default=[], blank=True)
+    about = models.TextField(verbose_name="Описание", blank=True, null=True)
+
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = 'Наш профсоюз'
+        verbose_name_plural = 'Наш профсоюз'
+
+""" Наш профсоюз Загрузка файлов """
+class OurUnionFilesModel(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Название файла')
+    file = models.FileField(verbose_name='Файл', upload_to="uploads/information/our-union/documents")
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Наш профсоюз Файлы'
+        verbose_name_plural = 'Наш профсоюз Файлы'
+
+    def __str__(self) -> str:
+        return self.title
+
+
+""" Наш профсоюз Загрузка фото """
+class OurUnionImagesModel(models.Model):
+    file = models.ImageField(verbose_name='Изображение', upload_to="uploads/information/our-union/images")
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Наш профсоюз Фото'
+        verbose_name_plural = 'Наш профсоюз Фото'

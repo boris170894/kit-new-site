@@ -6,13 +6,14 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from .models import (
                         CollegeContactModel, 
                         StudentEventModel,
-                        MetodicRecomendationsCategoryModel,
-                        MetodicRecomendationsDocumentModel,
-                        FinancialStatementsModel,
-                        CallPairScheduleModel,
-                        AcademicProcessScheduleModel,
-                        CollegeDocsModel,
+                        MetodicRecomendationsCategoryModel, MetodicRecomendationsDocumentModel,
+                        FinancialStatementsModel, CallPairScheduleModel,
+                        AcademicProcessScheduleModel, CollegeDocsModel,
                         MainAdvantagesOfOurCollegeModel,
+                        LibraryModel, LibraryFilesModel, LibrarySliderImageModel,
+                        DormitoryModel, DormitoryFilesModel, DormitoryImagesModel,
+                        DormitoryContactsEmailModel, DormitoryContactsPhoneModel,
+                        OurUnionModel, OurUnionFilesModel, OurUnionImagesModel,
                     )
 
 """ Контакты """
@@ -64,3 +65,82 @@ class CollegeDocsAdmin(TranslationAdmin):
 @admin.register(MainAdvantagesOfOurCollegeModel)
 class MainAdvantagesOfOurCollegeAdmin(TranslationAdmin):
     list_display = ('title', 'is_public', )
+
+
+""" Библиотека """
+class LibraryAdminForm(forms.ModelForm):
+    text_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
+    text_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[kk]')
+    text_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[en]')
+
+    class Meta:
+        model = LibraryModel
+        fields = '__all__'
+
+""" События для студентов """
+@admin.register(LibraryModel)
+class LibraryAdmin(TranslationAdmin):
+    list_display = ('id', 'is_public', 'updated', )
+    form = LibraryAdminForm
+
+""" Библиотека, изображения для слайдера """
+@admin.register(LibrarySliderImageModel)
+class LibrarySliderImageModel(admin.ModelAdmin):
+    list_display = ('id', 'image', 'is_public', 'updated', )
+
+""" Библиотека, файлы """
+@admin.register(LibraryFilesModel)
+class LibraryFilesAdmin(TranslationAdmin):
+    list_display = ('title', 'is_public', 'updated', )
+
+class DormitoryAdminForm(forms.ModelForm):
+    about_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
+    about_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[kk]')
+    about_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[en]')
+    class Meta:
+        model = DormitoryModel
+        fields = '__all__'
+
+""" Общежитие """
+@admin.register(DormitoryModel)
+class DormitoryAdmin(TranslationAdmin):
+    list_display = ('id', 'updated', )
+    form  = DormitoryAdminForm
+
+""" Общежитие Загрузка файлов """
+@admin.register(DormitoryFilesModel)
+class DormitoryFilesAdmin(TranslationAdmin):
+    list_display = ('title', 'is_public', 'updated', )
+
+""" Общежитие Загрузка фото """
+@admin.register(DormitoryImagesModel)
+class DormitoryImagesAdmin(TranslationAdmin):
+    list_display = ('id', 'file', 'is_public', 'updated', )
+
+admin.site.register(DormitoryContactsEmailModel)
+admin.site.register(DormitoryContactsPhoneModel)
+
+class OurUnionAdminForm(forms.ModelForm):
+    about_ru = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[ru]')
+    about_kk = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[kk]')
+    about_en = forms.CharField(widget=CKEditorUploadingWidget(), label='Контент_[en]')
+
+    class Meta:
+        model = DormitoryModel
+        fields = '__all__'
+
+""" Наш профсоюз """
+@admin.register(OurUnionModel)
+class OurUnionAdmin(TranslationAdmin):
+    list_display = ('id', 'updated', )
+    form = OurUnionAdminForm
+
+""" Наш профсоюз Загрузка файлов """
+@admin.register(OurUnionFilesModel)
+class OurUnionFilesAdmin(TranslationAdmin):
+    list_display = ('title', 'is_public', 'updated', )
+
+""" Наш профсоюз Загрузка фото """
+@admin.register(OurUnionImagesModel)
+class OurUnionImagesAdmin(TranslationAdmin):
+    list_display = ('id', 'file', 'is_public', 'updated', )

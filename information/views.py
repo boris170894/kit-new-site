@@ -1,17 +1,17 @@
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
 
 from about_college.models import SpecInfoModel
 from .models import (
-                        CollegeContactModel, 
-                        CallPairScheduleModel,
-                        AcademicProcessScheduleModel,
-                        StudentEventModel,
-                        MetodicRecomendationsCategoryModel,
-                        MetodicRecomendationsDocumentModel,
+                        CollegeContactModel, CallPairScheduleModel,
+                        AcademicProcessScheduleModel, StudentEventModel,
+                        MetodicRecomendationsCategoryModel,  MetodicRecomendationsDocumentModel,
                         FinancialStatementsModel, 
-                        CollegeDocsModel,
-                        MainAdvantagesOfOurCollegeModel,
+                        CollegeDocsModel, MainAdvantagesOfOurCollegeModel,
+                        LibraryModel, DormitoryModel,
+                        OurUnionModel,
                      )
+from news.models import NewsModel
 
 """
     TODO:    Абитуриенту
@@ -133,4 +133,65 @@ def financial_statement(request):
     return render(request, 'about_college/counsil.html', {
         'title': 'Финансовая отчетность',
         'documents': documents
+    })
+
+""" Библиотека """
+def library(request):
+    documents = LibraryModel.objects.filter(is_public=True).last()
+    news_list = NewsModel.objects.filter(news_is_library=True).filter(news_is_published=True).order_by('-news_create_date')
+
+    paginator = Paginator(news_list, 10)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+
+    return render(request, 'information/library.html', {
+        'library': documents,
+        'page': page
+    })
+
+
+""" Общежитие """
+def dormitory(request):
+    info = DormitoryModel.objects.filter(is_public=True).last()
+    title = "Общежитие"
+
+    if request.method == 'POST':
+        fio = request.POST.get('fio', '')
+        group = request.POST.get('group', '')
+        gender = request.POST.get('gender', '')
+        email = request.POST.get('email', '')
+        phone = request.POST.get('phone', '')
+
+        subject = f"{fio} заявка на общежитие"
+        body = f'{fio} - {group} - {gender} - {email} - {phone}'
+
+        # try:
+        #     send_mail(
+        #         subject,
+        #         body,
+        #         settings.EMAIL_HOST_USER,
+        #         [settings.EMAIL_HOST_USER],
+        #         fail_silently=False,
+        #     )
+        #
+        #     messages.success(request, 'Email sent successfully!')
+        #     return redirect('/dormitory')
+        #
+        # except Exception as e:
+        #     print('Error sending email', e)
+        #     messages.error(request, "Connection error...")
+
+    return render(request, 'educational_work/dormitory.html', {
+        'title': title,
+        'info': info,
+    })
+
+""" Наш профсоюз """
+def our_union(request):
+    title = "Наш профсоюз"
+    info = OurUnionModel.objects.filter(is_public=True).last()
+
+    return render(request, 'educational_work/dormitory.html', {
+        'title': title,
+        'info': info,
     })

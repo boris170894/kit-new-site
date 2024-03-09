@@ -3,20 +3,49 @@
 {% load static i18n %}
 
 {% block content %}
-<title>{{ title }}</title>
+<title>
+    {% if title == "Наш профсоюз" %}
+        {% trans 'Наш профсоюз' %}
+    {% elif title == "Общежитие" %}
+        {% trans 'Общежитие' %}
+    {% elif title == "Молодежная политика" %}
+        {% trans 'Молодежная политика' %}
+    {% endif %}
+</title>
 
 <link rel="stylesheet" href="/static/about_college/css/college_history.css" />
 <link rel="stylesheet" href="/static/state/css/anti__coruption.css" />
 <link rel="stylesheet" href="/static/eduactional_work/css/dormitory.css" />
 
 <div class="page" id="page">
-    <h1>Общежитие</h1>
-    
+    {% if title == "Наш профсоюз" %}
+        <h1>{% trans 'Наш профсоюз' %}</h1>
+    {% elif title == "Общежитие" %}
+        <h1>{% trans 'Общежитие' %}</h1>
+     {% elif title == "Молодежная политика" %}
+        <h1>{% trans 'Молодежная политика' %}</h1>
+    {% endif %}
+
     {% if info %}
         <div class="dormitory__slider">
             <div class="dormitory__slider__item">
                 <div class="dormitory__slider__main__slide">
-                    <img src="{{  info.images.1.file }}" alt="main image" class="dormitory__slider__main__image" />
+                    <span class="dormitory__slider__left">
+                        <svg class="prev" width="20" height="36" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.6777 3L3 20.6777" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M20.6777 38.6777L3 21" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <img
+                        src="{{  info.images.1.file }}"
+                        alt="main image"
+                        class="dormitory__slider__main__image" />
+                    <span class="dormitory__slider__right">
+                        <svg class="nexti" width="20" height="36" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.6777 3L3 20.6777" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M20.6777 38.6777L3 21" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
                 </div>
                 <div class="dormitory__slider__images">
                     {% for image in info.images.all %}
@@ -30,20 +59,41 @@
             const main_place = document.querySelector('.dormitory__slider__main__image')
             const images = document.querySelectorAll('.dormitory__slider__slide__image');
 
-            main_place.src = images[0].src
-            
-            images.forEach(image => {
-                image.addEventListener('click', (e) => {
-                    main_place.style.opacity = 0;
+            const left_button = document.querySelector('.dormitory__slider__left')
+            const right_button = document.querySelector('.dormitory__slider__right')
 
+            let index = 0;
+
+            const renderSlide = (i) => {
+                main_place.style.opacity = 0;
+
+                setTimeout(() => {
+                    main_place.src = images[i].src
                     setTimeout(() => {
-                        main_place.src = image.src
-                        setTimeout(() => {
-                            main_place.style.opacity = 1;
-                        }, 200)
+                        main_place.style.opacity = 1;
                     }, 200)
+                }, 200)
+            }
+
+            renderSlide(index)
+
+            images.forEach((image, i) => {
+                image.addEventListener('click', (e) => {
+                    index = i
+                    renderSlide(i);
                 });
             });
+
+            left_button.addEventListener('click', (e) => {
+                index - 1 == -1 ? index = images.length - 1 : index--;
+                renderSlide(index);
+            })
+
+            right_button.addEventListener('click', (e) => {
+                index + 1 == images.length ? index = 0 : index++;
+                renderSlide(index);
+            })
+
         </script>
 
         {% if  info.about %}
@@ -55,76 +105,134 @@
         {% endif %}
 
         <div class="dormitory__documents">
-            <h1>Документы</h1>
             {% if info.documents.count > 0 %}
+                <h1>{% trans 'Документы' %}</h1>
                 {% for document in info.documents.all %}
-                    {% if document.file %}
-                        <div class="anti__coruption">
-                            <h2>{{ document.title }}</h2>
+                    <div class="anti__coruption">
+                        <h2>{{ document.title }}</h2>
+                        {% if document.file %}
                             <a href="/static/media/{{ document.file }}" class='link' download>{% trans 'Скачать' %} <i class="fa-solid fa-download"></i></a>
-                        </div>
-                    {% endif  %}
+                        {% endif  %}
+                    </div>
                 {% endfor %}
             {% else %}
                 {% comment %} <img src="/static/eduactional_work/img/general_information/search.png" alt="General information search"> {% endcomment %}
-                <h2>{% trans 'Documents not found' %}</h2>
+                <h2>{% trans 'Документы не найдены' %}</h2>
             {% endif %}
         </div>
     {% else %}
         {% comment %} <img src="/static/eduactional_work/img/general_information/search.png" alt="General information search"> {% endcomment %}
-        <h2>{% trans 'Documents not found' %}</h2>
+        <h2>{% trans 'Документы не найдены' %}</h2>
     {% endif %}
 
-    <form class="dormitory__documents__form" method="POST" >
-        {% csrf_token %}
-        <h2>Заявка</h2>
-       <div class="form__field">
-            <label for="">ФИО:</label>
-            <input type="text" 
-                name="fio" 
-                placeholder="ФИО"
-                required
-                min="5"
-                max="50"  />
-        </div>
-        <div class="dormitory__documents__form__component">
-            <div class="form__field">
-                <label for="">Группа:</label>
-                <input type="text" 
-                    name="group" 
-                    placeholder="Группа..." 
+    {% if title == "Общежитие" %}
+        {% comment %}<form class="dormitory__documents__form" method="POST" >
+            {% csrf_token %}
+            <h2>{% trans 'Заявка' %}</h2>
+           <div class="form__field">
+                <label for="">{% trans 'ФИО' %}:</label>
+                <input type="text"
+                    name="fio"
+                    placeholder="{% trans 'ФИО' %}"
                     required
-                    min="3"
-                    max="7" />
+                    min="5"
+                    max="50"  />
             </div>
-            <div class="form__field">
-                <label for="">Пол:</label>
-               <select name="gender" required>
-                    <option value="Мужской">Мужской</option>
-                    <option value="Женский">Женский</option>
-               </select>
+            <div class="dormitory__documents__form__component">
+                <div class="form__field">
+                    <label for="">{% trans 'Группа' %}:</label>
+                    <input type="text"
+                        name="group"
+                        placeholder="{% trans 'Группа' %}..."
+                        required
+                        min="3"
+                        max="7" />
+                </div>
+                <div class="form__field">
+                    <label for="">{% trans 'Пол' %}:</label>
+                   <select name="gender" required>
+                        <option value="Мужской">{% trans 'Мужской' %}</option>
+                        <option value="Женский">{% trans 'Женский' %}</option>
+                   </select>
+                </div>
+            </div>
+            <div class="dormitory__documents__form__component">
+                <div class="form__field">
+                    <label for="">E-mail:</label>
+                    <input type="email"
+                        name="email"
+                        placeholder="E-mail..."
+                        required max="100" min="3"  />
+               </div>
+                <div class="form__field">
+                    <label for="">{% trans 'Телефон' %}:</label>
+                    <input type="text"
+                        name="phone"
+                        placeholder="{% trans 'Телефон' %}..."
+                        required max="12" />
+                </div>
+            </div>
+
+            <button class="btn">{% trans 'Отправить' %}</button>
+
+        </form>{% endcomment %}
+    {% endif %}
+
+    {% if info.contact_email.count > 0 or info.contact_phone.count > 0 %}
+        <h1>{% trans 'Контакты' %}</h1>
+        <div class="dormitory__contact">
+            <div class="dormitory__contact__left">
+                {% if info.contact_email.count > 0 %}
+                    {% for document in info.contact_email.all %}
+                        <div class="dormitory__contact__data">
+        <!--                    <h2>{% trans 'Электронная почта' %}</h2>-->
+                            <div>
+                                <i class="fa-solid fa-envelope dormitory__contact__call"></i>
+                            </div>
+                                {% if document.email %}
+                                    <a href="mail:{{ document.email }}" class="dormitory__contact__email">{{ document.email }}</a>
+                                {% endif  %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <script>
+                const textElements = document.querySelectorAll('.dormitory__contact__email');
+
+                for (const textElement of textElements) {
+                    let textLength = textElement.textContent.length;
+                    console.log('textElement: ', textLength)
+
+                    if ( 0 < textLength < 15 ) {
+                        textElement.style.fontSize = '18px';
+                    } else if (20 < textLength < 30) {
+                        textElement.style.fontSize = '16px';
+                    } else if (30 < textLength < 35) {
+                        textElement.style.fontSize = '12px';
+                    } else if (35 < textLength) {
+                        textElement.style.fontSize = '10px';
+                    } else {
+                        textElement.style.fontSize = '24px';
+                    }
+                }
+            </script>
+            <div class="dormitory__contact__left">
+                {% if info.contact_phone.count > 0 %}
+                    {% for document in info.contact_phone.all %}
+                        <div class="dormitory__contact__data">
+        <!--                            <h2>{% trans 'Телефон' %}</h2>-->
+                            <div>
+                                <i class="fa-solid fa-phone-volume"></i>
+                            </div>
+                                {% if document.phone %}
+                                    <a href="tel:{{ document.phone }}">{{ document.phone }}</a>
+                                {% endif  %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
-        <div class="dormitory__documents__form__component">
-            <div class="form__field">
-                <label for="">E-mail:</label>
-                <input type="email" 
-                    name="email" 
-                    placeholder="E-mail..."
-                    required max="100" min="3"  />
-           </div>
-            <div class="form__field">
-                <label for="">Телефон:</label>
-                <input type="text" 
-                    name="phone" 
-                    placeholder="Телефон..."
-                    required max="12" />
-            </div>
-        </div>
-
-        <button class="btn">Отправить</button>
-
-    </form>
+    {% endif %}
 
 </div>
 

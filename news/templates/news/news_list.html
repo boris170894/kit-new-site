@@ -47,13 +47,13 @@
       <span class="current">
           {% for i in page.paginator.page_range %}
             {% comment %} {% if page.number <= 3 and i <= 3 %}
-                <a href="?page={{ i }}">{{ i }} Страница</a>
+                <a href="?page={{ i }}">{{ i }} {% trans 'Страница' %}</a>
             {% elif page.number > page.paginator.num_pages - 3 and i > page.paginator.num_pages - 3 %}
-                <a href="?page={{ i }}">{{ i }} Страница</a>
+                <a href="?page={{ i }}">{{ i }} {% trans 'Страница' %}</a>
             {% elif i == page.number %} {% endcomment %}
               <a href="?page={{ i }}"
                 {% if i == page.number %}style="background-color: rgb(248, 102, 36); color: white"{% endif %}
-                >{{ i }} Страница</a>
+                >{{ i }} {% trans 'Страница' %}</a>
             {% comment %} {% endif %} {% endcomment %}
         {% endfor %}
       </span>
@@ -78,26 +78,68 @@
           <div class="news__left">
             <div class="news__left__top">
               <span>{{ news.news_create_date|date:'d.m.Y H:i' }}</span>
-              <a href="{% url 'show_one_news' news.slug %}">{{ news.news_title }}</a>
+              <a href="{% url 'show_one_news' news.slug %}">{{ news.news_title|slice:80 }}...</a>
               <div>{{ news.news_content|truncatewords:10 | safe }}</div>
             </div>
             <div class="news__left__icons">
             <a href="{% url 'show_one_news' news.slug %}">
-              <!-- <img src="/static/main/img/logo/left2.svg" alt="left"> -->
               <svg width="25" height="25" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M63.0704 5.76813L105.497 48.1945" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
                 <path d="M63 90.4264L105.426 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
                 <path d="M5 48L105 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>
-                </svg>              
+              </svg>
             </a>             
             </div>
           </div>
           <div class="news__right">
-            <img src="/static/{{ news.news_img.url }}" alt="{{ news.news_title }}">
+            {% if news.news_img %}
+              <img src="/static/{{ news.news_img.url }}" alt="{{ news.news_title }}">
+            {% else %}
+              <img src="/static/main/img/logo/logo.png" alt="{{ news.news_title }}" style="opacity: .1">
+            {% endif %}
           </div>
         </div>
         {% endfor %}
     </div>
+
+    <!-- TODO ______ Pagination ______ -->
+    <div class="pagination">
+          <a href="{% if page.has_previous %}?page={{ page.previous_page_number }}{% endif %}" class="pagination__left">
+            <svg width="20" height="20" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M63.0704 5.76813L105.497 48.1945" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+              <path d="M63 90.4264L105.426 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+              <path d="M5 48L105 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <!-- <a href="?page=1">&laquo; Первая</a> -->
+
+      <span class="current">
+          {% for i in page.paginator.page_range %}
+            {% comment %} {% if page.number <= 3 and i <= 3 %}
+                <a href="?page={{ i }}">{{ i }} {% trans 'Страница' %}</a>
+            {% elif page.number > page.paginator.num_pages - 3 and i > page.paginator.num_pages - 3 %}
+                <a href="?page={{ i }}">{{ i }} {% trans 'Страница' %}</a>
+            {% elif i == page.number %} {% endcomment %}
+              <a href="?page={{ i }}"
+                {% if i == page.number %}style="background-color: rgb(248, 102, 36); color: white"{% endif %}
+                >{{ i }} {% trans 'Страница' %}</a>
+            {% comment %} {% endif %} {% endcomment %}
+        {% endfor %}
+      </span>
+
+
+      <!-- <a href="?page={{ page.paginator.num_pages }}">Последняя &raquo;</a> -->
+      <a href="{% if page.has_next %}?page={{ page.next_page_number }}{% endif %}" class="pagination__right">
+        <svg width="20" height="20" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M63.0704 5.76813L105.497 48.1945" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+          <path d="M63 90.4264L105.426 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+          <path d="M5 48L105 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+    </div>
+
+
   </div>
 </div>
 

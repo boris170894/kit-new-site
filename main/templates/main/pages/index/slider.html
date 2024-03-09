@@ -1,0 +1,24 @@
+{% include 'main/base.html' %}
+
+{% load static i18n %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/main/css/index/slider.css" />
+
+<div class="page" id="page">
+    <h1>{{ slider.title }}</h1>
+    {% autoescape off %}
+    <div class="page__text">{{ slider.text }}</div>
+    {% endautoescape %}
+     <div class="page__images">
+        {% for image in images %}
+            {% if image.image %}
+                <div class="page__image">
+                    <img src="/static{{ image.image.url }}" alt="image" />
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

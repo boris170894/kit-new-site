@@ -14,7 +14,7 @@
 .page__content {
     width: 100%; 
     background-color: #f2f5f6;
-    padding: 4% 10% 15%;
+    padding: 4% 10% 5%;
 }
 .page__filters {
     display: flex;
@@ -44,12 +44,11 @@
 .page__news {
     display: grid;
     grid-template-columns: 48% 48%;
-    gap: 4%;
-    row-gap: 4%;
+    justify-content: space-between;
     width: 100%;
     /* padding: 2% 0 10vh 0; */
     padding: 2% 0;
-    padding-bottom: 10vh;
+    padding-bottom: 8vh;
 }
 .news {
     width: 100%;
@@ -59,6 +58,7 @@
     grid-template-columns: 60% 40%;
     border-radius: 10px;
     transition: all .3s linear;
+    margin: 3% 0;
 }
 .news:hover {
     box-shadow: 0 0 20px 5px rgb(20,20,20,.1) ;
@@ -81,8 +81,8 @@
 .news__left__top a {
     font-size: calc((1vw + 1vh) * 1.2);
     font-weight: 700;
-    text-transform:capitalize;
     margin-bottom: 10px;
+    text-transform: none;
 }
 .news__left__top div p {
     font-size: calc((1vw + 1vh) * .8);
@@ -121,7 +121,7 @@
 }
 .pagination {
     width: 100%;
-    margin-bottom: 3%;
+    margin: 4% 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -146,11 +146,16 @@
 .pagination .current {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     overflow-x: auto;
-    padding: 0 5%;
-    gap: 4%;
+    margin: 0 10px;
+    gap: 5px;
+    overflow-y: hidden;
+    padding: 6px ;
+}
+.pagination .current::-webkit-scrollbar {
+    height: 4px;
 }
 .pagination .current a {
     font-size: calc((1vw + 1vh) * .7);
@@ -158,6 +163,15 @@
     padding: 4px 16px;
     border-radius: 20px;
     font-weight: 400;
+    max-width: 100px;
+    width: 100%;
+
+    min-width: calc((1vw + 1vh) * 6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 30px;
 }
 .current a:hover {
     background-color: #f86624 !important;
@@ -173,12 +187,8 @@
 }
 
 @media screen and (max-width:1000px) and (min-width:600px ) {
-    .page__news {
-        gap: 20px;
-        row-gap: 20px;
-    }
     .page__content {
-        padding: 4vh 2vw 10vh;
+        padding: 4vh 2vw 12vh;
     }
     .news__left__top a {
         font-size: calc((1vw + 1vh) * 1.1);
@@ -194,6 +204,7 @@
     .news__left {
         min-height: 20vh;
         position: relative;
+        width: 100%;
     }
     .news__right {
         max-height: 200px;
@@ -229,9 +240,12 @@
     }
     .news__left {
         min-height: 25vh;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
     }
     .page__content {
-        padding: 2% 4% 25vh;
+        padding: 2% 4% 15vh;
     }
     .page__filters select {
         width: 50%;
@@ -265,10 +279,8 @@
         height: 30px;
     }
     .page__news {
-        grid-template-columns:100%;
+        grid-template-columns: 100%;
         overflow: hidden;
-        row-gap: 0;
-        gap: 1%;
         padding-bottom: 5vh;
     }
     .news__left {

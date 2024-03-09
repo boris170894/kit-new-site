@@ -7,6 +7,10 @@ from .models import (
                         FinancialStatementsModel,
                         CollegeDocsModel,
                         MainAdvantagesOfOurCollegeModel,
+                        LibraryModel,
+                        LibraryFilesModel,
+                        DormitoryFilesModel, DormitoryModel, DormitoryImagesModel,
+                        OurUnionModel, OurUnionFilesModel, OurUnionImagesModel
                     )
 
 """ Контакты """
@@ -43,3 +47,44 @@ class CollegeDocsTransOptions(TranslationOptions):
 @register(MainAdvantagesOfOurCollegeModel)
 class AdvancesOfOurCollegeTransOptions(TranslationOptions):
     fields = ('title',)
+
+""" Библиотека """
+@register(LibraryModel)
+class LibraryTransOptions(TranslationOptions):
+    fields = ('text', )
+
+""" Библиотека, файлы """
+@register(LibraryFilesModel)
+class LibraryTransOptions(TranslationOptions):
+    fields = ('title', 'file', )
+
+""" Общежитие """
+@register(DormitoryModel)
+class DormitoryTransOptions(TranslationOptions):
+    fields = ('about',)
+
+""" Общежитие файлы """
+@register(DormitoryFilesModel)
+class DormitoryFilesTransOptions(TranslationOptions):
+    fields = ('title', 'file',)
+
+""" Общежитие фото """
+@register(DormitoryImagesModel)
+class DormitoryImagesTransOptions(TranslationOptions):
+    fields = ('file',)
+
+
+""" Наш профсоюз """
+@register(OurUnionModel)
+class OurUnionTransOptions(TranslationOptions):
+    fields = ('about',)
+
+""" Наш профсоюз файлы """
+@register(OurUnionFilesModel)
+class OurUnionFilesTransOptions(TranslationOptions):
+    fields = ('title', 'file',)
+
+""" Молодежная политика фото """
+@register(OurUnionImagesModel)
+class OurUnionImagesTransOptions(TranslationOptions):
+    fields = ('file', )
