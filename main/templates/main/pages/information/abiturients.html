@@ -65,17 +65,15 @@
     {% if contacts %}
     <div class="contacts">
         <div class="page__contacts__left">
-            {% for item in contacts %}
-                <div class="page__contact">
-                    <h3>{% trans 'Колледж информационных технологий' %}</h3>
-                    <p><b>{% trans 'Адрес' %}:</b> {{item.addr}};</p>
-                    <p><b>{% trans 'Приёмная' %}:</b> {{item.tel}};<br></p>
-                    <p><b>E-mail:</b> {{item.e_mail}};<br></p>
-                    <p><b>{% trans 'Приёмная комиссия' %}:</b> {{item.priem_com}};<br></p>
-                    <p><b>Whatsapp:</b> {{item.wats}};<br>
-                    </p>
-                </div>
-                {% endfor %}
+            <div class="page__contact">
+                <h3>{% trans 'Колледж информационных технологий' %}</h3>
+                <p><b>{% trans 'Адрес' %}:</b> {{item.addr}};</p>
+                <p><b>{% trans 'Приёмная' %}:</b> {{item.tel}};<br></p>
+                <p><b>E-mail:</b> {{item.e_mail}};<br></p>
+                <p><b>{% trans 'Приёмная комиссия' %}:</b> {{item.priem_com}};<br></p>
+                <p><b>Whatsapp:</b> {{item.wats}};<br></p>
+                <p><b>{% trans 'График работы' %}:</b> {{ contacts.workSchedule }};<br></p>
+            </div>
         </div>
         <div class="page__contacts__right">
             <iframe

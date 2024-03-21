@@ -77,6 +77,7 @@ class YouthPolicyModel(models.Model):
     documents = models.ManyToManyField('YouthPolicyFilesModel', related_name='Файлы', default=[], blank=True)
     images = models.ManyToManyField('YouthPolicyImagesModel', related_name='Изображения', default=[], blank=True)
     about = models.TextField(verbose_name="Описание", blank=True, null=True)
+    video = models.FileField("Видео", upload_to='uploads/educational-work/youth-policy/videos', blank=True)
 
     is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
 
@@ -115,3 +116,19 @@ class YouthPolicyImagesModel(models.Model):
     class Meta:
         verbose_name = 'Молодежная политика Фото'
         verbose_name_plural = 'Молодежная политика Фото'
+
+
+""" Терроризм и т.д. и т.п """
+class TerrorModel(models.Model):
+    
+    title = models.CharField(max_length=150, verbose_name='Название')
+    video = models.FileField("Видео", upload_to='uploads/educational-work/videos')
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=True)
+
+    class Meta:
+        verbose_name = 'Информация о терроризме'
+        verbose_name_plural = 'Информация о терроризме'
+
+    
+    def __str__(self):
+        return (self.title)

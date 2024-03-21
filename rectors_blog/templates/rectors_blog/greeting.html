@@ -1,0 +1,65 @@
+{% include 'main/base.html' %}
+{% load static i18n %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/rectors_blog.css" />
+
+<div class="page" id="page">
+    <h1>{% trans 'Блог Руководителя' %}</h1>
+
+    <!--    Header -->
+    <div class="page__header">
+        <a class="link activate">Приветствие</a>
+        <a class="link" href="{% url 'questions' %}">Вопрос — ответ</a>
+    </div>
+    <!--    End header -->
+
+
+    <!--    Content -->
+    <div class="page__content__info">
+
+        <div class="page__content__info__left">
+            {% autoescape off %}
+                {{ rectors_blog.info }}
+            {% endautoescape %}
+        </div>
+
+        <div class="page__content__info__right">
+            {% if rectors_blog.image %}
+                <img src="/static{{ rectors_blog.image.url }}" alt="" />
+            {% endif %}
+            {% if rectors_blog.fio %}
+                <h2>{{ rectors_blog.fio }}</h2>
+            {% endif %}
+             {% if rectors_blog.appointment_schedule %}
+                <p>
+                    <b>{% trans 'График приема' %}: </b>
+                    {{ rectors_blog.appointment_schedule }}
+                </p>
+            {% endif %}
+            {% if rectors_blog.cabinet %}
+                <p>
+                    <b>{% trans 'Кабинет' %}: </b>
+                    {{ rectors_blog.cabinet }}
+                </p>
+            {% endif %}
+            {% if rectors_blog.reception %}
+                <p>
+                    <b>{% trans 'Приемная' %}: </b>
+                    {{ rectors_blog.reception }}
+                </p>
+            {% endif %}
+             {% if rectors_blog.email %}
+                <p>
+                    <b>{% trans 'Email' %}: </b>
+                    {{ rectors_blog.email }}
+                </p>
+            {% endif %}
+        </div>
+
+    </div>
+    <!-- End content -->
+
+</div>
+
+{% endblock content %}

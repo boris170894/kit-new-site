@@ -3,9 +3,10 @@ from django.shortcuts import render, get_object_or_404
 from .models import (
                         CollegePartnersModel, 
                         CollegeSliderModel,
-                        CollegeSliderImageModel
+                        CollegeSliderImageModel,
+
+                        IntroLogosModel,
                      )
-from information.models import CollegeContactModel
 from news.models import NewsModel
 
 """ 
@@ -13,9 +14,9 @@ from news.models import NewsModel
 """
 def index(request):
     last_news = achivments = last_one_news = []
-    public__news_count = NewsModel.objects.filter(news_is_published = True).count()
+    public__news_count = NewsModel.objects.filter(news_is_published=True).count()
+    intro_logos = IntroLogosModel.objects.filter(public=True).last()
 
-    contacts = CollegeContactModel.objects.all()
     partners = CollegePartnersModel.objects.all()
     slides = CollegeSliderModel.objects.filter(public=True)
     print('SLIDES', slides)
@@ -28,13 +29,13 @@ def index(request):
 
     context = {
         'last_news': last_news,
-        'contacts': contacts,
         'partners': partners,
         'achivments': achivments,
         
         'last_one_news': last_one_news,
         'public__news_count': public__news_count,
         'slides': slides,
+        'intro_logos': intro_logos,
     }
     return render(request, 'main/pages/index.html', context)
 

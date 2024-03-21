@@ -3,15 +3,17 @@ from django.core.paginator import Paginator
 
 from about_college.models import SpecInfoModel
 from .models import (
-                        CollegeContactModel, CallPairScheduleModel,
+                         CallPairScheduleModel,
                         AcademicProcessScheduleModel, StudentEventModel,
                         MetodicRecomendationsCategoryModel,  MetodicRecomendationsDocumentModel,
                         FinancialStatementsModel, 
                         CollegeDocsModel, MainAdvantagesOfOurCollegeModel,
-                        LibraryModel, DormitoryModel,
-                        OurUnionModel,
+                        LibraryModel, LibraryFilesModel, LibrarySliderImageModel,
+                        DormitoryModel, DormitoryImagesModel, DormitoryFilesModel,
+                        OurUnionModel, OurUnionFilesModel, OurUnionImagesModel
                      )
 from news.models import NewsModel
+from contacts.models import CollegeContactModel
 
 """
     TODO:    Абитуриенту
@@ -19,17 +21,16 @@ from news.models import NewsModel
 
 """ Абитуриенты  """
 def abiturients(request):
-    
     specs = SpecInfoModel.objects.all()
-    contacts = CollegeContactModel.objects.all()
+    contacts = CollegeContactModel.objects.filter(public=True).last()
     docs = CollegeDocsModel.objects.filter(is_public=True)
     pluses = MainAdvantagesOfOurCollegeModel.objects.filter(is_public=True)
 
     return render(request, 'main/pages/information/abiturients.html', {
-        'specialites' : specs,
-        'contacts' : contacts,
+        'specialites': specs,
+        'contacts': contacts,
         'docs': docs,
-        'pluses' : pluses
+        'pluses': pluses
     })
 
 """
@@ -139,6 +140,8 @@ def financial_statement(request):
 def library(request):
     documents = LibraryModel.objects.filter(is_public=True).last()
     news_list = NewsModel.objects.filter(news_is_library=True).filter(news_is_published=True).order_by('-news_create_date')
+    images = LibrarySliderImageModel.objects.filter(is_public=True)
+    files = LibraryFilesModel.objects.filter(is_public=True)
 
     paginator = Paginator(news_list, 10)
     page_number = request.GET.get('page')
@@ -146,7 +149,9 @@ def library(request):
 
     return render(request, 'information/library.html', {
         'library': documents,
-        'page': page
+        'page': page,
+        'documents': files,
+        'images': images,
     })
 
 
@@ -154,6 +159,8 @@ def library(request):
 def dormitory(request):
     info = DormitoryModel.objects.filter(is_public=True).last()
     title = "Общежитие"
+    images = DormitoryImagesModel.objects.filter(is_public=True)
+    files = DormitoryFilesModel.objects.filter(is_public=True)
 
     if request.method == 'POST':
         fio = request.POST.get('fio', '')
@@ -184,14 +191,20 @@ def dormitory(request):
     return render(request, 'educational_work/dormitory.html', {
         'title': title,
         'info': info,
+        'documents': files,
+        'images': images,
     })
 
 """ Наш профсоюз """
 def our_union(request):
     title = "Наш профсоюз"
     info = OurUnionModel.objects.filter(is_public=True).last()
+    images = OurUnionImagesModel.objects.filter(is_public=True)
+    files = OurUnionFilesModel.objects.filter(is_public=True)
 
     return render(request, 'educational_work/dormitory.html', {
         'title': title,
         'info': info,
+        'documents': files,
+        'images': images,
     })

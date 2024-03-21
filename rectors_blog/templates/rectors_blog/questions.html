@@ -1,0 +1,142 @@
+{% include 'main/base.html' %}
+{% load static i18n %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/news.css" />
+<link rel="stylesheet" href="/static/css/rectors_blog.css" />
+
+<div class="page" id="page">
+    <h1>{% trans 'Блог Руководителя' %}</h1>
+
+     <!--    Header -->
+    <div class="page__header">
+        <a class="link" href="{% url 'greeting' %}">Приветствие</a>
+        <a class="link activate">Вопрос — ответ</a>
+    </div>
+    <!--    End header -->
+
+     <!--    Content -->
+    <div class="page__content__questions">
+        <input name="FieldsIsEmpty" type="hidden" id="FieldsIsEmpty" value="{% trans 'Заполните полностью все поля' %}" />
+        <input name="TimesUp" type="hidden" id="TimesUp" value="{% trans 'Последний вопрос был недавно отправлен, попробуйте отправить свой через 10 минут' %}" />
+        <input name="ConfirmSend" type="hidden" id="ConfirmSend" value="{% trans 'Вы точно хотите отправить вопрос?' %}" />
+        <input name="SentSuccessfully" type="hidden" id="SentSuccessfully" value="{% trans 'Вопрос успешно отправлен, он отобразится в списке тогда, когда получит ответ' %}" />
+
+        <div class="page__content__questions__header">
+            <button type="button" class="btn" id="QuestionButton">{% trans 'Задать вопрос' %}</button>
+
+            <form method="POST" id="QuestionForm">
+                <div class="form__item">
+                    {% csrf_token %}
+
+                    <span class="closeButton" id="CloseFormButton"></span>
+                    <h2>{% trans 'Задать вопрос' %}</h2>
+
+                    <div class="form__row">
+                        <div class="form__field">
+                            <label>{% trans 'Имя' %}:</label>
+                            {{ form.firstName }}
+                        </div>
+
+                        <div class="form__field">
+                            <label>Фамилия:</label>
+                            {{ form.lastName }}
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                          <div class="form__field">
+                            <label>Email:</label>
+                            {{ form.email }}
+                          </div>
+                    </div>
+
+                    <div class="form__field">
+                        <label>Вопрос:</label>
+                        {{ form.question }}
+                    </div>
+
+                    <div class="form__row__center">
+                        {{ form.recaptcha }}
+                    </div>
+
+                    <button type="submit" class="button">{% trans 'Отправить' %}</button>
+                </div>
+                <div class="form__item__blur"></div>
+            </form>
+        </div>
+
+
+    <!-- TODO ______ News ______ -->
+    <div class="page__questions">
+        {% for question in page %}
+            {% if question.answer|length > 2 %}
+                <div class="question">
+                    <div class="question__header">
+                        <h3>{{ question.firstName }} {{ question.lastName }}</h3>
+                        <span>{{ question.created|date:'d.m.Y' }}</span>
+                    </div>
+                    <div class="question__question">
+                        {{ question.question }}
+                    </div>
+                    <div class="question__answer">
+                        <h4>{% trans 'Ответ' %}</h4>
+                        <p>{{ question.answer }}</p>
+                        <span class="question__answer__rector">
+                            <h3>{{ rectors_blog.fio }}</h3>
+                        </span>
+                    </div>
+                    <div class="question__footer">
+                        <h4 class="question__footer__open">{% trans 'Читать ответ' %}</h4>
+                        <h4 class="question__footer__close">{% trans 'Скрыть ответ' %}</h4>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- TODO ______ Pagination ______ -->
+    <div class="pagination">
+          <a href="{% if page.has_previous %}?page={{ page.previous_page_number }}{% endif %}" class="pagination__left">
+            <svg width="20" height="20" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M63.0704 5.76813L105.497 48.1945" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+              <path d="M63 90.4264L105.426 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+              <path d="M5 48L105 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <!-- <a href="?page=1">&laquo; Первая</a> -->
+
+      <span class="current">
+          {% for i in page.paginator.page_range %}
+            {% comment %} {% if page.number <= 3 and i <= 3 %}
+                <a href="?page={{ i }}">{{ i }} {% trans 'Страница' %}</a>
+            {% elif page.number > page.paginator.num_pages - 3 and i > page.paginator.num_pages - 3 %}
+                <a href="?page={{ i }}">{{ i }} {% trans 'Страница' %}</a>
+            {% elif i == page.number %} {% endcomment %}
+              <a href="?page={{ i }}"
+                {% if i == page.number %}style="background-color: rgb(248, 102, 36); color: white"{% endif %}
+                >{{ i }} {% trans 'Страница' %}</a>
+            {% comment %} {% endif %} {% endcomment %}
+        {% endfor %}
+      </span>
+
+
+      <!-- <a href="?page={{ page.paginator.num_pages }}">Последняя &raquo;</a> -->
+      <a href="{% if page.has_next %}?page={{ page.next_page_number }}{% endif %}" class="pagination__right">
+        <svg width="20" height="20" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M63.0704 5.76813L105.497 48.1945" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+          <path d="M63 90.4264L105.426 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+          <path d="M5 48L105 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+    </div>
+
+    </div>
+    <!-- End content -->
+
+</div>
+
+<script src="/static/js/rectors_blog.js"></script>
+
+{% endblock content %}

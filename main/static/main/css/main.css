@@ -107,13 +107,12 @@ nav {
     justify-content: space-around;
     align-items: center;
 
-    height: 100px;
+    height: 120px;
     padding: 10px 5%;
     width: 100%;
     top: 0;
     z-index: 10;
     margin-bottom: 3vh;
-
     /* border-bottom: 2px solid rgb(0,0,0,.05); */
 }
 .nav__menu {
@@ -135,6 +134,10 @@ nav .nav__right {
     align-items: center;
     gap: 18px;
     transition: all .3s linear;
+
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    max-width: 70%;
 }
 .nav__right a {
     font-size: 18px;
@@ -158,7 +161,10 @@ nav .nav__right {
     /* position: absolute; */
     /* top: 50%; */
     /* z-index: -1; */
-
+}
+ #LanguageForm {
+    position: absolute;
+    right: 4%;
 }
 .nav__right a:hover:after {
     width: 100%;
@@ -205,8 +211,8 @@ nav .nav__right {
     color: rgb(47, 47, 47);
 }
 .nav__right__menu a:hover:after {
-    display: none;
     width: 0;
+    option: 0;
 }
 .nav__right:first-child {
     display: none;
@@ -321,6 +327,7 @@ nav {
     }
     nav .nav__right {
         gap: 0;
+        max-width: 100%;
     }
     .nav__link {
         width: 100%;

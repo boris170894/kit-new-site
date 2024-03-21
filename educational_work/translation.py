@@ -2,7 +2,8 @@ from modeltranslation.translator import register, TranslationOptions
 from .models import  (GeneralInformationFilesModel, 
                         ClubsAndSectionsModel, ClubsAndSectionsDocumentsModel,
                         PsychologicalServiceModel,
-                        YouthPolicyModel, YouthPolicyFilesModel, YouthPolicyImagesModel
+                        YouthPolicyModel, YouthPolicyFilesModel, YouthPolicyImagesModel,
+                        TerrorModel
                       )
 
 """ Общая информация """
@@ -39,3 +40,9 @@ class YouthPolicyFilesTransOptions(TranslationOptions):
 @register(YouthPolicyImagesModel)
 class YouthPolicyImagesTransOptions(TranslationOptions):
     fields = ('file', )
+
+
+""" Терроризм и т.д. и т.п. """
+@register (TerrorModel)
+class TerrorModel(TranslationOptions):
+    fields = ('title',)

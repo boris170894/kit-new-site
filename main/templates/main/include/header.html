@@ -25,6 +25,22 @@
         </div>
         <a href="{% url 'news_list' %}" class='nav__link'>{% trans 'Новости' %}</a>
         <div class="nav__right__button__menu nav__link" >
+            <a class="nav__right__menu__open">{% trans 'Блог Руководителя' %}</a>
+            <div class="nav__right__menu">
+
+                <div class="nav__link nav__right__close nav__right__menu__close">
+                    <b class="">{% trans 'Назад' %}</b>
+                    <svg class="nav__right__close__svg" width="15" height="20" viewBox="0 0 57 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 5L51.9627 43.5673" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M5.67862 82.5039L51.6413 43.9367" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <a href="{% url 'greeting' %}">{% trans 'Главная информация' %}</a>
+                <a href="{% url 'questions' %}">{% trans 'Вопрос - Ответ' %}</a>
+            </div>
+        </div>
+        <div class="nav__right__button__menu nav__link" >
             <a class="nav__right__menu__open">{% trans 'О колледже' %}</a>
             <div class="nav__right__menu">
 
@@ -111,8 +127,11 @@
                 <a href="{% url 'psychological-service' %}">{% trans 'Психологическая служба' %}</a>
                 <a href="{% url 'sections-and-circles' %}">{% trans 'Кружки/Секции' %}</a>
                 <a href="{% url 'youth-policy' %}">{% trans 'Молодежная политика' %}</a>
+                <a href="{% url 'antiterror' %}">{% trans 'Антитеррористическая деятельность' %}</a>
             </div>
         </div>
+        <a href="{% url 'announcement' %}" class='nav__link'>{% trans 'Объявления' %}</a>
+        <a href="{% url 'contacts' %}" class='nav__link'>{% trans 'Контакты' %}</a>
         <form action="{% url 'set_language' %}" method="post" id="LanguageForm">{% csrf_token %}
             <input name="next" type="hidden" value="{{ redirect_to }}">
             <select name="language" id="changeLanguage" class='change__language' >

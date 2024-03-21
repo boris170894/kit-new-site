@@ -1,5 +1,21 @@
 from django.db import models
 
+""" Логотипы и надписи на главной странице """
+class IntroLogosModel(models.Model):
+    years = models.CharField(max_length=50, blank=True, null=True)
+    image = models.ImageField(upload_to='uploads/index-page/logos', blank=True)
+    text = models.CharField(max_length=250, blank=True, null=True)
+
+    public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Логотипы и надписи на главной странице'
+        verbose_name_plural = 'Логотипы и надписи на главной странице'
+
+
 """ Партнеры колледжа """
 class CollegePartnersModel(models.Model):
 
@@ -18,7 +34,7 @@ class CollegePartnersModel(models.Model):
 class CollegeSliderModel(models.Model):
     title = models.CharField(verbose_name='Заголовок', max_length=100, blank=True)
     text = models.TextField(verbose_name='Описание', blank=True)
-    public = models.BooleanField(verbose_name='Опубликовано', default=False)
+    public = models.BooleanField(verbose_name='Опубликовать', default=False)
 
     class Meta:
         verbose_name = 'Cлайдер на главной странице'
@@ -36,7 +52,7 @@ class CollegeSliderImageModel(models.Model):
     status_2 = models.BooleanField(verbose_name='Отметить как второе изображение', default=False)
     status_3 = models.BooleanField(verbose_name='Отметить как третье изображение', default=False)
 
-    public = models.BooleanField(verbose_name='Опубликовано', default=False)
+    public = models.BooleanField(verbose_name='Опубликовать', default=False)
 
     create_date = models.DateTimeField(auto_now_add=True, null=True)
     update_date = models.DateTimeField(auto_now=True, null=True)

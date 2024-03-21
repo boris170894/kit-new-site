@@ -60,6 +60,11 @@ INSTALLED_APPS = [
     'educational_work',
     'about_college',
     'information',
+    'rectors_blog',
+    'contacts',
+    'announcements',
+
+    'django_recaptcha'
 ]
 
 # TODO: python3 manage.py runserver --insecure   
@@ -215,9 +220,12 @@ EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_HOST = 'smtp.yandex.ru'
 # EMAIL_HOST_USER = 'johnnotsnow@yandex.ru'
 # EMAIL_HOST_PASSWORD = '54444812'
-EMAIL_HOST_USER = 'adfegecy@gmail.com'
-EMAIL_HOST_PASSWORD = '301223Vaseles'
-EMAIL_RECIPIENTS = ["adfegecy@gmail.com",]
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_RECIPIENTS = [""]
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+RECAPTCHA_PUBLIC_KEY = '6Lf8I6ApAAAAAJwlgFcn20qImpsrmSf8U_6z6zzh'
+RECAPTCHA_PRIVATE_KEY = '6Lf8I6ApAAAAAG2TczuHzS8cUD9AByOuPpLpEif5'

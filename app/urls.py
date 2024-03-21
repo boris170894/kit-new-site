@@ -8,6 +8,7 @@ from django.conf.urls.i18n import i18n_patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor', include('ckeditor_uploader.urls')),
+    path('api/', include('rectors_blog.api.urls')),
 ]
 
 handler401 = 'app.views.tr_handler401'
@@ -25,6 +26,9 @@ urlpatterns += i18n_patterns(
     path('', include('educational_work.urls')),
     path('', include('about_college.urls')),
     path('', include('information.urls')),
+    path('', include('rectors_blog.urls')),
+    path('contacts/', include('contacts.urls')),
+    path('announcements/', include('announcements.urls')),
     # prefix_default_language=False,
 )
 

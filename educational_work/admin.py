@@ -3,7 +3,7 @@ from modeltranslation.admin import TranslationAdmin
 from .models import  (GeneralInformationFilesModel, 
                         ClubsAndSectionsModel, ClubsAndSectionsDocumentsModel,
                         PsychologicalServiceModel,
-                        YouthPolicyModel, YouthPolicyFilesModel, YouthPolicyImagesModel
+                        YouthPolicyModel, YouthPolicyFilesModel, YouthPolicyImagesModel, TerrorModel
                         )
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
@@ -61,3 +61,9 @@ class YouthPolicyFilesAdmin(TranslationAdmin):
 @admin.register(YouthPolicyImagesModel)
 class YouthPolicyImagesAdmin(TranslationAdmin):
     list_display = ('id', 'file', 'is_public', 'updated', )
+
+
+""" Терроризм и т.д. и т.п. """
+@admin.register(TerrorModel)
+class TerrorAdmin(TranslationAdmin):
+    list_display = ('id','title')

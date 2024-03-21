@@ -1,0 +1,24 @@
+@import '/static/main/css/variables.css';
+
+.page {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 2vh 5vw 25vh;
+}
+.page h1 {
+    padding: 8vh 4vw;
+}
+.contacts {
+    border: none;
+    margin-top: 0;
+    align-items: center;
+}
+.contacts h3 {
+    margin-bottom: 2%;
+}
+.contacts:hover {
+    box-shadow: none;
+}

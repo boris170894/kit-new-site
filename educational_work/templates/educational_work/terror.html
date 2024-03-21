@@ -1,0 +1,24 @@
+{% include 'main/base.html' %} 
+
+{% load static i18n %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/eduactional_work/css/dormitory.css" />
+<link rel="stylesheet" href="/static/eduactional_work/css/antiterror.css" />
+<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
+<div class="page" id="page">
+    <h1>{% trans 'Антитеррористическая деятельность' %} </h1>
+
+    {% for item in info %}
+        <div class="video-block">
+            <h2>{{ item.title }}</h2>
+            {% if item.video %}
+                <video src="/static{{ item.video.url }}" class="dormitory__video" controls loop></video>
+            {% endif %}
+        </div>
+    {% endfor %}
+    
+</div>
+
+{% endblock content %}

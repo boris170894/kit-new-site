@@ -1,0 +1,49 @@
+@import '/static/main/css/variables.css';
+
+.page {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 2vh 5vw 25vh;
+}
+.page h1 {
+    padding: 8vh 4vw;
+}
+.page__announcements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.page__announcements__vacancies {
+    max-width: 75vw;
+    width: 100%;
+}
+.vacancy {
+    width: 100%;
+    padding 1%;
+    margin-bottom: 2%;
+    border-bottom: 2px solid rgba(20,20,20, .1);
+    padding: 4%;
+    margin-bottom:2%;
+}
+.vacancy__div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.vacancy__title {
+    font-weight: bold;
+    font-size: calc((1vw + 1vh) * 1.5);
+    margin-bottom: 14px;
+}
+.vacancy__download {
+    font-size: calc((1vw + 1vh) * 1.1);
+}
+.vacancy p {
+    margin-bottom: 4px;
+}

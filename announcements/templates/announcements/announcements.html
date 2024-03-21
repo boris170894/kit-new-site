@@ -1,0 +1,138 @@
+{% include 'main/base.html' %}
+{% load static i18n %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/about_college/css/college_history.css" />
+<link rel="stylesheet" href="/static/state/css/anti__coruption.css" />
+<link rel="stylesheet" href="/static/eduactional_work/css/dormitory.css" />
+<link rel="stylesheet" href="/static/css/news.css" />
+<link rel="stylesheet" href="/static/information/css/library.css" />
+
+<link rel="stylesheet" href="/static/main/css/information/abiturients.css" />
+<link rel="stylesheet" href="/static/css/announcements.css" />
+
+<div class="page" id="page">
+    <h1>{% trans 'Объявления' %}</h1>
+
+    {% if images.count > 0 %}
+        <div class="dormitory__slider">
+            <div class="dormitory__slider__item">
+                <div class="dormitory__slider__main__slide">
+                    <span class="dormitory__slider__left">
+                        <svg class="prev" width="20" height="36" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.6777 3L3 20.6777" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M20.6777 38.6777L3 21" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <img
+                        src="{{ images.1.file }}"
+                        alt="main image"
+                        class="dormitory__slider__main__image" />
+                    <span class="dormitory__slider__right">
+                        <svg class="nexti" width="20" height="36" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.6777 3L3 20.6777" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M20.6777 38.6777L3 21" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="dormitory__slider__images">
+                    {% for image in images %}
+                            <img src="/static{{ image.file.url }}" alt="{{ image.id }}" class="dormitory__slider__slide__image">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const main_place = document.querySelector('.dormitory__slider__main__image')
+            const images = document.querySelectorAll('.dormitory__slider__slide__image');
+
+            const left_button = document.querySelector('.dormitory__slider__left')
+            const right_button = document.querySelector('.dormitory__slider__right')
+
+            let index = 0;
+
+            const renderSlide = (i) => {
+                main_place.style.opacity = 0;
+
+                setTimeout(() => {
+                    main_place.src = images[i].src
+                    setTimeout(() => {
+                        main_place.style.opacity = 1;
+                    }, 200)
+                }, 200)
+            }
+
+            renderSlide(index)
+
+            images.forEach((image, i) => {
+                image.addEventListener('click', (e) => {
+                    index = i
+                    renderSlide(i);
+                });
+            });
+
+            left_button.addEventListener('click', (e) => {
+                index - 1 == -1 ? index = images.length - 1 : index--;
+                renderSlide(index);
+            })
+
+            right_button.addEventListener('click', (e) => {
+                index + 1 == images.length ? index = 0 : index++;
+                renderSlide(index);
+            })
+
+        </script>
+    {% endif %}
+
+    {% if info.about %}
+        <div class="dormitory__about">
+            {% autoescape off %}
+                {{ info.about }}
+            {% endautoescape %}
+        </div>
+    {% endif %}
+
+    {% if info.video %}
+        <video src="/static{{ info.video.url }}" class="dormitory__video" controls loop></video>
+    {% endif %}
+
+    <div class="dormitory__documents">
+            <h1>{% trans 'Документы' %}</h1>
+        {% if files.count > 0 %}
+            {% for document in files %}
+                {% if document.is_public %}
+                    <div class="anti__coruption">
+                        <h2>{{ document.title }}</h2>
+                        {% if document.file %}
+                            <a href="/static/media/{{ document.file }}" class='link' download>{% trans 'Скачать' %} <i class="fa-solid fa-download"></i></a>
+                        {% endif  %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <h2>{% trans 'Документы не найдены' %}</h2>
+        {% endif %}
+    </div>
+
+    {% if vacancies.count > 0 %}
+        <h1>{% trans 'Вакансии' %}</h1>
+        <div class="page__announcements__vacancies">
+            {% for vacancy in vacancies %}
+                <div class="vacancy">
+                    <div class="vacancy__div">
+                        <h3 class="vacancy__title"><a href="/static{{ vacancy.file.url }}" download="">{{ vacancy.title }}</a></h3>
+                        <a href="/static{{ vacancy.file.url }}" class="vacancy__download" download><i class="fa-solid fa-download"></i></a>
+                    </div>
+                    <p><b>Зарплата:</b> {{ vacancy.salary }}{% trans 'тенге' %}</p>
+                    {% if vacancy.experience_years %}
+                    <p><b>Количество лет опыта:</b> {{ vacancy.experience_years }} года</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

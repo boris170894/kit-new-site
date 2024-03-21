@@ -4,7 +4,6 @@ from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 from .models import (
-                        CollegeContactModel, 
                         StudentEventModel,
                         MetodicRecomendationsCategoryModel, MetodicRecomendationsDocumentModel,
                         FinancialStatementsModel, CallPairScheduleModel,
@@ -15,11 +14,6 @@ from .models import (
                         DormitoryContactsEmailModel, DormitoryContactsPhoneModel,
                         OurUnionModel, OurUnionFilesModel, OurUnionImagesModel,
                     )
-
-""" Контакты """
-@admin.register(CollegeContactModel)
-class CollegeContactAdmin(TranslationAdmin):
-    list_display = ('addr', 'e_mail', 'tel', 'priem_com', 'wats', )
 
 """ Расписание звонков и основное расписание """ 
 admin.site.register(CallPairScheduleModel)

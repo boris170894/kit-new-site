@@ -62,6 +62,7 @@
 @media screen and (max-width: 600px) {
     .page {
         padding: 0 4vw;
+        padding-bottom: 10vh;
     }
     .page__images {
         grid-template-columns: 1fr;

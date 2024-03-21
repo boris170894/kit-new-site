@@ -14,7 +14,16 @@ from .models import (CollegePartnersModel,
                     NewSocialMediaLinkModel,
 
                     SliderForDocumentListModel,
-                    SliderForDocumentListSlideModel)
+                    SliderForDocumentListSlideModel,
+
+                    IntroLogosModel
+                )
+
+
+""" Логотипы и надписи на главной странице """
+@admin.register(IntroLogosModel)
+class IntroLogosAdmin(TranslationAdmin):
+    list_display = ('id', 'years', 'text', 'image', )
 
 """ Партнеры колледжа """
 @admin.register(CollegePartnersModel)

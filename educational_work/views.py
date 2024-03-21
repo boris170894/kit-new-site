@@ -3,7 +3,7 @@ from django.contrib import messages
 from .models import (GeneralInformationFilesModel,
                         ClubsAndSectionsModel, ClubsAndSectionsDocumentsModel,
                         PsychologicalServiceModel,
-                        YouthPolicyModel,
+                        YouthPolicyModel, TerrorModel
                         )
 from staff.models import (GroupModel)
 from main.models import (SliderForDocumentListModel)
@@ -68,3 +68,10 @@ def youth_policy(request):
         'title': title,
         'info': info,
     })
+
+""" Терроризм и т.д. и т.п. """
+def terror(request):
+    title = "Терроризм"
+    info = TerrorModel.objects.filter(is_public=True)
+
+    return render(request, 'educational_work/terror.html',{'title':title, 'info':info})

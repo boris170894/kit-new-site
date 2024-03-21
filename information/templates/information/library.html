@@ -93,6 +93,10 @@
         </div>
     {% endif %}
 
+    {% if library.video %}
+        <video src="/static{{ library.video.url }}" controls class="dormitory__video" ></video>
+    {% endif %}
+
         <div class="dormitory__documents">
             {% if library.slider_files.count > 0 %}
                 <h1>{% trans 'Документы' %}</h1>

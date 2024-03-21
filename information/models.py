@@ -1,21 +1,5 @@
 from django.db import models
 
-""" Контакты """
-class CollegeContactModel(models.Model):
-
-    addr = models.CharField(verbose_name='Адрес', max_length=300)
-    e_mail = models.CharField(verbose_name='e-mail', max_length=20)
-    tel = models.CharField(verbose_name='Телефон', max_length=20)
-    priem_com = models.CharField(verbose_name='Приёмная комиссия', max_length=20)
-    wats = models.CharField(verbose_name='Watsapp', max_length=20)
-    
-    class Meta:
-        verbose_name = 'Контакты'
-        verbose_name_plural = 'Контакты'
-
-    def __str__(self) -> str:
-        return("Информация")
-
 """ Расписание звонков и основное расписание """
 class CallPairScheduleModel(models.Model):
     call_schedule_1_pair = models.CharField(max_length=20, verbose_name="1 пара", default='')
@@ -149,8 +133,7 @@ class MainAdvantagesOfOurCollegeModel(models.Model):
 """ Библиотека """
 class LibraryModel(models.Model):
     text = models.TextField(verbose_name="Описание", blank=True)
-    slider_images = models.ManyToManyField('LibrarySliderImageModel', default=None, blank=True, verbose_name='Изображения')
-    slider_files = models.ManyToManyField('LibraryFilesModel', default=None, blank=True, verbose_name='Файлы')
+    video = models.FileField("Видео", upload_to='uploads/information/library/videos', blank=True)
 
     is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
 
@@ -194,9 +177,9 @@ class LibraryFilesModel(models.Model):
 
 """ Общежитие """
 class DormitoryModel(models.Model):
-    documents = models.ManyToManyField('DormitoryFilesModel', related_name='Файлы')
-    images = models.ManyToManyField('DormitoryImagesModel', related_name='Изображения')
     about = models.TextField(verbose_name="Описание", blank=True, null=True)
+    video = models.FileField("Видео", upload_to='uploads/educational-work/dormitory/videos', blank=True)
+
     contact_email = models.ManyToManyField('DormitoryContactsEmailModel', verbose_name="Почты", default=[], blank=True)
     contact_phone = models.ManyToManyField('DormitoryContactsPhoneModel', verbose_name="Телефоны", default=[],
                                            blank=True)
@@ -272,9 +255,8 @@ class DormitoryImagesModel(models.Model):
 
 """ Наш профсоюз """
 class OurUnionModel(models.Model):
-    documents = models.ManyToManyField('OurUnionFilesModel', related_name='Файлы', default=[], blank=True)
-    images = models.ManyToManyField('OurUnionImagesModel', related_name='Изображения', default=[], blank=True)
     about = models.TextField(verbose_name="Описание", blank=True, null=True)
+    video = models.FileField("Видео", upload_to='uploads/educational-work/dormitory/videos', blank=True)
 
     is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
 

@@ -1,6 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
 from .models import (
-                        CollegeContactModel, 
                         StudentEventModel,
                         MetodicRecomendationsCategoryModel,
                         MetodicRecomendationsDocumentModel,
@@ -13,10 +12,6 @@ from .models import (
                         OurUnionModel, OurUnionFilesModel, OurUnionImagesModel
                     )
 
-""" Контакты """
-@register(CollegeContactModel)
-class CollegeContactTransOptions(TranslationOptions):
-    fields = ('addr',)
 
 """ Расписание звонков и основное расписание """
 @register(StudentEventModel)
@@ -51,7 +46,7 @@ class AdvancesOfOurCollegeTransOptions(TranslationOptions):
 """ Библиотека """
 @register(LibraryModel)
 class LibraryTransOptions(TranslationOptions):
-    fields = ('text', )
+    fields = ('text', 'video' )
 
 """ Библиотека, файлы """
 @register(LibraryFilesModel)
@@ -61,7 +56,7 @@ class LibraryTransOptions(TranslationOptions):
 """ Общежитие """
 @register(DormitoryModel)
 class DormitoryTransOptions(TranslationOptions):
-    fields = ('about',)
+    fields = ('about', 'video')
 
 """ Общежитие файлы """
 @register(DormitoryFilesModel)
@@ -73,11 +68,10 @@ class DormitoryFilesTransOptions(TranslationOptions):
 class DormitoryImagesTransOptions(TranslationOptions):
     fields = ('file',)
 
-
 """ Наш профсоюз """
 @register(OurUnionModel)
 class OurUnionTransOptions(TranslationOptions):
-    fields = ('about',)
+    fields = ('about', 'video', )
 
 """ Наш профсоюз файлы """
 @register(OurUnionFilesModel)

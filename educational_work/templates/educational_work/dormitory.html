@@ -26,7 +26,7 @@
         <h1>{% trans 'Молодежная политика' %}</h1>
     {% endif %}
 
-    {% if info %}
+    {% if images.count > 0 %}
         <div class="dormitory__slider">
             <div class="dormitory__slider__item">
                 <div class="dormitory__slider__main__slide">
@@ -37,7 +37,7 @@
                         </svg>
                     </span>
                     <img
-                        src="{{  info.images.1.file }}"
+                        src="{{  images.1.file }}"
                         alt="main image"
                         class="dormitory__slider__main__image" />
                     <span class="dormitory__slider__right">
@@ -48,7 +48,7 @@
                     </span>
                 </div>
                 <div class="dormitory__slider__images">
-                    {% for image in info.images.all %}
+                    {% for image in images %}
                             <img src="/static/media/{{ image.file }}" alt="{{ image.id }}" class="dormitory__slider__slide__image">
                     {% endfor %}
                 </div>
@@ -95,6 +95,9 @@
             })
 
         </script>
+    {% endif %}
+
+    {% if info %}
 
         {% if  info.about %}
             <div class="dormitory__about">
@@ -104,26 +107,29 @@
             </div>
         {% endif %}
 
-        <div class="dormitory__documents">
-            {% if info.documents.count > 0 %}
-                <h1>{% trans 'Документы' %}</h1>
-                {% for document in info.documents.all %}
-                    <div class="anti__coruption">
-                        <h2>{{ document.title }}</h2>
-                        {% if document.file %}
-                            <a href="/static/media/{{ document.file }}" class='link' download>{% trans 'Скачать' %} <i class="fa-solid fa-download"></i></a>
-                        {% endif  %}
-                    </div>
-                {% endfor %}
-            {% else %}
-                {% comment %} <img src="/static/eduactional_work/img/general_information/search.png" alt="General information search"> {% endcomment %}
-                <h2>{% trans 'Документы не найдены' %}</h2>
-            {% endif %}
-        </div>
-    {% else %}
-        {% comment %} <img src="/static/eduactional_work/img/general_information/search.png" alt="General information search"> {% endcomment %}
-        <h2>{% trans 'Документы не найдены' %}</h2>
+        {% if info.video %}
+            <video src="/static{{ info.video.url }}" class="dormitory__video" controls loop></video>
+        {% endif %}
+
     {% endif %}
+
+    <div class="dormitory__documents">
+        <h1>{% trans 'Документы' %}</h1>
+        {% if  documents.count > 0 %}
+
+        {% for document in documents %}
+            <div class="anti__coruption">
+                <h2>{{ document.title }}</h2>
+                {% if document.file %}
+                    <a href="/static/media/{{ document.file }}" class='link' download>{% trans 'Скачать' %} <i class="fa-solid fa-download"></i></a>
+                {% endif  %}
+            </div>
+        {% endfor %}
+         {% else %}
+            <h2>{% trans 'Документы не найдены' %}</h2>
+        {% endif %}
+    </div>
+
 
     {% if title == "Общежитие" %}
         {% comment %}<form class="dormitory__documents__form" method="POST" >
