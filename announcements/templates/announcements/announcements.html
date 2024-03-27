@@ -124,9 +124,9 @@
                         <h3 class="vacancy__title"><a href="/static{{ vacancy.file.url }}" download="">{{ vacancy.title }}</a></h3>
                         <a href="/static{{ vacancy.file.url }}" class="vacancy__download" download><i class="fa-solid fa-download"></i></a>
                     </div>
-                    <p><b>Зарплата:</b> {{ vacancy.salary }}{% trans 'тенге' %}</p>
+                    <p><b>{% trans 'Зарплата' %}:</b> {{ vacancy.salary }}{% trans 'тенге' %}</p>
                     {% if vacancy.experience_years %}
-                    <p><b>Количество лет опыта:</b> {{ vacancy.experience_years }} года</p>
+                    <p><b>{% trans 'Количество лет опыта' %}:</b> {{ vacancy.experience_years }}</p>
                     {% endif %}
                 </div>
             {% endfor %}

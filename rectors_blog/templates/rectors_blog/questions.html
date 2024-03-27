@@ -10,8 +10,8 @@
 
      <!--    Header -->
     <div class="page__header">
-        <a class="link" href="{% url 'greeting' %}">Приветствие</a>
-        <a class="link activate">Вопрос — ответ</a>
+        <a class="link" href="{% url 'greeting' %}">{% trans 'Приветствие' %}</a>
+        <a class="link activate">{% trans 'Вопрос — ответ' %}</a>
     </div>
     <!--    End header -->
 
@@ -39,20 +39,20 @@
                         </div>
 
                         <div class="form__field">
-                            <label>Фамилия:</label>
+                            <label>{% trans 'Фамилия' %}:</label>
                             {{ form.lastName }}
                         </div>
                     </div>
 
                     <div class="form__row">
                           <div class="form__field">
-                            <label>Email:</label>
+                            <label>{% trans 'Почта' %}:</label>
                             {{ form.email }}
                           </div>
                     </div>
 
                     <div class="form__field">
-                        <label>Вопрос:</label>
+                        <label>{% trans 'Вопрос' %}:</label>
                         {{ form.question }}
                     </div>
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-15 11:52+0600\n"
+"POT-Creation-Date: 2024-03-27 13:49+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,63 +19,65 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: about_college/templates/about_college/counsil.html:16
-#: main/templates/main/include/header.html:45
+#: main/templates/main/include/header.html:60
 msgid "Попечительский совет"
 msgstr "Board of Trustees"
 
 #: about_college/templates/about_college/counsil.html:18
-#: main/templates/main/include/header.html:46
+#: main/templates/main/include/header.html:61
 msgid "Педагогический совет"
 msgstr "Pedagogical Council"
 
 #: about_college/templates/about_college/counsil.html:20
-#: main/templates/main/include/header.html:47
+#: main/templates/main/include/header.html:62
 msgid "Индустриальный совет"
 msgstr "Industrial Council"
 
 #: about_college/templates/about_college/counsil.html:22
-#: main/templates/main/include/header.html:109
+#: main/templates/main/include/header.html:126
 msgid "Общая информация"
 msgstr "General information"
 
 #: about_college/templates/about_college/counsil.html:24
-#: main/templates/main/include/header.html:111
+#: main/templates/main/include/header.html:128
 msgid "Психологическая служба"
 msgstr "Psychological service"
 
 #: about_college/templates/about_college/counsil.html:26
-#: main/templates/main/include/header.html:64
+#: main/templates/main/include/header.html:81
 msgid "Финансовая отчетность"
 msgstr "Financial statements"
 
 #: about_college/templates/about_college/counsil.html:28
-#: main/templates/main/include/header.html:78
+#: main/templates/main/include/header.html:95
 msgid "Государственные услуги"
 msgstr "Government services"
 
 #: about_college/templates/about_college/counsil.html:30
-#: main/templates/main/include/header.html:80
+#: main/templates/main/include/header.html:97
 msgid "Противодействие коррупции"
 msgstr "Anti-corruption"
 
 #: about_college/templates/about_college/counsil.html:32
-#: main/templates/main/include/header.html:81
+#: main/templates/main/include/header.html:98
 msgid "Программа полиязычия"
 msgstr "Multilingualism program"
 
 #: about_college/templates/about_college/counsil.html:39
 #: about_college/templates/about_college/documents.html:9
-#: educational_work/templates/educational_work/dormitory.html:95
+#: announcements/templates/announcements/announcements.html:101
+#: educational_work/templates/educational_work/dormitory.html:117
 #: educational_work/templates/educational_work/sections.html:37
-#: information/templates/information/library.html:98
-#: main/templates/main/include/header.html:41
+#: information/templates/information/library.html:102
+#: main/templates/main/include/header.html:57
 #: main/templates/main/pages/information/abiturients.html:29
 msgid "Документы"
 msgstr "Documentation"
 
 #: about_college/templates/about_college/counsil.html:44
-#: educational_work/templates/educational_work/dormitory.html:100
-#: information/templates/information/library.html:104
+#: announcements/templates/announcements/announcements.html:108
+#: educational_work/templates/educational_work/dormitory.html:124
+#: information/templates/information/library.html:108
 #: worldskills/templates/worldskills/rules.html:19
 #: worldskills/templates/worldskills/rules.html:30
 #: worldskills/templates/worldskills/rules.html:41
@@ -83,16 +85,16 @@ msgid "Скачать"
 msgstr "Download"
 
 #: about_college/templates/about_college/counsil.html:51
-#: educational_work/templates/educational_work/dormitory.html:107
-#: educational_work/templates/educational_work/dormitory.html:113
+#: announcements/templates/announcements/announcements.html:114
+#: educational_work/templates/educational_work/dormitory.html:129
 #: educational_work/templates/educational_work/sections.html:103
-#: information/templates/information/library.html:110
+#: information/templates/information/library.html:114
 #: main/templates/main/pages/information/student.html:259
 #: worldskills/templates/worldskills/competentions.html:91
 msgid "Документы не найдены"
 msgstr "No documents found"
 
-#: about_college/templates/about_college/documents.html:11
+#: about_college/templates/about_college/documents.html:12
 msgid "Лицензия"
 msgstr "License"
 
@@ -100,7 +102,7 @@ msgstr "License"
 msgid "Скачать лицензию"
 msgstr "Download license"
 
-#: about_college/templates/about_college/documents.html:22
+#: about_college/templates/about_college/documents.html:23
 msgid "Устав"
 msgstr "Charter"
 
@@ -108,14 +110,31 @@ msgstr "Charter"
 msgid "Скачать устав"
 msgstr "Download the charter"
 
+#: about_college/templates/about_college/documents.html:34
+msgid "Аккредитация"
+msgstr "Accreditation"
+
+#: about_college/templates/about_college/documents.html:41
+msgid "Скачать аккредитацию"
+msgstr "Download the accreditation"
+
 #: about_college/templates/about_college/gallery.html:10
-#: main/templates/main/include/header.html:44
+#: main/templates/main/include/header.html:59
 msgid "Галерея"
 msgstr "Gallery"
 
 #: about_college/templates/about_college/history.html:9
 msgid "История Колледжа"
 msgstr "History of the College"
+
+#: about_college/templates/about_college/history.html:38
+msgid "Наша миссия"
+msgstr "Our mission"
+
+#: about_college/templates/about_college/history.html:48
+#: main/templates/main/include/header.html:66
+msgid "Информация"
+msgstr "Information"
 
 #: about_college/templates/about_college/specialites.html:22
 #: main/templates/main/pages/information/abiturients.html:13
@@ -127,27 +146,93 @@ msgstr "Our Specialties"
 msgid "Узнать Больше"
 msgstr "To learn more"
 
-#: educational_work/templates/educational_work/dormitory.html:13
-#: main/templates/main/include/header.html:113
-msgid "Общежитие"
-msgstr "Dormitory"
+#: announcements/templates/announcements/announcements.html:15
+#: main/templates/main/include/header.html:134
+msgid "Объявления"
+msgstr "Announcements"
 
-#: educational_work/templates/educational_work/dormitory.html:169
+#: announcements/templates/announcements/announcements.html:119
+msgid "Вакансии"
+msgstr "Vacancies"
+
+#: announcements/templates/announcements/announcements.html:127
+msgid "Зарплата"
+msgstr "Salary"
+
+#: announcements/templates/announcements/announcements.html:127
+msgid "тенге"
+msgstr "tenge"
+
+#: announcements/templates/announcements/announcements.html:129
+msgid "Количество лет опыта"
+msgstr "Number of years of experience"
+
+#: contacts/templates/contacts/contacts.html:9
+#: educational_work/templates/educational_work/dormitory.html:189
+#: main/templates/main/include/header.html:135
 msgid "Контакты"
 msgstr "Contacts"
 
-#: educational_work/templates/educational_work/dormitory.html:175
-#, fuzzy
-#| msgid "Воспитательная работа"
-msgid "Электронная почта"
-msgstr "Educational work"
+#: contacts/templates/contacts/contacts.html:15 main/templates/main/base.html:7
+#: main/templates/main/pages/information/abiturients.html:69
+msgid "Колледж информационных технологий"
+msgstr "College of Information Technology"
 
-#: educational_work/templates/educational_work/dormitory.html:210
+#: contacts/templates/contacts/contacts.html:18
+#: main/templates/main/pages/information/abiturients.html:70
+msgid "Адрес"
+msgstr "Address"
+
+#: contacts/templates/contacts/contacts.html:21
+#: main/templates/main/pages/information/abiturients.html:71
+msgid "Приёмная"
+msgstr "Reception"
+
+#: contacts/templates/contacts/contacts.html:27
+#: main/templates/main/pages/information/abiturients.html:73
+msgid "Приёмная комиссия"
+msgstr "Selection committee"
+
+#: contacts/templates/contacts/contacts.html:33
+#: main/templates/main/pages/information/abiturients.html:75
+msgid "График работы"
+msgstr "Work schedule"
+
+#: contacts/templates/contacts/contacts.html:45
+#: main/templates/main/pages/information/abiturients.html:46
+#: main/templates/main/pages/information/abiturients.html:60
+#: main/templates/main/pages/information/abiturients.html:85
+msgid "Не найдено"
+msgstr "Not found"
+
+#: educational_work/templates/educational_work/dormitory.html:8
+#: educational_work/templates/educational_work/dormitory.html:22
+#: main/templates/main/include/header.html:80
+msgid "Наш профсоюз"
+msgstr "Our union"
+
+#: educational_work/templates/educational_work/dormitory.html:10
+#: educational_work/templates/educational_work/dormitory.html:24
+#: main/templates/main/include/header.html:78
+msgid "Общежитие"
+msgstr "Dormitory"
+
+#: educational_work/templates/educational_work/dormitory.html:12
+#: educational_work/templates/educational_work/dormitory.html:26
+#: main/templates/main/include/header.html:130
+msgid "Молодежная политика"
+msgstr "Youth policy"
+
+#: educational_work/templates/educational_work/dormitory.html:195
+msgid "Электронная почта"
+msgstr "Email"
+
+#: educational_work/templates/educational_work/dormitory.html:230
 msgid "Телефон"
 msgstr "Phone"
 
 #: educational_work/templates/educational_work/groups.html:9
-#: main/templates/main/include/header.html:112
+#: main/templates/main/include/header.html:127
 msgid "Кураторы"
 msgstr "Mentors"
 
@@ -163,29 +248,30 @@ msgstr "Description"
 msgid "Преподаватели"
 msgstr "Teachers"
 
+#: educational_work/templates/educational_work/terror.html:11
+#: main/templates/main/include/header.html:131
+msgid "Антитеррористическая деятельность"
+msgstr "Anti-terrorist activities"
+
 #: information/templates/information/library.html:6
 #: information/templates/information/library.html:15
-#: main/templates/main/include/header.html:63
+#: main/templates/main/include/header.html:79
 msgid "Библиотека"
 msgstr "Library"
 
-#: information/templates/information/library.html:114
+#: information/templates/information/library.html:118
 #: main/templates/main/include/footer.html:26
 #: main/templates/main/include/header.html:27
-#: main/templates/main/include/header.html:96
+#: main/templates/main/include/header.html:113
 #: news/templates/news/news_list.html:4 news/templates/news/news_list.html:9
 msgid "Новости"
 msgstr "News"
 
-#: information/templates/information/library.html:169
+#: information/templates/information/library.html:173
 #: news/templates/news/news_list.html:57 news/templates/news/news_list.html:128
+#: rectors_blog/templates/rectors_blog/questions.html:119
 msgid "Страница"
 msgstr "Page"
-
-#: main/templates/main/base.html:7 main/templates/main/pages/index.html:220
-#: main/templates/main/pages/information/abiturients.html:70
-msgid "Колледж информационных технологий"
-msgstr "College of Information Technology"
 
 #: main/templates/main/error.html:14
 msgid "Страница не найдена"
@@ -208,76 +294,85 @@ msgid "Перейти на главную страницу"
 msgstr "Go to home page"
 
 #: main/templates/main/include/footer.html:27
-#: main/templates/main/include/header.html:60
+#: main/templates/main/include/header.html:75
 msgid "Студенту"
 msgstr "For students"
 
 #: main/templates/main/include/footer.html:28
-#: main/templates/main/include/header.html:61
+#: main/templates/main/include/header.html:76
 msgid "Абитуриенту"
 msgstr "For applicants"
 
 #: main/templates/main/include/footer.html:29
-#: main/templates/main/include/header.html:62
+#: main/templates/main/include/header.html:77
 msgid "Преподавателю"
 msgstr "For teachers"
 
 #: main/templates/main/include/header.html:21
 #: main/templates/main/include/header.html:33
-#: main/templates/main/include/header.html:54
-#: main/templates/main/include/header.html:71
+#: main/templates/main/include/header.html:49
+#: main/templates/main/include/header.html:69
 #: main/templates/main/include/header.html:88
-#: main/templates/main/include/header.html:103
+#: main/templates/main/include/header.html:105
+#: main/templates/main/include/header.html:120
 msgid "Назад"
 msgstr "Back"
 
 #: main/templates/main/include/header.html:29
+#: rectors_blog/templates/rectors_blog/greeting.html:8
+#: rectors_blog/templates/rectors_blog/questions.html:9
+msgid "Блог Руководителя"
+msgstr "Manager's Blog"
+
+#: main/templates/main/include/header.html:40
+msgid "Главная информация"
+msgstr "Main Information"
+
+#: main/templates/main/include/header.html:41
+msgid "Вопрос - Ответ"
+msgstr "Question - Answer"
+
+#: main/templates/main/include/header.html:45
 msgid "О колледже"
 msgstr "About the college"
 
-#: main/templates/main/include/header.html:40
+#: main/templates/main/include/header.html:56
 msgid "История колледжа"
 msgstr "College history"
 
-#: main/templates/main/include/header.html:42
+#: main/templates/main/include/header.html:58
 #: staff/templates/staff/staff.html:9
 msgid "Структура"
 msgstr "Structure"
 
-#: main/templates/main/include/header.html:43
-#: main/templates/main/pages/information/abiturients.old.html:15
-msgid "Специальности"
-msgstr "Specialties"
-
-#: main/templates/main/include/header.html:51
-msgid "Информация"
-msgstr "Information"
-
-#: main/templates/main/include/header.html:68
+#: main/templates/main/include/header.html:85
 msgid "Государство"
 msgstr "State"
 
-#: main/templates/main/include/header.html:77
+#: main/templates/main/include/header.html:94
 msgid "Государственные символы"
 msgstr "State symbols"
 
-#: main/templates/main/include/header.html:79
-msgid "Послание Главы государства"
+#: main/templates/main/include/header.html:96
+#: main/templates/main/pages/state/state_symbols.html:28
+#, fuzzy
+#| msgid "Послание Главы государства"
+msgid "Послания Главы государства"
 msgstr "Message of the Head of State"
 
-#: main/templates/main/include/header.html:94
+#: main/templates/main/include/header.html:111
 msgid "Правила"
 msgstr "Rules"
 
-#: main/templates/main/include/header.html:95
+#: main/templates/main/include/header.html:112
 msgid "Документация"
 msgstr "Documentation"
 
-#: main/templates/main/include/header.html:100
+#: main/templates/main/include/header.html:117
 msgid "Воспитательная работа"
 msgstr "Educational work"
 
-#: main/templates/main/include/header.html:110
+#: main/templates/main/include/header.html:129
 msgid "Кружки/Секции"
 msgstr "Circles/Sections"
 
@@ -290,56 +385,37 @@ msgstr "OUR SPECIALTIES"
 msgid "Подробнее"
 msgstr "More details"
 
-#: main/templates/main/pages/index.html:39
-msgid "55 лет"
-msgstr "55 years"
-
-#: main/templates/main/pages/index.html:45
+#: main/templates/main/pages/index.html:51
 msgid "Добро пожаловать в"
 msgstr "Welcome to"
 
-#: main/templates/main/pages/index.html:46
+#: main/templates/main/pages/index.html:52
 msgid "КОЛЛЕДЖ ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ"
 msgstr "COLLEGE OF INFORMATION TECHNOLOGIES"
 
-#: main/templates/main/pages/index.html:83
+#: main/templates/main/pages/index.html:89
 msgid "Читать все новости "
 msgstr "Read all news"
 
-#: main/templates/main/pages/index.html:106
+#: main/templates/main/pages/index.html:112
 msgid "ПОСМОТРЕТЬ БОЛЬШЕ"
 msgstr "READ MORE"
 
-#: main/templates/main/pages/index.html:160
+#: main/templates/main/pages/index.html:166
 msgid "Наши достижения"
 msgstr "Our achievements"
 
-#: main/templates/main/pages/index.html:171
+#: main/templates/main/pages/index.html:177
 msgid "Читать"
 msgstr "Read"
 
-#: main/templates/main/pages/index.html:177
+#: main/templates/main/pages/index.html:183
 msgid "Смотреть все"
 msgstr "See all"
 
-#: main/templates/main/pages/index.html:188
+#: main/templates/main/pages/index.html:194
 msgid "Наши партнёры"
 msgstr "Our partners"
-
-#: main/templates/main/pages/index.html:221
-#: main/templates/main/pages/information/abiturients.html:71
-msgid "Адрес"
-msgstr "Address"
-
-#: main/templates/main/pages/index.html:222
-#: main/templates/main/pages/information/abiturients.html:72
-msgid "Приёмная"
-msgstr "Reception"
-
-#: main/templates/main/pages/index.html:226
-#: main/templates/main/pages/information/abiturients.html:74
-msgid "Приёмная комиссия"
-msgstr "Selection committee"
 
 #: main/templates/main/pages/index/slides.html:10
 msgid "Кабинеты"
@@ -362,15 +438,13 @@ msgstr ""
 "Documents are accepted after completing 9th grade, based on a certificate of "
 "Basic secondary education."
 
-#: main/templates/main/pages/information/abiturients.html:46
-#: main/templates/main/pages/information/abiturients.html:60
-#: main/templates/main/pages/information/abiturients.html:87
-msgid "Не найдено"
-msgstr "Not found"
-
 #: main/templates/main/pages/information/abiturients.html:51
 msgid "Основные преимущества нашего колледжа"
 msgstr "The main advantages of our college"
+
+#: main/templates/main/pages/information/abiturients.old.html:15
+msgid "Специальности"
+msgstr "Specialties"
 
 #: main/templates/main/pages/information/student.html:54
 #: main/templates/main/pages/information/student.html:88
@@ -491,6 +565,91 @@ msgstr "New"
 msgid "Старые"
 msgstr "Old"
 
+#: rectors_blog/templates/rectors_blog/greeting.html:12
+#: rectors_blog/templates/rectors_blog/questions.html:13
+msgid "Приветствие"
+msgstr "Greetings"
+
+#: rectors_blog/templates/rectors_blog/greeting.html:13
+#: rectors_blog/templates/rectors_blog/questions.html:14
+msgid "Вопрос — ответ"
+msgstr "Question - answer"
+
+#: rectors_blog/templates/rectors_blog/greeting.html:36
+msgid "График приема"
+msgstr "Admission schedule"
+
+#: rectors_blog/templates/rectors_blog/greeting.html:42
+msgid "Кабинет"
+msgstr "Cabinet"
+
+#: rectors_blog/templates/rectors_blog/greeting.html:48
+msgid "Приемная"
+msgstr "Reception"
+
+#: rectors_blog/templates/rectors_blog/greeting.html:54
+msgid "Email"
+msgstr "Электронная почта"
+
+#: rectors_blog/templates/rectors_blog/questions.html:20
+msgid "Заполните полностью все поля"
+msgstr "Fill in all fields completely"
+
+#: rectors_blog/templates/rectors_blog/questions.html:21
+msgid ""
+"Последний вопрос был недавно отправлен, попробуйте отправить свой через 10 "
+"минут"
+msgstr ""
+"The last question was recently submitted, try submitting yours in 10 "
+"minutes"
+
+#: rectors_blog/templates/rectors_blog/questions.html:22
+msgid "Вы точно хотите отправить вопрос?"
+msgstr "Are you sure you want to submit a question?"
+
+#: rectors_blog/templates/rectors_blog/questions.html:23
+msgid ""
+"Вопрос успешно отправлен, он отобразится в списке тогда, когда получит ответ"
+msgstr ""
+"The question has been sent successfully, it will appear in the list when it receives a reply"
+
+#: rectors_blog/templates/rectors_blog/questions.html:26
+#: rectors_blog/templates/rectors_blog/questions.html:33
+msgid "Задать вопрос"
+msgstr "Ask a question"
+
+#: rectors_blog/templates/rectors_blog/questions.html:37
+msgid "Имя"
+msgstr "Name"
+
+#: rectors_blog/templates/rectors_blog/questions.html:42
+msgid "Фамилия"
+msgstr "Surname"
+
+#: rectors_blog/templates/rectors_blog/questions.html:49
+msgid "Почта"
+msgstr "Email"
+
+#: rectors_blog/templates/rectors_blog/questions.html:55
+msgid "Вопрос"
+msgstr "Question"
+
+#: rectors_blog/templates/rectors_blog/questions.html:63
+msgid "Отправить"
+msgstr "Send"
+
+#: rectors_blog/templates/rectors_blog/questions.html:83
+msgid "Ответ"
+msgstr "Answer"
+
+#: rectors_blog/templates/rectors_blog/questions.html:90
+msgid "Читать ответ"
+msgstr "Read answer"
+
+#: rectors_blog/templates/rectors_blog/questions.html:91
+msgid "Скрыть ответ"
+msgstr "Hide answer"
+
 #: venv/lib/python3.10/site-packages/ckeditor_uploader/templates/ckeditor/browse.html:5
 msgid "Select an image to embed"
 msgstr ""
@@ -583,12 +742,6 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr "Connect, get help, or contribute"
 
-#: venv/lib/python3.10/site-packages/django/views/templates/directory_index.html:8
-#: venv/lib/python3.10/site-packages/django/views/templates/directory_index.html:11
-#, python-format
-msgid "Index of %(directory)s"
-msgstr ""
-
 #: worldskills/templates/worldskills/competentions.html:10
 msgid "Документация к компетенциям"
 msgstr "Documentation for competencies"
@@ -600,6 +753,9 @@ msgstr "Competencies"
 #: worldskills/templates/worldskills/rules.html:10
 msgid "Правила WorldSkills Казахстан"
 msgstr "WorldSkills Kazakhstan Rules"
+
+#~ msgid "55 лет"
+#~ msgstr "55 years"
 
 #~ msgid "Заявка"
 #~ msgstr "Application"
@@ -618,12 +774,6 @@ msgstr "WorldSkills Kazakhstan Rules"
 
 #~ msgid "Женский"
 #~ msgstr "Female"
-
-#~ msgid "Отправить"
-#~ msgstr "Send"
-
-#~ msgid "Классные руководители"
-#~ msgstr "Class teachers"
 
 #~ msgid "ПОСТУПИТЬ К НАМ"
 #~ msgstr "CONTACT US"

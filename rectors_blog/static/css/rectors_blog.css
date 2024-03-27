@@ -121,7 +121,7 @@
     align-items: center;
     flex-direction: column;
     width: 80%;
-    height: 90%;
+    height: 100%;
     background-color: white;
     box-shadow: 0 0 10px rgb(20,20,20, .1);
     position: absolute;
