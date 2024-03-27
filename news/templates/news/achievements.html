@@ -1,0 +1,72 @@
+{% extends 'main/base.html' %}
+{% load static i18n %}
+
+{% block title %} - {% trans "Наши достижения" %} {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/css/news.css" />
+<link rel="stylesheet" href="/static/css/achievements.css" />
+
+
+<div class="page" id="page">
+  <h1>{% trans "Наши достижения" %}</h1>
+  <div class="page__content" id="News">
+     <!-- TODO ______ News ______ -->
+       <div class="page__parthers">
+            {% for achivment in page %}
+                <div class="parthner">
+                    {% if  achivment.news_img %}
+                    <img src="/static/{{ achivment.news_img.url }}" alt="{{ achivment.news_img }}">
+                    {% endif %}
+                    <a href="{% url 'show_one_news' achivment.slug %}">{{achivment.news_title|slice:50 }}...</a>
+                    <a href="{% url 'show_one_news' achivment.slug %}">{% trans 'Читать' %}</a>
+                </div>
+            {% endfor %}
+        </div>
+
+      <!-- TODO ______ Pagination ______ -->
+      <div class="pagination">
+            <a href="{% if page.has_previous %}?page={{ page.previous_page_number }}#News{% endif %}" class="pagination__left">
+              <svg width="20" height="20" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M63.0704 5.76813L105.497 48.1945" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+                <path d="M63 90.4264L105.426 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+                <path d="M5 48L105 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <!-- <a href="?page=1">&laquo; Первая</a> -->
+
+        <span class="current">
+            {% for i in page.paginator.page_range %}
+              {% comment %} {% if page.number <= 3 and i <= 3 %}
+                  <a href="?page={{ i }}#News">{{ i }} {% trans 'Страница' %}</a>
+              {% elif page.number > page.paginator.num_pages - 3 and i > page.paginator.num_pages - 3 %}
+                  <a href="?page={{ i }}#News">{{ i }} {% trans 'Страница' %}</a>
+              {% elif i == page.number %} {% endcomment %}
+                <a href="?page={{ i }}#News"
+                  {% if i == page.number %}style="background-color: rgb(248, 102, 36); color: white"{% endif %}
+                  >{{ i }} {% trans 'Страница' %}</a>
+              {% comment %} {% endif %} {% endcomment %}
+          {% endfor %}
+        </span>
+
+
+        <!-- <a href="?page={{ page.paginator.num_pages }}">Последняя &raquo;</a> -->
+        <a href="{% if page.has_next %}?page={{ page.next_page_number }}#News{% endif %}" class="pagination__right">
+          <svg width="20" height="20" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M63.0704 5.76813L105.497 48.1945" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+            <path d="M63 90.4264L105.426 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+            <path d="M5 48L105 48" stroke="#202020" stroke-width="10" stroke-linecap="round"/>
+          </svg>
+        </a>
+
+      </div>
+
+  </div>
+</div>
+
+<script>
+  document.querySelector('#NewsSorting').addEventListener('change', () => {
+    document.querySelector('.page__filters').submit()
+  })
+</script>
+{% endblock %}
