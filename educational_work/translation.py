@@ -1,15 +1,15 @@
 from modeltranslation.translator import register, TranslationOptions 
 from .models import  (GeneralInformationFilesModel, 
-                                        ClubsAndSectionsModel, 
-                                        ClubsAndSectionsDocumentsModel,
-                                        PsychologicalServiceModel, 
-                                        DormitoryFilesModel, 
-                                        DormitoryModel)
+                        ClubsAndSectionsModel, ClubsAndSectionsDocumentsModel,
+                        PsychologicalServiceModel,
+                        YouthPolicyModel, YouthPolicyFilesModel, YouthPolicyImagesModel,
+                        TerrorModel
+                      )
 
 """ Общая информация """
 @register(GeneralInformationFilesModel)
 class GeneralInformationFilesTransOptions(TranslationOptions):
-    fields = ('title', )
+    fields = ('title', 'file', )
 
 """ Кружки и секции """
 @register(ClubsAndSectionsModel)
@@ -24,14 +24,25 @@ class ClubsAndSectionsDocumentsTransOptions(TranslationOptions):
 """ Психологическая служба """
 @register(PsychologicalServiceModel)
 class PsychologicalServiceTransOptions(TranslationOptions):
-    fields = ('title', )
+    fields = ('title', 'file', )
 
-""" Общежитие файлы """
-@register(DormitoryFilesModel)
-class DormitoryFilesTransOptions(TranslationOptions):
-    fields = ('title', )
-
-""" Общежитие """
-@register(DormitoryModel)
-class DormitoryTransOptions(TranslationOptions):
+""" Молодежная политика """
+@register(YouthPolicyModel)
+class YouthPolicyTransOptions(TranslationOptions):
     fields = ('about', )
+
+""" Молодежная политика файлов """
+@register(YouthPolicyFilesModel)
+class YouthPolicyFilesTransOptions(TranslationOptions):
+    fields = ('title', 'file', )
+
+""" Молодежная политика фото """
+@register(YouthPolicyImagesModel)
+class YouthPolicyImagesTransOptions(TranslationOptions):
+    fields = ('file', )
+
+
+""" Терроризм и т.д. и т.п. """
+@register (TerrorModel)
+class TerrorModel(TranslationOptions):
+    fields = ('title',)

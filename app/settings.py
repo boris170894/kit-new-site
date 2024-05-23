@@ -26,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lgrf$8=_@3zf-&j-@v)ma%aw&2sz%ll)mov(&#5yp1s^-a7_0u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = False
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -59,14 +60,24 @@ INSTALLED_APPS = [
     'educational_work',
     'about_college',
     'information',
+    'rectors_blog',
+    'contacts',
+    'announcements',
+
+    'django_recaptcha'
 ]
 
 # TODO: python3 manage.py runserver --insecure   
+# python manage.py update_translation_fields
+# django-admin makemessages -l ru -e html
+# django-admin compilemessages
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'app.middleware.DefaultLanguageMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -87,6 +98,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.context_processor.change_theme',
             ],
         },
     },
@@ -105,12 +117,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
         
 
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'kit',
-        # 'USER': 'kit',
-        # 'PASSWORD': '8gPpL0ENQxNQ',
-        # 'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        # 'PORT': '3306',
+         # 'ENGINE': 'django.db.backends.mysql',
+         # 'NAME': 'kit',
+         # 'USER': 'kit',
+         # 'PASSWORD': 'IBFT6ZS8kdZZ',
+         # 'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+         # 'PORT': '3306',
     }
 }
 
@@ -149,12 +161,12 @@ MODELTRANSLATION_DEFAULT_LANGUAGE = 'kk'
 MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'kk'
 
 LANGUAGES = [
-    ('ru', _('Russia')),
     ('kk', _('Kazakh')),
+    ('ru', _('Russia')),
     ('en', _('English')),
 ]
 
-MODELTRANSLATION_LANGUAGES = ('ru', 'kk', 'en')
+MODELTRANSLATION_LANGUAGES = ('kk', 'ru', 'en')
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
@@ -169,17 +181,23 @@ LOCALE_PATHS = [
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # MEDIA_URL = '/media/'
+# # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# STATIC_ROOT = 'static'
+# STATIC_URL = 'static/'
+# # MEDIA_URL = 'media/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# # MEDIA_ROOT = BASE_DIR / 'static/media'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = 'static/'
-MEDIA_URL = 'media/'
+# MEDIA_URL = 'media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-MEDIA_ROOT =  BASE_DIR / 'static/media'
+# MEDIA_ROOT = BASE_DIR / 'static/media'
+
 
 STATICFILES_DIRS = [
-    BASE_DIR /'static'
+    BASE_DIR / 'static'
 ]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -194,6 +212,7 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
+
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -201,9 +220,12 @@ EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_HOST = 'smtp.yandex.ru'
 # EMAIL_HOST_USER = 'johnnotsnow@yandex.ru'
 # EMAIL_HOST_PASSWORD = '54444812'
-EMAIL_HOST_USER = 'adfegecy@gmail.com'
-EMAIL_HOST_PASSWORD = '301223Vaseles'
-EMAIL_RECIPIENTS = ["adfegecy@gmail.com",]
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_RECIPIENTS = [""]
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+RECAPTCHA_PUBLIC_KEY = '6Lf8I6ApAAAAAJwlgFcn20qImpsrmSf8U_6z6zzh'
+RECAPTCHA_PRIVATE_KEY = '6Lf8I6ApAAAAAG2TczuHzS8cUD9AByOuPpLpEif5'

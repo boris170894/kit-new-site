@@ -34,23 +34,26 @@
         </div>
     </div>
     <div class="intro__info">
-        {% comment %} <span class="intro__info__55__years">{% trans "55 лет" %}</span> {% endcomment %}
+        {% if intro_logos.image %}
+            <img src="/static/media/{{ intro_logos.image }}" alt="" class="typing-image" />
+        {% endif %}
+        {% if intro_logos.text %}
+            <p class="typing-p">{{ intro_logos.text }}</p>
+        {% endif %}
+        {% if intro_logos.years %}
+        <input type="hidden" value="{{ intro_logos.years }}" id="IntroID" />
         <div class="typing-container">
             <p id="typing-text"></p>
-          </div>
-        <span>{% trans 'Добро пожаловать в' %}</span>          <!--  ПЕРЕВОД -->
-        <h2>COLLEGE OF INFORMATION TECHNOLOGIES</h2>
+        </div>
+        {% endif %}
+        <span>{% trans 'Добро пожаловать в' %}</span>
+        <h2>{% trans 'КОЛЛЕДЖ ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ' %}</h2>
     </div>
     <div class="intro__menu"></div>
    </div>
 
    <!-- !  News -->
     <div class="container">
-        <!-- <div class="pre__title">
-            <h1 class="title">
-                Новости
-            </h1>
-        </div>  -->
         {% if public__news_count  > 3 %}
         <div class="page__news">
             <div class="page__news__left">
@@ -60,7 +63,7 @@
                     <img src="/static/media/{{ last_one_news.news_img }}" alt="">
                     <div class="news__content">
                         <span>{{ last_one_news.news_create_date|date:"F j" }}</span>
-                        <a href="{% url 'show_one_news' last_one_news.slug %}">{{ last_one_news.news_title }}</a>
+                        <a href="{% url 'show_one_news' last_one_news.slug %}">{{ last_one_news.news_title|slice:40 }}...</a>
                     </div>
                 </div>
                 {% endif %}
@@ -73,7 +76,7 @@
                         <img src="/static/media/{{ news.news_img }}" alt="">
                         <div class="news__content">
                             <span>{{ news.news_create_date|date:"F j" }}</span>
-                            <a href="{% url 'show_one_news' news.slug %}">{{ news.news_title }}</a>
+                            <a href="{% url 'show_one_news' news.slug %}">{{ news.news_title|slice:35 }}...</a>
                         </div>
                     </div>
                 {% endfor %}
@@ -91,17 +94,20 @@
 
    <!-- !  About -->
 
+{% if slides.count > 0 %}
     <div class="page__about">
         {% for slide in slides %}
         <div class="page__about__slider" >
             <div class="page__about__left">
                 <div class="page__about__left__header">
-                    <h2>{{  slide.number }}</h2>
+                    <h2>{{  slide.title }}</h2>
                 </div>
                 <div class="page__about__left__footer">
-                    <p>{{ slide.text }}</p>
-                    <a href="/abiturients">
-                        {% trans 'ПОСТУПИТЬ К НАМ' %} 
+                    {% autoescape off %}
+                        <p></p>
+                    {% endautoescape %}
+                    <a href="{% url 'slides' %}">
+                        {% trans 'ПОСМОТРЕТЬ БОЛЬШЕ' %}
                         <svg width="41" height="22" viewBox="0 0 41 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M30 19.1459L38 11.1459" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
                             <path d="M30 3L38 11" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
@@ -113,19 +119,23 @@
             <div class="page__about__right">
 
                 <div class="page__about__right__title">
-                    {{ slide.title }}
+<!--                    {{ slide.title }}-->
                 </div>
                 
                 <div class="page__about__right__images">
-                    {% if slide.image %}
-                        <img src="/static/media/{{ slide.image }}" alt="" class="img1" />
-                    {% endif %}
-                    {% if slide.image2 %}
-                        <img src="/static/media/{{ slide.image2 }}" alt="" class="img2" />
-                    {% endif %}
-                    {% if slide.image3 %}
-                        <img src="/static/media/{{ slide.image3 }}" alt="" class="img3" />
-                    {% endif %}
+                    {% for image in slide.collegesliderimagemodel_set.all %}
+                       {% if image.public %}
+                            {% if image.status_1 %}
+                                <img src="/static{{ image.image.url }}" alt="image{{ image.id }}" class="img3" />
+                            {% endif %}
+                            {% if image.status_2 %}
+                                <img src="/static{{ image.image.url }}" alt="image{{ image.id }}" class="img2" />
+                            {% endif %}
+                            {% if image.status_3 %}
+                                <img src="/static{{ image.image.url }}" alt="image{{ image.id }}" class="img1" />
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
                 </div>
 
             </div>
@@ -144,42 +154,49 @@
         </div>
     </div>
 
+    {% endif %}
     
+    {% if achivments.count > 0 %}
     <div class="container">
 
-        <!-- <div class="pre__title">
+        <div class="pre__title">
             <h2 class="title">
-                Наши достижения
+                {% trans "Наши достижения" %}
             </h2>
-        </div>  -->
+        </div>
 
         <div class="page__parthers">
             {% for achivment in achivments %}
                 <div class="parthner">
+                    {% if  achivment.news_img %}
                     <img src="/static/{{ achivment.news_img.url }}" alt="{{ achivment.news_img }}">
-                    <a href="{% url 'show_one_news' achivment.slug %}">{{achivment.news_title}}</a>
+                    {% endif %}
+                    <a href="{% url 'show_one_news' achivment.slug %}">{{achivment.news_title|slice:50 }}...</a>
                     <a href="{% url 'show_one_news' achivment.slug %}">{% trans 'Читать' %}</a>
                 </div>
             {% endfor %}
         </div>
 
-        <a href="{% url 'news_list' %}" class="read__more">
+        <a href="{% url 'achievements_list' %}" class="read__more">
             {% trans 'Смотреть все' %}
         </a>
 
     </div>
+    {% endif %}
 
+    {% if partners.count %}
     <div class="container">
 
-        <!-- <div class="pre__title">
+        <div class="pre__title">
             <h2 class="title">
-                Наши партнёры
+                {% trans 'Наши партнёры' %}
             </h2>
-        </div>  -->
+        </div>
         <div class="page__achievements">
-            <span class="material-symbols-outlined page__archivements__left">
-                arrow_back_ios
-            </span>
+             <svg class="page__archivements__left" width="20" height="36" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.6777 3L3 20.6777" stroke="#202020" stroke-width="5" stroke-linecap="round"></path>
+                <path d="M20.6777 38.6777L3 21" stroke="#202020" stroke-width="5" stroke-linecap="round"></path>
+            </svg>
             <div class="page__archievements__collection">
                 {% for partner in partners %}
                     <div class="page__achivement">
@@ -188,41 +205,14 @@
                     </div>                    
                 {% endfor %}
             </div>
-            <span class="material-symbols-outlined page__archivements__right">
-                arrow_forward_ios
-            </span>
+             <svg class="page__archivements__right" style="rotate: 180deg" width="20" height="36" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.6777 3L3 20.6777" stroke="#202020" stroke-width="5" stroke-linecap="round"></path>
+                <path d="M20.6777 38.6777L3 21" stroke="#202020" stroke-width="5" stroke-linecap="round"></path>
+            </svg>
         </div>
         
     </div>
-
-
-    <div class="container">
-            <div class="page__contacts">
-                {% if contacts %}
-                <div class="page__contacts__left">
-                    {% for item in contacts %}
-                        <div class="page__contact">
-                            <h3>{% trans 'Колледж информационных технологий' %}</h3>
-                            <p><b>{% trans 'Адрес' %}:</b> {{item.addr}}</p>
-                            <p><b>{% trans 'Приёмная' %}:</b> {{item.tel}}<br>
-                            </p>
-                            <p><b>E-mail:</b> {{item.e_mail}}<br>
-                            </p>
-                            <p><b>{% trans 'Приёмная комиссия' %}:</b> {{item.priem_com}}<br>
-                            </p>
-                            <p><b>Whatsapp:</b> {{item.wats}}<br>
-                            </p>
-                        </div>
-                        {% endfor %}
-                </div>
-                <div class="page__contacts__right">
-                    <iframe
-                    src="https://maps.google.com/maps?output=embed&amp;q=%D0%9F%D0%B0%D0%B2%D0%BB%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%9B%D0%B5%D1%80%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D0%B0%2093%2C%20%D0%BA%D0%BE%D0%BB%D0%BB%D0%B5%D0%B4%D0%B6%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D1%85%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B9&amp;z=17&amp;t=k"
-                    data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLWFkZHJlc3MlMjIlMkMlMjJhZGRyZXNzJTIyJTNBJTIyJUQwJTlGJUQwJUIwJUQwJUIyJUQwJUJCJUQwJUJFJUQwJUI0JUQwJUIwJUQxJTgwJTJDJTIwJUQxJTgzJUQwJUJCLiUyMCVEMCU5QiVEMCVCNSVEMSU4MCVEMCVCQyVEMCVCRSVEMCVCRCVEMSU4MiVEMCVCRSVEMCVCMiVEMCVCMCUyMDkzJTJDJTIwJUQwJUJBJUQwJUJFJUQwJUJCJUQwJUJCJUQwJUI1JUQwJUI0JUQwJUI2JTIwJUQwJUI4JUQwJUJEJUQxJTg0JUQwJUJFJUQxJTgwJUQwJUJDJUQwJUIwJUQxJTg2JUQwJUI4JUQwJUJFJUQwJUJEJUQwJUJEJUQxJThCJUQxJTg1JTIwJUQxJTgyJUQwJUI1JUQxJTg1JUQwJUJEJUQwJUJFJUQwJUJCJUQwJUJFJUQwJUIzJUQwJUI4JUQwJUI5JTIyJTJDJTIyem9vbSUyMiUzQTE3JTJDJTIydHlwZUlkJTIyJTNBJTIyc2F0ZWxsaXRlJTIyJTJDJTIybGFuZyUyMiUzQW51bGwlMkMlMjJhcGlLZXklMjIlM0FudWxsJTJDJTIybWFya2VycyUyMiUzQSU1QiU1RCU3RA=="></iframe>
-                </div>
-                {% endif %}
-            </div>
-    </div>
+    {% endif %}
 
 </div>
 

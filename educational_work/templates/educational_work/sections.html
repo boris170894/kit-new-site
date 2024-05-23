@@ -6,9 +6,12 @@
 <link rel="stylesheet" href="/static/main/css/information/student.css" />
 <link rel="stylesheet" href="/static/worldskills/css/competents.css" />
 <link rel="stylesheet" href="/static/eduactional_work/css/sections.css" />
+<link rel="stylesheet" href="/static/eduactional_work/css/dormitory.css" />
 
 <div class="page" id="page">
-    <h1>Кружки и секции </h1>  
+    <h1>{% trans 'Кружки и секции' %} </h1>
+
+    {% include 'educational_work/slider.html' %}
 
     {% if categories.count > 0 %}
         <div class="page__competentions">
@@ -97,7 +100,7 @@
             </script>
         </div>
     {% else %}
-        <h2>{% trans 'Documents not found' %}</h2>
+        <h2>{% trans 'Документы не найдены' %}</h2>
     {% endif %}
 </div>
 

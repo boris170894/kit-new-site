@@ -6,8 +6,10 @@ const parthnerButonRight = document.querySelector('.page__archivements__right')
 
 let numbers
 
-if (parthners.length > 4) {
+if (parthners.length > 4 && window.innerWidth > 600) {
     numbers = [0,1,2,3]
+} else if (parthners.length > 2 && window.innerWidth <= 600) {
+    numbers = [1,2]
 } else {
     parthnerButonLeft.style.opacity = 0
     parthnerButonRight.style.opacity = 0
@@ -29,20 +31,18 @@ parthnerButonLeft.onclick = () => {
         numbers.unshift(numbers[0]-1)
         numbers.pop()
     }
-    // console.log(numbers)
     renderParthners(numbers)
 }
 
 // TODO: If you click on the right button
 parthnerButonRight.onclick = () => {
-    if (numbers[3] == parthners.length-1) {
+    if (numbers[numbers.length -1 ] == parthners.length-1) {
         numbers.push(0)
         numbers.shift()
     } else {
-        numbers.push(numbers[3]+1)
+        numbers.push(numbers[numbers.length-1]+1)
         numbers.shift()
     }
-    // console.log(numbers)
     renderParthners(numbers)
 }
 

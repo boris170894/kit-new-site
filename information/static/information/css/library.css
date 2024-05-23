@@ -1,0 +1,23 @@
+.dormitory__about ol, ul {
+    margin-left: 25px;
+}
+.page__content {
+    background-color: transparent;
+}
+.page h1 {
+    margin: 0
+}
+.page__content {
+    padding: 2% 0 5vh;
+    max-width: 75vw;
+}
+
+@media screen and (max-width: 600px) {
+    .page {
+        padding: 0 4vw
+    }
+    .page__content {
+        padding: 0 0 5vh;
+        max-width: 100%;
+    }
+}

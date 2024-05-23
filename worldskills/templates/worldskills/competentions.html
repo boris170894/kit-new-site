@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/static/worldskills/css/competents.css" />
 
 <div class="page" id="page">
-    <h1>Документация к компетенциям</h1>  
+    <h1>{% trans 'Документация к компетенциям' %}</h1>  
 
     {% if categories.count > 0 %}
         <div class="page__competentions">
@@ -88,7 +88,7 @@
             </script>
         </div>
     {% else %}
-        <h2>{% trans 'Documents not found' %}</h2>
+        <h2>{% trans 'Документы не найдены' %}</h2>
     {% endif %}
 </div>
 

@@ -26,7 +26,7 @@ def worldskills_competentions(request):
     })
 
 def show_all_worldskills_news(request):
-    news_list = NewsModel.objects.filter(news_is_published = True, news_is_achivment=True).order_by('-news_create_date')    
+    news_list = NewsModel.objects.filter(news_is_published = True, news_is_worldskills=True).order_by('-news_create_date')    
     
     if request.method == 'GET':
         filters = request.GET.get('filters')
@@ -34,7 +34,7 @@ def show_all_worldskills_news(request):
         if filters == 'oldest':
             news_list = NewsModel.objects.filter(news_is_published = True, news_is_worldskills=True).order_by('news_create_date') 
         else:
-            news_list = NewsModel.objects.filter(news_is_published = True, news_is_achivment=True).order_by('-news_create_date')               
+            news_list = NewsModel.objects.filter(news_is_published = True, news_is_worldskills=True).order_by('-news_create_date')               
     
     paginator = Paginator(news_list, 8)
     page_number = request.GET.get('page')

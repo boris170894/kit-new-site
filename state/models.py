@@ -14,21 +14,42 @@ class AntiCorruptionModel(models.Model):
         verbose_name = 'Противодействие коррупции'
         verbose_name_plural = 'Противодействие коррупции'
 
+    def __str__(self) -> str:
+        return self.title
+
 """ Государственные Символы """
 class StateSymbolsModel(models.Model):
     name = models.CharField(verbose_name='Название', max_length=255)
-    image = models.ImageField(verbose_name='Изображение', upload_to = 'upload/state-symbols/')
+    image = models.ImageField(verbose_name='Изображение', upload_to = 'upload/state-symbols/', blank=True)
     desc = models.TextField(verbose_name='Описание', blank=True)
     
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         verbose_name = 'Государственные Символы'
         verbose_name_plural = 'Государственные Символы'
+
+    def __str__(self) -> str:
+        return self.name
+
+""" Послание президента """
+class PresidentialMessageModel(models.Model):
+    title = models.CharField(max_length=500, verbose_name='Заголовок')
+    text = models.TextField(verbose_name='Текст', blank=True)
+    image = models.FileField(upload_to="uploads/state/presidential-message/", verbose_name="Изображение", blank=True)
+    is_public = models.BooleanField(verbose_name='Опубликовать', default=False)
+
+    created = models.DateTimeField(null=True, blank=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
+
+    class Meta:
+        verbose_name = 'Послание президента'
+        verbose_name_plural = 'Послание президента'
+
+    def __str__(self) -> str:
+        return self.title
+
 
 """ Государственные услуги """
 class StateServicesModel(models.Model):

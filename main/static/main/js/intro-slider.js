@@ -40,4 +40,4 @@ setInterval(() => {
         currentIndex = 0;
     }
     updateSlider(currentIndex);
-}, 5000)
+}, 10000)

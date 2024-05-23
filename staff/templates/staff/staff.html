@@ -16,7 +16,8 @@
                     <div class="structure__type">
                         <h4>{{ cmc.title }}</h4>
                     </div>
-                    <div class="structure__people">
+                    <div
+                            class="structure__people {% if forloop.counter == 1 %}structure__people__first{% endif %}">
                         {% for director in cmc.personmodel_set.all %}
                             <div class="structure">
                                 {% if director.foto %}

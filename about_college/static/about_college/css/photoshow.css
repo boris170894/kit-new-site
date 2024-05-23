@@ -1,0 +1,90 @@
+.page__window {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    transition: all .3s linear
+}
+.page__window .close__window {
+    z-index: 1;
+    top: 8%;
+    left: 4%;
+    position: absolute;
+    scale: 1.2;
+    cursor: pointer;
+
+    transition: all .3s linear;
+    cursor: pointer;
+}
+.page__window .close__window:hover {
+    opacity: 1
+}
+.page__window .nexti {
+    position: absolute;
+    top: 46%;
+    right: 4%;
+    transform: rotate(180deg);
+    cursor: pointer;
+    transition: all .3s linear;
+}
+.page__window .previ {
+    position: absolute;
+    top: 46%;
+    left: 4%;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+.nexti:hover, .previ:hover {
+    opacity: .6;
+}
+.page__window__content {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    height: 90vh;
+    background-color: rgba(255,255,255, 1);
+    border-radius: 10px;
+    padding: 0 20px 10px;
+    box-shadow: 0 0 100px 10000px rgba(20,20,20, .8);
+}
+.page__window__top {
+    width: 100%;
+    height: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.page__window__bottom {
+    width: 100%;
+    height: 82%;
+}
+.page__window__top h3 {
+    transition: all .3s linear;
+}
+.page__window__bottom img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    transition: all .3s linear;
+    cursor: plu
+}
+
+@media screen and (max-width: 600px) {
+    .page__window {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+}

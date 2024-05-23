@@ -1,0 +1,73 @@
+{% include 'main/base.html' %}
+
+{% load static i18n %}
+
+{% block content %}
+<!--<link rel="stylesheet" href="/static/css/news.css" />-->
+<link rel="stylesheet" href="/static/main/css/index/sliders.css" />
+
+<div class="page" id="page">
+    <h1>{% trans 'Кабинеты' %}</h1>
+
+<!--    <div class="page__content slides">-->
+<!--        <div class="page__news">-->
+<!--            {% for slide in slides %}-->
+<!--            <div class="news slide">-->
+<!--              <div class="news__left">-->
+<!--                <div class="news__left__top">-->
+<!--                  <a href="{% url 'slide' slide.id %}">{{ slide.title }}</a>-->
+<!--                </div>-->
+<!--                <div class="news__left__icons">-->
+<!--                <a href="{% url 'slide' slide.id %}">-->
+<!--                  <svg width="25" height="25" viewBox="0 0 111 96" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                    <path d="M63.0704 5.76813L105.497 48.1945" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>-->
+<!--                    <path d="M63 90.4264L105.426 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>-->
+<!--                    <path d="M5 48L105 48" stroke="#f86624" stroke-width="10" stroke-linecap="round"/>-->
+<!--                    </svg>-->
+<!--                </a>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="news__right">-->
+<!--                 {% for image in slide.collegesliderimagemodel_set.all %}-->
+<!--                           {% if image.public %}-->
+<!--                                {% if image.status_1 %}-->
+<!--                                    <img src="/static{{ image.image.url }}" alt="image{{ image.id }}" />-->
+<!--                            {% endif %}-->
+<!--                        {% endif %}-->
+<!--                    {% endfor %}-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+<!--    </div>-->
+
+      <div class="slides">
+
+          {% for slide in slides %}
+              <div class="slide">
+                  <a href="{% url 'slide' slide.id %}" class="slide__link">
+
+                      <div class="ag-courses-item_bg">
+                          {% for image in slide.collegesliderimagemodel_set.all %}
+                               {% if image.public %}
+                                    {% if image.status_1 %}
+                                        <img src="/static{{ image.image.url }}" alt="image{{ image.id }}" />
+                                {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                      </div>
+
+                    <div class="ag-courses-item_title">
+                      {{ slide.title }}
+                    </div>
+
+                  </a>
+                </div>
+            {% endfor %}
+
+      </div>
+
+
+</div>
+
+{% endblock content %}
